@@ -1701,9 +1701,17 @@ function closeModal(e){
 
 initNotifBtn();
 buildUI();
-// Auto-refresh every 15 minutes
-setInterval(()=>{ refreshAll(); }, 5 * 60 * 1000); // 5 min - matchar Actions-schema
-// Also load data immediately on startup
+// Auto-refresh var 10:e minut om appen är aktiv
+setInterval(async ()=>{ 
+  if(!document.hidden) await refreshAll(); 
+}, 10 * 60 * 1000);
+
+// Refresha direkt när användaren öppnar appen igen
+document.addEventListener("visibilitychange", ()=>{
+  if(!document.hidden) refreshAll();
+});
+
+// Ladda data direkt vid start
 refreshAll();
 // Previous signals - stored in memory, updated each time LADDA DATA is pressed
 let prevSignals = {};
