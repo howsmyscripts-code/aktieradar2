@@ -2,7 +2,9 @@ import yfinance as yf
 import json
 import urllib.request
 import math
+import time
 from datetime import datetime, timezone, timedelta
+from zoneinfo import ZoneInfo
 
 def fetch_fear_greed():
     try:
@@ -102,7 +104,7 @@ def calc_volume_signal(volumes, closes):
     avg_vol = sum(volumes[-20:]) / 20
     latest_vol = volumes[-1]
     vol_ratio = latest_vol / avg_vol if avg_vol > 0 else 1
-    price_change = (closes[-1] - closes[-2]) / closes[-2] if len(closes) > 1 else 0
+    price_change = (closes[-1] - closes[-2]) / closes[-2] if closes[-2] != 0 else 0 if len(closes) > 1 else 0
     if vol_ratio > 1.5 and price_change > 0: return 1
     elif vol_ratio > 1.5 and price_change < 0: return -1
     return 0
@@ -196,7 +198,14 @@ fg_adj = fear_greed_signal(fg_value)
 for sym in STOCKS:
     try:
         ticker = yf.Ticker(sym)
-        hist = ticker.history(period="1y")
+        hist = None
+        for attempt in range(3):
+            try:
+                hist = ticker.history(period="1y")
+                if hist is not None and len(hist) > 0:
+                    break
+            except Exception:
+                time.sleep(2)
         min_bars = 2 if sym.startswith("VALOUR-") else 20
         if len(hist) < min_bars:
             raise ValueError("Too little data")
@@ -244,7 +253,7 @@ for sym in STOCKS:
         results[sym] = {
             "price": price, "change": change,
             "rsi": safe(rsi), "ma50": safe(ma50), "ma200": safe(ma200),
-            "macd": round(macd, 3) if macd and not math.isnan(macd) else None,
+            "macd": round(macd, 3) if macd is not None and not math.isnan(macd) else None,
             "bollinger": safe(bollinger),
             "w52": safe(w52_pos),
             "trend": safe(trend),
@@ -259,12 +268,12 @@ for sym in STOCKS:
         print(f"FAIL {sym}: {e}")
 
 output = {
-    "updated": (datetime.now(timezone.utc) + timedelta(hours=2)).strftime("%Y-%m-%d %H:%M svensk tid"),
+    "updated": (datetime.now(ZoneInfo("Europe/Stockholm"))).strftime("%Y-%m-%d %H:%M svensk tid"),
     "stocks": results,
     "fear_greed": {"value": fg_value, "classification": fg_class} if fg_value else None
 }
 
 with open("data.json", "w") as f:
-    json.dump(output, f)
+    json.dump(output, f, indent=2)
 
 print(f"\nDone: {sum(1 for v in results.values() if v.get('ok'))} / {len(results)} succeeded")
