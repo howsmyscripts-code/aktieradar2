@@ -2,7 +2,7 @@ name: Fetch Stock Data
 
 on:
   schedule:
-    - cron: '*/5 7-16 * * 1-5'
+    - cron: '*/10 7-16 * * 1-5'  # Var 10:e minut 09:00-18:00 svensk tid
   push:
     branches: [main]
     paths:
@@ -35,8 +35,10 @@ jobs:
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          git fetch origin main
-          git reset --soft origin/main
           git add data.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update stock data $(date '+%Y-%m-%d %H:%M')"
-          git push origin main
+          if git diff --staged --quiet; then
+            echo "No changes to data.json"
+          else
+            git commit -m "Update stock data $(date '+%Y-%m-%d %H:%M')"
+            git push
+          fi
