@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-31 12:31 svensk tid",
+  "updated": "2026-05-31 12:37 svensk tid",
   "stocks": {
     "INVE-B.ST": {
       "price": 380.75,
@@ -869,12 +869,12 @@
       "earnings_date": null
     },
     "BTC-USD": {
-      "price": 73702.08,
+      "price": 73704.61,
       "change": -0.07,
       "rsi": 30.7,
-      "ma50": 77233.7,
-      "ma200": 79523.2,
-      "macd": -1102.275,
+      "ma50": 77233.75,
+      "ma200": 79523.22,
+      "macd": -1102.073,
       "bollinger": 0.15,
       "w52": 0.18,
       "trend": 0.35,
@@ -886,12 +886,12 @@
       "earnings_date": null
     },
     "ETH-USD": {
-      "price": 2016.2,
-      "change": -0.16,
-      "rsi": 32.0,
-      "ma50": 2241.84,
+      "price": 2015.26,
+      "change": -0.21,
+      "rsi": 31.9,
+      "ma50": 2241.82,
       "ma200": 2497.47,
-      "macd": -66.055,
+      "macd": -66.13,
       "bollinger": 0.2,
       "w52": 0.07,
       "trend": 0.4,
