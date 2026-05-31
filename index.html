@@ -110,7 +110,7 @@
     .ticker-option:active{background:#1a1a2e}
     .ticker-sym{color:var(--text);font-weight:700;margin-right:6px}
     .ticker-name{color:var(--text3)}
-    .portfolio-total{background:var(--bg3);border:1px solid var(--sep);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:border-color 0.2s}.portfolio-total:active{border-color:#00cc66}.portfolio-history{margin-top:14px;display:none}.period-btns{display:flex;gap:6px;margin-bottom:10px;justify-content:center}.period-btn{background:var(--bg3);border:1px solid var(--sep);color:var(--text3);padding:5px 12px;font-size:10px;font-family:monospace;border-radius:4px;cursor:pointer;letter-spacing:1px}.period-btn.active{background:#00cc6622;border-color:#00cc66;color:#00cc66}.history-canvas{width:100%;height:100px;display:block}.history-empty{font-size:10px;color:var(--text4);letter-spacing:2px;padding:20px 0;text-align:center}
+    .portfolio-total{background:var(--bg3);border:1px solid var(--sep);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:border-color 0.2s}.portfolio-total:active{border-color:#00cc66}.{margin-top:14px;display:none}.period-btns{display:flex;gap:6px;margin-bottom:10px;justify-content:center}.period-btn{background:var(--bg3);border:1px solid var(--sep);color:var(--text3);padding:5px 12px;font-size:10px;font-family:monospace;border-radius:4px;cursor:pointer;letter-spacing:1px}.period-btn.active{background:#00cc6622;border-color:#00cc66;color:#00cc66}/* .history-canvas{width:100%;height:100px;display:block}.history-empty{font-size:10px;color:var(--text4);letter-spacing:2px;padding:20px 0;text-align:center}
     .portfolio-total-label{font-size:9px;color:var(--text);letter-spacing:4px;margin-bottom:6px}
     .portfolio-total-value{font-size:22px;font-weight:900;color:var(--text)}
     .portfolio-total-pnl{font-size:12px;margin-top:4px}
@@ -208,12 +208,7 @@
     <button onclick="toggleAddForm()" id="add-btn" style="background:#00cc66;color:#000;border:none;padding:5px 12px;font-size:11px;font-weight:700;border-radius:4px;cursor:pointer;font-family:monospace;letter-spacing:1px">+ LÄGG TILL</button>
   </div>
   <div class="portfolio-container active" id="portfolio-container"></div>
-<!-- portfolio chart removed -->
-  <div style="display:none style="font-size:9px;color:var(--text3);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;font-weight:700">📊 PORTFÖLJUTVECKLING</div>
-  <canvas id="portfolio-chart" style="width:100%;height:80px;display:none;border-radius:6px"></canvas>
-  <div id="portfolio-chart-empty" style="font-size:11px;color:var(--text3);text-align:center;padding:16px 0">Historik byggs upp dagligen</div>
-</div>
-</div>
+
 
 <div id="fear-greed-bar" style="max-width:540px;margin:0 auto 8px;padding:0 12px"></div>
 <div class="market-bar">
@@ -538,8 +533,8 @@ function buildPortfolioHTML(){
     <div id="portfolio-holdings"></div>
     <div id="portfolio-total" style="display:none" class="portfolio-total">
       <div class="portfolio-total-label">TOTALT PORTFÖLJVÄRDE</div>
-      <div class="portfolio-total-value" id="ptotal-value">—</div>
-      <div class="portfolio-total-pnl" id="ptotal-pnl"></div>
+      <div class="portfolio-total-value" id="ptotal-value-removed">—</div>
+      <div class="portfolio-total-pnl" id="ptotal-pnl-removed"></div>
     </div>
   `;
 }
@@ -612,7 +607,7 @@ function getHistoryByPeriod(months){
 }
 
 function togglePortfolioHistory(){
-  const hist = document.getElementById("portfolio-history-section");
+  const hist = document.getElementById("-section");
   if(!hist) return;
   const isVisible = hist.style.display !== "none";
   hist.style.display = isVisible ? "none" : "block";
@@ -795,18 +790,17 @@ function renderPortfolio(){
     totalPnlEl.innerHTML = "";
     const c = "#00cc66"; // keep for history section color ref
     // Add history section if not exists
-    if(!document.getElementById("portfolio-history-section")){
+    if(!document.getElementById("-section")){
       const histSection = document.createElement("div");
-      histSection.id = "portfolio-history-section";
-      histSection.className = "portfolio-history";
+      histSection.id = "-section";
+      histSection.className = "";
       histSection.innerHTML = `
         <div class="period-btns">
           <button class="period-btn active" data-months="3" onclick="drawHistoryChart(3)">3 MÅN</button>
           <button class="period-btn" data-months="6" onclick="drawHistoryChart(6)">6 MÅN</button>
           <button class="period-btn" data-months="12" onclick="drawHistoryChart(12)">12 MÅN</button>
         </div>
-        <canvas class="history-canvas" id="history-canvas"></canvas>
-        <div class="history-empty" id="history-empty">Historik byggs upp dagligen</div>
+        
       `;
       totalEl.appendChild(histSection);
     }
