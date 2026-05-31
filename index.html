@@ -208,8 +208,8 @@
     <button onclick="toggleAddForm()" id="add-btn" style="background:#00cc66;color:#000;border:none;padding:5px 12px;font-size:11px;font-weight:700;border-radius:4px;cursor:pointer;font-family:monospace;letter-spacing:1px">+ LÄGG TILL</button>
   </div>
   <div class="portfolio-container active" id="portfolio-container"></div>
-<div id="portfolio-chart-wrap" style="max-width:540px;margin:0 auto;padding:0 12px 12px;display:none">
-  <div style="font-size:9px;color:var(--text3);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;font-weight:700">📊 PORTFÖLJUTVECKLING</div>
+<!-- portfolio chart removed -->
+  <div style="display:none style="font-size:9px;color:var(--text3);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;font-weight:700">📊 PORTFÖLJUTVECKLING</div>
   <canvas id="portfolio-chart" style="width:100%;height:80px;display:none;border-radius:6px"></canvas>
   <div id="portfolio-chart-empty" style="font-size:11px;color:var(--text3);text-align:center;padding:16px 0">Historik byggs upp dagligen</div>
 </div>
@@ -683,59 +683,6 @@ function drawHistoryChart(months){
   ctx.fillText(data[0].date, pad, H-2);
   ctx.textAlign = "right";
   ctx.fillText(data[data.length-1].date, pad+w, H-2);
-}
-
-function drawPortfolioChart(){
-  const hist = JSON.parse(localStorage.getItem("ph3") || "{}");
-  const canvas = document.getElementById("portfolio-chart");
-  const empty = document.getElementById("portfolio-chart-empty");
-  if(!canvas) return;
-
-  const keys = Object.keys(hist).sort().slice(-30); // Last 30 days
-  if(keys.length < 2){
-    canvas.style.display="none";
-    if(empty) empty.style.display="block";
-    return;
-  }
-
-  canvas.style.display="block";
-  if(empty) empty.style.display="none";
-
-  const vals = keys.map(k=>hist[k]);
-  const W = canvas.parentElement.offsetWidth||300, H=80;
-  canvas.width=W; canvas.height=H;
-  const ctx = canvas.getContext("2d");
-  const mn=Math.min(...vals), mx=Math.max(...vals), rng=mx-mn||1;
-  const p=6, w=W-p*2, h=H-p*2;
-  const up = vals[vals.length-1] >= vals[0];
-  const col = up?"#00cc66":"#ff4444";
-
-  // Gradient fill
-  const grad = ctx.createLinearGradient(0,0,0,H);
-  grad.addColorStop(0, up?"rgba(0,204,102,.25)":"rgba(255,68,68,.25)");
-  grad.addColorStop(1,"rgba(0,0,0,0)");
-
-  ctx.beginPath();
-  vals.forEach((v,i)=>{
-    const x=p+(i/(vals.length-1))*w, y=p+(1-(v-mn)/rng)*h;
-    i?ctx.lineTo(x,y):ctx.moveTo(x,y);
-  });
-  ctx.lineTo(p+w,H); ctx.lineTo(p,H); ctx.closePath();
-  ctx.fillStyle=grad; ctx.fill();
-
-  // Line
-  ctx.beginPath();
-  vals.forEach((v,i)=>{
-    const x=p+(i/(vals.length-1))*w, y=p+(1-(v-mn)/rng)*h;
-    i?ctx.lineTo(x,y):ctx.moveTo(x,y);
-  });
-  ctx.strokeStyle=col; ctx.lineWidth=2; ctx.stroke();
-
-  // Start/end labels
-  const pct = ((vals[vals.length-1]-vals[0])/vals[0]*100).toFixed(1);
-  ctx.fillStyle = up?"#00cc66":"#ff4444";
-  ctx.font="bold 10px monospace";
-  ctx.fillText((parseFloat(pct)>0?"+":"")+pct+"%", W-45, 14);
 }
 
 
@@ -1337,8 +1284,7 @@ function toggleFav(e, sym){
   if(activeTab==="Favoriter") buildFavoriterTab();
   if(activeTab==="⚡ SWING"){const sl=document.getElementById("list-⚡ SWING");if(sl)buildSwingTab(sl);}
   checkSwingNotifications();
-  saveDailySnapshot();
-}
+  }
 
 function buildFavoriterTab(){
   const list=document.getElementById("list-Favoriter");
@@ -1429,18 +1375,13 @@ async function refreshAll(){
     if(_pc && !_pc.innerHTML){ _pc.innerHTML = buildPortfolioHTML(); }
     renderPortfolio();
     // Show portfolio chart
-    const chartWrap = document.getElementById("portfolio-chart-wrap");
-    if(chartWrap && portfolio.length>0){
-      chartWrap.style.display="block";
-      drawPortfolioChart();
-    }
+
     updateMarketBar();
     updateFearGreed();
     if(activeTab==="Favoriter") buildFavoriterTab();
     if(activeTab==="⚡ SWING"){const sl=document.getElementById("list-⚡ SWING");if(sl)buildSwingTab(sl);}
     checkSwingNotifications();
-    saveDailySnapshot();
-    if(updated){
+        if(updated){
       document.getElementById("last-updated").textContent=`Data från: ${updated}`;
     }
     document.getElementById("status-text").textContent=`${ok}/${all.length} aktier laddade`;
@@ -1727,22 +1668,6 @@ function savePrevSignals(){
 }
 
 // Also save daily snapshot to localStorage for week comparison
-function saveDailySnapshot(){
-  const today = new Date().toISOString().split("T")[0];
-  const existing = JSON.parse(localStorage.getItem("signal_history") || "{}");
-  if(existing[today]) return;
-  const snapshot = {};
-  Object.values(STOCKS).flat().filter(s=>s.sym).forEach(s=>{
-    const d = liveData[s.sym];
-    if(d?.ok) snapshot[s.sym] = {signal:d.signal, styrka:d.styrka, price:d.price};
-  });
-  if(Object.keys(snapshot).length > 0){
-    existing[today] = snapshot;
-    const keys = Object.keys(existing).sort();
-    if(keys.length > 30) delete existing[keys[0]];
-    localStorage.setItem("signal_history", JSON.stringify(existing));
-  }
-}
 
 function getSignalChange(sym){
   const old = prevSignals[sym];
