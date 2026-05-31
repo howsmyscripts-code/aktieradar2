@@ -1121,7 +1121,7 @@ function sendSwingNotification(stock, data){
   const sig = data.signal === "KOP" ? "Köpläge" : "Säljläge";
   const n = new Notification(`⚡ ${stock.namn} — ${sig}`, {
     body: `RSI ${data.rsi} · Styrka ${data.styrka}/10 · ${data.change >= 0 ? "+" : ""}${data.change?.toFixed(1)}%`,
-    icon: "/aktieradar/icon.png",
+    icon: "/aktieradar2/icon.png",
     tag: stock.sym,
     renotify: true,
   });
