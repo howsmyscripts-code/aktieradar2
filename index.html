@@ -1363,6 +1363,8 @@ async function refreshAll(){
   loading.style.display="none";
   try {
     buildUI();
+    updateMarketBar();
+    updateFearGreed();
     // Ensure portfolio container is initialized
     const _pc = document.getElementById("portfolio-container");
     if(_pc && !_pc.innerHTML){ _pc.innerHTML = buildPortfolioHTML(); }
