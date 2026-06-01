@@ -1363,8 +1363,6 @@ async function refreshAll(){
   loading.style.display="none";
   try {
     buildUI();
-    updateMarketBar();
-    updateFearGreed();
     // Ensure portfolio container is initialized
     const _pc = document.getElementById("portfolio-container");
     if(_pc && !_pc.innerHTML){ _pc.innerHTML = buildPortfolioHTML(); }
@@ -1376,7 +1374,7 @@ async function refreshAll(){
     if(activeTab==="Favoriter") buildFavoriterTab();
     if(activeTab==="⚡ SWING"){const sl=document.getElementById("list-⚡ SWING");if(sl)buildSwingTab(sl);}
     checkSwingNotifications();
-        if(updated){
+    if(updated){
       document.getElementById("last-updated").textContent=`Data från: ${updated}`;
     }
     document.getElementById("status-text").textContent=`${ok}/${all.length} aktier laddade`;
