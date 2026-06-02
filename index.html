@@ -1639,9 +1639,33 @@ function closeModal(e){
 initNotifBtn();
 buildUI();
 // Auto-refresh var 10:e minut om appen är aktiv
-setInterval(async ()=>{ 
-  if(!document.hidden) await refreshAll(); 
-}, 10 * 60 * 1000);
+// Auto-refresh på fasta börsdagstider: 09:05, sedan var 25:e minut till 17:25
+function scheduleNextRefresh(){
+  const now = new Date();
+  const h = now.getHours();
+  const m = now.getMinutes();
+  const totalMin = h * 60 + m;
+
+  // Börsdagstider i minuter från midnatt (svensk tid)
+  const times = [
+    545, 570, 595, 620, 645, 670, 695, 720,
+    745, 770, 795, 820, 845, 870, 895, 920,
+    945, 970, 995, 1020, 1045
+  ]; // 09:05, 09:30... 17:25
+
+  // Hitta nästa tid
+  const next = times.find(t => t > totalMin);
+  if(!next) return; // Ingen mer körning idag
+
+  const msUntilNext = (next - totalMin) * 60 * 1000 - now.getSeconds() * 1000;
+  setTimeout(async () => {
+    if(!document.hidden) await refreshAll();
+    scheduleNextRefresh(); // Schemalägg nästa
+  }, msUntilNext);
+}
+
+// Starta schemat
+scheduleNextRefresh();
 
 // Refresha direkt när användaren öppnar appen igen
 document.addEventListener("visibilitychange", ()=>{
