@@ -2,7 +2,8 @@ name: Fetch Stock Data
 
 on:
   schedule:
-    - cron: '*/10 7-16 * * 1-5'  # Var 10:e minut 09:00-18:00 svensk tid
+    - cron: '*/30 7-16 * * 1-5'  # Var 30:e minut 09:00-18:00 svensk tid
+    - cron: '20 15 * * 1-5'      # Extra körning kl 17:20 svensk tid (15:20 UTC)
   push:
     branches: [main]
     paths:
