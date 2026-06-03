@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="sv" data-theme="dark">
+<html lang="sv" data-theme="light">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -9,20 +10,30 @@
   <meta name="theme-color" content="#07070f"/>
   <title>AktieRadar</title>
   <style>
-    :root{--bg:#07070f;--bg2:#0e0e1a;--bg3:#111;--text:#ddd;--text2:#aaa;--text3:#555;--text4:#333;--border:#181825;--border2:#1e1e2e;--sep:#2a2a3a}
-    [data-theme="light"]{--bg:#f2f2f7;--bg2:#ffffff;--bg3:#e5e5ea;--text:#000;--text2:#3c3c43;--text3:#8e8e93;--text4:#c6c6c8;--border:#e5e5ea;--border2:#d1d1d6;--sep:#c6c6c8}
+    :root{
+  --bg:#f4f1eb;--bg2:#ffffff;--bg3:#ede9e0;
+  --text:#aaa;--text2:#888;--text3:#ccc;--text4:#ddd;
+  --border:rgba(0,0,0,0.06);--border2:rgba(0,0,0,0.08);--sep:rgba(0,0,0,0.06);
+  --acc:#8a6f3e;
+}
+    [data-theme="dark"]{
+  --bg:#080a0f;--bg2:#0d1117;--bg3:#111827;
+  --text:#4a5568;--text2:#4a5568;--text3:#333344;--text4:#222233;
+  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.08);--sep:rgba(255,255,255,0.06);
+  --acc:#c8a96e;
+}
     
     *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-    body{background:var(--bg);color:var(--text);font-family:-apple-system,monospace;min-height:100vh;padding:env(safe-area-inset-top,44px) 0 env(safe-area-inset-bottom,20px);transition:background 0.3s,color 0.3s}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;padding:env(safe-area-inset-top,44px) 0 env(safe-area-inset-bottom,20px);transition:background 0.3s,color 0.3s}
     
     
     .header{display:flex;align-items:center;justify-content:space-between;padding:20px 12px 10px;max-width:540px;margin:0 auto}
-    .header-title{font-size:28px;font-weight:900;color:var(--text);letter-spacing:-1px;text-align:center}
-    .header-title span{color:#ff4444}
+    .header-title{font-size:11px;font-weight:500;color:var(--text);letter-spacing:2px;text-align:center}
+    .header-title span{color:var(--acc)}
     .header-note{font-size:9px;color:var(--text4);margin-top:3px;letter-spacing:2px;text-align:center;text-transform:uppercase}
     .topbar{display:flex;flex-direction:column;align-items:center;padding:10px 12px 4px;max-width:540px;margin:0 auto;gap:6px}
     .topbar-left{display:flex;flex-direction:column;align-items:center;gap:3px}
-    .refresh-btn{background:#ff4444;color:#fff;border:none;padding:8px 16px;font-size:11px;font-weight:700;border-radius:4px;cursor:pointer;font-family:monospace;letter-spacing:1px;display:flex;align-items:center;gap:6px;white-space:nowrap}
+    .refresh-btn{background:var(--acc);color:#fff;border:none;padding:8px 16px;font-size:11px;font-weight:700;border-radius:4px;cursor:pointer;font-family:"Inter",sans-serif;letter-spacing:1px;display:flex;align-items:center;gap:6px;white-space:nowrap}
     .refresh-btn:disabled{background:#1a1a1a;color:var(--text3);cursor:not-allowed}
     .last-updated{font-size:10px;color:var(--text2);letter-spacing:1px;text-align:center}
     .status-text{font-size:9px;color:var(--text3);letter-spacing:1px;text-align:center}
@@ -38,15 +49,15 @@
     .market-detail-value{color:var(--text);font-weight:700}
     .market-item{cursor:pointer}
     .market-name{font-size:9px;color:var(--text3);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:2px;font-family:monospace}
-    .market-price{font-size:10px;font-weight:700;color:var(--text);font-family:monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .market-price{font-size:10px;font-weight:700;color:var(--text);font-family:"Inter",sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .market-change{font-size:8px;font-weight:700;margin-top:1px}
     .tabs-top{display:flex;gap:6px;padding:8px 12px 4px;max-width:540px;margin:0 auto;justify-content:center}
-    .tab-top{padding:8px 18px;font-size:12px;font-weight:700;font-family:monospace;border:1px solid #1e1e2e;background:var(--bg2);color:var(--text3);cursor:pointer;text-transform:uppercase;border-radius:4px;letter-spacing:0.5px;white-space:nowrap;transition:all 0.2s}
-    .tab-top.active{border-color:var(--c,#00cc66);color:var(--c,#00cc66)}
+    .tab-top{padding:8px 18px;font-size:12px;font-weight:700;font-family:"Inter",sans-serif;border:1px solid #1e1e2e;background:var(--bg2);color:var(--text3);cursor:pointer;text-transform:uppercase;border-radius:4px;letter-spacing:0.5px;white-space:nowrap;transition:all 0.2s}
+    .tab-top.active{border-color:var(--c,var(--acc));color:var(--c,var(--acc))}
     .tabs{display:flex;overflow:hidden;gap:0;padding:0 8px 0;max-width:540px;margin:0 auto;justify-content:center}
     .tabs::-webkit-scrollbar{display:none}
-    .tab{flex-shrink:0;padding:11px 10px;font-size:11px;font-family:monospace;letter-spacing:0;border:1px solid var(--border2);background:var(--bg3);color:var(--text3);cursor:pointer;text-transform:uppercase;border-radius:4px 4px 0 0;margin-right:2px;white-space:nowrap}
-    .tab.active{background:var(--bg2);color:var(--text);border-bottom-color:var(--bg2)}.tab.portfolio-tab{color:#00cc66;border-color:#00cc6633}.tab.swing-tab{color:#ffaa00;border-color:#ffaa0033}.tab.swing-tab.active{color:#ffaa00;border-color:#ffaa00}.tab.portfolio-tab.active{color:#00cc66}
+    .tab{flex-shrink:0;padding:11px 10px;font-size:11px;font-family:"Inter",sans-serif;letter-spacing:0;border:1px solid var(--border2);background:var(--bg3);color:var(--text3);cursor:pointer;text-transform:uppercase;border-radius:4px 4px 0 0;margin-right:2px;white-space:nowrap}
+    .tab.active{color:var(--acc);border-bottom-color:var(--acc)}.tab.portfolio-tab{color:var(--acc);border-color:var(--border2)}.tab.swing-tab{color:var(--text);border-color:var(--border2)}.tab.swing-tab.active{color:var(--acc);border-color:var(--acc)}.tab.portfolio-tab.active{color:var(--acc)}
     .legend{display:flex;justify-content:center;gap:16px;padding:7px 16px;font-size:10px}
     .legend-item{display:flex;align-items:center;gap:4px}
     .legend-dot{width:6px;height:6px;border-radius:50%}
@@ -54,11 +65,11 @@
     .list.active{display:flex}
     .card{border-radius:12px;overflow:hidden;border:1px solid var(--border2);transition:border-color 0.2s,box-shadow 0.2s}
     .card.open{border-color:var(--c)}
-    .card-row{width:100%;background:var(--bg2);border:none;padding:13px 14px;display:grid;grid-template-columns:90px 1fr 150px;align-items:center;cursor:pointer;gap:4px;transition:background 0.2s}
+    .card-row{width:100%;background:var(--bg2);border:none;padding:13px 14px;display:grid;grid-template-columns:1fr auto;align-items:center;cursor:pointer;gap:4px;transition:background 0.2s}
     .card.open .card-row{background:var(--bg2)}
     .card-left{display:flex;flex-direction:column;align-items:flex-start;overflow:hidden}
     .card-ticker{font-size:12px;font-weight:700;color:var(--text);letter-spacing:0.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:88px}
-    .card-sektor{font-size:9px;color:var(--text3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:88px}.card-smeknamn{font-size:9px;color:#666;margin-top:1px;font-style:italic}.card-live-price{font-size:11px;color:var(--text2);font-family:monospace;margin-top:3px;letter-spacing:0.5px;white-space:nowrap}.card-nickname{font-size:9px;color:var(--text3);margin-top:2px;font-style:italic}
+    .card-sektor{font-size:9px;color:var(--text3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:88px}.card-smeknamn{font-size:9px;color:#666;margin-top:1px;font-style:italic}.card-live-price{font-size:11px;color:var(--text2);font-family:"Inter",sans-serif;margin-top:3px;letter-spacing:0.5px;white-space:nowrap}.card-nickname{font-size:9px;color:var(--text3);margin-top:2px;font-style:italic}
     .dots{display:flex;gap:3px;flex:1;justify-content:center;min-width:0}
     .dot{width:5px;height:5px;border-radius:50%;background:#1e1e2e;flex-shrink:0}
     .dot.on{background:var(--c)}
@@ -75,14 +86,14 @@
     .card-name{font-size:14px;font-weight:700;color:var(--text)}
     .card-styrka{font-size:10px;color:var(--text3)}
     .tech-row{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
-    .tech-badge{padding:4px 8px;border-radius:4px;font-size:10px;font-family:monospace;letter-spacing:1px;background:var(--bg3);border:1px solid var(--border2)2;white-space:nowrap}
+    .tech-badge{padding:4px 8px;border-radius:4px;font-size:10px;font-family:"Inter",sans-serif;letter-spacing:1px;background:var(--bg3);border:1px solid var(--border2)2;white-space:nowrap}
     .summary{font-size:12px;line-height:1.7;color:#888;border-left:2px solid var(--c);padding-left:10px;margin-bottom:12px}
     .section-label{font-size:9px;letter-spacing:4px;color:var(--text2);margin-bottom:7px;text-transform:uppercase}
     .reason-row,.risk-row{display:flex;gap:8px;margin-bottom:7px;font-size:11px;line-height:1.5;align-items:flex-start;color:var(--text)}
     .reason-row{color:var(--text)}.risk-row{color:var(--text2)}
     .reason-icon{color:#00cc66;flex-shrink:0;font-weight:700}.risk-icon{color:#ff4444;flex-shrink:0}
     .risks{margin-top:12px}
-    .invest-btn{display:block;width:100%;margin-top:14px;padding:11px;background:var(--c);color:#000;font-family:monospace;font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;text-decoration:none;text-align:center}
+    .invest-btn{display:block;width:100%;margin-top:14px;padding:11px;background:var(--c);color:#000;font-family:"Inter",sans-serif;font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;text-decoration:none;text-align:center}
     .loading-overlay{position:fixed;inset:0;background:rgba(7,7,15,0.93);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:100;color:#ff4444;letter-spacing:5px;margin-top:16px;text-transform:uppercase}
     .loading-sub{font-size:14px;color:var(--text);letter-spacing:1px;margin-top:10px;font-weight:600;text-align:center;max-width:300px}
     .loading-progress{font-size:11px;color:#666;margin-top:6px;letter-spacing:2px}
@@ -94,8 +105,8 @@
     .portfolio-add{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:16px}
     .portfolio-add h3{font-size:11px;letter-spacing:3px;color:var(--text3);margin-bottom:12px}
     .portfolio-input-row{display:flex;flex-direction:column;gap:8px;margin-bottom:8px}
-    .portfolio-input{background:var(--bg2);border:1px solid var(--sep);color:var(--text);padding:10px 12px;font-size:13px;border-radius:4px;outline:none;font-family:monospace;width:100%}
-    .portfolio-btn{background:#00cc66;color:#000;border:none;padding:12px;font-size:12px;font-weight:700;border-radius:4px;cursor:pointer;font-family:monospace;letter-spacing:1px;width:100%}
+    .portfolio-input{background:var(--bg2);border:1px solid var(--sep);color:var(--text);padding:10px 12px;font-size:13px;border-radius:4px;outline:none;font-family:"Inter",sans-serif;width:100%}
+    .portfolio-btn{background:var(--acc);color:#fff;border:none;padding:12px;font-size:12px;font-weight:700;border-radius:4px;cursor:pointer;font-family:"Inter",sans-serif;letter-spacing:1px;width:100%}
     .portfolio-card{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:6px}
     .portfolio-card-top{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:8px}
     .portfolio-ticker{font-size:14px;font-weight:700;color:var(--text);letter-spacing:1px;min-width:100px}
@@ -105,12 +116,12 @@
     .portfolio-remove{background:none;border:none;color:var(--text4);cursor:pointer;font-size:16px;padding:0 4px}
     .ticker-wrapper{position:relative;width:100%}
     .ticker-dropdown{position:absolute;top:100%;left:0;right:0;background:var(--bg2);border:1px solid var(--sep);border-top:none;border-radius:0 0 4px 4px;z-index:100;max-height:180px;overflow-y:auto;display:none}
-    .ticker-option{padding:9px 10px;font-size:11px;font-family:monospace;color:var(--text2);cursor:pointer;border-bottom:1px solid var(--border)}
+    .ticker-option{padding:9px 10px;font-size:11px;font-family:"Inter",sans-serif;color:var(--text2);cursor:pointer;border-bottom:1px solid var(--border)}
     .ticker-option:last-child{border-bottom:none}
     .ticker-option:active{background:#1a1a2e}
     .ticker-sym{color:var(--text);font-weight:700;margin-right:6px}
     .ticker-name{color:var(--text3)}
-    .portfolio-total{background:var(--bg3);border:1px solid var(--sep);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:border-color 0.2s}.portfolio-total:active{border-color:#00cc66}.{margin-top:14px;display:none}.period-btns{display:flex;gap:6px;margin-bottom:10px;justify-content:center}.period-btn{background:var(--bg3);border:1px solid var(--sep);color:var(--text3);padding:5px 12px;font-size:10px;font-family:monospace;border-radius:4px;cursor:pointer;letter-spacing:1px}.period-btn.active{background:#00cc6622;border-color:#00cc66;color:#00cc66}/* .history-canvas{width:100%;height:100px;display:block}.history-empty{font-size:10px;color:var(--text4);letter-spacing:2px;padding:20px 0;text-align:center}
+    .portfolio-total{background:var(--bg3);border:1px solid var(--sep);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:border-color 0.2s}.portfolio-total:active{border-color:#00cc66}.{margin-top:14px;display:none}.period-btns{display:flex;gap:6px;margin-bottom:10px;justify-content:center}.period-btn{background:var(--bg3);border:1px solid var(--sep);color:var(--text3);padding:5px 12px;font-size:10px;font-family:"Inter",sans-serif;border-radius:4px;cursor:pointer;letter-spacing:1px}.period-btn.active{background:#00cc6622;border-color:#00cc66;color:#00cc66}/* .history-canvas{width:100%;height:100px;display:block}.history-empty{font-size:10px;color:var(--text4);letter-spacing:2px;padding:20px 0;text-align:center}
     .portfolio-total-label{font-size:9px;color:var(--text);letter-spacing:4px;margin-bottom:6px}
     .portfolio-total-value{font-size:22px;font-weight:900;color:var(--text)}
     .portfolio-total-pnl{font-size:12px;margin-top:4px}
@@ -182,7 +193,7 @@
   <div class="ptr-spinner" id="ptr-spinner"></div>
 </div>
 <div class="header">
-  <button id="notif-btn" onclick="requestNotifications()" title="Aktivera notiser" style="background:var(--bg2);border:1px solid var(--border2);color:var(--text3);width:34px;height:34px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0">🔔︎</button>
+  <button id="notif-btn" onclick="requestNotifications()" title="Aktivera notiser" style="background:var(--bg2);border:1px solid var(--border2);color:var(--text3);width:34px;height:34px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0">︎</button>
   <div>
     <div class="header-title">AKTIE<span>RADAR</span></div>
     <div class="header-note">Teknisk signalanalys · Ej finansiell rådgivning</div>
@@ -205,7 +216,7 @@
 <div style="max-width:540px;margin:8px auto 0;padding:0 12px">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
     <div style="font-size:10px;letter-spacing:4px;color:#00cc66;font-family:monospace">◈ MIN PORTFÖLJ</div>
-    <button onclick="toggleAddForm()" id="add-btn" style="background:#00cc66;color:#000;border:none;padding:5px 12px;font-size:11px;font-weight:700;border-radius:4px;cursor:pointer;font-family:monospace;letter-spacing:1px">+ LÄGG TILL</button>
+    <button onclick="toggleAddForm()" id="add-btn" style="background:#00cc66;color:#000;border:none;padding:5px 12px;font-size:11px;font-weight:700;border-radius:4px;cursor:pointer;font-family:"Inter",sans-serif;letter-spacing:1px">+ LÄGG TILL</button>
   </div>
   <div class="portfolio-container active" id="portfolio-container"></div>
 
@@ -213,17 +224,17 @@
 <div id="fear-greed-bar" style="max-width:540px;margin:0 auto 8px;padding:0 12px"></div>
 <div class="market-bar">
   <div class="market-grid" id="market-grid">
-    <div class="market-item" id="mi-oil" onclick="openMarketModal('CL=F','Olja','🛢️')" style="cursor:pointer"><div class="market-name">OLJA</div><div class="market-price" id="m-oil">—</div><div class="market-change" id="mc-oil"></div><div class="market-ath">★ ATH</div><div class="market-detail" id="md-oil"></div></div>
-    <div class="market-item" id="mi-gold" onclick="openMarketModal('GC=F','Guld','🥇')" style="cursor:pointer"><div class="market-name">GULD</div><div class="market-price" id="m-gold">—</div><div class="market-change" id="mc-gold"></div><div class="market-ath">★ ATH</div><div class="market-detail" id="md-gold"></div></div>
-    <div class="market-item" id="mi-silver" onclick="openMarketModal('SI=F','Silver','🥈')" style="cursor:pointer"><div class="market-name">SILVER</div><div class="market-price" id="m-silver">—</div><div class="market-change" id="mc-silver"></div><div class="market-ath">★ ATH</div><div class="market-detail" id="md-silver"></div></div>
-    <div class="market-item" id="mi-btc" onclick="openMarketModal('BTC-USD','Bitcoin','₿')" style="cursor:pointer"><div class="market-name">BTC</div><div class="market-price" id="m-btc">—</div><div class="market-change" id="mc-btc"></div><div class="market-ath">★ ATH</div><div class="market-detail" id="md-btc"></div></div>
-    <div class="market-item" id="mi-eth" onclick="openMarketModal('ETH-USD','Ethereum','Ξ')" style="cursor:pointer"><div class="market-name">ETH</div><div class="market-price" id="m-eth">—</div><div class="market-change" id="mc-eth"></div><div class="market-ath">★ ATH</div><div class="market-detail" id="md-eth"></div></div>
+    <div class="market-item" id="mi-oil" onclick="openMarketModal('CL=F','Olja','')" style="cursor:pointer"><div class="market-name">OLJA</div><div class="market-price" id="m-oil">—</div><div class="market-change" id="mc-oil"></div><div class="market-ath">ATH</div><div class="market-detail" id="md-oil"></div></div>
+    <div class="market-item" id="mi-gold" onclick="openMarketModal('GC=F','Guld','')" style="cursor:pointer"><div class="market-name">GULD</div><div class="market-price" id="m-gold">—</div><div class="market-change" id="mc-gold"></div><div class="market-ath">ATH</div><div class="market-detail" id="md-gold"></div></div>
+    <div class="market-item" id="mi-silver" onclick="openMarketModal('SI=F','Silver','🥈')" style="cursor:pointer"><div class="market-name">SILVER</div><div class="market-price" id="m-silver">—</div><div class="market-change" id="mc-silver"></div><div class="market-ath">ATH</div><div class="market-detail" id="md-silver"></div></div>
+    <div class="market-item" id="mi-btc" onclick="openMarketModal('BTC-USD','Bitcoin','₿')" style="cursor:pointer"><div class="market-name">BTC</div><div class="market-price" id="m-btc">—</div><div class="market-change" id="mc-btc"></div><div class="market-ath">ATH</div><div class="market-detail" id="md-btc"></div></div>
+    <div class="market-item" id="mi-eth" onclick="openMarketModal('ETH-USD','Ethereum','Ξ')" style="cursor:pointer"><div class="market-name">ETH</div><div class="market-price" id="m-eth">—</div><div class="market-change" id="mc-eth"></div><div class="market-ath">ATH</div><div class="market-detail" id="md-eth"></div></div>
   </div>
 </div>
 <div class="tabs-top" id="tabs-top"></div>
 <div class="tabs" id="tabs"></div>
 <div class="legend">
-  <div class="legend-item"><div class="legend-dot" style="background:#00cc66"></div><span style="color:#00cc66">▲ KÖP</span></div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--acc)"></div><span style="color:#00cc66">▲ KÖP</span></div>
   <div class="legend-item"><div class="legend-dot" style="background:#ffaa00"></div><span style="color:#ffaa00">— HÅLL</span></div>
   <div class="legend-item"><div class="legend-dot" style="background:#ff4444"></div><span style="color:#ff4444">▼ SÄLJ</span></div>
 </div>
@@ -337,7 +348,7 @@ const COLORS={KOP:"#00cc66",HALL:"#ffaa00",SALJ:"#ff4444"};
 const BGS={KOP:"#00110a",HALL:"#110d00",SALJ:"#110000"};
 const TAGS={KOP:"▲ KÖP",HALL:"— HÅLL",SALJ:"▼ SÄLJ"};
 const VARFOR={KOP:"VARFÖR KÖPA",HALL:"VARFÖR HÅLLA",SALJ:"VARFÖR SÄLJA"};
-const categories=["Favoriter","⚡ SWING","TrumpPump",...Object.keys(STOCKS)];
+const categories=["Favoriter","SWING","TrumpPump",...Object.keys(STOCKS)];
 let activeTab="Favoriter";
 let favorites=new Set(JSON.parse(localStorage.getItem("fav")||"[]"));
 let liveData={};
@@ -895,7 +906,8 @@ function toggleTheme(){
   const html=document.documentElement;
   const isLight=html.dataset.theme==="light";
   html.dataset.theme=isLight?"dark":"light";
-  document.getElementById("theme-btn").textContent=isLight?"🌙":"☀️";
+  const btn=document.getElementById("theme-btn");
+  if(btn) btn.textContent=isLight?"LJUS":"MÖRK";
   localStorage.setItem("theme_pro",isLight?"dark":"light");
 }
 
@@ -942,7 +954,7 @@ function buildTrumpTab(container){
   if(!mentions || mentions.length === 0){
     container.innerHTML = `
       <div style="text-align:center;padding:40px 20px;color:var(--text3)">
-        <div style="font-size:32px;margin-bottom:12px">🇺🇸</div>
+        <div style="font-size:32px;margin-bottom:12px"></div>
         <div style="font-size:13px;letter-spacing:2px">INGA TRUMP-NYHETER</div>
         <div style="font-size:11px;margin-top:8px;color:var(--text4)">Uppdaterar vid nästa datahämtning</div>
       </div>`;
@@ -954,7 +966,7 @@ function buildTrumpTab(container){
     return `
       <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:8px;padding:14px;margin:8px 12px;border-left:3px solid ${col}">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-          <div style="font-size:13px;font-weight:700;color:var(--text)">🇺🇸 ${m.company}</div>
+          <div style="font-size:13px;font-weight:700;color:var(--text)">${m.company}</div>
           <span style="background:${col}22;color:${col};border:1px solid ${col};padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700">${icon} ${m.sentiment?.toUpperCase()}</span>
         </div>
         ${m.ticker ? `<div style="font-size:10px;color:var(--text3);letter-spacing:1px;margin-bottom:6px">TICKER: ${m.ticker}</div>` : ""}
@@ -979,7 +991,7 @@ function buildSwingTab(listEl){
   let html = '';
   
   if(buys.length){
-    html += `<div style="font-size:9px;color:#00cc66;letter-spacing:3px;padding:8px 16px 4px;font-weight:700">⚡ KÖPLÄGEN (${buys.length})</div>`;
+    html += `<div style="font-size:9px;color:#00cc66;letter-spacing:3px;padding:8px 16px 4px;font-weight:700">KÖPLÄGEN (${buys.length})</div>`;
     html += '<div class="stock-list">';
     buys.forEach(sw=>{
       const d = sw.data;
@@ -1000,9 +1012,9 @@ function buildSwingTab(listEl){
           </div>
         </button>
         <div id="swing-exp-${s.sym.replace(/[^a-z0-9]/gi,'_')}" style="display:none;padding:12px 14px;border-top:1px solid var(--border);background:var(--bg2)">
-          <div style="font-size:12px;color:var(--text2);margin-bottom:8px">⚡ ${sw.reason}</div>
+          <div style="font-size:12px;color:var(--text2);margin-bottom:8px">${sw.reason}</div>
           <div style="font-size:11px;color:var(--text3);margin-bottom:10px">Styrka ${d.styrka}/10 · RSI ${d.rsi} · BB ${Math.round((d.bollinger||0)*100)}%</div>
-          <a href="${s.avanza}" target="_blank" style="display:block;background:#00cc66;color:#000;text-align:center;padding:10px;border-radius:6px;font-size:12px;font-weight:700;font-family:monospace;text-decoration:none">KÖP PÅ AVANZA →</a>
+          <a href="${s.avanza}" target="_blank" style="display:block;background:#00cc66;color:#000;text-align:center;padding:10px;border-radius:6px;font-size:12px;font-weight:700;font-family:"Inter",sans-serif;text-decoration:none">KÖP PÅ AVANZA →</a>
         </div>
       </div>`;
     });
@@ -1010,7 +1022,7 @@ function buildSwingTab(listEl){
   }
   
   if(sells.length){
-    html += `<div style="font-size:9px;color:#ff4444;letter-spacing:3px;padding:12px 16px 4px;font-weight:700">⚡ SÄLJLÄGEN (${sells.length})</div>`;
+    html += `<div style="font-size:9px;color:#ff4444;letter-spacing:3px;padding:12px 16px 4px;font-weight:700">SÄLJLÄGEN (${sells.length})</div>`;
     html += '<div class="stock-list">';
     sells.forEach(sw=>{
       const d = sw.data;
@@ -1030,9 +1042,9 @@ function buildSwingTab(listEl){
           </div>
         </button>
         <div id="swing-exp-${s.sym.replace(/[^a-z0-9]/gi,'_')}" style="display:none;padding:12px 14px;border-top:1px solid var(--border);background:var(--bg2)">
-          <div style="font-size:12px;color:var(--text2);margin-bottom:8px">⚡ ${sw.reason}</div>
+          <div style="font-size:12px;color:var(--text2);margin-bottom:8px">${sw.reason}</div>
           <div style="font-size:11px;color:var(--text3);margin-bottom:10px">Styrka ${d.styrka}/10 · RSI ${d.rsi} · BB ${Math.round((d.bollinger||0)*100)}%</div>
-          <a href="${s.avanza}" target="_blank" style="display:block;background:#ff4444;color:#fff;text-align:center;padding:10px;border-radius:6px;font-size:12px;font-weight:700;font-family:monospace;text-decoration:none">SÄLJ PÅ AVANZA →</a>
+          <a href="${s.avanza}" target="_blank" style="display:block;background:#ff4444;color:#fff;text-align:center;padding:10px;border-radius:6px;font-size:12px;font-weight:700;font-family:"Inter",sans-serif;text-decoration:none">SÄLJ PÅ AVANZA →</a>
         </div>
       </div>`;
     });
@@ -1103,8 +1115,8 @@ function renderSwingHistory(){
             <span style="font-size:10px;color:${col};margin-left:6px;font-weight:700">${typeLabel}</span>
           </div>
           <div style="text-align:right">
-            <div style="font-family:monospace;font-size:11px;color:var(--text2)">${e.price.toFixed(2)}</div>
-            ${pctChange!==null?`<div style="font-family:monospace;font-size:11px;color:${resultCol};font-weight:700">${parseFloat(pctChange)>0?"+":""}${pctChange}%</div>`:""}
+            <div style="font-family:"Inter",sans-serif;font-size:11px;color:var(--text2)">${e.price.toFixed(2)}</div>
+            ${pctChange!==null?`<div style="font-family:"Inter",sans-serif;font-size:11px;color:${resultCol};font-weight:700">${parseFloat(pctChange)>0?"+":""}${pctChange}%</div>`:""}
           </div>
         </div>`;
       }).join("")}
@@ -1131,7 +1143,7 @@ async function requestNotifications(){
     }
     if(Notification.permission === "granted"){
       localStorage.setItem("notif_enabled","true");
-      if(btn){ btn.textContent = "🔔︎"; btn.style.opacity="1"; }
+      if(btn){ btn.textContent = "︎"; btn.style.opacity="1"; }
       if(btn) btn.title = "Stäng av notiser";
     }
   }
@@ -1142,7 +1154,7 @@ function initNotifBtn(){
   if(!btn) return;
   const enabled = localStorage.getItem("notif_enabled") === "true";
   const granted = "Notification" in window && Notification.permission === "granted";
-  btn.textContent = (enabled && granted) ? "🔔︎" : "🔕︎";
+  btn.textContent = (enabled && granted) ? "︎" : "🔕︎";
   btn.style.opacity = (enabled && granted) ? "1" : "0.4";
   btn.title = (enabled && granted) ? "Stäng av notiser" : "Aktivera notiser";
 }
@@ -1150,13 +1162,13 @@ function initNotifBtn(){
 function sendSwingNotification(stock, data){
   if(Notification.permission !== "granted") return;
   const sig = data.signal === "KOP" ? "Köpläge" : "Säljläge";
-  const n = new Notification(`⚡ ${stock.namn} — ${sig}`, {
+  const n = new Notification(`${stock.namn} — ${sig}`, {
     body: `RSI ${data.rsi} · Styrka ${data.styrka}/10 · ${data.change >= 0 ? "+" : ""}${data.change?.toFixed(1)}%`,
     icon: "/aktieradar2/icon.png",
     tag: stock.sym,
     renotify: true,
   });
-  n.onclick = () => { window.focus(); switchTab("⚡ SWING"); };
+  n.onclick = () => { window.focus(); switchTab("SWING"); };
 }
 
 let prevSwingSyms = new Set(JSON.parse(localStorage.getItem("prev_swings") || "[]"));
@@ -1186,27 +1198,27 @@ function buildUI(){
   te.innerHTML="";le.innerHTML="";if(te2)te2.innerHTML="";
   categories.forEach(cat=>{
     // FAV and SWING go in top row
-    if(cat==="Favoriter"||cat==="⚡ SWING"||cat==="TrumpPump"){
+    if(cat==="Favoriter"||cat==="SWING"||cat==="TrumpPump"){
       const t=document.createElement("button");
       t.className="tab-top"+(cat===activeTab?" active":"");
       if(cat==="Favoriter") t.style.setProperty("--c","#ff4444");
       if(cat==="TrumpPump") t.style.setProperty("--c","#ff0000");
-      if(cat==="⚡ SWING") t.style.setProperty("--c","#ffaa00");
-      t.textContent=cat==="Favoriter"?"♥ FAV":cat==="TrumpPump"?"TrumpPump":"⚡ SWING";
+      if(cat==="SWING") t.style.setProperty("--c","#ffaa00");
+      t.textContent=cat==="Favoriter"?"♥ FAV":cat==="TrumpPump"?"TrumpPump":"SWING";
       t.onclick=()=>switchTab(cat);
       if(te2) te2.appendChild(t);
     } else {
     const tab=document.createElement("button");
     tab.className="tab"+(cat===activeTab?" active":"");
     tab.textContent=cat==="Favoriter"?"♥ FAV":cat;
-    if(cat==="⚡ SWING") tab.classList.add("swing-tab");
+    if(cat==="SWING") tab.classList.add("swing-tab");
     tab.onclick=()=>switchTab(cat);
     te.appendChild(tab);
     }
     const list=document.createElement("div");
       list.className="list"+(cat===activeTab?" active":"");
       list.id="list-"+cat;
-      if(cat!=="Favoriter" && cat!=="⚡ SWING" && cat!=="TrumpPump" && STOCKS[cat]){
+      if(cat!=="Favoriter" && cat!=="SWING" && cat!=="TrumpPump" && STOCKS[cat]){
         STOCKS[cat].forEach(s=>list.appendChild(buildCard(s)));
       }
       le.appendChild(list);
@@ -1283,7 +1295,7 @@ function buildCard(s){
       ${techHtml}
       ${earningsHtml}
       <div class="summary">${summary}</div>
-      ${live?.momentum==="MOMENTUM_UP"?`<div style="background:#4d9fff18;border:1px solid #4d9fff44;border-radius:6px;padding:6px 10px;margin-bottom:8px;font-size:11px;color:#4d9fff">⚡ Starkt momentum — RSI-signal nedviktad</div>`:""}
+      ${live?.momentum==="MOMENTUM_UP"?`<div style="background:#4d9fff18;border:1px solid #4d9fff44;border-radius:6px;padding:6px 10px;margin-bottom:8px;font-size:11px;color:#4d9fff">Starkt momentum — RSI-signal nedviktad</div>`:""}
       <div class="section-label">${VARFOR[signal]}</div>${reasons}
       <div class="risks"><div class="section-label">RISKER</div>${risks}</div>
       <a class="invest-btn" href="${s.avanza}" target="_blank">INVESTERA PÅ AVANZA →</a>
@@ -1308,7 +1320,7 @@ function toggleFav(e, sym){
   });
   // Rebuild Favoriter tab if active
   if(activeTab==="Favoriter") buildFavoriterTab();
-  if(activeTab==="⚡ SWING"){const sl=document.getElementById("list-⚡ SWING");if(sl)buildSwingTab(sl);}
+  if(activeTab==="SWING"){const sl=document.getElementById("list-SWING");if(sl)buildSwingTab(sl);}
     if(activeTab==="TrumpPump"){const tl=document.getElementById("list-TrumpPump");if(tl)buildTrumpTab(tl);}
   checkSwingNotifications();
   }
@@ -1334,11 +1346,11 @@ function switchTab(cat){
   const allTabs=[...document.querySelectorAll(".tab"),...document.querySelectorAll(".tab-top")];
   allTabs.forEach(t=>{
     const txt=t.textContent.trim();
-    if((txt==="♥ FAV"&&cat==="Favoriter")||(txt==="⚡ SWING"&&cat==="⚡ SWING")||(txt===cat)) t.classList.add("active");
+    if((txt==="♥ FAV"&&cat==="Favoriter")||(txt==="SWING"&&cat==="SWING")||(txt===cat)) t.classList.add("active");
   });
   if(cat==="Favoriter") buildFavoriterTab();
-  if(cat==="⚡ SWING"){
-    const swingList=document.getElementById("list-⚡ SWING");
+  if(cat==="SWING"){
+    const swingList=document.getElementById("list-SWING");
     if(swingList) buildSwingTab(swingList);
   }
 }
@@ -1406,7 +1418,7 @@ async function refreshAll(){
     updateMarketBar();
     updateFearGreed();
     if(activeTab==="Favoriter") buildFavoriterTab();
-    if(activeTab==="⚡ SWING"){const sl=document.getElementById("list-⚡ SWING");if(sl)buildSwingTab(sl);}
+    if(activeTab==="SWING"){const sl=document.getElementById("list-SWING");if(sl)buildSwingTab(sl);}
     if(activeTab==="TrumpPump"){const tl=document.getElementById("list-TrumpPump");if(tl)buildTrumpTab(tl);}
     checkSwingNotifications();
     if(updated){
@@ -1482,7 +1494,7 @@ function openMarketModal(sym, name, icon){
       <div style="background:var(--bg3);border-radius:8px;padding:12px">
         <div style="font-size:9px;color:var(--text3);letter-spacing:2px;margin-bottom:4px">ATH</div>
         <div style="font-size:18px;font-weight:700;color:var(--text)">${d.ath.toLocaleString("sv-SE",{maximumFractionDigits:0})}</div>
-        <div style="font-size:10px;color:${isATH ? "#00cc66" : "#ffaa00"}">${isATH ? "★ På ATH!" : fromAth + "% från ATH"}</div>
+        <div style="font-size:10px;color:${isATH ? "#00cc66" : "#ffaa00"}">${isATH ? " På ATH!" : fromAth + "% från ATH"}</div>
       </div>` : ""}
       <div style="background:var(--bg3);border-radius:8px;padding:12px">
         <div style="font-size:9px;color:var(--text3);letter-spacing:2px;margin-bottom:4px">BOLLINGER</div>
@@ -1513,7 +1525,7 @@ function openMarketModal(sym, name, icon){
     "ETH-USD":{label:"Köp Ethereum på Kraken", url:"https://www.kraken.com/prices/ethereum"},
   };
   const buyInfo = buyLinks[sym];
-  const buyBtn = buyInfo ? `<a href="${buyInfo.url}" target="_blank" style="display:block;width:100%;padding:12px;background:${col};color:#000;font-family:monospace;font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;text-decoration:none;text-align:center;box-sizing:border-box;margin-top:8px">${buyInfo.label} →</a>` : "";
+  const buyBtn = buyInfo ? `<a href="${buyInfo.url}" target="_blank" style="display:block;width:100%;padding:12px;background:${col};color:#000;font-family:"Inter",sans-serif;font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;text-decoration:none;text-align:center;box-sizing:border-box;margin-top:8px">${buyInfo.label} →</a>` : "";
   document.getElementById("modal-content").querySelector ? null : null;
   const modalContent = document.getElementById("modal-content");
   modalContent.insertAdjacentHTML("beforeend", buyBtn);
