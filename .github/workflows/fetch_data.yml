@@ -39,7 +39,6 @@ jobs:
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          git pull --rebase origin main
           git add data.json
           if git diff --staged --quiet; then
             echo "No changes to data.json"
