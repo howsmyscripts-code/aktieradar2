@@ -1,8 +1,11 @@
 import yfinance as yf
 import json
 import urllib.request
+import urllib.error
 import math
 import time
+import os
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from zoneinfo import ZoneInfo
 
@@ -29,6 +32,123 @@ def fear_greed_signal(value):
     elif value <= 60: return 0
     elif value <= 75: return -1
     else:             return -2
+
+# ── Trump RSS & News Analysis ────────────────────────────────
+
+def fetch_trump_posts():
+    """Fetch latest Trump posts from Truth Social RSS"""
+    try:
+        url = "https://truthsocial.com/@realDonaldTrump.rss"
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=10) as r:
+            xml = r.read().decode("utf-8")
+        root = ET.fromstring(xml)
+        posts = []
+        for item in root.findall(".//item")[:10]:  # Last 10 posts
+            title = item.findtext("title", "")
+            desc = item.findtext("description", "")
+            pubdate = item.findtext("pubDate", "")
+            text = (title + " " + desc).strip()
+            posts.append({"text": text, "date": pubdate})
+        return posts
+    except Exception as e:
+        print(f"Trump RSS error: {e}")
+        return []
+
+def fetch_finnhub_news(sym, api_key):
+    """Fetch latest news for a stock from Finnhub"""
+    try:
+        # Convert Yahoo Finance ticker to Finnhub format
+        ticker = sym.replace(".ST", "").replace("-", ".").replace("=F", "")
+        if "." in ticker and not ticker.endswith(".L") and not ticker.endswith(".DE"):
+            ticker = ticker.split(".")[0]
+        url = f"https://finnhub.io/api/v1/company-news?symbol={ticker}&from=2026-05-26&to=2026-12-31&token={api_key}"
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=8) as r:
+            data = json.loads(r.read().decode("utf-8"))
+        headlines = [item.get("headline", "") for item in data[:5] if item.get("headline")]
+        return headlines
+    except Exception as e:
+        return []
+
+def analyze_sentiment_claude(texts, context=""):
+    """Use Claude Haiku to analyze sentiment of news texts"""
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    if not api_key or not texts:
+        return None
+    try:
+        combined = "\n".join(texts[:5])
+        payload = json.dumps({
+            "model": "claude-haiku-4-5-20251001",
+            "max_tokens": 100,
+            "messages": [{
+                "role": "user",
+                "content": f"""Analyze sentiment of these news headlines about {context}. 
+Reply with ONLY a JSON object: {{"sentiment": "positive"|"negative"|"neutral", "score": -2 to 2, "summary": "max 10 words"}}
+
+Headlines:
+{combined}"""
+            }]
+        }).encode("utf-8")
+        req = urllib.request.Request(
+            "https://api.anthropic.com/v1/messages",
+            data=payload,
+            headers={
+                "Content-Type": "application/json",
+                "x-api-key": api_key,
+                "anthropic-version": "2023-06-01"
+            }
+        )
+        with urllib.request.urlopen(req, timeout=15) as r:
+            resp = json.loads(r.read().decode("utf-8"))
+        text = resp["content"][0]["text"].strip()
+        # Parse JSON response
+        if "{" in text:
+            text = text[text.find("{"):text.rfind("}")+1]
+        return json.loads(text)
+    except Exception as e:
+        print(f"Claude API error: {e}")
+        return None
+
+def analyze_trump_posts(posts):
+    """Use Claude to identify companies and sentiment in Trump posts"""
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    if not api_key or not posts:
+        return []
+    try:
+        texts = "\n---\n".join([p["text"] for p in posts[:10]])
+        payload = json.dumps({
+            "model": "claude-haiku-4-5-20251001",
+            "max_tokens": 500,
+            "messages": [{
+                "role": "user",
+                "content": f"""Analyze these Trump Truth Social posts. Find any company/stock mentions.
+Reply with ONLY a JSON array (empty [] if no companies found):
+[{{"company": "Company Name", "ticker": "TICKER or null", "sentiment": "positive|negative|neutral", "quote": "relevant quote max 100 chars", "date": "date string"}}]
+
+Posts:
+{texts}"""
+            }]
+        }).encode("utf-8")
+        req = urllib.request.Request(
+            "https://api.anthropic.com/v1/messages",
+            data=payload,
+            headers={
+                "Content-Type": "application/json",
+                "x-api-key": api_key,
+                "anthropic-version": "2023-06-01"
+            }
+        )
+        with urllib.request.urlopen(req, timeout=20) as r:
+            resp = json.loads(r.read().decode("utf-8"))
+        text = resp["content"][0]["text"].strip()
+        if "[" in text:
+            text = text[text.find("["):text.rfind("]")+1]
+        return json.loads(text)
+    except Exception as e:
+        print(f"Trump analysis error: {e}")
+        return []
+
 
 STOCKS = [
     "INVE-B.ST", "ATCO-B.ST", "SWED-A.ST", "SAAB-B.ST", "ERIC-B.ST",
@@ -250,6 +370,18 @@ for sym in STOCKS:
             except:
                 ath = None
 
+        # Fetch news sentiment for this stock
+        finnhub_key = os.environ.get("FINNHUB_API_KEY", "")
+        news_headlines = fetch_finnhub_news(sym, finnhub_key) if finnhub_key else []
+        news_sentiment = None
+        if news_headlines:
+            news_sentiment = analyze_sentiment_claude(news_headlines, sym)
+            time.sleep(0.5)  # Rate limit
+
+        # Adjust signal strength based on news sentiment
+        news_score = news_sentiment.get("score", 0) if news_sentiment else 0
+        adjusted_styrka = max(1, min(10, styrka + news_score))
+
         results[sym] = {
             "price": price, "change": change,
             "rsi": safe(rsi), "ma50": safe(ma50), "ma200": safe(ma200),
@@ -261,16 +393,26 @@ for sym in STOCKS:
             "ath": ath,
             "momentum": momentum,
             "earnings_date": earnings_date,
+            "news_sentiment": news_sentiment.get("sentiment") if news_sentiment else None,
+            "news_summary": news_sentiment.get("summary") if news_sentiment else None,
+            "news_score": news_score,
         }
         print(f"OK {sym}: {price} {signal} (RSI:{rsi} Momentum:{momentum} Earnings:{earnings_date})")
     except Exception as e:
         results[sym] = {"ok": False, "error": str(e)}
         print(f"FAIL {sym}: {e}")
 
+# Fetch and analyze Trump posts
+print("Fetching Trump posts...")
+trump_posts_raw = fetch_trump_posts()
+trump_mentions = analyze_trump_posts(trump_posts_raw) if trump_posts_raw else []
+print(f"Trump mentions found: {len(trump_mentions)}")
+
 output = {
     "updated": (datetime.now(ZoneInfo("Europe/Stockholm"))).strftime("%Y-%m-%d %H:%M svensk tid"),
     "stocks": results,
-    "fear_greed": {"value": fg_value, "classification": fg_class} if fg_value else None
+    "fear_greed": {"value": fg_value, "classification": fg_class} if fg_value else None,
+    "trump_mentions": trump_mentions
 }
 
 with open("data.json", "w") as f:
