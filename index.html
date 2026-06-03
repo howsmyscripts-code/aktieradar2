@@ -1206,7 +1206,7 @@ function buildUI(){
     const list=document.createElement("div");
       list.className="list"+(cat===activeTab?" active":"");
       list.id="list-"+cat;
-      if(cat!=="Favoriter" && cat!=="⚡ SWING"){
+      if(cat!=="Favoriter" && cat!=="⚡ SWING" && cat!=="TrumpPump" && STOCKS[cat]){
         STOCKS[cat].forEach(s=>list.appendChild(buildCard(s)));
       }
       le.appendChild(list);
