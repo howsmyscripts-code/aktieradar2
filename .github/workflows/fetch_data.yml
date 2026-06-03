@@ -44,5 +44,6 @@ jobs:
             echo "No changes to data.json"
           else
             git commit -m "Update stock data $(date '+%Y-%m-%d %H:%M')"
+            git pull --rebase origin main
             git push
           fi
