@@ -57,6 +57,8 @@ def fetch_trump_posts():
                     "headline": headline
                 })
         print(f"Trump news found via Finnhub: {len(trump_news)}")
+        for n in trump_news[:10]:
+            print(f"  - {n['headline'][:80]}")
         return trump_news[:10]
     except Exception as e:
         print(f"Trump Finnhub error: {e}")
@@ -159,7 +161,7 @@ Posts:
 
 STOCKS = [
     "INVE-B.ST", "ATCO-B.ST", "SWED-A.ST", "SAAB-B.ST", "ERIC-B.ST",
-    "VOLV-B.ST", "KINV-B.ST", "HM-B.ST", "SEB-A.ST", "TEL2-B.ST", "BEAMMW-B.ST", "NANEXA.ST",
+    "VOLV-B.ST", "KINV-B.ST", "HM-B.ST", "SEB-A.ST", "TEL2-B.ST", "BEAMMW-B.ST", "NANEXA.ST", "INDU-C.ST",
     "ASML", "SAP", "NVO", "LVMUY", "SHEL", "SIEGY", "NSRGY", "EADSY", "AZN", "RELX", "BAESY",
     "NVDA", "AAPL", "MSFT", "AMZN", "GOOGL", "META", "TSLA", "JPM", "BRK-B", "LLY",
     "BABA", "TCEHY", "PDD", "BYDDF", "JD",
