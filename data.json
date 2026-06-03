@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-03 05:09 svensk tid",
+  "updated": "2026-06-03 06:02 svensk tid",
   "stocks": {
     "INVE-B.ST": {
       "price": 382.6,
@@ -18,7 +18,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "General market movement report, no specific sentiment indicators",
+      "news_summary": "General market movement report, no specific sentiment indicated",
       "news_score": 0
     },
     "ATCO-B.ST": {
@@ -257,9 +257,9 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "neutral",
-      "news_summary": "Mixed signals: AI spending positive, geopolitical uncertainty, competitive limits noted",
-      "news_score": 0
+      "news_sentiment": "positive",
+      "news_summary": "AI growth and expansion opportunities outweigh competitive concerns",
+      "news_score": 1
     },
     "SAP": {
       "price": 190.82,
@@ -278,7 +278,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "SAP strong fundamentals offset by competitive AI pricing pressures",
+      "news_summary": "Mixed signals: SAP strong fundamentals, but Workday competition looms",
       "news_score": 0
     },
     "NVO": {
@@ -298,21 +298,21 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "Mixed outlook with some positive momentum in GLP-1 space",
+      "news_summary": "Mixed outlook with NVO showing strong GLP-1 momentum despite sector headwinds",
       "news_score": 1
     },
     "LVMUY": {
-      "price": 110.51,
-      "change": 1.18,
-      "rsi": 59.5,
+      "price": 110.48,
+      "change": 1.15,
+      "rsi": 59.4,
       "ma50": 108.58,
       "ma200": 124.86,
-      "macd": 0.457,
-      "bollinger": 0.66,
+      "macd": 0.454,
+      "bollinger": 0.65,
       "w52": 0.2,
       "trend": 0.55,
-      "signal": "SALJ",
-      "styrka": 4,
+      "signal": "HALL",
+      "styrka": 5,
       "ok": true,
       "ath": null,
       "momentum": null,
@@ -338,16 +338,16 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "negative",
-      "news_summary": "Portfolio optimization offset by rising risks and downgrade",
+      "news_summary": "Portfolio optimization offset by rising risks and downgrade.",
       "news_score": -1
     },
     "SIEGY": {
-      "price": 161.78,
+      "price": 161.79,
       "change": 1.88,
-      "rsi": 56.0,
+      "rsi": 56.1,
       "ma50": 143.11,
       "ma200": 140.23,
-      "macd": 4.014,
+      "macd": 4.015,
       "bollinger": 0.93,
       "w52": 1.0,
       "trend": 0.65,
@@ -358,16 +358,16 @@
       "momentum": "MOMENTUM_UP",
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "AI capabilities and market specialization create growth opportunities",
+      "news_summary": "AI and IoT growth opportunities position Fluence Energy favorably",
       "news_score": 1
     },
     "NSRGY": {
-      "price": 98.55,
-      "change": 0.13,
-      "rsi": 48.9,
+      "price": 98.59,
+      "change": 0.17,
+      "rsi": 49.0,
       "ma50": 97.9,
       "ma200": 94.62,
-      "macd": 0.438,
+      "macd": 0.441,
       "bollinger": 0.26,
       "w52": 0.71,
       "trend": 0.55,
@@ -378,18 +378,18 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Company presentation at industry conference, no performance implications",
+      "news_summary": "Company presents at industry conference, factual announcement only",
       "news_score": 0
     },
     "EADSY": {
-      "price": 50.04,
-      "change": -0.56,
-      "rsi": 47.5,
+      "price": 50.01,
+      "change": -0.62,
+      "rsi": 47.3,
       "ma50": 49.52,
       "ma200": 54.37,
-      "macd": 0.093,
+      "macd": 0.091,
       "bollinger": 0.39,
-      "w52": 0.31,
+      "w52": 0.3,
       "trend": 0.5,
       "signal": "SALJ",
       "styrka": 4,
@@ -398,7 +398,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "Strategic partnerships and growth opportunities, mispricing suggests upside potential",
+      "news_summary": "Airbus partnership deals; AerCap undervalued; space stock potential",
       "news_score": 1
     },
     "AZN": {
@@ -418,7 +418,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "AZN presents trial results, shows encouraging survival trends",
+      "news_summary": "AstraZeneca presents trial results, shows encouraging survival trends",
       "news_score": 1.5
     },
     "RELX": {
@@ -438,16 +438,16 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Executive personnel change at Youlife Group, no RELX mention.",
+      "news_summary": "Leadership change announcement at Youlife Group",
       "news_score": 0
     },
     "BAESY": {
-      "price": 102.82,
-      "change": -0.9,
-      "rsi": 46.9,
+      "price": 102.73,
+      "change": -0.98,
+      "rsi": 46.8,
       "ma50": 111.53,
       "ma200": 104.3,
-      "macd": -1.7,
+      "macd": -1.707,
       "bollinger": 0.31,
       "w52": 0.48,
       "trend": 0.5,
@@ -478,7 +478,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Mixed signals; competition mentioned but no direct NVDA news",
+      "news_summary": "NVIDIA expansion news mixed with competitive AMD platform challenge",
       "news_score": 0
     },
     "AAPL": {
@@ -498,7 +498,7 @@
       "momentum": "MOMENTUM_UP",
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Mixed signals: Apple AI features debut balanced against AI stock caution",
+      "news_summary": "Mixed AAPL signals: services growth positive, AI concerns present",
       "news_score": 0
     },
     "MSFT": {
@@ -517,9 +517,9 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "positive",
-      "news_summary": "MSFT undervalued; strong tech gains; market records hit",
-      "news_score": 1.5
+      "news_sentiment": "neutral",
+      "news_summary": "Mixed MSFT mentions amid broader market and competitor news",
+      "news_score": 0
     },
     "AMZN": {
       "price": 256.52,
@@ -538,7 +538,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "Amazon Prime Day groceries expansion shows growth initiative",
+      "news_summary": "Amazon expands grocery services; mixed market conditions present opportunities",
       "news_score": 1
     },
     "GOOGL": {
@@ -557,9 +557,9 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "positive",
-      "news_summary": "Google AI investment and strong tech sector performance signals confidence",
-      "news_score": 1
+      "news_sentiment": "neutral",
+      "news_summary": "Mixed signals: GOOGL fell, tests support; tariffs and IPO news",
+      "news_score": -0.4
     },
     "META": {
       "price": 597.63,
@@ -578,7 +578,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "negative",
-      "news_summary": "Meta faces employee backlash, privacy concerns, and corporate messaging issues",
+      "news_summary": "Mixed META news with employee backlash and privacy concerns dominating",
       "news_score": -1
     },
     "TSLA": {
@@ -597,9 +597,9 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "neutral",
-      "news_summary": "Mixed headlines with indirect Tesla references, no clear direction",
-      "news_score": 0
+      "news_sentiment": "positive",
+      "news_summary": "Tesla positioned favorably; mixed SpaceX IPO context neutral",
+      "news_score": 1
     },
     "JPM": {
       "price": 300.96,
@@ -617,9 +617,9 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "positive",
-      "news_summary": "JPM outperforms market, explores expansion and major deals",
-      "news_score": 1
+      "news_sentiment": "neutral",
+      "news_summary": "Mixed market news; JPM slightly outperforms without major catalysts",
+      "news_score": 0
     },
     "BRK-B": {
       "price": 471.51,
@@ -638,7 +638,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Mixed signals: Berkshire gains Google exposure, but market headwinds and AI spending concerns",
+      "news_summary": "Mixed market signals; Berkshire finally gains Google exposure positively",
       "news_score": 0
     },
     "LLY": {
@@ -658,7 +658,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "Mixed signals: strong pipeline progress offset by competitive threats",
+      "news_summary": "LLY advances in oncology, weight loss drugs gain coverage expansion",
       "news_score": 1
     },
     "BABA": {
@@ -678,27 +678,27 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Mixed signals: BABA mentioned amid market movements, no clear direction",
+      "news_summary": "Mixed BABA mentions with no clear directional bias",
       "news_score": 0
     },
     "TCEHY": {
-      "price": 60.27,
-      "change": 8.99,
-      "rsi": 57.9,
+      "price": 60.33,
+      "change": 9.1,
+      "rsi": 58.0,
       "ma50": 60.63,
       "ma200": 72.6,
-      "macd": -1.335,
-      "bollinger": 0.83,
+      "macd": -1.33,
+      "bollinger": 0.84,
       "w52": 0.18,
       "trend": 0.35,
       "signal": "SALJ",
-      "styrka": 2,
+      "styrka": 3,
       "ok": true,
       "ath": null,
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "negative",
-      "news_summary": "Mixed signals: regulatory pressures offset by strengthening bull case",
+      "news_summary": "Mixed outlook: regulatory headwinds offset by valuation opportunity",
       "news_score": -1
     },
     "PDD": {
@@ -717,29 +717,29 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "neutral",
-      "news_summary": "Mixed outlook: optimistic analyst views offset by recent China tech concerns",
+      "news_sentiment": "mixed",
+      "news_summary": "Optimistic analyst views offset by China AI concerns, recent plunge",
       "news_score": 0
     },
     "BYDDF": {
-      "price": 12.22,
-      "change": 4.0,
-      "rsi": 39.6,
+      "price": 12.23,
+      "change": 4.09,
+      "rsi": 39.9,
       "ma50": 13.01,
       "ma200": 13.0,
-      "macd": -0.377,
+      "macd": -0.376,
       "bollinger": 0.49,
       "w52": 0.14,
       "trend": 0.45,
       "signal": "KOP",
-      "styrka": 9,
+      "styrka": 10,
       "ok": true,
       "ath": null,
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "BYD surges overseas; Tesla faces headwinds; EV competition intensifies globally",
-      "news_score": 1.5
+      "news_summary": "BYD surges overseas; Tesla faces headwinds; industry shifts",
+      "news_score": 1
     },
     "JD": {
       "price": 30.15,
@@ -758,7 +758,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "negative",
-      "news_summary": "Mixed signals; regulatory probe overshadows positive analyst views",
+      "news_summary": "Mixed signals: strong buy thesis offset by regulatory probe concerns",
       "news_score": -1
     },
     "TSM": {
@@ -778,7 +778,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Mixed signals: pricing pressures offset by strong positioning opportunities",
+      "news_summary": "Mixed signals: TSMC gains from GPU competition, but pricing pressures noted",
       "news_score": 0
     },
     "CAMT": {
@@ -791,14 +791,14 @@
       "bollinger": 0.67,
       "w52": 0.86,
       "trend": 0.55,
-      "signal": "HALL",
-      "styrka": 6,
+      "signal": "KOP",
+      "styrka": 7,
       "ok": true,
       "ath": null,
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "HPE strong earnings, tech stocks moving higher",
+      "news_summary": "HPE strong earnings boost tech stocks higher Tuesday",
       "news_score": 1
     },
     "TM": {
@@ -818,7 +818,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Mixed signals: sales decline offset by expansion plans, partnerships",
+      "news_summary": "Mixed signals: growth initiatives offset by sales decline trend",
       "news_score": 0
     },
     "SONY": {
@@ -838,7 +838,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "Sony showcasing solutions, studios cutting costs, profit growth",
+      "news_summary": "Sony showcasing solutions; studios cutting costs, boosting profits",
       "news_score": 1
     },
     "NTDOY": {
@@ -858,7 +858,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "General investment guidance, no NTDOY-specific information",
+      "news_summary": "General investment guidance about Japanese stocks",
       "news_score": 0
     },
     "FANUY": {
@@ -898,7 +898,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "Strong earnings, proactive risk management, technology innovation",
+      "news_summary": "Strong earnings, proactive risk management, AI adoption for security",
       "news_score": 1
     },
     "005930.KS": {
@@ -962,14 +962,14 @@
       "news_score": 0
     },
     "CL=F": {
-      "price": 94.71,
-      "change": 2.77,
-      "rsi": 40.3,
-      "ma50": 97.71,
+      "price": 93.76,
+      "change": 1.74,
+      "rsi": 38.8,
+      "ma50": 97.69,
       "ma200": 72.34,
-      "macd": -1.656,
-      "bollinger": 0.38,
-      "w52": 0.68,
+      "macd": -1.731,
+      "bollinger": 0.35,
+      "w52": 0.67,
       "trend": 0.5,
       "signal": "HALL",
       "styrka": 6,
@@ -978,18 +978,18 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Mixed market news with geopolitical tensions and stock analysis",
+      "news_summary": "Mixed market signals with geopolitical tensions and trading opportunities",
       "news_score": 0
     },
     "GC=F": {
-      "price": 4508.9,
-      "change": 0.75,
-      "rsi": 35.2,
-      "ma50": 4626.53,
-      "ma200": 4382.3,
-      "macd": -51.577,
-      "bollinger": 0.3,
-      "w52": 0.6,
+      "price": 4489.1,
+      "change": 0.31,
+      "rsi": 32.8,
+      "ma50": 4626.13,
+      "ma200": 4382.2,
+      "macd": -53.156,
+      "bollinger": 0.25,
+      "w52": 0.59,
       "trend": 0.5,
       "signal": "KOP",
       "styrka": 8,
@@ -1002,14 +1002,14 @@
       "news_score": 0
     },
     "SI=F": {
-      "price": 75.14,
-      "change": 0.18,
-      "rsi": 29.1,
+      "price": 75.31,
+      "change": 0.41,
+      "rsi": 29.6,
       "ma50": 76.02,
       "ma200": 65.98,
-      "macd": -0.655,
-      "bollinger": 0.32,
-      "w52": 0.5,
+      "macd": -0.641,
+      "bollinger": 0.33,
+      "w52": 0.51,
       "trend": 0.55,
       "signal": "KOP",
       "styrka": 8,
@@ -1022,14 +1022,14 @@
       "news_score": 0
     },
     "BTC-USD": {
-      "price": 66444.05,
-      "change": -6.84,
-      "rsi": 18.3,
-      "ma50": 77081.77,
-      "ma200": 79240.93,
-      "macd": -1896.309,
+      "price": 66056.03,
+      "change": -7.38,
+      "rsi": 17.8,
+      "ma50": 77074.01,
+      "ma200": 79238.99,
+      "macd": -1927.262,
       "bollinger": 0,
-      "w52": 0.06,
+      "w52": 0.05,
       "trend": 0.35,
       "signal": "KOP",
       "styrka": 9,
@@ -1038,18 +1038,18 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Mixed signals: geopolitical tensions offset by infrastructure adoption gains",
+      "news_summary": "Mixed signals: price action flat, geopolitical uncertainty, infrastructure adoption",
       "news_score": 0
     },
     "ETH-USD": {
-      "price": 1849.34,
-      "change": -7.68,
-      "rsi": 21.5,
-      "ma50": 2227.4,
-      "ma200": 2484.99,
-      "macd": -78.509,
+      "price": 1834.35,
+      "change": -8.43,
+      "rsi": 20.8,
+      "ma50": 2227.1,
+      "ma200": 2484.92,
+      "macd": -79.705,
       "bollinger": 0,
-      "w52": 0.01,
+      "w52": 0.0,
       "trend": 0.4,
       "signal": "KOP",
       "styrka": 8,
@@ -1058,7 +1058,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Mixed signals: infrastructure adoption positive, yield concerns negative",
+      "news_summary": "Mixed signals: infrastructure growth offset by yield concerns",
       "news_score": 0
     },
     "CSPX.L": {
@@ -1178,7 +1178,7 @@
       "momentum": "MOMENTUM_UP",
       "earnings_date": null,
       "news_sentiment": "mixed",
-      "news_summary": "AI optimism tempered by market crash concerns and criticism",
+      "news_summary": "AI optimism offset by market crash concerns and criticism",
       "news_score": 0
     },
     "DFNS.L": {
@@ -1238,7 +1238,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Informational outlook report, no directional bias evident",
+      "news_summary": "Informational outlook report without directional bias",
       "news_score": 0
     },
     "IQQH.DE": {
