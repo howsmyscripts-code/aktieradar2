@@ -5,7 +5,6 @@ import urllib.error
 import math
 import time
 import os
-import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from zoneinfo import ZoneInfo
 
@@ -36,23 +35,31 @@ def fear_greed_signal(value):
 # ── Trump RSS & News Analysis ────────────────────────────────
 
 def fetch_trump_posts():
-    """Fetch latest Trump posts from Truth Social RSS"""
+    """Fetch latest Trump-related news from Finnhub"""
     try:
-        url = "https://truthsocial.com/@realDonaldTrump.rss"
+        api_key = os.environ.get("FINNHUB_API_KEY", "")
+        if not api_key:
+            return []
+        url = f"https://finnhub.io/api/v1/news?category=general&token={api_key}"
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=10) as r:
-            xml = r.read().decode("utf-8")
-        root = ET.fromstring(xml)
-        posts = []
-        for item in root.findall(".//item")[:10]:  # Last 10 posts
-            title = item.findtext("title", "")
-            desc = item.findtext("description", "")
-            pubdate = item.findtext("pubDate", "")
-            text = (title + " " + desc).strip()
-            posts.append({"text": text, "date": pubdate})
-        return posts
+            data = json.loads(r.read().decode("utf-8"))
+        # Filter for Trump-related news
+        trump_news = []
+        for item in data[:50]:
+            headline = item.get("headline", "")
+            summary = item.get("summary", "")
+            text = headline + " " + summary
+            if "trump" in text.lower():
+                trump_news.append({
+                    "text": text,
+                    "date": item.get("datetime", ""),
+                    "headline": headline
+                })
+        print(f"Trump news found via Finnhub: {len(trump_news)}")
+        return trump_news[:10]
     except Exception as e:
-        print(f"Trump RSS error: {e}")
+        print(f"Trump Finnhub error: {e}")
         return []
 
 def fetch_finnhub_news(sym, api_key):
