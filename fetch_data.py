@@ -64,6 +64,24 @@ def fetch_trump_posts():
         print(f"Trump Finnhub error: {e}")
         return []
 
+
+def fetch_yfinance_news(sym):
+    """Fetch latest news for a stock via yfinance"""
+    try:
+        ticker = yf.Ticker(sym)
+        news = ticker.news or []
+        headlines = []
+        for item in news[:5]:
+            content = item.get("content", {})
+            title = content.get("title", "") if isinstance(content, dict) else ""
+            if not title:
+                title = item.get("title", "")
+            if title:
+                headlines.append(title)
+        return headlines
+    except Exception as e:
+        return []
+
 def fetch_finnhub_news(sym, api_key):
     """Fetch latest news for a stock from Finnhub"""
     try:
@@ -379,13 +397,17 @@ for sym in STOCKS:
             except:
                 ath = None
 
-        # Fetch news sentiment for this stock
+        # Fetch news from multiple sources and combine
         finnhub_key = os.environ.get("FINNHUB_API_KEY", "")
-        news_headlines = fetch_finnhub_news(sym, finnhub_key) if finnhub_key else []
+        finnhub_headlines = fetch_finnhub_news(sym, finnhub_key) if finnhub_key else []
+        yfinance_headlines = fetch_yfinance_news(sym)
+        # Combine and deduplicate
+        all_headlines = list(dict.fromkeys(finnhub_headlines + yfinance_headlines))[:8]
         news_sentiment = None
-        if news_headlines:
-            news_sentiment = analyze_sentiment_claude(news_headlines, sym)
+        if all_headlines:
+            news_sentiment = analyze_sentiment_claude(all_headlines, sym)
             time.sleep(0.5)  # Rate limit
+        news_headlines = all_headlines
 
         # Adjust signal strength based on news sentiment
         news_score = news_sentiment.get("score", 0) if news_sentiment else 0
