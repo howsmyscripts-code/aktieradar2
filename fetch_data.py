@@ -65,20 +65,53 @@ def fetch_trump_posts():
         return []
 
 
+
+def fetch_article_text(url, max_chars=1500):
+    """Try to fetch and extract text from a news article URL"""
+    try:
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+            "Accept": "text/html,application/xhtml+xml",
+            "Accept-Language": "en-US,en;q=0.9",
+        })
+        with urllib.request.urlopen(req, timeout=8) as r:
+            html = r.read().decode("utf-8", errors="ignore")
+        # Remove scripts, styles, tags
+        import re
+        html = re.sub(r"<script[^>]*>.*?</script>", "", html, flags=re.DOTALL)
+        html = re.sub(r"<style[^>]*>.*?</style>", "", html, flags=re.DOTALL)
+        html = re.sub(r"<[^>]+>", " ", html)
+        html = re.sub(r"\s+", " ", html).strip()
+        # Return first meaningful chunk
+        return html[:max_chars] if len(html) > 100 else None
+    except Exception:
+        return None
+
 def fetch_yfinance_news(sym):
-    """Fetch latest news for a stock via yfinance"""
+    """Fetch latest news for a stock via yfinance, including article text"""
     try:
         ticker = yf.Ticker(sym)
         news = ticker.news or []
-        headlines = []
+        articles = []
         for item in news[:5]:
             content = item.get("content", {})
             title = content.get("title", "") if isinstance(content, dict) else ""
             if not title:
                 title = item.get("title", "")
+            url = content.get("canonicalUrl", {}).get("url", "") if isinstance(content, dict) else ""
+            if not url:
+                url = item.get("link", "")
             if title:
-                headlines.append(title)
-        return headlines
+                # Try to fetch article text
+                text = None
+                if url and "yahoo" in url.lower():
+                    text = fetch_article_text(url)
+                # Use full text if available, else just title
+                if text:
+                    articles.append(f"{title}. {text[:500]}")
+                else:
+                    articles.append(title)
+        return articles
     except Exception as e:
         return []
 
@@ -104,14 +137,29 @@ def analyze_sentiment_claude(texts, context=""):
     if not api_key or not texts:
         return None
     try:
-        combined = "\n".join(texts[:5])
+        combined = "\n".join(texts[:8])
         payload = json.dumps({
             "model": "claude-haiku-4-5-20251001",
-            "max_tokens": 100,
+            "max_tokens": 150,
             "messages": [{
                 "role": "user",
-                "content": f"""Analyze sentiment of these news headlines about {context}. 
-Reply with ONLY a JSON object: {{"sentiment": "positive"|"negative"|"neutral", "score": -2 to 2, "summary": "max 10 words"}}
+                "content": f"""You are a stock market analyst. Analyze these news headlines about {context} and assess the SHORT-TERM (1-5 day) price impact.
+
+Focus on:
+- Earnings beats/misses, revenue surprises
+- Major contracts, partnerships, or customer wins/losses
+- Regulatory approvals or rejections
+- Executive changes (positive or negative)
+- Analyst upgrades/downgrades with price targets
+- Macroeconomic factors directly affecting this stock
+- Sector-wide selloffs vs company-specific news
+
+IGNORE: generic market commentary, unrelated sector news, vague mentions.
+
+Reply with ONLY a JSON object:
+{{"sentiment": "positive"|"negative"|"neutral", "score": -2 to 2, "summary": "max 12 words", "catalyst": "main price driver or none"}}
+
+Score guide: 2=strong buy catalyst, 1=mild positive, 0=neutral/noise, -1=mild negative, -2=strong sell catalyst
 
 Headlines:
 {combined}"""
