@@ -235,7 +235,7 @@ STOCKS = [
     "TM", "SONY", "NTDOY", "FANUY", "MUFG",
     "005930.KS", "005380.KS", "000660.KS",
     "CL=F", "GC=F", "SI=F", "BTC-USD", "ETH-USD",
-    "CSPX.L", "EQQQ.DE", "JEDI.L", "XACT-OMXS30.ST", "XACTHDIV.ST", "SMH", "DFNS.L", "VWRL.L", "IEMG", "IQQH.DE", "IGLN.L",
+    "CSPX.L", "EQQQ.DE", "JEDI.L", "XACT-OMXS30.ST", "XACTHDIV.ST", "SMH.DE", "DFNS.L", "VWRL.L", "IEMG", "IQQH.DE", "IGLN.L",
 ]
 
 def calc_rsi(closes, period=14):
@@ -306,28 +306,24 @@ def calc_volume_signal(volumes, closes):
 
 def calc_momentum_override(rsi, trend, w52_pos, bollinger):
     """Detect strong momentum that should override oversold/overbought signals"""
-    # Strong upward momentum: high trend + high 52w + high bollinger
     if (trend is not None and trend >= 0.65 and
         w52_pos is not None and w52_pos >= 0.85 and
         bollinger is not None and bollinger >= 0.85):
-        return "MOMENTUM_UP"  # Like ERIC B — ignore overbought RSI
+        return "MOMENTUM_UP"
     return None
 
 def compute_signal(rsi, ma50, ma200, change, macd=None, macd_signal=None,
                    bollinger=None, w52_pos=None, trend=None, vol_signal=0):
     score = 5.0
 
-    # Check for momentum override
     momentum = calc_momentum_override(rsi, trend, w52_pos, bollinger)
 
-    # 1. RSI — but soften if strong momentum
     if rsi is not None:
         if momentum == "MOMENTUM_UP":
-            # In strong uptrend, RSI overbought is less bearish
             if rsi < 35: score += 2
             elif rsi < 45: score += 1
-            elif rsi > 85: score -= 1   # Reduced penalty
-            elif rsi > 70: score -= 0.5 # Reduced penalty
+            elif rsi > 85: score -= 1
+            elif rsi > 70: score -= 0.5
         else:
             if rsi < 25: score += 3
             elif rsi < 35: score += 2
@@ -336,7 +332,6 @@ def compute_signal(rsi, ma50, ma200, change, macd=None, macd_signal=None,
             elif rsi > 70: score -= 2
             elif rsi > 60: score -= 1
 
-    # 2. MA50 vs MA200
     if ma50 and ma200:
         gap = ((ma50 - ma200) / ma200) * 100
         if gap > 5: score += 2
@@ -344,38 +339,32 @@ def compute_signal(rsi, ma50, ma200, change, macd=None, macd_signal=None,
         elif gap < -5: score -= 2
         else: score -= 1
 
-    # 3. MACD
     if macd is not None and macd_signal is not None:
         if macd > macd_signal and macd > 0: score += 1.5
         elif macd > macd_signal: score += 0.5
         elif macd < macd_signal and macd < 0: score -= 1.5
         elif macd < macd_signal: score -= 0.5
 
-    # 4. Bollinger Bands
     if bollinger is not None:
         if bollinger < 0.2: score += 1.5
         elif bollinger < 0.35: score += 0.5
         elif bollinger > 0.8: score -= 1.5
         elif bollinger > 0.65: score -= 0.5
 
-    # 5. 52-week position
     if w52_pos is not None:
         if w52_pos < 0.15: score += 1.5
         elif w52_pos < 0.3: score += 0.5
         elif w52_pos > 0.85: score -= 1
         elif w52_pos > 0.7: score -= 0.5
 
-    # 6. Trend strength
     if trend is not None:
         if trend > 0.7: score += 1
         elif trend > 0.6: score += 0.5
         elif trend < 0.3: score -= 1
         elif trend < 0.4: score -= 0.5
 
-    # 7. Volume signal
     score += vol_signal * 0.5
 
-    # 8. Daily change
     if change:
         if change > 4: score += 0.5
         elif change < -4: score -= 0.5
@@ -386,7 +375,6 @@ def compute_signal(rsi, ma50, ma200, change, macd=None, macd_signal=None,
 
 results = {}
 
-# Fetch Fear & Greed Index once
 fg_value, fg_class = fetch_fear_greed()
 fg_adj = fear_greed_signal(fg_value)
 
@@ -425,7 +413,6 @@ for sym in STOCKS:
             trend=trend, vol_signal=vol_signal
         )
 
-        # Apply Fear & Greed for crypto
         if sym in ["BTC-USD", "ETH-USD"] and fg_adj != 0:
             styrka = max(1, min(10, styrka + fg_adj))
             signal = "KOP" if styrka >= 7 else "SALJ" if styrka <= 4 else "HALL"
@@ -434,7 +421,6 @@ for sym in STOCKS:
 
         def safe(v): return None if v is None or (isinstance(v, float) and math.isnan(v)) else v
 
-        # ATH for commodities/crypto
         ath = None
         if sym in ["CL=F", "GC=F", "SI=F", "BTC-USD", "ETH-USD"]:
             try:
@@ -445,19 +431,16 @@ for sym in STOCKS:
             except:
                 ath = None
 
-        # Fetch news from multiple sources and combine
         finnhub_key = os.environ.get("FINNHUB_API_KEY", "")
         finnhub_headlines = fetch_finnhub_news(sym, finnhub_key) if finnhub_key else []
         yfinance_headlines = fetch_yfinance_news(sym)
-        # Combine and deduplicate
         all_headlines = list(dict.fromkeys(finnhub_headlines + yfinance_headlines))[:8]
         news_sentiment = None
         if all_headlines:
             news_sentiment = analyze_sentiment_claude(all_headlines, sym)
-            time.sleep(0.5)  # Rate limit
+            time.sleep(0.5)
         news_headlines = all_headlines
 
-        # Adjust signal strength based on news sentiment
         news_score = news_sentiment.get("score", 0) if news_sentiment else 0
         adjusted_styrka = max(1, min(10, styrka + news_score))
 
@@ -481,7 +464,6 @@ for sym in STOCKS:
         results[sym] = {"ok": False, "error": str(e)}
         print(f"FAIL {sym}: {e}")
 
-# Fetch and analyze Trump posts
 print("Fetching Trump posts...")
 trump_posts_raw = fetch_trump_posts()
 trump_mentions = analyze_trump_posts(trump_posts_raw) if trump_posts_raw else []
