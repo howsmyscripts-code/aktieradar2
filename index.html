@@ -312,7 +312,7 @@ const STOCKS = {
     {sym:"000660.KS",valuta:"USD",display:"000660.KS",namn:"SK Hynix",sektor:"Halvledare",avanza:"https://www.avanza.se/sok/avanzasok.html#q=SK+Hynix",anledningar:["Ledande inom HBM-minne för AI-chips — Nvidias huvudleverantör","Strukturell efterfrågetillväxt drivet av AI-revolution","Stark lönsamhet och investeringar i nästa generation HBM4"],risker:["Minneschipscykeln kan vända vid AI-investeringsbromsning","Geopolitisk risk och exportrestriktioner"]},
     
   ],
-  "ETF":[
+  "ETF/ETC":[
     {sym:"CSPX.L",valuta:"USD",display:"iShares Core S&P 500",namn:"iShares Core S&P 500",sektor:"ETF",avanza:"https://www.avanza.se/fonder/om-fonden.html/322876/ishares-core-s-p-500-ucits-etf",anledningar:["Bred exponering mot USA:s 500 största bolag","Historisk avkastning ~10% per år långsiktigt","Låg avgift 0.07% per år"],risker:["Hög värdering på US-marknaden","Dollarkursrisk för svenska investerare","Koncentrerad mot tech-giganter"]},
     {sym:"EQQQ.DE",valuta:"USD",display:"Invesco Nasdaq-100",namn:"Invesco Nasdaq-100",sektor:"ETF",avanza:"https://www.avanza.se/fonder/om-fonden.html/878823/invesco-eqqq-nasdaq-100-ucits-etf",anledningar:["Exponering mot världens ledande techbolag","AI-boom driver Nasdaq-bolagen","Inkluderar Nvidia, Apple, Microsoft, Meta"],risker:["Hög koncentration mot tech","Hög värdering","Dollarkursrisk"]},
     {sym:"XACT-OMXS30.ST",valuta:"SEK",display:"XACT OMXS30",namn:"XACT OMXS30",sektor:"ETF",avanza:"https://www.avanza.se/fonder/om-fonden.html/86/xact-omxs30",anledningar:["Enkel exponering mot hela Stockholmsbörsen","Låg avgift 0.1% per år","Gynnas av Sverige-USA teknikavtalet"],risker:["Koncentrerad mot banker och industri","Påverkas av kronkursen","Begränsad global diversifiering"]},
@@ -323,7 +323,7 @@ const STOCKS = {
     {sym:"IEMG",valuta:"USD",display:"iShares MSCI Emerging Markets",namn:"iShares MSCI Emerging Markets",sektor:"ETF",avanza:"https://www.avanza.se/fonder/om-fonden.html/325416/ishares-core-msci-em-imi-ucits-etf",anledningar:["Exponering mot Kina, Indien, Brasilien","Låg värdering vs utvecklade marknader","Indiens tillväxt driver ETFen"],risker:["Geopolitisk risk mot Kina","Valutarisker","Högre volatilitet än västerländska marknader"]},
     {sym:"IQQH.DE",valuta:"USD",display:"iShares Global Clean Energy",namn:"iShares Global Clean Energy",sektor:"ETF",avanza:"https://www.avanza.se/fonder/om-fonden.html/325417/ishares-global-clean-energy-ucits-etf",anledningar:["Energiomställning är strukturell megatrend","Inkluderar sol, vind och vätgas-bolag","Gynnas av gröna subventioner globalt"],risker:["Politisk risk — beroende av subventioner","Hög volatilitet","Räntekänslig sektor"]},
     {sym:"JEDI.DE",valuta:"USD",display:"VanEck Space Innovators",namn:"VanEck Space Innovators",sektor:"Rymden",avanza:"https://www.avanza.se/borshandlade-produkter/etf-torg/om-fonden.html/1663153/vaneck-space-innovators-ucits-etf",anledningar:["Ren exponering mot rymdindustrin — satelliter, rymdturism och utforskning","+86% avkastning 2026 hittills — extremt stark trend","Drivs av SpaceX, Starlink och militära satellitprogram"],risker:["Hög volatilitet — rörde sig från $32 till $121 på 52 veckor","Spekulativt tema — rymdbranschen är ej lönsam ännu","0.55% avgift — lite dyrare än breda ETFer"]},
-    {sym:"IGLN.L",valuta:"USD",display:"iShares Physical Gold",namn:"iShares Physical Gold",sektor:"ETF",avanza:"https://www.avanza.se/fonder/om-fonden.html/325418/ishares-physical-gold-etc",anledningar:["Inflationsskydd och safe haven","Extremt Fear & Greed = köpläge","RSI och Bollinger fungerar utmärkt på guld"],risker:["Ingen utdelning","Dollarkursrisk","Faller när riskaptiten ökar"]},
+    {sym:"IGLN.L",valuta:"USD",display:"iShares Physical Gold",namn:"iShares Physical Gold",sektor:"ETF",avanza:"https://www.avanza.se/borshandlade-produkter/certifikat-torg/om-certifikatet.html/1634504/ishares-physical-gold-etc",anledningar:["Inflationsskydd och safe haven","Extremt Fear & Greed = köpläge","RSI och Bollinger fungerar utmärkt på guld"],risker:["Ingen utdelning","Dollarkursrisk","Faller när riskaptiten ökar"]},
   ],
   "Fonder":[
     {sym:null,signal:"KOP",styrka:7,display:"AVANZA ZERO",namn:"Avanza Zero",sektor:"Sverigefond",avanza:"https://www.avanza.se/fonder/om-fonden.html/41567/avanza-zero",anledningar:["0% avgift — helt gratis","Följer OMXS30","Enkel ingångspunkt"],risker:["Koncentrerad till 30 bolag","Ingen global diversifiering"]},
@@ -1061,6 +1061,7 @@ function buildSwingTab(listEl){
           </div>
         </button>
         <div id="swing-exp-${s.sym.replace(/[^a-z0-9]/gi,'_')}" style="display:none;padding:12px 14px;border-top:1px solid var(--border);background:var(--bg2)">
+          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px">${s.namn}</div>
           <div style="font-size:12px;color:var(--text2);margin-bottom:8px">⚡ ${sw.reason}</div>
           <div style="font-size:11px;color:var(--text3);margin-bottom:10px">Styrka ${d.styrka}/10 · RSI ${d.rsi} · BB ${Math.round((d.bollinger||0)*100)}%</div>
           <a href="${s.avanza}" target="_blank" style="display:block;background:#00cc66;color:#000;text-align:center;padding:10px;border-radius:6px;font-size:12px;font-weight:700;font-family:monospace;text-decoration:none">KÖP PÅ AVANZA →</a>
@@ -1091,6 +1092,7 @@ function buildSwingTab(listEl){
           </div>
         </button>
         <div id="swing-exp-${s.sym.replace(/[^a-z0-9]/gi,'_')}" style="display:none;padding:12px 14px;border-top:1px solid var(--border);background:var(--bg2)">
+          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px">${s.namn}</div>
           <div style="font-size:12px;color:var(--text2);margin-bottom:8px">⚡ ${sw.reason}</div>
           <div style="font-size:11px;color:var(--text3);margin-bottom:10px">Styrka ${d.styrka}/10 · RSI ${d.rsi} · BB ${Math.round((d.bollinger||0)*100)}%</div>
           <a href="${s.avanza}" target="_blank" style="display:block;background:#ff4444;color:#fff;text-align:center;padding:10px;border-radius:6px;font-size:12px;font-weight:700;font-family:monospace;text-decoration:none">SÄLJ PÅ AVANZA →</a>
