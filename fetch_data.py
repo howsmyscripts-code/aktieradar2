@@ -238,6 +238,20 @@ STOCKS = [
     "CSPX.L", "EQQQ.DE", "JEDI.DE", "XACT-OMXS30.ST", "XACTHDIV.ST", "SMH.DE", "DFNS.L", "VWRL.L", "IS3N.DE", "IQQH.DE", "IGLN.L",
 ]
 
+# Mappa Xetra/London ETF:er mot amerikanska tickers för nyheter
+NEWS_TICKER_MAP = {
+    "JEDI.DE": "ARKX",    # ARK Space Exploration ETF — samma tema, nyheter finns
+    "SMH.DE":  "SMH",     # VanEck Semiconductor USA — identisk fond
+    "IS3N.DE": "IEMG",    # iShares MSCI EM USA — identisk fond
+    "JEDI.L":  "ARKX",
+    "IGLN.L":  "IAU",     # iShares Gold Trust USA
+    "DFNS.L":  "ITA",     # iShares Defense ETF USA
+    "CSPX.L":  "IVV",     # iShares S&P 500 USA
+    "VWRL.L":  "VT",      # Vanguard Total World USA
+    "IQQH.DE": "ICLN",    # iShares Global Clean Energy USA
+    "EQQQ.DE": "QQQ",     # Invesco Nasdaq-100 USA
+}
+
 def calc_rsi(closes, period=14):
     if len(closes) < period + 1: return None
     gains, losses = 0, 0
@@ -432,8 +446,9 @@ for sym in STOCKS:
                 ath = None
 
         finnhub_key = os.environ.get("FINNHUB_API_KEY", "")
-        finnhub_headlines = fetch_finnhub_news(sym, finnhub_key) if finnhub_key else []
-        yfinance_headlines = fetch_yfinance_news(sym)
+        news_sym = NEWS_TICKER_MAP.get(sym, sym)  # Använd amerikansk tvillingticker om tillgänglig
+        finnhub_headlines = fetch_finnhub_news(news_sym, finnhub_key) if finnhub_key else []
+        yfinance_headlines = fetch_yfinance_news(news_sym)
         all_headlines = list(dict.fromkeys(finnhub_headlines + yfinance_headlines))[:8]
         news_sentiment = None
         if all_headlines:
