@@ -230,10 +230,7 @@ STOCKS = [
     "VOLV-B.ST", "KINV-B.ST", "HM-B.ST", "SEB-A.ST", "TEL2-B.ST", "BEAMMW-B.ST", "NANEXA.ST", "INDU-C.ST",
     "ASML", "SAP", "NVO", "LVMUY", "SHEL", "SIEGY", "NSRGY", "EADSY", "AZN", "RELX", "BAESY",
     "NVDA", "AAPL", "MSFT", "AMZN", "GOOGL", "META", "TSLA", "JPM", "BRK-B", "LLY",
-    "BABA", "TCEHY", "PDD", "BYDDF", "JD",
-    "TSM", "CAMT",
-    "TM", "SONY", "NTDOY", "FANUY", "MUFG",
-    "005930.KS", "005380.KS", "000660.KS",
+    "BYDDF", "TSM",
     "CL=F", "GC=F", "SI=F", "BTC-USD", "ETH-USD",
     "CSPX.L", "EQQQ.DE", "JEDI.DE", "XACT-OMXS30.ST", "XACTHDIV.ST", "SMH.DE", "DFNS.L", "VWRL.L", "IS3N.DE", "IQQH.DE", "IGLN.L",
 ]
