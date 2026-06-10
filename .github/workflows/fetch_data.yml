@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '*/30 7-16 * * 1-5'  # Var 30:e minut 09:00-18:00 svensk tid
     - cron: '20 15 * * 1-5'      # Extra körning kl 17:20 svensk tid (15:20 UTC)
+    - cron: '*/30 16-19 * * 1-5' # Var 30:e minut 18:00-21:30 svensk tid (Nasdaq)
+    - cron: '50 19 * * 1-5'      # Extra körning kl 21:50 svensk tid (nära Nasdaq-stängning)
+    - cron: '15 20 * * 1-5'      # Körning kl 22:15 svensk tid (efter Nasdaq-stängning)
   push:
     branches: [main]
     paths:
