@@ -577,10 +577,13 @@ def build_discord_report(results, fg_value, fg_class, updated):
         print("Discord: ingen webhook URL konfigurerad")
         return
 
-    now_hour = datetime.now(ZoneInfo("Europe/Stockholm")).hour
+    now_sw = datetime.now(ZoneInfo("Europe/Stockholm"))
+    now_hour = now_sw.hour
+    now_minute = now_sw.minute
     is_morning = 9 <= now_hour <= 10
+    is_close_sweden = now_hour == 17 and 15 <= now_minute <= 35
     is_evening = now_hour >= 22
-    is_full_report = is_morning or is_evening
+    is_full_report = is_morning or is_close_sweden or is_evening
 
     prev_signals = {}
     try:
@@ -608,7 +611,7 @@ def build_discord_report(results, fg_value, fg_class, updated):
     embeds = []
 
     if is_full_report:
-        report_type = "Morgonrapport" if is_morning else "Kvallsrapport"
+        report_type = "Morgonrapport" if is_morning else "Svensk borsstangning" if is_close_sweden else "Kvallsrapport"
         embeds.append({
             "title": f"{report_type} - {updated}",
             "color": 0x5865f2,
