@@ -36,15 +36,16 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: python fetch_data.py
 
       - name: Commit and push data
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          git add data.json
+          git add data.json prev_signals.json
           if git diff --staged --quiet; then
-            echo "No changes to data.json"
+            echo "No changes"
           else
             git commit -m "Update stock data $(date '+%Y-%m-%d %H:%M')"
             git push
