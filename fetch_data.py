@@ -70,30 +70,39 @@ def fetch_article_text(url, max_chars=1500):
     """Try to fetch and extract text from a news article URL"""
     try:
         req = urllib.request.Request(url, headers={
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
-            "Accept": "text/html,application/xhtml+xml",
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
             "Accept-Language": "en-US,en;q=0.9",
+            "Accept-Encoding": "gzip, deflate",
+            "Connection": "keep-alive",
         })
-        with urllib.request.urlopen(req, timeout=8) as r:
-            html = r.read().decode("utf-8", errors="ignore")
-        # Remove scripts, styles, tags
+        with urllib.request.urlopen(req, timeout=5) as r:
+            raw = r.read()
+            import gzip as gz
+            try:
+                html = gz.decompress(raw).decode("utf-8", errors="ignore")
+            except Exception:
+                html = raw.decode("utf-8", errors="ignore")
         import re
         html = re.sub(r"<script[^>]*>.*?</script>", "", html, flags=re.DOTALL)
         html = re.sub(r"<style[^>]*>.*?</style>", "", html, flags=re.DOTALL)
+        html = re.sub(r"<nav[^>]*>.*?</nav>", "", html, flags=re.DOTALL)
+        html = re.sub(r"<footer[^>]*>.*?</footer>", "", html, flags=re.DOTALL)
+        html = re.sub(r"<header[^>]*>.*?</header>", "", html, flags=re.DOTALL)
         html = re.sub(r"<[^>]+>", " ", html)
         html = re.sub(r"\s+", " ", html).strip()
-        # Return first meaningful chunk
         return html[:max_chars] if len(html) > 100 else None
     except Exception:
         return None
 
 def fetch_yfinance_news(sym):
     """Fetch latest news for a stock via yfinance, including article text"""
+    skip_scrape = sym.endswith(".ST")
     try:
         ticker = yf.Ticker(sym)
         news = ticker.news or []
         articles = []
-        for item in news[:5]:
+        for item in news[:2]:  # Max 2 artiklar per aktie
             content = item.get("content", {})
             title = content.get("title", "") if isinstance(content, dict) else ""
             if not title:
@@ -102,11 +111,9 @@ def fetch_yfinance_news(sym):
             if not url:
                 url = item.get("link", "")
             if title:
-                # Try to fetch article text
                 text = None
-                if url and "yahoo" in url.lower():
+                if not skip_scrape and url and "yahoo" in url.lower():
                     text = fetch_article_text(url)
-                # Use full text if available, else just title
                 if text:
                     articles.append(f"{title}. {text[:500]}")
                 else:
@@ -116,9 +123,8 @@ def fetch_yfinance_news(sym):
         return []
 
 def fetch_finnhub_news(sym, api_key):
-    """Fetch latest news for a stock from Finnhub"""
+    """Fetch latest news for a stock from Finnhub, including article text"""
     try:
-        # Convert Yahoo Finance ticker to Finnhub format
         ticker = sym.replace(".ST", "").replace("-", ".").replace("=F", "")
         if "." in ticker and not ticker.endswith(".L") and not ticker.endswith(".DE"):
             ticker = ticker.split(".")[0]
@@ -126,8 +132,23 @@ def fetch_finnhub_news(sym, api_key):
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=8) as r:
             data = json.loads(r.read().decode("utf-8"))
-        headlines = [item.get("headline", "") for item in data[:5] if item.get("headline")]
-        return headlines
+        articles = []
+        for item in data[:2]:  # Max 2 artiklar per aktie
+            headline = item.get("headline", "")
+            article_url = item.get("url", "")
+            summary = item.get("summary", "")
+            if not headline:
+                continue
+            text = None
+            if article_url:
+                text = fetch_article_text(article_url)
+            if text:
+                articles.append(f"{headline}. {text[:500]}")
+            elif summary:
+                articles.append(f"{headline}. {summary[:300]}")
+            else:
+                articles.append(headline)
+        return articles
     except Exception as e:
         return []
 
