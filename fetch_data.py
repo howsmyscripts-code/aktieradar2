@@ -492,3 +492,203 @@ with open("data.json", "w") as f:
     json.dump(output, f, indent=2)
 
 print(f"\nDone: {sum(1 for v in results.values() if v.get('ok'))} / {len(results)} succeeded")
+
+# ── Discord Notifikationer ────────────────────────────────────────────────────
+
+DISPLAY_NAMES = {
+    "INVE-B.ST": "Investor B", "ATCO-B.ST": "Atlas Copco B", "SWED-A.ST": "Swedbank A",
+    "SAAB-B.ST": "Saab B", "ERIC-B.ST": "Ericsson B", "VOLV-B.ST": "Volvo B",
+    "KINV-B.ST": "Kinnevik B", "HM-B.ST": "H&M B", "SEB-A.ST": "SEB A",
+    "TEL2-B.ST": "Tele2 B", "BEAMMW-B.ST": "BeammWave B", "NANEXA.ST": "Nanexa",
+    "INDU-C.ST": "Industrivarden C", "ASML": "ASML", "SAP": "SAP", "NVO": "Novo Nordisk",
+    "LVMUY": "LVMH", "SHEL": "Shell", "SIEGY": "Siemens", "NSRGY": "Nestle",
+    "EADSY": "Airbus", "AZN": "AstraZeneca", "RELX": "RELX", "BAESY": "BAE Systems",
+    "NVDA": "Nvidia", "AAPL": "Apple", "MSFT": "Microsoft", "AMZN": "Amazon",
+    "GOOGL": "Alphabet", "META": "Meta", "TSLA": "Tesla", "JPM": "JPMorgan",
+    "BRK-B": "Berkshire B", "LLY": "Eli Lilly", "BYDDF": "BYD", "TSM": "TSMC",
+    "CL=F": "Olja (WTI)", "GC=F": "Guld", "SI=F": "Silver",
+    "BTC-USD": "Bitcoin", "ETH-USD": "Ethereum",
+    "CSPX.L": "iShares Core S&P 500", "EQQQ.DE": "Invesco Nasdaq-100",
+    "JEDI.DE": "VanEck Space Innovators", "XACT-OMXS30.ST": "XACT OMXS30",
+    "XACTHDIV.ST": "XACT Nordic High Dividend", "SMH.DE": "VanEck Semiconductor",
+    "DFNS.L": "HANetf Future of Defence", "VWRL.L": "Vanguard FTSE All-World",
+    "IS3N.DE": "iShares Core MSCI EM IMI", "IQQH.DE": "iShares Global Clean Energy",
+    "IGLN.L": "iShares Physical Gold",
+}
+
+INNEHAV = {
+    "JEDI.DE":     {"antal": 3,  "kurs": 88.74,  "valuta": "EUR"},
+    "XACTHDIV.ST": {"antal": 18, "kurs": 163.14, "valuta": "SEK"},
+    "SAAB-B.ST":   {"antal": 4,  "kurs": 541.0,  "valuta": "SEK"},
+    "INVE-B.ST":   {"antal": 28, "kurs": 366.0,  "valuta": "SEK"},
+    "BEAMMW-B.ST": {"antal": 53, "kurs": 18.57,  "valuta": "SEK"},
+}
+
+BEVAKADE_ETFER = ["JEDI.DE", "SMH.DE", "IS3N.DE"]
+
+def send_discord(webhook_url, embeds):
+    try:
+        payload = json.dumps({"embeds": embeds}).encode("utf-8")
+        req = urllib.request.Request(
+            webhook_url,
+            data=payload,
+            headers={"Content-Type": "application/json"},
+            method="POST"
+        )
+        with urllib.request.urlopen(req, timeout=10) as r:
+            print(f"Discord: skickat OK ({r.status})")
+    except Exception as e:
+        print(f"Discord fel: {e}")
+
+def format_signal(signal, styrka):
+    if signal == "KOP":  return f"KOP {styrka}/10"
+    if signal == "SALJ": return f"SALJ {styrka}/10"
+    return f"HALL {styrka}/10"
+
+def signal_color(signal):
+    if signal == "KOP":  return 0x23a559
+    if signal == "SALJ": return 0xf23f43
+    return 0xf0b132
+
+def build_discord_report(results, fg_value, fg_class, updated):
+    webhook_url = os.environ.get("DISCORD_WEBHOOK", "")
+    if not webhook_url:
+        print("Discord: ingen webhook URL konfigurerad")
+        return
+
+    now_hour = datetime.now(ZoneInfo("Europe/Stockholm")).hour
+    is_morning = 9 <= now_hour <= 10
+    is_evening = now_hour >= 22
+    is_full_report = is_morning or is_evening
+
+    prev_signals = {}
+    try:
+        with open("prev_signals.json", "r") as f:
+            prev_signals = json.load(f)
+    except:
+        pass
+
+    changes = []
+    for sym, d in results.items():
+        if not d.get("ok"): continue
+        prev = prev_signals.get(sym, {})
+        if prev.get("signal") and prev["signal"] != d["signal"]:
+            changes.append({
+                "sym": sym, "namn": DISPLAY_NAMES.get(sym, sym),
+                "from_sig": prev["signal"], "to_sig": d["signal"],
+                "styrka": d["styrka"], "rsi": d["rsi"], "price": d["price"],
+            })
+
+    new_signals = {sym: {"signal": d["signal"], "styrka": d["styrka"]}
+                   for sym, d in results.items() if d.get("ok")}
+    with open("prev_signals.json", "w") as f:
+        json.dump(new_signals, f)
+
+    embeds = []
+
+    if is_full_report:
+        report_type = "Morgonrapport" if is_morning else "Kvallsrapport"
+        embeds.append({
+            "title": f"{report_type} - {updated}",
+            "color": 0x5865f2,
+            "fields": [
+                {"name": "Fear & Greed", "value": f"{fg_value} - {fg_class}", "inline": True},
+                {"name": "Aktier OK", "value": f"{sum(1 for v in results.values() if v.get('ok'))}/{len(results)}", "inline": True},
+            ],
+            "footer": {"text": "AktieRadar - Ej finansiell radgivning"}
+        })
+
+        innehav_fields = []
+        for sym, h in INNEHAV.items():
+            d = results.get(sym, {})
+            if not d.get("ok"): continue
+            pris = d["price"]
+            pl = (pris - h["kurs"]) * h["antal"]
+            pl_pct = ((pris - h["kurs"]) / h["kurs"]) * 100
+            pl_str = f"+{pl:.0f}" if pl >= 0 else f"{pl:.0f}"
+            pct_str = f"+{pl_pct:.1f}%" if pl_pct >= 0 else f"{pl_pct:.1f}%"
+            innehav_fields.append({
+                "name": DISPLAY_NAMES.get(sym, sym),
+                "value": f"{format_signal(d['signal'], d['styrka'])}\n{pris:.2f} {h['valuta']} | {pl_str} ({pct_str})",
+                "inline": True
+            })
+
+        if innehav_fields:
+            embeds.append({
+                "title": "Dina innehav",
+                "color": 0x23a559,
+                "fields": innehav_fields,
+                "footer": {"text": "P/L baserat pa inkopspris"}
+            })
+
+        etf_fields = []
+        for sym in BEVAKADE_ETFER:
+            d = results.get(sym, {})
+            if not d.get("ok"): continue
+            etf_fields.append({
+                "name": DISPLAY_NAMES.get(sym, sym),
+                "value": f"{format_signal(d['signal'], d['styrka'])}\nRSI: {d['rsi']} | {d['price']:.2f} EUR",
+                "inline": True
+            })
+
+        if etf_fields:
+            embeds.append({
+                "title": "Bevakade ETF:er",
+                "color": 0x5865f2,
+                "fields": etf_fields,
+                "footer": {"text": "KOP vid RSI < 38 och styrka >= 7"}
+            })
+
+        kop_list = [(sym, d) for sym, d in results.items()
+                    if d.get("ok") and d["signal"] == "KOP" and sym not in INNEHAV]
+        kop_list.sort(key=lambda x: -x[1]["styrka"])
+        if kop_list:
+            kop_lines = [f"{DISPLAY_NAMES.get(s,s)[:18]:<18} RSI {d['rsi']:.0f}  {d['styrka']}/10"
+                         for s, d in kop_list[:12]]
+            embeds.append({
+                "title": f"KOP-signaler ({len(kop_list)} st)",
+                "color": 0x23a559,
+                "description": "```\n" + "\n".join(kop_lines) + "\n```",
+                "footer": {"text": "Extreme Fear - lagre traffsakerhet" if fg_value and fg_value < 15 else "AktieRadar"}
+            })
+
+        salj_list = [(sym, d) for sym, d in results.items()
+                     if d.get("ok") and d["signal"] == "SALJ" and sym not in INNEHAV]
+        salj_list.sort(key=lambda x: x[1]["styrka"])
+        if salj_list:
+            salj_lines = [f"{DISPLAY_NAMES.get(s,s)[:18]:<18} RSI {d['rsi']:.0f}  {d['styrka']}/10"
+                          for s, d in salj_list[:12]]
+            embeds.append({
+                "title": f"SALJ-signaler ({len(salj_list)} st)",
+                "color": 0xf23f43,
+                "description": "```\n" + "\n".join(salj_lines) + "\n```",
+                "footer": {"text": "AktieRadar - Ej finansiell radgivning"}
+            })
+
+    for change in changes:
+        col = signal_color(change["to_sig"])
+        labels = {"KOP": "KOP", "SALJ": "SALJ", "HALL": "HALL"}
+        is_important = change["sym"] in INNEHAV or change["sym"] in BEVAKADE_ETFER
+        title = f"SIGNAL-ALERT: {change['namn']}" if is_important else f"Signalbyte: {change['namn']}"
+        embeds.append({
+            "title": title,
+            "color": col,
+            "fields": [
+                {"name": "Fran", "value": labels.get(change["from_sig"], change["from_sig"]), "inline": True},
+                {"name": "Till", "value": labels.get(change["to_sig"], change["to_sig"]), "inline": True},
+                {"name": "RSI", "value": str(change["rsi"]), "inline": True},
+                {"name": "Styrka", "value": f"{change['styrka']}/10", "inline": True},
+                {"name": "Pris", "value": f"{change['price']:.2f}", "inline": True},
+            ],
+            "footer": {"text": f"AktieRadar - {updated}"}
+        })
+
+    if not embeds:
+        print("Discord: inga meddelanden att skicka denna korning")
+        return
+
+    for i in range(0, len(embeds), 10):
+        send_discord(webhook_url, embeds[i:i+10])
+        time.sleep(0.5)
+
+build_discord_report(results, fg_value, fg_class, output["updated"])
