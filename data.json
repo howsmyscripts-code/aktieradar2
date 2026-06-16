@@ -1,15 +1,15 @@
 {
-  "updated": "2026-06-17 00:02 svensk tid",
+  "updated": "2026-06-17 00:07 svensk tid",
   "stocks": {
     "INVE-B.ST": {
-      "price": 383.65,
-      "change": 0.21,
-      "rsi": 50.8,
-      "ma50": 373.26,
-      "ma200": 335.02,
-      "macd": 2.641,
-      "bollinger": 0.78,
-      "w52": 0.97,
+      "price": 382.85,
+      "change": 0.99,
+      "rsi": 50.0,
+      "ma50": 372.78,
+      "ma200": 334.55,
+      "macd": 2.469,
+      "bollinger": 0.72,
+      "w52": 0.96,
       "trend": 0.6,
       "signal": "SALJ",
       "styrka": 4,
@@ -18,7 +18,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Generiska marknadskommentarer utan specifik p\u00e5verkan p\u00e5 INVE-B",
+      "news_summary": "Generisk marknadskommentar utan specifik p\u00e5verkan p\u00e5 INVE-B.",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -32,26 +32,26 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "ATCO-B.ST": {
-      "price": 169.55,
-      "change": 2.35,
-      "rsi": 66.9,
-      "ma50": 158.19,
-      "ma200": 149.89,
-      "macd": 2.301,
-      "bollinger": 1,
-      "w52": 1.0,
-      "trend": 0.7,
+      "price": 165.65,
+      "change": 0.88,
+      "rsi": 62.3,
+      "ma50": 157.73,
+      "ma200": 149.7,
+      "macd": 1.756,
+      "bollinger": 0.99,
+      "w52": 0.96,
+      "trend": 0.65,
       "signal": "HALL",
       "styrka": 6,
       "ok": true,
       "ath": null,
       "momentum": "MOMENTUM_UP",
       "earnings_date": null,
-      "news_sentiment": "neutral",
-      "news_summary": "Headlines om Atlas Copco, inte ATCO-B.ST. Inte relevant.",
+      "news_sentiment": null,
+      "news_summary": null,
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -65,17 +65,17 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "SWED-A.ST": {
-      "price": 348.1,
-      "change": 0.67,
-      "rsi": 57.8,
-      "ma50": 331.57,
-      "ma200": 295.19,
-      "macd": 4.038,
-      "bollinger": 0.92,
-      "w52": 1.0,
+      "price": 345.8,
+      "change": -0.6,
+      "rsi": 53.3,
+      "ma50": 331.08,
+      "ma200": 294.69,
+      "macd": 3.617,
+      "bollinger": 0.84,
+      "w52": 0.98,
       "trend": 0.55,
       "signal": "SALJ",
       "styrka": 4,
@@ -84,7 +84,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Generisk marknadskommentar utan specifika katalysatorer",
+      "news_summary": "Generisk marknadskommentar utan konkreta katalysatorer",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -98,26 +98,26 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "SAAB-B.ST": {
-      "price": 505.3,
-      "change": 0.48,
-      "rsi": 40.9,
-      "ma50": 555.87,
-      "ma200": 571.38,
-      "macd": -10.753,
-      "bollinger": 0.12,
-      "w52": 0.19,
+      "price": 502.9,
+      "change": -3.59,
+      "rsi": 39.2,
+      "ma50": 559.0,
+      "ma200": 571.54,
+      "macd": -9.82,
+      "bollinger": 0.06,
+      "w52": 0.18,
       "trend": 0.6,
-      "signal": "HALL",
-      "styrka": 6,
+      "signal": "KOP",
+      "styrka": 8,
       "ok": true,
       "ath": null,
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "Airbus v\u00e4ljer Saab f\u00f6r jaktflygsprogram, stora f\u00f6rsvarskontrakt",
+      "news_summary": "Airbus v\u00e4ljer Saab f\u00f6r framtida jaktflygprogram",
       "news_score": 2,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -131,50 +131,52 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "ERIC-B.ST": {
-      "price": 109.75,
-      "change": -4.19,
-      "rsi": 35.1,
-      "ma50": 114.14,
-      "ma200": 95.92,
-      "macd": -0.576,
-      "bollinger": 0.03,
-      "w52": 0.7,
+      "price": 114.55,
+      "change": -1.76,
+      "rsi": 34.4,
+      "ma50": 114.11,
+      "ma200": 95.74,
+      "macd": 0.03,
+      "bollinger": 0.2,
+      "w52": 0.78,
       "trend": 0.5,
       "signal": "KOP",
-      "styrka": 8,
+      "styrka": 9,
       "ok": true,
       "ath": null,
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "negative",
-      "news_summary": "CEO-byte skapar os\u00e4kerhet; makro neutral f\u00f6r export\u00f6r",
+      "news_summary": "CEO-byte skapar os\u00e4kerhet; konkurrenter v\u00e4xer snabbare",
       "news_score": -1,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
       "volume_signal": 0,
       "divergence": null,
-      "support_resistance": null,
+      "support_resistance": [
+        "STOD_MA50"
+      ],
       "insider_signal": 0,
       "short_interest": null,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "VOLV-B.ST": {
-      "price": 319.4,
-      "change": -0.25,
-      "rsi": 45.8,
-      "ma50": 318.96,
-      "ma200": 292.79,
-      "macd": -0.397,
-      "bollinger": 0.5,
-      "w52": 0.8,
+      "price": 320.2,
+      "change": 1.62,
+      "rsi": 49.7,
+      "ma50": 318.62,
+      "ma200": 292.6,
+      "macd": -0.55,
+      "bollinger": 0.55,
+      "w52": 0.81,
       "trend": 0.6,
       "signal": "HALL",
       "styrka": 6,
@@ -183,7 +185,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "Autonom teknik framsteg utan f\u00f6rare fr\u00e5n Q1 2027",
+      "news_summary": "Autonomous Solutions milestone signalerar teknologisk framsteg och kostnadseffektivitet",
       "news_score": 1,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -199,18 +201,18 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "KINV-B.ST": {
-      "price": 55.96,
-      "change": -0.96,
-      "rsi": 45.5,
-      "ma50": 54.53,
-      "ma200": 70.81,
-      "macd": 0.731,
-      "bollinger": 0.28,
-      "w52": 0.18,
-      "trend": 0.5,
+      "price": 56.5,
+      "change": -2.95,
+      "rsi": 44.7,
+      "ma50": 54.42,
+      "ma200": 70.96,
+      "macd": 0.915,
+      "bollinger": 0.4,
+      "w52": 0.2,
+      "trend": 0.55,
       "signal": "SALJ",
       "styrka": 4,
       "ok": true,
@@ -218,7 +220,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Generiska vinstsamtal utan specifika siffror eller \u00f6verraskningar",
+      "news_summary": "Generiska earnings-samtal utan specifika resultat eller \u00f6verraskningar",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -232,17 +234,17 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "HM-B.ST": {
-      "price": 166.85,
-      "change": -0.89,
-      "rsi": 52.7,
-      "ma50": 166.35,
-      "ma200": 168.6,
-      "macd": 0.668,
-      "bollinger": 0.69,
-      "w52": 0.67,
+      "price": 168.35,
+      "change": -1.69,
+      "rsi": 61.9,
+      "ma50": 166.51,
+      "ma200": 168.44,
+      "macd": 0.695,
+      "bollinger": 0.88,
+      "w52": 0.69,
       "trend": 0.55,
       "signal": "SALJ",
       "styrka": 2,
@@ -251,13 +253,13 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Generisk v\u00e4rderingsanalys och vag tariffkommentar, ingen specifik katalysator",
+      "news_summary": "Generisk v\u00e4rderingsanalys och vag tariffkommentar, ingen konkret p\u00e5verkan",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
       "volume_signal": -1,
-      "divergence": "NEGATIV_DIVERGENS",
+      "divergence": null,
       "support_resistance": [
         "MOTSTAND_MA200",
         "STOD_MA50"
@@ -268,15 +270,15 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "SEB-A.ST": {
-      "price": 192.8,
-      "change": 0.03,
-      "rsi": 61.7,
-      "ma50": 182.62,
-      "ma200": 177.23,
-      "macd": 2.037,
+      "price": 192.75,
+      "change": 2.04,
+      "rsi": 61.8,
+      "ma50": 182.32,
+      "ma200": 177.1,
+      "macd": 1.572,
       "bollinger": 1,
       "w52": 1.0,
       "trend": 0.7,
@@ -287,7 +289,7 @@
       "momentum": "MOMENTUM_UP",
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Generisk portf\u00f6ljdiskussion utan specifika SEB-katalysatorer",
+      "news_summary": "Generisk portf\u00f6ljkommentar utan konkret nyhet",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -301,50 +303,52 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "TEL2-B.ST": {
-      "price": 176.85,
-      "change": -2.0,
-      "rsi": 50.7,
-      "ma50": 181.64,
-      "ma200": 164.76,
-      "macd": -0.225,
-      "bollinger": 0.39,
-      "w52": 0.75,
-      "trend": 0.5,
-      "signal": "KOP",
-      "styrka": 7,
+      "price": 180.45,
+      "change": -3.48,
+      "rsi": 51.8,
+      "ma50": 181.88,
+      "ma200": 164.66,
+      "macd": -0.007,
+      "bollinger": 0.57,
+      "w52": 0.81,
+      "trend": 0.55,
+      "signal": "HALL",
+      "styrka": 6,
       "ok": true,
       "ath": null,
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "Analyst upgrade till Strong Buy \u00e4r mild positiv katalysator",
+      "news_summary": "Analyst rating upgrade till Strong Buy f\u00f6r Tele2",
       "news_score": 1,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
       "volume_signal": 0,
       "divergence": null,
-      "support_resistance": null,
+      "support_resistance": [
+        "MOTSTAND_MA50"
+      ],
       "insider_signal": 0,
       "short_interest": null,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "BEAMMW-B.ST": {
-      "price": 16.26,
-      "change": -0.73,
-      "rsi": 47.2,
-      "ma50": 13.03,
-      "ma200": 9.12,
-      "macd": 0.884,
-      "bollinger": 0.64,
-      "w52": 0.81,
+      "price": 16.38,
+      "change": -0.61,
+      "rsi": 40.1,
+      "ma50": 12.87,
+      "ma200": 9.08,
+      "macd": 0.904,
+      "bollinger": 0.68,
+      "w52": 0.82,
       "trend": 0.5,
       "signal": "HALL",
       "styrka": 5,
@@ -367,18 +371,18 @@
       "is_volatile": true,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "NANEXA.ST": {
-      "price": 4.45,
-      "change": 0.79,
-      "rsi": 67.0,
-      "ma50": 3.89,
-      "ma200": 3.11,
-      "macd": 0.191,
+      "price": 4.41,
+      "change": -1.23,
+      "rsi": 73.1,
+      "ma50": 3.88,
+      "ma200": 3.1,
+      "macd": 0.196,
       "bollinger": 0.7,
-      "w52": 0.86,
-      "trend": 0.8,
+      "w52": 0.85,
+      "trend": 0.75,
       "signal": "HALL",
       "styrka": 6,
       "ok": true,
@@ -386,13 +390,13 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "Moderna-avtal v\u00e4rt upp till 503 milj dollar - stort kontraktsvinst",
+      "news_summary": "Moderna-deal v\u00e4rd $503m \u00e4r stark katalysator f\u00f6r tillv\u00e4xt",
       "news_score": 2,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
       "volume_signal": 0,
-      "divergence": "NEGATIV_DIVERGENS",
+      "divergence": null,
       "support_resistance": null,
       "insider_signal": 0,
       "short_interest": null,
@@ -400,32 +404,32 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "INDU-C.ST": {
-      "price": 505.2,
-      "change": -0.16,
-      "rsi": 50.3,
-      "ma50": 489.54,
-      "ma200": 431.57,
-      "macd": 4.346,
-      "bollinger": 0.73,
-      "w52": 0.99,
-      "trend": 0.55,
-      "signal": "SALJ",
-      "styrka": 4,
+      "price": 506.0,
+      "change": 0.96,
+      "rsi": 51.4,
+      "ma50": 488.71,
+      "ma200": 430.9,
+      "macd": 4.213,
+      "bollinger": 0.75,
+      "w52": 1.0,
+      "trend": 0.6,
+      "signal": "HALL",
+      "styrka": 5,
       "ok": true,
       "ath": null,
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Generiska marknadskommentarer utan specifik INDU-p\u00e5verkan",
+      "news_summary": "Generiska marknadskommentarer utan f\u00f6retagsspecifika katalysat\u00f6rer",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
       "volume_signal": 0,
-      "divergence": "NEGATIV_DIVERGENS",
+      "divergence": null,
       "support_resistance": null,
       "insider_signal": 0,
       "short_interest": null,
@@ -433,7 +437,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "ASML": {
       "price": 1803.89,
@@ -452,7 +456,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Historisk pris\u00f6kning redan inprisad; ingen konkret nyhet",
+      "news_summary": "Historisk kurs\u00f6kning redan realiserad, ingen nytt. Vague headlines.",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -466,7 +470,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "SAP": {
       "price": 165.41,
@@ -485,7 +489,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Generiska marknadskommentarer utan specifika SAP-katalysatorer",
+      "news_summary": "Generisk marknadskommentar utan konkreta SAP-katalysatorer",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -499,7 +503,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "NVO": {
       "price": 43.55,
@@ -518,7 +522,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "Novo Nordisk s\u00f6ker godk\u00e4nnande f\u00f6r oral Wegovy i Kina, expansionsm\u00f6jlighet",
+      "news_summary": "Novo Nordisk expanderar Wegovy till Kina, stor marknadsm\u00f6jlighet",
       "news_score": 1,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -532,7 +536,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "LVMUY": {
       "price": 120.86,
@@ -551,7 +555,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "LVMH-relaterade nyheter om Fenty och aktivwearbrand saknar direkta prisp\u00e5verkare",
+      "news_summary": "Portf\u00f6ljf\u00f6r\u00e4ndringar och investeringar, ingen direkt kurseffekt",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -565,7 +569,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "SHEL": {
       "price": 82.25,
@@ -584,7 +588,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Strategisk omst\u00e4llning med vindkraft-f\u00f6rs\u00e4ljning balanseras av AI-partnerskap",
+      "news_summary": "Strategisk ompositionering: vindf\u00f6rs\u00e4ljning balanserad mot AI-expansion",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -598,7 +602,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "SIEGY": {
       "price": 156.97,
@@ -617,7 +621,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Ingen SIEGY-relevant nyheter i artikelsamlingen. Ignoreras.",
+      "news_summary": "Ingen relevant nyhet om SIEGY identifierad i artiklar",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -631,7 +635,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "NSRGY": {
       "price": 100.02,
@@ -649,9 +653,9 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "neutral",
-      "news_summary": "Q1 tillv\u00e4xt offset av formelskandal och v\u00e4rderingsproblem",
-      "news_score": 0,
+      "news_sentiment": "negative",
+      "news_summary": "Risker stiger, v\u00e4rdering svag, talent-orosmoment i Schweiz",
+      "news_score": -1,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -666,7 +670,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "EADSY": {
       "price": 53.62,
@@ -685,7 +689,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "negative",
-      "news_summary": "Air India uppskov hotar orderbok, RTX-beroende bekr\u00e4ftat",
+      "news_summary": "Air India deferral pressar orderbok, RTX beroende offsettar v\u00e4xttecken",
       "news_score": -1,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -701,7 +705,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "AZN": {
       "price": 178.71,
@@ -720,7 +724,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "FDA godk\u00e4nnande f\u00f6r Truqap och Ultomiris expansion starkt positivt",
+      "news_summary": "FDA-godk\u00e4nnande f\u00f6r Truqap och Ultomiris-expansionanm\u00e4lan st\u00e4rker pipeline",
       "news_score": 2,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -736,7 +740,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "RELX": {
       "price": 32.8,
@@ -754,9 +758,9 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "neutral",
-      "news_summary": "Aktie\u00e5terk\u00f6p positivt, men kursnedg\u00e5ng v\u00e4cker v\u00e4rdefr\u00e5gor",
-      "news_score": 0,
+      "news_sentiment": "positive",
+      "news_summary": "\u00a32.25B buyback signalerar f\u00f6rtroende; aktiekursnedg\u00e5ng skapar k\u00f6pl\u00e4ge",
+      "news_score": 1,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -769,7 +773,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "BAESY": {
       "price": 99.85,
@@ -788,7 +792,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Motstridiga analyser: k\u00f6pv\u00e4rde vs \u00f6verv\u00e4rderat, ordrar starkt men FCF svagt",
+      "news_summary": "Motstridiga analyser: stark orderbok vs h\u00f6ga v\u00e4rderingar",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -802,7 +806,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "NVDA": {
       "price": 207.41,
@@ -821,7 +825,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Ingen NVDA-specifik nyhet. SpaceX IPO och SoFi \u00e4r irrelevanta.",
+      "news_summary": "NVDA inte n\u00e4mnd. SpaceX IPO-hype, SoFi-decline irrelevant.",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -837,7 +841,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "AAPL": {
       "price": 299.24,
@@ -856,7 +860,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "AI-produkter positiva, men tekniksektor-f\u00f6rs\u00e4ljning v\u00e4ger upp",
+      "news_summary": "AI-produkter positivt, men tekniksektor faller; motstridiga signaler",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -870,7 +874,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "MSFT": {
       "price": 393.83,
@@ -889,7 +893,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Surface-lansering neutral; SpaceX-hype ej MSFT-specifik",
+      "news_summary": "Surface-lansering neutral. SpaceX-mania \u00e4r fr\u00e4mmande konkurrens.",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -903,7 +907,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "AMZN": {
       "price": 246.0,
@@ -922,7 +926,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "SpaceX IPO och marknadskommentar p\u00e5verkar inte AMZN direkt",
+      "news_summary": "SpaceX IPO hype irrelevant f\u00f6r AMZN. Ingen AMZN-specifik nyhet.",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -936,7 +940,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "GOOGL": {
       "price": 373.25,
@@ -955,7 +959,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "Oppenheimer h\u00f6jning uppv\u00e4ger bred AI-aktieuts\u00e4ljning",
+      "news_summary": "Oppenheimer upgrade st\u00f6der GOOGL; AI-sektor svag idag",
       "news_score": 1,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -969,7 +973,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "META": {
       "price": 600.21,
@@ -988,7 +992,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "Threads n\u00e5r 500M MAU, expansion i communities st\u00e4rker plattform",
+      "news_summary": "Threads v\u00e4xer till 500M anv\u00e4ndare, community-expansion positiv",
       "news_score": 1,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1002,7 +1006,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "TSLA": {
       "price": 404.66,
@@ -1021,7 +1025,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "JPMorgan rating revisit, robotics theme, Rivian\u7af6\u4e89 - ingen konkret nyheter",
+      "news_summary": "Generiska sektoruppdateringar, ingen konkret TSLA-katalysator identifierad",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1037,7 +1041,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "JPM": {
       "price": 331.14,
@@ -1056,7 +1060,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Generisk sektoruppg\u00e5ng utan JPM-specifika katalysatorer",
+      "news_summary": "Generisk finanssektor rally, ingen JPM-specifik katalysator identifierad",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1070,7 +1074,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "BRK-B": {
       "price": 494.95,
@@ -1089,7 +1093,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Ingen konkret BRK-B-nyhet. J\u00e4mf\u00f6relser och makro-kommentarer irrelevanta.",
+      "news_summary": "Ingen direkt nyhet om BRK-B; j\u00e4mf\u00f6relse och makro utan p\u00e5verkan",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1105,7 +1109,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "LLY": {
       "price": 1122.5,
@@ -1123,9 +1127,9 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "positive",
-      "news_summary": "Retatrutide potential, konkurrensf\u00f6rdelar i viktminskning, nya marknader",
-      "news_score": 1,
+      "news_sentiment": null,
+      "news_summary": null,
+      "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -1138,7 +1142,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "BYDDF": {
       "price": 10.65,
@@ -1156,8 +1160,8 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "neutral",
-      "news_summary": "Ingen direkt BYDDF-specifik nyhet. Cerence-uppgradering irrelevant.",
+      "news_sentiment": null,
+      "news_summary": null,
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1171,7 +1175,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "TSM": {
       "price": 425.83,
@@ -1189,9 +1193,9 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "positive",
-      "news_summary": "VP aktiek\u00f6p och Arizona-avtal visar tillv\u00e4xt",
-      "news_score": 1,
+      "news_sentiment": null,
+      "news_summary": null,
+      "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -1204,7 +1208,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "CL=F": {
       "price": 75.83,
@@ -1222,9 +1226,9 @@
       "ath": 147.27,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "negative",
-      "news_summary": "Oljepris faller under $80/fat trots uppgradering",
-      "news_score": -1,
+      "news_sentiment": null,
+      "news_summary": null,
+      "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -1237,7 +1241,7 @@
       "is_volatile": false,
       "seasonal_factor": -0.5,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "GC=F": {
       "price": 4353.0,
@@ -1255,9 +1259,9 @@
       "ath": 5586.2,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "positive",
-      "news_summary": "Guldpriser st\u00e4rks inf\u00f6r Fed-m\u00f6te, b\u00e4sta \u00f6ppning p\u00e5 en vecka",
-      "news_score": 1,
+      "news_sentiment": null,
+      "news_summary": null,
+      "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -1272,7 +1276,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "SI=F": {
       "price": 70.12,
@@ -1290,9 +1294,9 @@
       "ath": 121.3,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "positive",
-      "news_summary": "Analytiker ser 51,79% upp\u00e5tpotential; silverpris st\u00e4rks inf\u00f6r Fed",
-      "news_score": 1,
+      "news_sentiment": null,
+      "news_summary": null,
+      "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -1305,15 +1309,15 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "BTC-USD": {
-      "price": 65653.3,
-      "change": -0.96,
-      "rsi": 46.6,
-      "ma50": 73438.38,
-      "ma200": 77394.54,
-      "macd": -2580.309,
+      "price": 65692.59,
+      "change": -0.9,
+      "rsi": 46.7,
+      "ma50": 73439.16,
+      "ma200": 77394.74,
+      "macd": -2577.174,
       "bollinger": 0.48,
       "w52": 0.08,
       "trend": 0.3,
@@ -1323,9 +1327,9 @@
       "ath": 126198.07,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "positive",
-      "news_summary": "Geopolitisk de-eskalering och institutionell BTC-efterfr\u00e5gan st\u00f6djer.",
-      "news_score": 1,
+      "news_sentiment": null,
+      "news_summary": null,
+      "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -1338,15 +1342,15 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "ETH-USD": {
-      "price": 1792.21,
-      "change": -0.15,
-      "rsi": 45.1,
-      "ma50": 2046.93,
+      "price": 1792.77,
+      "change": -0.12,
+      "rsi": 45.2,
+      "ma50": 2046.94,
       "ma200": 2395.6,
-      "macd": -94.674,
+      "macd": -94.629,
       "bollinger": 0.52,
       "w52": 0.08,
       "trend": 0.4,
@@ -1356,9 +1360,9 @@
       "ath": 4953.73,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "positive",
-      "news_summary": "Stablecoin adoption i Asien och h\u00f6ga \u00f6ppningsv\u00e4rden st\u00f6djer sentiment",
-      "news_score": 1,
+      "news_sentiment": null,
+      "news_summary": null,
+      "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -1371,7 +1375,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "CSPX.L": {
       "price": 811.98,
@@ -1389,8 +1393,8 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "neutral",
-      "news_summary": "Makroekonomisk brus, ingen f\u00f6retagsspecifik nyhet f\u00f6r CSPX",
+      "news_sentiment": null,
+      "news_summary": null,
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1404,7 +1408,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "EQQQ.DE": {
       "price": 642.5,
@@ -1422,9 +1426,9 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "negative",
-      "news_summary": "Tech-svaghet pressade Nasdaq; makroomycklighet dominerar",
-      "news_score": -1,
+      "news_sentiment": null,
+      "news_summary": null,
+      "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -1437,7 +1441,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "JEDI.DE": {
       "price": 87.23,
@@ -1455,8 +1459,8 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "neutral",
-      "news_summary": "Ingen JEDI.DE-specifik nyhet. Generisk tech/marknadssenterkommentar.",
+      "news_sentiment": null,
+      "news_summary": null,
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1470,7 +1474,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "XACT-OMXS30.ST": {
       "price": 471.15,
@@ -1503,7 +1507,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "XACTHDIV.ST": {
       "price": 165.16,
@@ -1538,7 +1542,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "SMH.DE": {
       "price": 103.98,
@@ -1556,9 +1560,9 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "positive",
-      "news_summary": "Bred chipsektor-rally, men AMD-varning om v\u00e4rdering d\u00e4mpar",
-      "news_score": 1,
+      "news_sentiment": null,
+      "news_summary": null,
+      "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -1571,7 +1575,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "DFNS.L": {
       "price": 61.55,
@@ -1589,9 +1593,9 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "positive",
-      "news_summary": "Geopolitisk sp\u00e4nning Iran st\u00f6djer f\u00f6rsvarssektorn positivt",
-      "news_score": 1,
+      "news_sentiment": null,
+      "news_summary": null,
+      "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -1604,7 +1608,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "VWRL.L": {
       "price": 138.16,
@@ -1622,8 +1626,8 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "neutral",
-      "news_summary": "Generisk marknadskommer, ingen f\u00f6retagsspecifik p\u00e5verkan p\u00e5 VWRL",
+      "news_sentiment": null,
+      "news_summary": null,
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1637,7 +1641,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "IS3N.DE": {
       "price": 49.11,
@@ -1655,8 +1659,8 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "neutral",
-      "news_summary": "Generisk marknadskommentar utan IS3N.DE-specifik p\u00e5verkan identifierad",
+      "news_sentiment": null,
+      "news_summary": null,
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1670,7 +1674,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "IQQH.DE": {
       "price": 10.41,
@@ -1688,8 +1692,8 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "neutral",
-      "news_summary": "Generisk branschkommentar utan IQQH.DE-specifik p\u00e5verkan",
+      "news_sentiment": null,
+      "news_summary": null,
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1705,7 +1709,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     },
     "IGLN.L": {
       "price": 83.93,
@@ -1723,9 +1727,9 @@
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "positive",
-      "news_summary": "Guldeftiv stark efterfr\u00e5gan, geopolitisk ro minskar volatilitet positivt",
-      "news_score": 1,
+      "news_sentiment": null,
+      "news_summary": null,
+      "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -1738,7 +1742,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_us"
+      "time_weight": "intraday"
     }
   },
   "fear_greed": {
