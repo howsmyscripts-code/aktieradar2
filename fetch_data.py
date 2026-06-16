@@ -32,6 +32,29 @@ def fear_greed_signal(value):
     elif value <= 75: return -1
     else:             return -2
 
+def fetch_sp500_futures():
+    """Hämta S&P 500 futures för att förutsäga marknadsöppning"""
+    try:
+        futures = yf.Ticker("ES=F")
+        hist = futures.history(period="2d")
+        if len(hist) >= 2:
+            change = ((hist["Close"].iloc[-1] - hist["Close"].iloc[-2]) / hist["Close"].iloc[-2]) * 100
+            return round(change, 2)
+        return None
+    except:
+        return None
+
+def get_time_weight():
+    """Returnera viktning baserat på tid på dagen"""
+    hour = datetime.now(ZoneInfo("Europe/Stockholm")).hour
+    if 9 <= hour <= 10:
+        return "morning"   # Nyheter väger tyngre
+    elif 17 <= hour <= 18:
+        return "close_se"  # Tekniska indikatorer väger tyngre
+    elif hour >= 22:
+        return "close_us"  # Nasdaq-stängning, tekniska viktigast
+    return "intraday"
+
 # ── Trump RSS & News Analysis ────────────────────────────────
 
 def fetch_trump_posts():
@@ -379,10 +402,104 @@ def calc_momentum_override(rsi, trend, w52_pos, bollinger):
         bollinger is not None and bollinger >= 0.85):
         return "MOMENTUM_UP"
     return None
+def calc_rsi_divergence(closes, rsi_values, period=14):
+    """Detektera RSI-divergens mot pris"""
+    if len(closes) < period * 2 or len(rsi_values) < period * 2:
+        return None
+    # Jämför senaste 10 dagar
+    recent_prices = closes[-10:]
+    recent_rsi = rsi_values[-10:]
+    price_trend = recent_prices[-1] - recent_prices[0]
+    rsi_trend = recent_rsi[-1] - recent_rsi[0]
+    if price_trend < 0 and rsi_trend > 2:
+        return "POSITIV_DIVERGENS"  # Pris faller men RSI stiger - köpsignal
+    elif price_trend > 0 and rsi_trend < -2:
+        return "NEGATIV_DIVERGENS"  # Pris stiger men RSI faller - säljsignal
+    return None
+
+def calc_support_resistance(closes, ma50, ma200):
+    """Beräkna om pris är nära stöd/motstånd"""
+    price = closes[-1]
+    signals = []
+    if ma200 and abs(price - ma200) / ma200 < 0.02:
+        if price > ma200:
+            signals.append("STOD_MA200")  # Stöd vid MA200
+        else:
+            signals.append("MOTSTAND_MA200")  # Motstånd vid MA200
+    if ma50 and abs(price - ma50) / ma50 < 0.015:
+        if price > ma50:
+            signals.append("STOD_MA50")
+        else:
+            signals.append("MOTSTAND_MA50")
+    return signals if signals else None
+
+def calc_volatility_filter(closes, period=5):
+    """Filtrera ut dagar med extrem volatilitet"""
+    if len(closes) < period + 1: return False
+    recent_changes = [abs((closes[i] - closes[i-1]) / closes[i-1] * 100)
+                      for i in range(-period, 0)]
+    return max(recent_changes) > 10  # Sant om något rörde sig mer än 10%
+
+def calc_seasonal_factor(sym):
+    """Enkel säsongskorrigering baserat på månad"""
+    month = datetime.now(ZoneInfo("Europe/Stockholm")).month
+    # Defensiva aktier starka jan-mars och sept-nov
+    defensive = ["XACTHDIV.ST", "NSRGY", "SHEL", "JPM", "BRK-B"]
+    # Tech/growth starka april-aug
+    growth = ["NVDA", "AAPL", "MSFT", "AMZN", "GOOGL", "META", "EQQQ.DE", "SMH.DE"]
+    if sym in defensive and month in [9, 10, 11, 1, 2, 3]:
+        return 0.5
+    elif sym in growth and month in [4, 5, 6, 7, 8]:
+        return 0.5
+    elif sym in ["CL=F"] and month in [6, 7, 8]:
+        return -0.5  # Olja svagare sommar
+    return 0
+
+def fetch_insider_transactions(sym, finnhub_key):
+    """Hämta insidertransaktioner från Finnhub"""
+    if not finnhub_key: return 0
+    try:
+        ticker_clean = sym.replace(".ST", "").replace("-", ".").replace("=F", "")
+        if "." in ticker_clean and not ticker_clean.endswith((".L", ".DE")):
+            ticker_clean = ticker_clean.split(".")[0]
+        url = f"https://finnhub.io/api/v1/stock/insider-transactions?symbol={ticker_clean}&token={finnhub_key}"
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=5) as r:
+            data = json.loads(r.read().decode("utf-8"))
+        transactions = data.get("data", [])[:10]
+        if not transactions: return 0
+        # Summera köp vs sälj senaste 3 månader
+        buys = sum(t.get("share", 0) for t in transactions if t.get("transactionCode", "") in ["P", "A"])
+        sells = sum(t.get("share", 0) for t in transactions if t.get("transactionCode", "") in ["S", "D"])
+        if buys > sells * 2: return 1   # Starkt insiderköp
+        elif sells > buys * 2: return -1  # Starkt insidersälj
+        return 0
+    except:
+        return 0
+
+def fetch_short_interest(ticker_obj):
+    """Hämta short interest från yfinance"""
+    try:
+        info = ticker_obj.info
+        short_ratio = info.get("shortRatio", None)
+        short_pct = info.get("shortPercentOfFloat", None)
+        if short_pct and short_pct > 0.2:
+            return {"high": True, "pct": round(short_pct * 100, 1)}
+        return {"high": False, "pct": round(short_pct * 100, 1) if short_pct else None}
+    except:
+        return {"high": False, "pct": None}
+
+
 
 def compute_signal(rsi, ma50, ma200, change, macd=None, macd_signal=None,
-                   bollinger=None, w52_pos=None, trend=None, vol_signal=0):
+                   bollinger=None, w52_pos=None, trend=None, vol_signal=0,
+                   divergence=None, support_resistance=None, seasonal=0,
+                   insider=0, news_score=0, is_volatile=False):
     score = 5.0
+
+    # Volatilitetsfilter - ignorera signal vid extrem volatilitet
+    if is_volatile:
+        return "HALL", 5, None
 
     momentum = calc_momentum_override(rsi, trend, w52_pos, bollinger)
 
@@ -437,6 +554,33 @@ def compute_signal(rsi, ma50, ma200, change, macd=None, macd_signal=None,
         if change > 4: score += 0.5
         elif change < -4: score -= 0.5
 
+    # RSI-divergens
+    if divergence == "POSITIV_DIVERGENS":
+        score += 1.5
+    elif divergence == "NEGATIV_DIVERGENS":
+        score -= 1.5
+
+    # Stöd/motstånd
+    if support_resistance:
+        if "STOD_MA200" in support_resistance: score += 1
+        if "STOD_MA50" in support_resistance: score += 0.5
+        if "MOTSTAND_MA200" in support_resistance: score -= 1
+        if "MOTSTAND_MA50" in support_resistance: score -= 0.5
+
+    # Säsongskorrigering
+    score += seasonal
+
+    # Insidertransaktioner
+    score += insider * 1.5
+
+    # Kombinerad teknisk + nyhetsfilter (förbättring #1)
+    # KÖP-signal med negativt news ignoreras
+    # SÄLJ-signal med positivt news ignoreras
+    if news_score < -1 and score >= 7:
+        score = min(score, 6)  # Nedgradera från KÖP till HÅLL
+    elif news_score > 1 and score <= 4:
+        score = max(score, 5)  # Uppgradera från SÄLJ till HÅLL
+
     score = max(1, min(10, round(score)))
     signal = "KOP" if score >= 7 else "SALJ" if score <= 4 else "HALL"
     return signal, score, momentum
@@ -445,6 +589,11 @@ results = {}
 
 fg_value, fg_class = fetch_fear_greed()
 fg_adj = fear_greed_signal(fg_value)
+sp500_futures = fetch_sp500_futures()
+time_weight = get_time_weight()
+if sp500_futures is not None:
+    print(f"S&P 500 futures: {sp500_futures:+.1f}%")
+print(f"Tidsperiod: {time_weight}")
 
 for sym in STOCKS:
     try:
@@ -474,11 +623,43 @@ for sym in STOCKS:
         trend = calc_trend_strength(closes)
         vol_signal = calc_volume_signal(volumes, closes)
 
+        # Nya beräkningar
+        is_volatile = calc_volatility_filter(closes)
+        support_resistance = calc_support_resistance(closes, ma50, ma200)
+        seasonal = calc_seasonal_factor(sym)
+        finnhub_key_tmp = os.environ.get("FINNHUB_API_KEY", "")
+        insider = fetch_insider_transactions(sym, finnhub_key_tmp)
+        short_data = fetch_short_interest(ticker)
+
+        # RSI-divergens kräver RSI-historik
+        rsi_history = []
+        try:
+            for i in range(max(0, len(closes)-30), len(closes)):
+                rsi_history.append(calc_rsi(closes[:i+1]) or 50)
+        except:
+            rsi_history = []
+        divergence = calc_rsi_divergence(closes, rsi_history) if len(rsi_history) >= 20 else None
+
+        # Hämta prev news_score tidigt för compute_signal
+        prev_news_score_early = None
+        try:
+            with open("prev_signals.json", "r") as f:
+                prev_sigs_early = json.load(f)
+                prev_news_score_early = prev_sigs_early.get(sym, {}).get("news_score", 0) or 0
+        except:
+            prev_news_score_early = 0
+
         signal, styrka, momentum = compute_signal(
             rsi, ma50, ma200, change,
             macd=macd, macd_signal=macd_sig,
             bollinger=bollinger, w52_pos=w52_pos,
-            trend=trend, vol_signal=vol_signal
+            trend=trend, vol_signal=vol_signal,
+            divergence=divergence,
+            support_resistance=support_resistance,
+            seasonal=seasonal,
+            insider=insider,
+            news_score=prev_news_score_early,
+            is_volatile=is_volatile
         )
 
         if sym in ["BTC-USD", "ETH-USD"] and fg_adj != 0:
@@ -491,6 +672,17 @@ for sym in STOCKS:
             styrka = max(1, styrka - 2)
             signal = "KOP" if styrka >= 7 else "SALJ" if styrka <= 4 else "HALL"
             fear_greed_warning = "Extreme Fear - KOP-signal nedgraderad"
+
+        # Futures-justering: nedgradera om S&P 500 futures är starkt negativa
+        futures_warning = None
+        if sp500_futures is not None and sp500_futures < -1.5 and signal == "KOP":
+            styrka = max(1, styrka - 1)
+            signal = "KOP" if styrka >= 7 else "SALJ" if styrka <= 4 else "HALL"
+            futures_warning = f"S&P 500 futures {sp500_futures:+.1f}% - KOP nedgraderad"
+        elif sp500_futures is not None and sp500_futures > 1.5 and signal == "SALJ":
+            styrka = min(10, styrka + 1)
+            signal = "KOP" if styrka >= 7 else "SALJ" if styrka <= 4 else "HALL"
+            futures_warning = f"S&P 500 futures {sp500_futures:+.1f}% - SALJ uppgraderad"
 
         # Hämta nästa earnings-datum
         earnings_date = None
@@ -564,6 +756,15 @@ for sym in STOCKS:
             "news_time_horizon": news_sentiment.get("time_horizon") if news_sentiment else None,
             "fear_greed_warning": fear_greed_warning if 'fear_greed_warning' in dir() else None,
             "volume_signal": vol_signal,
+            "divergence": divergence,
+            "support_resistance": support_resistance,
+            "insider_signal": insider,
+            "short_interest": short_data.get("pct"),
+            "short_interest_high": short_data.get("high"),
+            "is_volatile": is_volatile,
+            "seasonal_factor": seasonal,
+            "futures_warning": futures_warning if 'futures_warning' in dir() else None,
+            "time_weight": time_weight,
         }
         print(f"OK {sym}: {price} {signal} (RSI:{rsi} Vol:{vol_signal} Momentum:{momentum})")
     except Exception as e:
