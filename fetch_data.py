@@ -152,7 +152,7 @@ def fetch_finnhub_news(sym, api_key):
     except Exception as e:
         return []
 
-def analyze_sentiment_claude(texts, context=""):
+def analyze_sentiment_claude(texts, context="", rsi=None, change=None, prev_news_score=None, signal=None):
     """Use Claude Haiku to analyze sentiment of news texts"""
     api_key = os.environ.get("ANTHROPIC_API_KEY", "")
     if not api_key or not texts:
@@ -175,10 +175,46 @@ Focus on:
 - Macroeconomic factors directly affecting this stock
 - Sector-wide selloffs vs company-specific news
 
+SECTOR-SPECIFIC MACRO RULES (apply these when relevant news is present):
+
+GEOPOLITICS:
+- Peace deal / geopolitical de-escalation → NEGATIVE for defense stocks (SAAB, BAE Systems, defense ETFs), POSITIVE for airlines and transport
+- Military conflict / escalation → POSITIVE for defense stocks, NEGATIVE for airlines
+- China sanctions / export restrictions → NEGATIVE for semiconductors (TSM, SMH), POSITIVE for US alternatives
+
+OIL & ENERGY:
+- Oil price falling → NEGATIVE for Shell and oil companies, POSITIVE for airlines and transport
+- Oil price rising → POSITIVE for Shell, NEGATIVE for airlines
+- Gold price rising → POSITIVE for gold ETFs (IGLN)
+- High inflation data → NEGATIVE for growth/tech stocks, POSITIVE for banks and commodities
+
+INTEREST RATES:
+- Fed raises rates → NEGATIVE for tech/growth stocks, POSITIVE for banks (JPMorgan, SEB)
+- Fed cuts rates → POSITIVE for tech, real estate, growth stocks
+
+AI & TECH:
+- New major AI model launch → POSITIVE for Nvidia (chips demand), NEGATIVE for AI software competitors
+- Chip export restrictions → NEGATIVE for TSM and semiconductor ETFs
+- Major datacenter investment announced → POSITIVE for Nvidia, Amazon, Microsoft
+
+HEALTHCARE:
+- FDA approval → POSITIVE for that company, score +2
+- Competitor drug approved → NEGATIVE for competing companies (e.g. Lilly approval hurts Novo Nordisk)
+- Medicare/Medicaid policy change → affects entire pharma sector
+
+CRYPTO:
+- Risk-on market sentiment → POSITIVE for BTC and ETH
+- SEC crypto regulation tightening → NEGATIVE for crypto
+- Institutional crypto buying → POSITIVE for BTC
+
+CURRENCY:
+- Strong USD → NEGATIVE for European exporters (SAAB, Volvo, Ericsson)
+- Weak USD → POSITIVE for European exporters
+
 IGNORE: generic market commentary, unrelated sector news, vague mentions.
 
-Reply with ONLY a JSON object:
-{{"sentiment": "positive"|"negative"|"neutral", "score": -2 to 2, "summary": "max 12 words", "catalyst": "main price driver or none"}}
+Reply with ONLY a JSON object in Swedish:
+{{"sentiment": "positive"|"negative"|"neutral", "score": -2 to 2, "summary": "max 12 ord pa svenska", "catalyst": "huvudsaklig prisdrivare eller none"}}
 
 Score guide: 2=strong buy catalyst, 1=mild positive, 0=neutral/noise, -1=mild negative, -2=strong sell catalyst
 
@@ -449,7 +485,25 @@ for sym in STOCKS:
             styrka = max(1, min(10, styrka + fg_adj))
             signal = "KOP" if styrka >= 7 else "SALJ" if styrka <= 4 else "HALL"
 
+        # Marknadsfilter: nedgradera KÖP-signaler vid Extreme Fear (F&G < 15)
+        fear_greed_warning = None
+        if fg_value and fg_value < 15 and signal == "KOP":
+            styrka = max(1, styrka - 2)
+            signal = "KOP" if styrka >= 7 else "SALJ" if styrka <= 4 else "HALL"
+            fear_greed_warning = "Extreme Fear - KOP-signal nedgraderad"
+
+        # Hämta nästa earnings-datum
         earnings_date = None
+        try:
+            cal = ticker.calendar
+            if cal is not None and not cal.empty:
+                dates = cal.loc["Earnings Date"] if "Earnings Date" in cal.index else None
+                if dates is not None:
+                    ed = dates.iloc[0] if hasattr(dates, 'iloc') else dates
+                    if hasattr(ed, 'strftime'):
+                        earnings_date = ed.strftime("%Y-%m-%d")
+        except Exception:
+            earnings_date = None
 
         def safe(v): return None if v is None or (isinstance(v, float) and math.isnan(v)) else v
 
@@ -464,13 +518,28 @@ for sym in STOCKS:
                 ath = None
 
         finnhub_key = os.environ.get("FINNHUB_API_KEY", "")
-        news_sym = NEWS_TICKER_MAP.get(sym, sym)  # Använd amerikansk tvillingticker om tillgänglig
+        news_sym = NEWS_TICKER_MAP.get(sym, sym)
         finnhub_headlines = fetch_finnhub_news(news_sym, finnhub_key) if finnhub_key else []
         yfinance_headlines = fetch_yfinance_news(news_sym)
         all_headlines = list(dict.fromkeys(finnhub_headlines + yfinance_headlines))[:8]
+
+        # Hämta föregående news_score för trendanalys
+        prev_news_score = None
+        try:
+            with open("prev_signals.json", "r") as f:
+                prev_sigs = json.load(f)
+                prev_news_score = prev_sigs.get(sym, {}).get("news_score", None)
+        except:
+            pass
+
         news_sentiment = None
         if all_headlines:
-            news_sentiment = analyze_sentiment_claude(all_headlines, sym)
+            news_sentiment = analyze_sentiment_claude(
+                all_headlines, sym,
+                rsi=rsi, change=change,
+                prev_news_score=prev_news_score,
+                signal=signal
+            )
             time.sleep(0.5)
         news_headlines = all_headlines
 
@@ -491,8 +560,12 @@ for sym in STOCKS:
             "news_sentiment": news_sentiment.get("sentiment") if news_sentiment else None,
             "news_summary": news_sentiment.get("summary") if news_sentiment else None,
             "news_score": news_score,
+            "news_confidence": news_sentiment.get("confidence") if news_sentiment else None,
+            "news_time_horizon": news_sentiment.get("time_horizon") if news_sentiment else None,
+            "fear_greed_warning": fear_greed_warning if 'fear_greed_warning' in dir() else None,
+            "volume_signal": vol_signal,
         }
-        print(f"OK {sym}: {price} {signal} (RSI:{rsi} Momentum:{momentum} Earnings:{earnings_date})")
+        print(f"OK {sym}: {price} {signal} (RSI:{rsi} Vol:{vol_signal} Momentum:{momentum})")
     except Exception as e:
         results[sym] = {"ok": False, "error": str(e)}
         print(f"FAIL {sym}: {e}")
@@ -513,6 +586,91 @@ with open("data.json", "w") as f:
     json.dump(output, f, indent=2)
 
 print(f"\nDone: {sum(1 for v in results.values() if v.get('ok'))} / {len(results)} succeeded")
+
+# ── Accuracy Tracking ────────────────────────────────────────────────────────
+def update_accuracy_tracking(results, fg_value):
+    """Spara signaler och priser for accuracy-tracking"""
+    now_sw = datetime.now(ZoneInfo("Europe/Stockholm"))
+    now_hour = now_sw.hour
+    today = now_sw.strftime("%Y-%m-%d")
+
+    try:
+        with open("accuracy.json", "r") as f:
+            accuracy = json.load(f)
+    except:
+        accuracy = {}
+
+    if 9 <= now_hour <= 10:
+        for sym, d in results.items():
+            if not d.get("ok"): continue
+            accuracy[f"{today}_{sym}"] = {
+                "date": today, "sym": sym,
+                "signal": d["signal"], "styrka": d["styrka"],
+                "morning_price": d["price"],
+                "news_score": d.get("news_score", 0),
+                "fg_value": fg_value,
+                "closing_price": None, "correct": None
+            }
+        print(f"Accuracy: sparade {len(results)} morgonsignaler")
+
+    elif (17 <= now_hour <= 18) or now_hour >= 22:
+        updated = 0
+        for sym, d in results.items():
+            if not d.get("ok"): continue
+            key = f"{today}_{sym}"
+            if key in accuracy and accuracy[key]["closing_price"] is None:
+                morning_price = accuracy[key]["morning_price"]
+                closing_price = d["price"]
+                signal = accuracy[key]["signal"]
+                pct_change = ((closing_price - morning_price) / morning_price * 100) if morning_price else 0
+                if signal == "KOP":
+                    correct = pct_change > 0.5
+                elif signal == "SALJ":
+                    correct = pct_change < -0.5
+                else:
+                    correct = abs(pct_change) < 1.0
+                accuracy[key]["closing_price"] = closing_price
+                accuracy[key]["pct_change"] = round(pct_change, 2)
+                accuracy[key]["correct"] = correct
+                updated += 1
+        print(f"Accuracy: uppdaterade {updated} stangningspriser")
+
+    with open("accuracy.json", "w") as f:
+        json.dump(accuracy, f, indent=2)
+
+update_accuracy_tracking(results, fg_value)
+
+# ── Sektorkorrelation ────────────────────────────────────────────────────────
+SECTOR_CORRELATIONS = {
+    "SMH.DE":    ["NVDA", "TSM"],
+    "JEDI.DE":   [],
+    "IS3N.DE":   ["BYDDF"],
+    "IQQH.DE":   ["CL=F"],
+    "INVE-B.ST": ["ATCO-B.ST", "ERIC-B.ST"],
+    "SAAB-B.ST": ["BAESY", "DFNS.L"],
+}
+
+def check_sector_warnings(results):
+    warnings = {}
+    for etf, drivers in SECTOR_CORRELATIONS.items():
+        if not drivers: continue
+        neg_drivers = [
+            d for d in drivers
+            if d in results and results[d].get("ok")
+            and results[d].get("news_score", 0) < -1
+        ]
+        if neg_drivers and etf in results:
+            warnings[etf] = f"Varning: {', '.join(neg_drivers)} har starkt negativt news"
+    return warnings
+
+sector_warnings = check_sector_warnings(results)
+if sector_warnings:
+    print("Sektorvarningar:")
+    for sym, warning in sector_warnings.items():
+        print(f"  {sym}: {warning}")
+    output["sector_warnings"] = sector_warnings
+    with open("data.json", "w") as f:
+        json.dump(output, f, indent=2)
 
 # ── Discord Notifikationer ────────────────────────────────────────────────────
 
