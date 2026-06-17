@@ -329,6 +329,55 @@ NEWS_TICKER_MAP = {
     "EQQQ.DE": "QQQ",     # Invesco Nasdaq-100 USA
 }
 
+
+# MFN.se bolagsnamn för svenska aktier (pressreleaser direkt från bolagen)
+MFN_TICKER_MAP = {
+    "INVE-B.ST": "investor",
+    "ATCO-B.ST": "atlas-copco",
+    "SWED-A.ST": "swedbank",
+    "SAAB-B.ST": "saab",
+    "ERIC-B.ST": "ericsson",
+    "VOLV-B.ST": "volvo",
+    "KINV-B.ST": "kinnevik",
+    "HM-B.ST": "hm",
+    "SEB-A.ST": "seb",
+    "TEL2-B.ST": "tele2",
+    "BEAMMW-B.ST": "beammwave",
+    "NANEXA.ST": "nanexa",
+    "INDU-C.ST": "industrivarden",
+    "XACT-OMXS30.ST": None,
+    "XACTHDIV.ST": None,
+}
+
+def fetch_mfn_news(sym):
+    """Hämta pressreleaser från MFN.se för svenska börsbolag"""
+    mfn_slug = MFN_TICKER_MAP.get(sym)
+    if not mfn_slug:
+        return []
+    try:
+        import xml.etree.ElementTree as ET
+        url = f"https://mfn.se/all/a/{mfn_slug}/feed"
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+            "Accept": "application/rss+xml, application/xml, text/xml, */*",
+        })
+        with urllib.request.urlopen(req, timeout=8) as r:
+            data = r.read().decode("utf-8", errors="ignore")
+        root = ET.fromstring(data)
+        items = root.findall(".//item")
+        headlines = []
+        for item in items[:3]:
+            title = item.find("title")
+            desc = item.find("description")
+            if title is not None and title.text:
+                text = title.text.strip()
+                if desc is not None and desc.text:
+                    text += ". " + desc.text.strip()[:200]
+                headlines.append(text)
+        return headlines
+    except Exception:
+        return []
+
 def calc_rsi(closes, period=14):
     if len(closes) < period + 1: return None
     gains, losses = 0, 0
@@ -713,7 +762,8 @@ for sym in STOCKS:
         news_sym = NEWS_TICKER_MAP.get(sym, sym)
         finnhub_headlines = fetch_finnhub_news(news_sym, finnhub_key) if finnhub_key else []
         yfinance_headlines = fetch_yfinance_news(news_sym)
-        all_headlines = list(dict.fromkeys(finnhub_headlines + yfinance_headlines))[:8]
+        mfn_headlines = fetch_mfn_news(sym)  # Svenska pressreleaser direkt från MFN.se
+        all_headlines = list(dict.fromkeys(mfn_headlines + finnhub_headlines + yfinance_headlines))[:8]
 
         # Hämta föregående news_score för trendanalys
         prev_news_score = None
