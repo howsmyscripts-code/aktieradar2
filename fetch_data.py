@@ -826,6 +826,11 @@ trump_posts_raw = fetch_trump_posts()
 trump_mentions = analyze_trump_posts(trump_posts_raw) if trump_posts_raw else []
 print(f"Trump mentions found: {len(trump_mentions)}")
 
+# Intel-specifik Trump-alert
+intel_alert = check_intel_trump_alert(trump_mentions)
+if intel_alert:
+    print(intel_alert)
+
 output = {
     "updated": (datetime.now(ZoneInfo("Europe/Stockholm"))).strftime("%Y-%m-%d %H:%M svensk tid"),
     "stocks": results,
@@ -933,7 +938,7 @@ DISPLAY_NAMES = {
     "INDU-C.ST": "Industrivarden C", "ASML": "ASML", "SAP": "SAP", "NVO": "Novo Nordisk",
     "LVMUY": "LVMH", "SHEL": "Shell", "SIEGY": "Siemens", "NSRGY": "Nestle",
     "EADSY": "Airbus", "AZN": "AstraZeneca", "RELX": "RELX", "BAESY": "BAE Systems",
-    "NVDA": "Nvidia", "AAPL": "Apple", "MSFT": "Microsoft", "AMZN": "Amazon",
+    "NVDA": "Nvidia", "INTC": "Intel", "AAPL": "Apple", "MSFT": "Microsoft", "AMZN": "Amazon",
     "GOOGL": "Alphabet", "META": "Meta", "TSLA": "Tesla", "JPM": "JPMorgan",
     "BRK-B": "Berkshire B", "LLY": "Eli Lilly", "BYDDF": "BYD", "TSM": "TSMC",
     "CL=F": "Olja (WTI)", "GC=F": "Guld", "SI=F": "Silver",
@@ -980,7 +985,17 @@ def signal_color(signal):
     if signal == "SALJ": return 0xf23f43
     return 0xf0b132
 
-def build_discord_report(results, fg_value, fg_class, updated):
+def check_intel_trump_alert(trump_mentions):
+    """Flagga om Trump nämner Intel specifikt"""
+    if not trump_mentions:
+        return None
+    for mention in trump_mentions:
+        quote = mention.get("quote", "").lower()
+        if any(kw in quote for kw in ["intel", "intc", "terafab"]):
+            return f"🚨 TRUMP nämnde Intel: \"{mention.get('quote', '')[:100]}\""
+    return None
+
+def build_discord_report(results, fg_value, fg_class, updated, intel_alert=None):
     webhook_url = os.environ.get("DISCORD_WEBHOOK", "")
     if not webhook_url:
         print("Discord: ingen webhook URL konfigurerad")
