@@ -827,6 +827,16 @@ trump_mentions = analyze_trump_posts(trump_posts_raw) if trump_posts_raw else []
 print(f"Trump mentions found: {len(trump_mentions)}")
 
 # Intel-specifik Trump-alert
+def check_intel_trump_alert(trump_mentions):
+    """Flagga om Trump nämner Intel specifikt"""
+    if not trump_mentions:
+        return None
+    for mention in trump_mentions:
+        quote = mention.get("quote", "").lower()
+        if any(kw in quote for kw in ["intel", "intc", "terafab"]):
+            return f"TRUMP namnde Intel: {mention.get('quote', '')[:100]}"
+    return None
+
 intel_alert = check_intel_trump_alert(trump_mentions)
 if intel_alert:
     print(intel_alert)
@@ -985,15 +995,6 @@ def signal_color(signal):
     if signal == "SALJ": return 0xf23f43
     return 0xf0b132
 
-def check_intel_trump_alert(trump_mentions):
-    """Flagga om Trump nämner Intel specifikt"""
-    if not trump_mentions:
-        return None
-    for mention in trump_mentions:
-        quote = mention.get("quote", "").lower()
-        if any(kw in quote for kw in ["intel", "intc", "terafab"]):
-            return f"🚨 TRUMP nämnde Intel: \"{mention.get('quote', '')[:100]}\""
-    return None
 
 def build_discord_report(results, fg_value, fg_class, updated, intel_alert=None):
     webhook_url = os.environ.get("DISCORD_WEBHOOK", "")
