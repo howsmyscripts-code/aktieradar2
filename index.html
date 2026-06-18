@@ -276,6 +276,7 @@ const STOCKS = {
   ],
   "USA":[
     {sym:"NVDA",valuta:"USD",display:"NVDA",namn:"Nvidia",sektor:"Halvledare/AI",avanza:"https://www.avanza.se/aktier/om-aktien.html/5501/nvidia",anledningar:["Monopolposition i AI-träning","Datacenterintäkter växer 200%+","Blackwell-arkitekturen"],risker:["Exportrestriktioner mot Kina","Värderingen kräver hypersnabb tillväxt"]},
+    {sym:"INTC",valuta:"USD",display:"INTC",namn:"Intel",sektor:"Halvledare",avanza:"https://www.avanza.se/aktier/om-aktien.html/5562/intel",anledningar:["Trump-deals med Apple, Nvidia och Terafab","18A-P chipprocess i produktion","USA-staten äger 9.9% — politiskt skyddad","Terafab: $119B investering med Tesla/SpaceX"],risker:["Tillverkningskostnader 3x TSMC","Yield-rate 65% vs TSMC 80%","Lång väg till faktisk comeback"]},
     {sym:"AAPL",valuta:"USD",display:"AAPL",namn:"Apple",sektor:"Tech",avanza:"https://www.avanza.se/aktier/om-aktien.html/5454/apple",anledningar:["Apple Intelligence driver uppgraderingar","Tjänsteintäkter växer 15%+","Massiva aktieåterköp"],risker:["Kina 20% av intäkterna","DOJ-antitrusträttegång"]},
     {sym:"MSFT",valuta:"USD",display:"MSFT",namn:"Microsoft",sektor:"Moln/AI",avanza:"https://www.avanza.se/aktier/om-aktien.html/5628/microsoft",anledningar:["Azure växer 33%","Copilot i Office 365","OpenAI-partnerskap"],risker:["Hög värdering","Konkurrens från Google Cloud"]},
     {sym:"AMZN",valuta:"USD",display:"AMZN",namn:"Amazon",sektor:"E-handel/Moln",avanza:"https://www.avanza.se/aktier/om-aktien.html/5449/amazon",anledningar:["AWS reaccelererar med AI","Reklamintäkter växer 20%+","Logistikmarginaler förbättras"],risker:["FTC-granskning","AI-investeringar pressar kassaflöde"]},
@@ -425,6 +426,7 @@ const STOCK_INDEX = [
   {sym:"BAESY",valuta:"USD",display:"BAE Systems",namn:"BAE Systems"},
   // USA
   {sym:"NVDA",valuta:"USD",display:"NVDA",namn:"Nvidia"},
+  {sym:"INTC",valuta:"USD",display:"INTC",namn:"Intel"},
   {sym:"AAPL",valuta:"USD",display:"AAPL",namn:"Apple"},
   {sym:"MSFT",valuta:"USD",display:"MSFT",namn:"Microsoft"},
   {sym:"AMZN",valuta:"USD",display:"AMZN",namn:"Amazon"},
@@ -1305,6 +1307,25 @@ function buildCard(s){
       </div>
     </div>`;
   })();
+  // Intel Trump-alert banner
+  const intelAlertHtml=(()=>{
+    if(s.sym !== "INTC") return "";
+    const mentions = window._trumpMentions || [];
+    const hasIntelMention = mentions.some(m => {
+      const q = (m.quote || "").toLowerCase();
+      return q.includes("intel") || q.includes("intc") || q.includes("terafab");
+    });
+    const intelData = liveData["INTC"];
+    const highScore = intelData?.ok && (intelData.news_score || 0) >= 2;
+    if(!hasIntelMention && !highScore) return "";
+    const msgs = [];
+    if(hasIntelMention) msgs.push("🚨 Trump nämnde Intel nyligen");
+    if(highScore) msgs.push(`📈 Stark nyhetssignal: ${intelData.news_summary || ""}`);
+    return `<div style="background:#ff660018;border:1px solid #ff660066;border-radius:6px;padding:9px 12px;margin-bottom:10px">
+      <div style="font-size:11px;font-weight:700;color:#ff8800;margin-bottom:3px">⚡ INTEL-ALERT</div>
+      ${msgs.map(m=>`<div style="font-size:11px;color:var(--text2)">${m}</div>`).join("")}
+    </div>`;
+  })();
   const reasons=s.anledningar.map(r=>`<div class="reason-row"><span class="reason-icon">✓</span><span>${r}</span></div>`).join("");
   const risks=s.risker.map(r=>`<div class="risk-row"><span class="risk-icon">⚠</span><span>${r}</span></div>`).join("");
   card.innerHTML=`
@@ -1317,7 +1338,7 @@ function buildCard(s){
       <div class="bar-track"><div class="bar-fill" style="width:${styrka*10}%"></div></div>
       <div class="card-name-row"><div style="display:flex;flex-direction:column;gap:2px"><span class="card-name">${s.namn}</span>${has&&live.price?`<span style="font-size:11px;color:var(--text2);font-family:monospace">${live.price.toFixed(2)}</span>`:""}</div><span class="card-styrka">Styrka ${styrka}/10</span></div>
       ${techHtml}
-      ${earningsHtml}
+      ${earningsHtml}${intelAlertHtml}
       <div class="summary">${summary}</div>
       ${live?.momentum==="MOMENTUM_UP"?`<div style="background:#4d9fff18;border:1px solid #4d9fff44;border-radius:6px;padding:6px 10px;margin-bottom:8px;font-size:11px;color:#4d9fff">⚡ Starkt momentum — RSI-signal nedviktad</div>`:""}
       <div class="section-label">${VARFOR[signal]}</div>${reasons}
