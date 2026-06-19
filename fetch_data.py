@@ -451,6 +451,22 @@ def calc_momentum_override(rsi, trend, w52_pos, bollinger):
         bollinger is not None and bollinger >= 0.85):
         return "MOMENTUM_UP"
     return None
+
+def calc_momentum_buy(trend, w52_pos, news_score, change, ma50, ma200):
+    """
+    Identifierar kvalitetsbolag/momentum-case som RSI-baserad logik missar:
+    starka, stadigt stigande aktier som aldrig blir 'tekniskt översålda'
+    men har stark trend, är nära 52-veckorstopp och stöds av positiva nyheter.
+    Exempel: Investor B, VanEck Semiconductor under stark uppgång.
+    """
+    if trend is None or w52_pos is None or ma50 is None or ma200 is None:
+        return False
+    strong_trend = trend >= 0.6
+    near_high = w52_pos >= 0.9
+    above_mas = ma50 > ma200  # uppåtgående trend bekräftad av glidande medelvärden
+    not_negative_news = news_score is not None and news_score >= 0
+    not_crashing = change is None or change > -3
+    return strong_trend and near_high and above_mas and not_negative_news and not_crashing
 def calc_rsi_divergence(closes, rsi_values, period=14):
     """Detektera RSI-divergens mot pris"""
     if len(closes) < period * 2 or len(rsi_values) < period * 2:
@@ -632,6 +648,15 @@ def compute_signal(rsi, ma50, ma200, change, macd=None, macd_signal=None,
 
     score = max(1, min(10, round(score)))
     signal = "KOP" if score >= 7 else "SALJ" if score <= 4 else "HALL"
+
+    # Momentum-köp: kvalitetsbolag/starka trender som RSI missar
+    # (t.ex. Investor B, VanEck Semiconductor i stark uppgång)
+    momentum_buy = calc_momentum_buy(trend, w52_pos, news_score, change, ma50, ma200)
+    if momentum_buy and signal != "KOP" and not is_volatile:
+        signal = "KOP"
+        score = max(score, 7)
+        momentum = "MOMENTUM_KOP"
+
     return signal, score, momentum
 
 results = {}
