@@ -312,7 +312,7 @@ STOCKS = [
     "NVDA", "INTC", "AAPL", "MSFT", "AMZN", "GOOGL", "META", "TSLA", "JPM", "BRK-B", "LLY",
     "BYDDF", "TSM",
     "CL=F", "GC=F", "SI=F", "BTC-USD", "ETH-USD",
-    "CSPX.L", "EQQQ.DE", "JEDI.DE", "XACT-OMXS30.ST", "XACTHDIV.ST", "SMH.DE", "DFNS.L", "VWRL.L", "IS3N.DE", "IQQH.DE", "IGLN.L",
+    "CSPX.L", "EQQQ.DE", "JEDI.DE", "XACT-OMXS30.ST", "XACTHDIV.ST", "SMH.DE", "DFNS.L", "VWRL.L", "IS3N.DE", "IQQH.DE", "IGLN.L", "QUTM.DE",
 ]
 
 # Mappa Xetra/London ETF:er mot amerikanska tickers för nyheter
@@ -320,6 +320,7 @@ NEWS_TICKER_MAP = {
     "JEDI.DE": "ARKX",    # ARK Space Exploration ETF — samma tema, nyheter finns
     "SMH.DE":  "SMH",     # VanEck Semiconductor USA — identisk fond
     "IS3N.DE": "IEMG",    # iShares MSCI EM USA — identisk fond
+    "QUTM.DE": "QTUM",    # Defiance Quantum ETF USA — liknande tema, bättre nyhetstäckning
     "JEDI.L":  "ARKX",
     "IGLN.L":  "IAU",     # iShares Gold Trust USA
     "DFNS.L":  "ITA",     # iShares Defense ETF USA
@@ -511,7 +512,7 @@ def calc_seasonal_factor(sym):
     # Defensiva aktier starka jan-mars och sept-nov
     defensive = ["XACTHDIV.ST", "NSRGY", "SHEL", "JPM", "BRK-B"]
     # Tech/growth starka april-aug
-    growth = ["NVDA", "AAPL", "MSFT", "AMZN", "GOOGL", "META", "EQQQ.DE", "SMH.DE"]
+    growth = ["NVDA", "AAPL", "MSFT", "AMZN", "GOOGL", "META", "EQQQ.DE", "SMH.DE", "QUTM.DE"]
     if sym in defensive and month in [9, 10, 11, 1, 2, 3]:
         return 0.5
     elif sym in growth and month in [4, 5, 6, 7, 8]:
@@ -934,6 +935,7 @@ update_accuracy_tracking(results, fg_value)
 # ── Sektorkorrelation ────────────────────────────────────────────────────────
 SECTOR_CORRELATIONS = {
     "SMH.DE":    ["NVDA", "TSM"],
+    "QUTM.DE":   ["NVDA"],  # Nvidia driver kvantsimulering/AI-infrastruktur
     "JEDI.DE":   [],
     "IS3N.DE":   ["BYDDF"],
     "IQQH.DE":   ["CL=F"],
@@ -983,6 +985,7 @@ DISPLAY_NAMES = {
     "XACTHDIV.ST": "XACT Nordic High Dividend", "SMH.DE": "VanEck Semiconductor",
     "DFNS.L": "HANetf Future of Defence", "VWRL.L": "Vanguard FTSE All-World",
     "IS3N.DE": "iShares Core MSCI EM IMI", "IQQH.DE": "iShares Global Clean Energy",
+    "QUTM.DE": "VanEck Quantum Computing",
     "IGLN.L": "iShares Physical Gold",
 }
 
@@ -994,7 +997,7 @@ INNEHAV = {
     "BEAMMW-B.ST": {"antal": 53, "kurs": 18.57,  "valuta": "SEK"},
 }
 
-BEVAKADE_ETFER = ["JEDI.DE", "SMH.DE", "IS3N.DE"]
+BEVAKADE_ETFER = ["JEDI.DE", "SMH.DE", "IS3N.DE", "QUTM.DE"]
 
 def send_discord(webhook_url, embeds):
     try:
