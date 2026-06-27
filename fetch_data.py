@@ -1,7 +1,6 @@
 import yfinance as yf
 import json
 import urllib.request
-import urllib.error
 import math
 import time
 import os
@@ -160,7 +159,10 @@ def fetch_finnhub_news(sym, api_key):
     """Fetch latest news for a stock from Finnhub, including article text"""
     try:
         ticker = clean_finnhub_ticker(sym)
-        url = f"https://finnhub.io/api/v1/company-news?symbol={ticker}&from=2026-05-26&to=2026-12-31&token={api_key}"
+        today = datetime.now(timezone.utc).date()
+        from_date = (today - timedelta(days=30)).isoformat()
+        to_date = today.isoformat()
+        url = f"https://finnhub.io/api/v1/company-news?symbol={ticker}&from={from_date}&to={to_date}&token={api_key}"
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=8) as r:
             data = json.loads(r.read().decode("utf-8"))
@@ -449,7 +451,10 @@ def calc_volume_signal(volumes, closes):
     avg_vol = sum(volumes[-20:]) / 20
     latest_vol = volumes[-1]
     vol_ratio = latest_vol / avg_vol if avg_vol > 0 else 1
-    price_change = (closes[-1] - closes[-2]) / closes[-2] if closes[-2] != 0 else 0 if len(closes) > 1 else 0
+    if len(closes) < 2 or closes[-2] == 0:
+        price_change = 0
+    else:
+        price_change = (closes[-1] - closes[-2]) / closes[-2]
     if vol_ratio > 1.5 and price_change > 0: return 1
     elif vol_ratio > 1.5 and price_change < 0: return -1
     return 0
@@ -776,7 +781,7 @@ for sym in STOCKS:
 
         # Marknadsfilter: nedgradera KÖP-signaler vid Extreme Fear (F&G < 15)
         fear_greed_warning = None
-        if fg_value and fg_value < 15 and signal == "KOP":
+        if fg_value is not None and fg_value < 15 and signal == "KOP":
             styrka = max(1, styrka - 2)
             signal = "KOP" if styrka >= 7 else "SALJ" if styrka <= 4 else "HALL"
             fear_greed_warning = "Extreme Fear - KOP-signal nedgraderad"
@@ -845,7 +850,8 @@ for sym in STOCKS:
         news_headlines = all_headlines
 
         news_score = news_sentiment.get("score", 0) if news_sentiment else 0
-        adjusted_styrka = max(1, min(10, styrka + news_score))
+        styrka = max(1, min(10, styrka + news_score))
+        signal = "KOP" if styrka >= 7 else "SALJ" if styrka <= 4 else "HALL"
 
         results[sym] = {
             "price": price, "change": change,
@@ -906,7 +912,7 @@ if intel_alert:
 output = {
     "updated": (datetime.now(ZoneInfo("Europe/Stockholm"))).strftime("%Y-%m-%d %H:%M svensk tid"),
     "stocks": results,
-    "fear_greed": {"value": fg_value, "classification": fg_class} if fg_value else None,
+    "fear_greed": {"value": fg_value, "classification": fg_class} if fg_value is not None else None,
     "trump_mentions": trump_mentions
 }
 
@@ -1092,8 +1098,14 @@ def build_discord_report(results, fg_value, fg_class, updated, intel_alert=None)
                 "styrka": d["styrka"], "rsi": d["rsi"], "price": d["price"],
             })
 
-    new_signals = {sym: {"signal": d["signal"], "styrka": d["styrka"]}
-                   for sym, d in results.items() if d.get("ok")}
+    new_signals = {
+        sym: {
+            "signal": d["signal"],
+            "styrka": d["styrka"],
+            "news_score": d.get("news_score", 0),
+        }
+        for sym, d in results.items() if d.get("ok")
+    }
     with open("prev_signals.json", "w") as f:
         json.dump(new_signals, f)
 
@@ -1162,7 +1174,7 @@ def build_discord_report(results, fg_value, fg_class, updated, intel_alert=None)
                 "title": f"KOP-signaler ({len(kop_list)} st)",
                 "color": 0x23a559,
                 "description": "```\n" + "\n".join(kop_lines) + "\n```",
-                "footer": {"text": "Extreme Fear - lagre traffsakerhet" if fg_value and fg_value < 15 else "AktieRadar"}
+                "footer": {"text": "Extreme Fear - lagre traffsakerhet" if fg_value is not None and fg_value < 15 else "AktieRadar"}
             })
 
         salj_list = [(sym, d) for sym, d in results.items()
