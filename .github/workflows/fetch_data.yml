@@ -2,11 +2,8 @@ name: Fetch Stock Data
 
 on:
   schedule:
-    - cron: '*/30 7-16 * * 1-5'  # Var 30:e minut 09:00-18:00 svensk tid
-    - cron: '20 15 * * 1-5'      # Extra körning kl 17:20 svensk tid (15:20 UTC)
-    - cron: '*/30 16-19 * * 1-5' # Var 30:e minut 18:00-21:30 svensk tid (Nasdaq)
-    - cron: '50 19 * * 1-5'      # Extra körning kl 21:50 svensk tid (nära Nasdaq-stängning)
-    - cron: '15 20 * * 1-5'      # Körning kl 22:15 svensk tid (efter Nasdaq-stängning)
+    - cron: '*/30 7-16 * * 1-5'  # Var 30:e minut 09:00-18:00 svensk sommartid / 08:00-17:00 vintertid
+    - cron: '20 15 * * 1-5'      # Extra körning kl 17:20 svensk sommartid / 16:20 vintertid
   push:
     branches: [main]
     paths:
@@ -43,11 +40,10 @@ jobs:
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          git add data.json prev_signals.json accuracy.json
+          git add data.json
           if git diff --staged --quiet; then
-            echo "No changes"
+            echo "No changes to data.json"
           else
             git commit -m "Update stock data $(date '+%Y-%m-%d %H:%M')"
-            git pull --rebase origin main
             git push
           fi
