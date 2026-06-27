@@ -332,9 +332,20 @@ const COLORS={KOP:"#00cc66",HALL:"#ffaa00",SALJ:"#ff4444"};
 const BGS={KOP:"#00110a",HALL:"#110d00",SALJ:"#110000"};
 const TAGS={KOP:"▲ KÖP",HALL:"— HÅLL",SALJ:"▼ SÄLJ"};
 const VARFOR={KOP:"VARFÖR KÖPA",HALL:"VARFÖR HÅLLA",SALJ:"VARFÖR SÄLJA"};
+function safeParse(key, fallback){
+  try{
+    const raw = localStorage.getItem(key);
+    if(raw == null) return fallback;
+    return JSON.parse(raw);
+  }catch(e){
+    console.warn(`Korrupt localStorage-data för "${key}", återställer till standardvärde.`, e);
+    return fallback;
+  }
+}
+
 const categories=["Favoriter","⚡ SWING","TrumpPump",...Object.keys(STOCKS)];
 let activeTab="Favoriter";
-let favorites=new Set(JSON.parse(localStorage.getItem("fav")||"[]"));
+let favorites=new Set(safeParse("fav", []));
 let liveData={};
 
 
@@ -490,7 +501,7 @@ function closeDropdown(){
   if(dd) dd.style.display = "none";
 }
 
-let portfolio = JSON.parse(localStorage.getItem("portfolio") || "[]");
+let portfolio = safeParse("portfolio", []);
 let portfolioSort = "added"; // added, value, pnl, pnlpct, alpha
 
 function savePortfolio(){ localStorage.setItem("portfolio", JSON.stringify(portfolio)); }
@@ -574,7 +585,7 @@ function removeHolding(i){
 // ── Portfolio History ─────────────────────────────────────────────────────────
 function savePortfolioSnapshot(value){
   if(!value || value <= 0) return;
-  const history = JSON.parse(localStorage.getItem("portfolio_history") || "[]");
+  const history = safeParse("portfolio_history", []);
   const today = new Date().toISOString().split("T")[0];
   // Only save once per day
   if(history.length && history[history.length-1].date === today){
@@ -588,7 +599,7 @@ function savePortfolioSnapshot(value){
 }
 
 function getHistoryByPeriod(months){
-  const history = JSON.parse(localStorage.getItem("portfolio_history") || "[]");
+  const history = safeParse("portfolio_history", []);
   const cutoff = new Date();
   cutoff.setMonth(cutoff.getMonth() - months);
   return history.filter(h => new Date(h.date) >= cutoff);
@@ -669,7 +680,7 @@ function drawHistoryChart(months){
 }
 
 function drawPortfolioChart(){
-  const hist = JSON.parse(localStorage.getItem("ph3") || "{}");
+  const hist = safeParse("ph3", {});
   const canvas = document.getElementById("portfolio-chart");
   const empty = document.getElementById("portfolio-chart-empty");
   if(!canvas) return;
@@ -1101,7 +1112,7 @@ function toggleSwingCard(sym){
 // ── Swing History ──────────────────────────────────────────────
 function saveSwingSnapshot(){
   const today = new Date().toISOString().split("T")[0];
-  const hist = JSON.parse(localStorage.getItem("swing_hist") || "{}");
+  const hist = safeParse("swing_hist", {});
   if(hist[today]) return; // Already saved today
   const swings = getSwingStocks();
   if(!swings.length) return;
@@ -1122,7 +1133,7 @@ function saveSwingSnapshot(){
 }
 
 function renderSwingHistory(){
-  const hist = JSON.parse(localStorage.getItem("swing_hist") || "{}");
+  const hist = safeParse("swing_hist", {});
   const keys = Object.keys(hist).sort().reverse().slice(0,7);
   if(!keys.length) return '<div style="text-align:center;padding:20px;color:var(--text3);font-size:12px">Historik byggs upp dagligen</div>';
 
@@ -1199,7 +1210,7 @@ function sendSwingNotification(stock, data){
   n.onclick = () => { window.focus(); switchTab("⚡ SWING"); };
 }
 
-let prevSwingSyms = new Set(JSON.parse(localStorage.getItem("prev_swings") || "[]"));
+let prevSwingSyms = new Set(safeParse("prev_swings", []));
 
 function checkSwingNotifications(){
   if(Notification.permission !== "granted") return;
@@ -1277,6 +1288,7 @@ function buildCard(s){
       ${live.rsi!=null?`<span class="tech-badge" style="color:${rc};border-color:${rc}44">RSI ${live.rsi}</span>`:""}
       ${live.ma50!=null?`<span class="tech-badge" style="color:${mc};border-color:${mc}44">MA50 ${live.ma50}</span>`:""}
       ${live.ma200!=null?`<span class="tech-badge" style="color:${mc};border-color:${mc}44">MA200 ${live.ma200}</span>`:""}
+      ${live.pe_ratio!=null?`<span class="tech-badge" style="color:#8ab4f8;border-color:#8ab4f844">P/E ${live.pe_ratio.toFixed(1)}</span>`:""}
     </div>`;
   }else if(!s.sym){
     techHtml=`<div class="tech-row"><span class="tech-badge" style="color:var(--text4)">Fondkurser hämtas ej automatiskt — se Avanza för aktuellt pris</span></div>`;
@@ -1766,7 +1778,7 @@ function savePrevSignals(){
 // Also save daily snapshot to localStorage for week comparison
 function saveDailySnapshot(){
   const today = new Date().toISOString().split("T")[0];
-  const existing = JSON.parse(localStorage.getItem("signal_history") || "{}");
+  const existing = safeParse("signal_history", {});
   if(existing[today]) return;
   const snapshot = {};
   Object.values(STOCKS).flat().filter(s=>s.sym).forEach(s=>{
