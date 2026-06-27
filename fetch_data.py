@@ -543,6 +543,33 @@ def fetch_insider_transactions(sym, finnhub_key):
     except:
         return 0
 
+def fetch_fundamentals(sym, finnhub_key):
+    """
+    Hämta fundamental data (P/E, P/S, marginaler) från Finnhub som komplement
+    till teknisk analys. Gratis endpoint, samma API-nyckel som nyheter/insider.
+    Svensk täckning (.ST) kan vara begränsad - faller tyst tillbaka på None.
+    """
+    if not finnhub_key:
+        return {"pe_ratio": None, "ps_ratio": None, "net_margin": None}
+    try:
+        ticker_clean = sym.replace(".ST", "").replace("-", ".").replace("=F", "")
+        if "." in ticker_clean and not ticker_clean.endswith((".L", ".DE")):
+            ticker_clean = ticker_clean.split(".")[0]
+        url = f"https://finnhub.io/api/v1/stock/metric?symbol={ticker_clean}&metric=all&token={finnhub_key}"
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=5) as r:
+            data = json.loads(r.read().decode("utf-8"))
+        metric = data.get("metric", {})
+        if not metric:
+            return {"pe_ratio": None, "ps_ratio": None, "net_margin": None}
+        return {
+            "pe_ratio": metric.get("peTTM") or metric.get("peBasicExclExtraTTM"),
+            "ps_ratio": metric.get("psTTM"),
+            "net_margin": metric.get("netProfitMarginTTM"),
+        }
+    except Exception:
+        return {"pe_ratio": None, "ps_ratio": None, "net_margin": None}
+
 def fetch_short_interest(ticker_obj):
     """Hämta short interest från yfinance"""
     try:
@@ -704,6 +731,7 @@ for sym in STOCKS:
         seasonal = calc_seasonal_factor(sym)
         finnhub_key_tmp = os.environ.get("FINNHUB_API_KEY", "")
         insider = fetch_insider_transactions(sym, finnhub_key_tmp)
+        fundamentals = fetch_fundamentals(sym, finnhub_key_tmp)
         short_data = fetch_short_interest(ticker)
 
         # RSI-divergens kräver RSI-historik
@@ -784,7 +812,7 @@ for sym in STOCKS:
             except:
                 ath = None
 
-        finnhub_key = os.environ.get("FINNHUB_API_KEY", "")
+        finnhub_key = finnhub_key_tmp
         news_sym = NEWS_TICKER_MAP.get(sym, sym)
         finnhub_headlines = fetch_finnhub_news(news_sym, finnhub_key) if finnhub_key else []
         yfinance_headlines = fetch_yfinance_news(news_sym)
@@ -835,6 +863,9 @@ for sym in STOCKS:
             "divergence": divergence,
             "support_resistance": support_resistance,
             "insider_signal": insider,
+            "pe_ratio": fundamentals.get("pe_ratio"),
+            "ps_ratio": fundamentals.get("ps_ratio"),
+            "net_margin": fundamentals.get("net_margin"),
             "short_interest": short_data.get("pct"),
             "short_interest_high": short_data.get("high"),
             "is_volatile": is_volatile,
