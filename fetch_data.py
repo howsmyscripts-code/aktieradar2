@@ -118,6 +118,17 @@ def fetch_article_text(url, max_chars=1500):
     except Exception:
         return None
 
+def clean_finnhub_ticker(sym):
+    """
+    Normaliserar en ticker till Finnhub-format. Delas av alla funktioner
+    som anropar Finnhub (nyheter, insider, fundamentals) för att undvika
+    dubblerad logik.
+    """
+    ticker_clean = sym.replace(".ST", "").replace("-", ".").replace("=F", "")
+    if "." in ticker_clean and not ticker_clean.endswith((".L", ".DE")):
+        ticker_clean = ticker_clean.split(".")[0]
+    return ticker_clean
+
 def fetch_yfinance_news(sym):
     """Fetch latest news for a stock via yfinance, including article text"""
     skip_scrape = sym.endswith(".ST")
@@ -148,9 +159,7 @@ def fetch_yfinance_news(sym):
 def fetch_finnhub_news(sym, api_key):
     """Fetch latest news for a stock from Finnhub, including article text"""
     try:
-        ticker = sym.replace(".ST", "").replace("-", ".").replace("=F", "")
-        if "." in ticker and not ticker.endswith(".L") and not ticker.endswith(".DE"):
-            ticker = ticker.split(".")[0]
+        ticker = clean_finnhub_ticker(sym)
         url = f"https://finnhub.io/api/v1/company-news?symbol={ticker}&from=2026-05-26&to=2026-12-31&token={api_key}"
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=8) as r:
@@ -525,9 +534,7 @@ def fetch_insider_transactions(sym, finnhub_key):
     """Hämta insidertransaktioner från Finnhub"""
     if not finnhub_key: return 0
     try:
-        ticker_clean = sym.replace(".ST", "").replace("-", ".").replace("=F", "")
-        if "." in ticker_clean and not ticker_clean.endswith((".L", ".DE")):
-            ticker_clean = ticker_clean.split(".")[0]
+        ticker_clean = clean_finnhub_ticker(sym)
         url = f"https://finnhub.io/api/v1/stock/insider-transactions?symbol={ticker_clean}&token={finnhub_key}"
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=5) as r:
@@ -552,9 +559,7 @@ def fetch_fundamentals(sym, finnhub_key):
     if not finnhub_key:
         return {"pe_ratio": None, "ps_ratio": None, "net_margin": None}
     try:
-        ticker_clean = sym.replace(".ST", "").replace("-", ".").replace("=F", "")
-        if "." in ticker_clean and not ticker_clean.endswith((".L", ".DE")):
-            ticker_clean = ticker_clean.split(".")[0]
+        ticker_clean = clean_finnhub_ticker(sym)
         url = f"https://finnhub.io/api/v1/stock/metric?symbol={ticker_clean}&metric=all&token={finnhub_key}"
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=5) as r:
@@ -709,7 +714,7 @@ for sym in STOCKS:
             except Exception:
                 time.sleep(2)
         min_bars = 2 if sym.startswith("VALOUR-") else 20
-        if len(hist) < min_bars:
+        if hist is None or len(hist) < min_bars:
             raise ValueError("Too little data")
 
         closes = [c for c in hist["Close"].tolist() if c and not math.isnan(float(c))]
