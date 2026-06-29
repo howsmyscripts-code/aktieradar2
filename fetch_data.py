@@ -318,7 +318,7 @@ Posts:
 
 STOCKS = [
     "INVE-B.ST", "ATCO-B.ST", "SWED-A.ST", "SAAB-B.ST", "ERIC-B.ST",
-    "VOLV-B.ST", "KINV-B.ST", "HM-B.ST", "SEB-A.ST", "TEL2-B.ST", "BEAMMW-B.ST", "NANEXA.ST", "INDU-C.ST",
+    "VOLV-B.ST", "KINV-B.ST", "HM-B.ST", "SEB-A.ST", "TEL2-B.ST", "BEAMMW-B.ST", "NANEXA.ST", "FREEM.ST", "INDU-C.ST",
     "ASML", "SAP", "NVO", "LVMUY", "SHEL", "SIEGY", "NSRGY", "EADSY", "AZN", "RELX", "BAESY",
     "NVDA", "INTC", "AAPL", "MSFT", "AMZN", "GOOGL", "META", "TSLA", "JPM", "BRK-B", "LLY",
     "BYDDF", "TSM",
@@ -356,6 +356,7 @@ MFN_TICKER_MAP = {
     "TEL2-B.ST": "tele2",
     "BEAMMW-B.ST": "beammwave",
     "NANEXA.ST": "nanexa",
+    "FREEM.ST": "freemelt",
     "INDU-C.ST": "industrivarden",
     "XACT-OMXS30.ST": None,
     "XACTHDIV.ST": None,
@@ -1014,6 +1015,7 @@ DISPLAY_NAMES = {
     "SAAB-B.ST": "Saab B", "ERIC-B.ST": "Ericsson B", "VOLV-B.ST": "Volvo B",
     "KINV-B.ST": "Kinnevik B", "HM-B.ST": "H&M B", "SEB-A.ST": "SEB A",
     "TEL2-B.ST": "Tele2 B", "BEAMMW-B.ST": "BeammWave B", "NANEXA.ST": "Nanexa",
+    "FREEM.ST": "Freemelt",
     "INDU-C.ST": "Industrivarden C", "ASML": "ASML", "SAP": "SAP", "NVO": "Novo Nordisk",
     "LVMUY": "LVMH", "SHEL": "Shell", "SIEGY": "Siemens", "NSRGY": "Nestle",
     "EADSY": "Airbus", "AZN": "AstraZeneca", "RELX": "RELX", "BAESY": "BAE Systems",
