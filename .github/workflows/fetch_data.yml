@@ -2,8 +2,8 @@ name: Fetch Stock Data
 
 on:
   schedule:
-    - cron: '*/30 7-16 * * 1-5'  # Var 30:e minut 09:00-18:00 svensk sommartid / 08:00-17:00 vintertid
-    - cron: '20 15 * * 1-5'      # Extra körning kl 17:20 svensk sommartid / 16:20 vintertid
+    - cron: '*/30 7-16 * * 1-5'  # Var 30:e minut 09:00-18:00 svensk tid
+    - cron: '20 15 * * 1-5'      # Extra körning kl 17:20 svensk tid (15:20 UTC)
   push:
     branches: [main]
     paths:
@@ -33,7 +33,6 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: python fetch_data.py
 
       - name: Commit and push data
