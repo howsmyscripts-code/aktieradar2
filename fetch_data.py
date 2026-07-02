@@ -4,6 +4,7 @@ import urllib.request
 import math
 import time
 import os
+import hashlib
 from datetime import datetime, timezone, timedelta
 from zoneinfo import ZoneInfo
 
@@ -54,37 +55,6 @@ def get_time_weight():
         return "close_us"  # Nasdaq-stängning, tekniska viktigast
     return "intraday"
 
-# ── Trump RSS & News Analysis ────────────────────────────────
-
-def fetch_trump_posts():
-    """Fetch latest Trump-related news from Finnhub"""
-    try:
-        api_key = os.environ.get("FINNHUB_API_KEY", "")
-        if not api_key:
-            return []
-        url = f"https://finnhub.io/api/v1/news?category=general&token={api_key}"
-        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=10) as r:
-            data = json.loads(r.read().decode("utf-8"))
-        # Filter for Trump-related news
-        trump_news = []
-        for item in data[:50]:
-            headline = item.get("headline", "")
-            summary = item.get("summary", "")
-            text = headline + " " + summary
-            if "trump" in text.lower():
-                trump_news.append({
-                    "text": text,
-                    "date": item.get("datetime", ""),
-                    "headline": headline
-                })
-        print(f"Trump news found via Finnhub: {len(trump_news)}")
-        for n in trump_news[:10]:
-            print(f"  - {n['headline'][:80]}")
-        return trump_news[:10]
-    except Exception as e:
-        print(f"Trump Finnhub error: {e}")
-        return []
 
 
 
@@ -275,46 +245,6 @@ Headlines:
     except Exception as e:
         print(f"Claude API error: {e}")
         return None
-
-def analyze_trump_posts(posts):
-    """Use Claude to identify companies and sentiment in Trump posts"""
-    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
-    if not api_key or not posts:
-        return []
-    try:
-        texts = "\n---\n".join([p["text"] for p in posts[:10]])
-        payload = json.dumps({
-            "model": "claude-haiku-4-5-20251001",
-            "max_tokens": 500,
-            "messages": [{
-                "role": "user",
-                "content": f"""Analyze these Trump Truth Social posts. Find any company/stock mentions.
-Reply with ONLY a JSON array (empty [] if no companies found):
-[{{"company": "Company Name", "ticker": "TICKER or null", "sentiment": "positive|negative|neutral", "quote": "relevant quote max 100 chars", "date": "date string"}}]
-
-Posts:
-{texts}"""
-            }]
-        }).encode("utf-8")
-        req = urllib.request.Request(
-            "https://api.anthropic.com/v1/messages",
-            data=payload,
-            headers={
-                "Content-Type": "application/json",
-                "x-api-key": api_key,
-                "anthropic-version": "2023-06-01"
-            }
-        )
-        with urllib.request.urlopen(req, timeout=20) as r:
-            resp = json.loads(r.read().decode("utf-8"))
-        text = resp["content"][0]["text"].strip()
-        if "[" in text:
-            text = text[text.find("["):text.rfind("]")+1]
-        return json.loads(text)
-    except Exception as e:
-        print(f"Trump analysis error: {e}")
-        return []
-
 
 STOCKS = [
     "INVE-B.ST", "ATCO-B.ST", "SWED-A.ST", "SAAB-B.ST", "ERIC-B.ST",
@@ -708,6 +638,31 @@ if sp500_futures is not None:
     print(f"S&P 500 futures: {sp500_futures:+.1f}%")
 print(f"Tidsperiod: {time_weight}")
 
+# ── Optimering #3: Kör Haiku-sentiment bara vid utvalda tider ────────────────
+# Sentiment behöver inte uppdateras varje körning - nyheter ändras långsamt.
+# Vi kör bara sentiment under morgon (9-10), lunch (12-13) och stängning (17-18, 22-23).
+# Övriga körningar återanvänder föregående sentiment (priser/RSI uppdateras ändå).
+_now_hour = datetime.now(ZoneInfo("Europe/Stockholm")).hour
+SENTIMENT_HOURS = {9, 10, 12, 13, 17, 18, 22, 23}
+run_sentiment = _now_hour in SENTIMENT_HOURS
+print(f"Sentiment-analys denna körning: {'JA' if run_sentiment else 'NEJ (återanvänder cache)'} (kl {_now_hour})")
+
+# ── Optimering #2: Ladda nyhets-cache för att hoppa över oförändrade rubriker ──
+# Cachen sparar {sym: {"headlines_hash": ..., "sentiment": {...}}}
+# Om rubrikerna är identiska med förra körningen slipper vi ett Haiku-anrop.
+try:
+    with open("news_cache.json", "r") as f:
+        news_cache = json.load(f)
+except:
+    news_cache = {}
+
+# Ladda även föregående sentiment från prev_signals så vi kan återanvända det
+try:
+    with open("prev_signals.json", "r") as f:
+        _prev_sigs_all = json.load(f)
+except:
+    _prev_sigs_all = {}
+
 for sym in STOCKS:
     try:
         ticker = yf.Ticker(sym)
@@ -839,15 +794,31 @@ for sym in STOCKS:
         except:
             pass
 
+        # ── Optimering #2 + #3: cache + tidsfönster för Haiku-anrop ──
+        # Beräkna hash av dagens rubriker för att jämföra med cachen
+        headlines_hash = hashlib.md5("|".join(all_headlines).encode("utf-8")).hexdigest() if all_headlines else ""
+        cached = news_cache.get(sym, {})
         news_sentiment = None
+
         if all_headlines:
-            news_sentiment = analyze_sentiment_claude(
-                all_headlines, sym,
-                rsi=rsi, change=change,
-                prev_news_score=prev_news_score,
-                signal=signal
-            )
-            time.sleep(0.5)
+            if not run_sentiment:
+                # Utanför sentiment-tidsfönster: återanvänd cachat sentiment (sparar anrop)
+                news_sentiment = cached.get("sentiment")
+            elif cached.get("headlines_hash") == headlines_hash and cached.get("sentiment"):
+                # Rubrikerna oförändrade sedan förra analysen: återanvänd (sparar anrop)
+                news_sentiment = cached.get("sentiment")
+            else:
+                # Nya rubriker OCH rätt tidsfönster: gör ett riktigt Haiku-anrop
+                news_sentiment = analyze_sentiment_claude(
+                    all_headlines, sym,
+                    rsi=rsi, change=change,
+                    prev_news_score=prev_news_score,
+                    signal=signal
+                )
+                time.sleep(0.5)
+                # Uppdatera cachen med det nya resultatet
+                if news_sentiment:
+                    news_cache[sym] = {"headlines_hash": headlines_hash, "sentiment": news_sentiment}
         news_headlines = all_headlines
 
         news_score = news_sentiment.get("score", 0) if news_sentiment else 0
@@ -889,26 +860,6 @@ for sym in STOCKS:
     except Exception as e:
         results[sym] = {"ok": False, "error": str(e)}
         print(f"FAIL {sym}: {e}")
-
-print("Fetching Trump posts...")
-trump_posts_raw = fetch_trump_posts()
-trump_mentions = analyze_trump_posts(trump_posts_raw) if trump_posts_raw else []
-print(f"Trump mentions found: {len(trump_mentions)}")
-
-# Intel-specifik Trump-alert
-def check_intel_trump_alert(trump_mentions):
-    """Flagga om Trump nämner Intel specifikt"""
-    if not trump_mentions:
-        return None
-    for mention in trump_mentions:
-        quote = mention.get("quote", "").lower()
-        if any(kw in quote for kw in ["intel", "intc", "terafab"]):
-            return f"TRUMP namnde Intel: {mention.get('quote', '')[:100]}"
-    return None
-
-intel_alert = check_intel_trump_alert(trump_mentions)
-if intel_alert:
-    print(intel_alert)
 
 # ── Accuracy Tracking ────────────────────────────────────────────────────────
 def update_accuracy_tracking(results, fg_value):
@@ -1027,7 +978,6 @@ output = {
     "updated": (datetime.now(ZoneInfo("Europe/Stockholm"))).strftime("%Y-%m-%d %H:%M svensk tid"),
     "stocks": results,
     "fear_greed": {"value": fg_value, "classification": fg_class} if fg_value is not None else None,
-    "trump_mentions": trump_mentions,
     "accuracy_summary": accuracy_summary
 }
 if sector_warnings:
@@ -1035,5 +985,9 @@ if sector_warnings:
 
 with open("data.json", "w") as f:
     json.dump(output, f, indent=2)
+
+# Spara nyhets-cachen så nästa körning kan hoppa över oförändrade rubriker
+with open("news_cache.json", "w") as f:
+    json.dump(news_cache, f, indent=2)
 
 print(f"\nDone: {sum(1 for v in results.values() if v.get('ok'))} / {len(results)} succeeded")
