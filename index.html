@@ -54,11 +54,11 @@
     .list.active{display:flex}
     .card{border-radius:12px;overflow:hidden;border:1px solid var(--border2);transition:border-color 0.2s,box-shadow 0.2s}
     .card.open{border-color:var(--c)}
-    .card-row{width:100%;background:var(--bg2);border:none;padding:13px 14px;display:grid;grid-template-columns:150px 1fr 150px;grid-template-areas:"left left left" "price dots right";align-items:center;cursor:pointer;column-gap:4px;row-gap:6px;transition:background 0.2s}
+    .card-row{width:100%;background:var(--bg2);border:none;padding:13px 14px;display:grid;grid-template-columns:150px 1fr 150px;grid-template-areas:"left left heart" "price dots right";align-items:center;cursor:pointer;column-gap:4px;row-gap:6px;transition:background 0.2s}
     .card.open .card-row{background:var(--bg2)}
     .card-left{grid-area:left;display:flex;flex-direction:column;align-items:flex-start}
     .card-ticker{display:block;width:100%;font-size:12px;font-weight:700;color:var(--text);letter-spacing:0.5px;text-align:left;overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto;line-height:1.25}
-    .card-sektor{font-size:9px;color:var(--text3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:88px}.card-smeknamn{font-size:9px;color:#666;margin-top:1px;font-style:italic}.card-live-price{font-size:11px;color:var(--text2);font-family:monospace;margin-top:3px;letter-spacing:0.5px;white-space:nowrap}.card-nickname{font-size:9px;color:var(--text3);margin-top:2px;font-style:italic}.card-price-cell{grid-area:price;font-size:11px;color:var(--text2);font-family:monospace;letter-spacing:0.5px;white-space:nowrap;text-align:left}
+    .card-sektor{font-size:9px;color:var(--text3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:88px}.card-smeknamn{font-size:9px;color:#666;margin-top:1px;font-style:italic}.card-live-price{font-size:11px;color:var(--text2);font-family:monospace;margin-top:3px;letter-spacing:0.5px;white-space:nowrap}.card-nickname{font-size:9px;color:var(--text3);margin-top:2px;font-style:italic}.card-price-cell{grid-area:price;font-size:11px;color:var(--text2);font-family:monospace;letter-spacing:0.5px;white-space:nowrap;text-align:left}.card-heart-cell{grid-area:heart;display:flex;justify-content:flex-end;align-items:center}
     .dots{grid-area:dots;display:flex;gap:3px;flex:1;justify-content:center;min-width:0}
     .dot{width:5px;height:5px;border-radius:50%;background:#1e1e2e;flex-shrink:0}
     .dot.on{background:var(--c)}
@@ -1346,9 +1346,10 @@ function buildCard(s){
   card.innerHTML=`
     <button class="card-row" onclick="toggleCard(this)">
       <div class="card-left"><span class="card-ticker">${s.namn}</span><span class="card-sektor">${s.sektor}</span>${s.smeknamn?`<span class="card-smeknamn">${s.smeknamn}</span>`:""}</div>
+      <div class="card-heart-cell">${s.sym?`<span class="heart${favorites.has(s.sym)?" fav":""}" onclick="toggleFav(event,'${s.sym}')">♥</span>`:""}</div>
       <div class="card-price-cell">${has&&live.price?`${live.price.toFixed(2)} <span style="color:var(--text3);font-size:9px">${s.valuta||""}</span>`:'<span style="color:#2a2a2a">—</span>'}</div>
       <div class="dots">${dots}</div>
-      <div class="card-right">${s.sym?`<span class="heart${favorites.has(s.sym)?" fav":""}" onclick="toggleFav(event,'${s.sym}')">♥</span>`:""} ${chHtml}<span class="card-signal">${TAGS[signal]}</span><span class="card-arrow">▼</span></div>
+      <div class="card-right">${chHtml}<span class="card-signal">${TAGS[signal]}</span><span class="card-arrow">▼</span></div>
     </button>
     <div class="card-body">
       <div class="bar-track"><div class="bar-fill" style="width:${styrka*10}%"></div></div>
