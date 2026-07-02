@@ -910,21 +910,9 @@ intel_alert = check_intel_trump_alert(trump_mentions)
 if intel_alert:
     print(intel_alert)
 
-output = {
-    "updated": (datetime.now(ZoneInfo("Europe/Stockholm"))).strftime("%Y-%m-%d %H:%M svensk tid"),
-    "stocks": results,
-    "fear_greed": {"value": fg_value, "classification": fg_class} if fg_value is not None else None,
-    "trump_mentions": trump_mentions
-}
-
-with open("data.json", "w") as f:
-    json.dump(output, f, indent=2)
-
-print(f"\nDone: {sum(1 for v in results.values() if v.get('ok'))} / {len(results)} succeeded")
-
 # ── Accuracy Tracking ────────────────────────────────────────────────────────
 def update_accuracy_tracking(results, fg_value):
-    """Spara signaler och priser for accuracy-tracking"""
+    """Spara signaler och priser for accuracy-tracking. Returnerar hela accuracy-dicten."""
     now_sw = datetime.now(ZoneInfo("Europe/Stockholm"))
     now_hour = now_sw.hour
     today = now_sw.strftime("%Y-%m-%d")
@@ -973,7 +961,37 @@ def update_accuracy_tracking(results, fg_value):
     with open("accuracy.json", "w") as f:
         json.dump(accuracy, f, indent=2)
 
-update_accuracy_tracking(results, fg_value)
+    return accuracy
+
+def compute_accuracy_summary(accuracy, symbols=None):
+    """
+    Sammanstaller traffsakerhet per aktie fran accuracy.json.
+    Om symbols anges (lista), begransas summeringen till dessa tickers.
+    Returnerar dict: {sym: {"total": N, "correct": N, "pct": N}}
+    """
+    per_symbol = {}
+    for key, entry in accuracy.items():
+        sym = entry.get("sym")
+        if symbols is not None and sym not in symbols:
+            continue
+        if entry.get("correct") is None:
+            continue  # dagens signal ej stangd an
+        per_symbol.setdefault(sym, {"total": 0, "correct": 0})
+        per_symbol[sym]["total"] += 1
+        if entry["correct"]:
+            per_symbol[sym]["correct"] += 1
+
+    summary = {}
+    for sym, stats in per_symbol.items():
+        pct = round(stats["correct"] / stats["total"] * 100, 1) if stats["total"] > 0 else None
+        summary[sym] = {"total": stats["total"], "correct": stats["correct"], "pct": pct}
+    return summary
+
+accuracy_data = update_accuracy_tracking(results, fg_value)
+
+# Sammanstall traffsakerhet for dina innehav specifikt (utoka listan vid behov)
+TRACKED_HOLDINGS = ["INVE-B.ST", "SAAB-B.ST", "BEAMMW-B.ST", "XACTHDIV.ST", "JEDI.DE"]
+accuracy_summary = compute_accuracy_summary(accuracy_data, symbols=TRACKED_HOLDINGS)
 
 # ── Sektorkorrelation ────────────────────────────────────────────────────────
 SECTOR_CORRELATIONS = {
@@ -1004,6 +1022,18 @@ if sector_warnings:
     print("Sektorvarningar:")
     for sym, warning in sector_warnings.items():
         print(f"  {sym}: {warning}")
+
+output = {
+    "updated": (datetime.now(ZoneInfo("Europe/Stockholm"))).strftime("%Y-%m-%d %H:%M svensk tid"),
+    "stocks": results,
+    "fear_greed": {"value": fg_value, "classification": fg_class} if fg_value is not None else None,
+    "trump_mentions": trump_mentions,
+    "accuracy_summary": accuracy_summary
+}
+if sector_warnings:
     output["sector_warnings"] = sector_warnings
-    with open("data.json", "w") as f:
-        json.dump(output, f, indent=2)
+
+with open("data.json", "w") as f:
+    json.dump(output, f, indent=2)
+
+print(f"\nDone: {sum(1 for v in results.values() if v.get('ok'))} / {len(results)} succeeded")
