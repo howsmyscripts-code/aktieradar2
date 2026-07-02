@@ -1,0 +1,49 @@
+name: Fetch Stock Data
+
+on:
+  schedule:
+    - cron: '*/30 7-16 * * 1-5'  # Var 30:e minut 09:00-18:00 svensk tid
+    - cron: '20 15 * * 1-5'      # Extra körning kl 17:20 svensk tid (15:20 UTC)
+  push:
+    branches: [main]
+    paths:
+      - 'fetch_data.py'
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install yfinance
+
+      - name: Fetch stock data
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+        run: python fetch_data.py
+
+      - name: Commit and push data
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add data.json
+          [ -f accuracy.json ] && git add accuracy.json
+          if git diff --staged --quiet; then
+            echo "No changes to data.json or accuracy.json"
+          else
+            git commit -m "Update stock data $(date '+%Y-%m-%d %H:%M')"
+            git push
+          fi
