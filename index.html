@@ -54,15 +54,15 @@
     .list.active{display:flex}
     .card{border-radius:12px;overflow:hidden;border:1px solid var(--border2);transition:border-color 0.2s,box-shadow 0.2s}
     .card.open{border-color:var(--c)}
-    .card-row{width:100%;background:var(--bg2);border:none;padding:13px 14px;display:grid;grid-template-columns:90px 1fr 150px;align-items:center;cursor:pointer;gap:4px;transition:background 0.2s}
+    .card-row{width:100%;background:var(--bg2);border:none;padding:13px 14px;display:grid;grid-template-columns:150px 1fr 150px;grid-template-areas:"left left left" "price dots right";align-items:center;cursor:pointer;column-gap:4px;row-gap:6px;transition:background 0.2s}
     .card.open .card-row{background:var(--bg2)}
-    .card-left{display:flex;flex-direction:column;align-items:flex-start;overflow:hidden}
-    .card-ticker{font-size:12px;font-weight:700;color:var(--text);letter-spacing:0.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:88px}
-    .card-sektor{font-size:9px;color:var(--text3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:88px}.card-smeknamn{font-size:9px;color:#666;margin-top:1px;font-style:italic}.card-live-price{font-size:11px;color:var(--text2);font-family:monospace;margin-top:3px;letter-spacing:0.5px;white-space:nowrap}.card-nickname{font-size:9px;color:var(--text3);margin-top:2px;font-style:italic}
-    .dots{display:flex;gap:3px;flex:1;justify-content:center;min-width:0}
+    .card-left{grid-area:left;display:flex;flex-direction:column;align-items:flex-start}
+    .card-ticker{display:block;width:100%;font-size:12px;font-weight:700;color:var(--text);letter-spacing:0.5px;text-align:left;overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto;line-height:1.25}
+    .card-sektor{font-size:9px;color:var(--text3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:88px}.card-smeknamn{font-size:9px;color:#666;margin-top:1px;font-style:italic}.card-live-price{font-size:11px;color:var(--text2);font-family:monospace;margin-top:3px;letter-spacing:0.5px;white-space:nowrap}.card-nickname{font-size:9px;color:var(--text3);margin-top:2px;font-style:italic}.card-price-cell{grid-area:price;font-size:11px;color:var(--text2);font-family:monospace;letter-spacing:0.5px;white-space:nowrap;text-align:left}
+    .dots{grid-area:dots;display:flex;gap:3px;flex:1;justify-content:center;min-width:0}
     .dot{width:5px;height:5px;border-radius:50%;background:#1e1e2e;flex-shrink:0}
     .dot.on{background:var(--c)}
-    .card-right{display:flex;align-items:center;gap:4px;justify-content:flex-end;overflow:hidden}
+    .card-right{grid-area:right;display:flex;align-items:center;gap:4px;justify-content:flex-end;overflow:hidden}
     .card-signal{font-size:11px;font-weight:900;color:var(--c);letter-spacing:1px;white-space:nowrap;min-width:48px;text-align:right}
     .card-price{font-size:10px;color:#666;white-space:nowrap;margin-right:2px}.card-change{font-size:10px;font-weight:700;white-space:nowrap;width:46px;text-align:right}
     .card-arrow{color:var(--text4);font-size:10px;transition:transform 0.2s;width:12px;text-align:center;flex-shrink:0}.heart{font-size:22px;color:var(--text4);cursor:pointer;transition:color 0.2s;-webkit-tap-highlight-color:transparent;padding:2px 4px;line-height:1;width:30px;text-align:center;flex-shrink:0}.heart.fav{color:#ff4444}
@@ -260,7 +260,7 @@ const STOCKS = {
     {sym:"NANEXA.ST",valuta:"SEK",display:"NANEXA",namn:"Nanexa AB",sektor:"Biotech",avanza:"https://www.avanza.se/aktier/om-aktien.html/572681/nanexa",anledningar:["PharmaShell-teknologi samarbetar med Novo Nordisk och Moderna","NEX-22 för typ 2-diabetes — GLP-1-marknaden är enorm","Nanoteknik för kontrollerad läkemedelsfrisättning"],risker:["Pre-revenue — tjänar inga pengar ännu","Liten First North-aktie med hög volatilitet","Kliniska studier kan misslyckas"]},
     {sym:"FREEM.ST",valuta:"SEK",display:"FREEM",namn:"Freemelt Holding",sektor:"Industri/3D-print",avanza:"https://www.avanza.se/aktier/om-aktien.html/1247607/freemelt",anledningar:["E-PBF-teknik för metall-3D-printing inom forskning och industri","Order från försvar, energi och fusion (UKAEA, ITER, EU F4E)","Saab-endorsement och genombrott i USA samt Kina (Jiuli)"],risker:["Pre-revenue/svag lönsamhet — litet First North-bolag","Hög volatilitet, nyligen genomförd nyemission (TO1)","Beroende av enskilda stororder för intäktstillväxt"]},
     {sym:"TEL2-B.ST",valuta:"SEK",display:"TELE2 B",namn:"Tele2 B",sektor:"Telekom",avanza:"https://www.avanza.se/aktier/om-aktien.html/5386/tele2-b",anledningar:["Nytt flerårigt Viaplay-avtal","Hög direktavkastning 5,53%","Stabil kassagenerering"],risker:["49% premie mot verkligt värde","Mättad telekommarknad"]},
-    {sym:"INDU-C.ST",valuta:"SEK",display:"INDU C",namn:"Industrivärden C",sektor:"Investmentbolag",avanza:"https://www.avanza.se/aktier/om-aktien.html/5361/industrivarden-c",anledningar:["Investmentbolag med fokus på svenska industribolag","Innehav i Sandvik, Volvo, Handelsbanken och SCA","Historiskt stark långsiktig avkastning"],risker:["Koncentrerad mot cyklisk industri","Substansrabatt kan öka i nedgång"]},
+    {sym:"INDU-C.ST",valuta:"SEK",display:"INDU C",namn:"Industri­värden C",sektor:"Investmentbolag",avanza:"https://www.avanza.se/aktier/om-aktien.html/5361/industrivarden-c",anledningar:["Investmentbolag med fokus på svenska industribolag","Innehav i Sandvik, Volvo, Handelsbanken och SCA","Historiskt stark långsiktig avkastning"],risker:["Koncentrerad mot cyklisk industri","Substansrabatt kan öka i nedgång"]},
   ],
   "Europa":[
     {sym:"ASML",valuta:"USD",display:"ASML",namn:"ASML Holding",sektor:"Halvledare",avanza:"https://www.avanza.se/aktier/om-aktien.html/178965/asml-holding",anledningar:["Världsmonopol på EUV-maskiner","Orderbok 36 mdr EUR","AI-boom driver chipinvesteringar"],risker:["Exportrestriktioner mot Kina","Hög värdering"]},
@@ -425,7 +425,7 @@ const STOCK_INDEX = [
   {sym:"NANEXA.ST",valuta:"SEK",display:"NANEXA",namn:"Nanexa AB"},
   {sym:"FREEM.ST",valuta:"SEK",display:"FREEM",namn:"Freemelt Holding"},
   {sym:"TEL2-B.ST",valuta:"SEK",display:"TELE2 B",namn:"Tele2 B"},
-  {sym:"INDU-C.ST",valuta:"SEK",display:"INDU C",namn:"Industrivärden C"},
+  {sym:"INDU-C.ST",valuta:"SEK",display:"INDU C",namn:"Industri­värden C"},
   // Europa
   {sym:"ASML",valuta:"USD",display:"ASML",namn:"ASML Holding"},
   {sym:"SAP",valuta:"USD",display:"SAP",namn:"SAP SE"},
@@ -1041,9 +1041,9 @@ function buildSwingTab(listEl){
       html += `<div class="stock-card" style="border-left:3px solid #00cc66">
         <button class="card-row" onclick="toggleSwingCard('${s.sym}')">
           <div class="card-left">
-            <span class="card-ticker">${s.display}</span>
-            <span class="card-live-price">${d.price.toFixed(2)} <span style="font-size:9px;color:var(--text3)">${s.valuta||""}</span></span>
+            <span class="card-ticker">${s.namn}</span>
           </div>
+          <div class="card-price-cell">${d.price.toFixed(2)} <span style="font-size:9px;color:var(--text3)">${s.valuta||""}</span></div>
           <div class="dots">${dots}</div>
           <div class="card-right">
             <span style="font-size:10px;font-weight:700;color:var(--text3)">${chg}%</span>
@@ -1072,9 +1072,9 @@ function buildSwingTab(listEl){
       html += `<div class="stock-card" style="border-left:3px solid #ff4444">
         <button class="card-row" onclick="toggleSwingCard('${s.sym}')">
           <div class="card-left">
-            <span class="card-ticker">${s.display}</span>
-            <span class="card-live-price">${d.price.toFixed(2)} <span style="font-size:9px;color:var(--text3)">${s.valuta||""}</span></span>
+            <span class="card-ticker">${s.namn}</span>
           </div>
+          <div class="card-price-cell">${d.price.toFixed(2)} <span style="font-size:9px;color:var(--text3)">${s.valuta||""}</span></div>
           <div class="dots">${dots}</div>
           <div class="card-right">
             <span style="font-size:10px;font-weight:700;color:var(--text3)">${chg}%</span>
@@ -1345,7 +1345,8 @@ function buildCard(s){
   const risks=s.risker.map(r=>`<div class="risk-row"><span class="risk-icon">⚠</span><span>${r}</span></div>`).join("");
   card.innerHTML=`
     <button class="card-row" onclick="toggleCard(this)">
-      <div class="card-left"><span class="card-ticker">${s.display}</span><span class="card-sektor">${s.sektor}</span>${s.smeknamn?`<span class="card-smeknamn">${s.smeknamn}</span>`:""} ${has&&live.price?`<span class="card-live-price">${live.price.toFixed(2)} <span style="color:var(--text3);font-size:9px">${s.valuta||""}</span></span>`:'<span class="card-live-price" style="color:#2a2a2a">—</span>'}</div>
+      <div class="card-left"><span class="card-ticker">${s.namn}</span><span class="card-sektor">${s.sektor}</span>${s.smeknamn?`<span class="card-smeknamn">${s.smeknamn}</span>`:""}</div>
+      <div class="card-price-cell">${has&&live.price?`${live.price.toFixed(2)} <span style="color:var(--text3);font-size:9px">${s.valuta||""}</span>`:'<span style="color:#2a2a2a">—</span>'}</div>
       <div class="dots">${dots}</div>
       <div class="card-right">${s.sym?`<span class="heart${favorites.has(s.sym)?" fav":""}" onclick="toggleFav(event,'${s.sym}')">♥</span>`:""} ${chHtml}<span class="card-signal">${TAGS[signal]}</span><span class="card-arrow">▼</span></div>
     </button>
