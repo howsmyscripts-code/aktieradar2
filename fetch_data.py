@@ -41,7 +41,8 @@ def fetch_sp500_futures():
             change = ((hist["Close"].iloc[-1] - hist["Close"].iloc[-2]) / hist["Close"].iloc[-2]) * 100
             return round(change, 2)
         return None
-    except:
+    except Exception as e:
+        print(f"fetch_sp500_futures: {e}")
         return None
 
 def get_time_weight():
@@ -709,14 +710,8 @@ for sym in STOCKS:
             rsi_history = []
         divergence = calc_rsi_divergence(closes, rsi_history) if len(rsi_history) >= 20 else None
 
-        # Hämta prev news_score tidigt för compute_signal
-        prev_news_score_early = None
-        try:
-            with open("prev_signals.json", "r") as f:
-                prev_sigs_early = json.load(f)
-                prev_news_score_early = prev_sigs_early.get(sym, {}).get("news_score", 0) or 0
-        except:
-            prev_news_score_early = 0
+        # Hämta prev news_score tidigt för compute_signal (återanvänder _prev_sigs_all)
+        prev_news_score_early = _prev_sigs_all.get(sym, {}).get("news_score", 0) or 0
 
         signal, styrka, momentum = compute_signal(
             rsi, ma50, ma200, change,
@@ -785,14 +780,8 @@ for sym in STOCKS:
         mfn_headlines = fetch_mfn_news(sym)  # Svenska pressreleaser direkt från MFN.se
         all_headlines = list(dict.fromkeys(mfn_headlines + finnhub_headlines + yfinance_headlines))[:8]
 
-        # Hämta föregående news_score för trendanalys
-        prev_news_score = None
-        try:
-            with open("prev_signals.json", "r") as f:
-                prev_sigs = json.load(f)
-                prev_news_score = prev_sigs.get(sym, {}).get("news_score", None)
-        except:
-            pass
+        # Hämta föregående news_score för trendanalys (återanvänder _prev_sigs_all)
+        prev_news_score = _prev_sigs_all.get(sym, {}).get("news_score", None)
 
         # ── Optimering #2 + #3: cache + tidsfönster för Haiku-anrop ──
         # Beräkna hash av dagens rubriker för att jämföra med cachen
@@ -989,5 +978,18 @@ with open("data.json", "w") as f:
 # Spara nyhets-cachen så nästa körning kan hoppa över oförändrade rubriker
 with open("news_cache.json", "w") as f:
     json.dump(news_cache, f, indent=2)
+
+# PUNKT 3: Spara prev_signals.json så news_score-historiken bevaras mellan körningar.
+# compute_signal() läser detta nästa körning för trendanalys av nyhetssentiment.
+prev_signals_out = {
+    sym: {
+        "signal": d["signal"],
+        "styrka": d["styrka"],
+        "news_score": d.get("news_score", 0),
+    }
+    for sym, d in results.items() if d.get("ok")
+}
+with open("prev_signals.json", "w") as f:
+    json.dump(prev_signals_out, f, indent=2)
 
 print(f"\nDone: {sum(1 for v in results.values() if v.get('ok'))} / {len(results)} succeeded")
