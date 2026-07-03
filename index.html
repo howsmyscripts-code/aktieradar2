@@ -344,7 +344,7 @@ function safeParse(key, fallback){
   }
 }
 
-const categories=["Favoriter","⚡ SWING","TrumpPump",...Object.keys(STOCKS)];
+const categories=["Favoriter","⚡ SWING",...Object.keys(STOCKS)];
 let activeTab="Favoriter";
 let favorites=new Set(safeParse("fav", []));
 let liveData={};
@@ -361,7 +361,6 @@ async function loadData() {
     const d = await r.json();
     stockData = d.stocks || {};
     window._fearGreed = d.fear_greed || null;
-    window._trumpMentions = d.trump_mentions || [];
     window._earningsMap = {};
     return d.updated || null;
   } catch(e) {
@@ -989,32 +988,6 @@ function getSwingStocks(){
 }
 
 
-function buildTrumpTab(container){
-  const mentions = window._trumpMentions || [];
-  if(!mentions || mentions.length === 0){
-    container.innerHTML = `
-      <div style="text-align:center;padding:40px 20px;color:var(--text3)">
-        <div style="font-size:13px;letter-spacing:2px">INGA TRUMP-NYHETER</div>
-        <div style="font-size:11px;margin-top:8px;color:var(--text4)">Uppdaterar vid nästa datahämtning</div>
-      </div>`;
-    return;
-  }
-  container.innerHTML = mentions.map(m => {
-    const col = m.sentiment === "positive" ? "#00cc66" : m.sentiment === "negative" ? "#ff4444" : "#ffaa00";
-    const icon = m.sentiment === "positive" ? "▲" : m.sentiment === "negative" ? "▼" : "—";
-    return `
-      <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:8px;padding:14px;margin:8px 12px;border-left:3px solid ${col}">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-          <div style="font-size:13px;font-weight:700;color:var(--text)">${m.company}</div>
-          <span style="background:${col}22;color:${col};border:1px solid ${col};padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700">${icon} ${m.sentiment?.toUpperCase()}</span>
-        </div>
-        ${m.ticker ? `<div style="font-size:10px;color:var(--text3);letter-spacing:1px;margin-bottom:6px">TICKER: ${m.ticker}</div>` : ""}
-        <div style="font-size:12px;color:var(--text2);line-height:1.5;font-style:italic">"${m.quote}"</div>
-        ${m.date ? `<div style="font-size:10px;color:var(--text4);margin-top:6px">${m.date}</div>` : ""}
-      </div>`;
-  }).join("");
-}
-
 function buildSwingTab(listEl){
   const swings = getSwingStocks();
   
@@ -1239,12 +1212,12 @@ function buildUI(){
   te.innerHTML="";le.innerHTML="";if(te2)te2.innerHTML="";
   categories.forEach(cat=>{
     // FAV and SWING go in top row
-    if(cat==="Favoriter"||cat==="⚡ SWING"||cat==="TrumpPump"){
+    if(cat==="Favoriter"||cat==="⚡ SWING"){
       const t=document.createElement("button");
       t.className="tab-top"+(cat===activeTab?" active":"");
       if(cat==="Favoriter") t.style.setProperty("--c","#ff4444");
       if(cat==="⚡ SWING") t.style.setProperty("--c","#ffaa00");
-      t.textContent=cat==="Favoriter"?"♥ FAV":cat==="TrumpPump"?"TrumpPump":"⚡ SWING";
+      t.textContent=cat==="Favoriter"?"♥ FAV":"⚡ SWING";
       t.onclick=()=>switchTab(cat);
       if(te2) te2.appendChild(t);
     } else {
@@ -1258,7 +1231,7 @@ function buildUI(){
     const list=document.createElement("div");
       list.className="list"+(cat===activeTab?" active":"");
       list.id="list-"+cat;
-      if(cat!=="Favoriter" && cat!=="⚡ SWING" && cat!=="TrumpPump" && STOCKS[cat]){
+      if(cat!=="Favoriter" && cat!=="⚡ SWING" && STOCKS[cat]){
         STOCKS[cat].forEach(s=>list.appendChild(buildCard(s)));
       }
       le.appendChild(list);
@@ -1322,25 +1295,6 @@ function buildCard(s){
       </div>
     </div>`;
   })();
-  // Intel Trump-alert banner
-  const intelAlertHtml=(()=>{
-    if(s.sym !== "INTC") return "";
-    const mentions = window._trumpMentions || [];
-    const hasIntelMention = mentions.some(m => {
-      const q = (m.quote || "").toLowerCase();
-      return q.includes("intel") || q.includes("intc") || q.includes("terafab");
-    });
-    const intelData = liveData["INTC"];
-    const highScore = intelData?.ok && (intelData.news_score || 0) >= 2;
-    if(!hasIntelMention && !highScore) return "";
-    const msgs = [];
-    if(hasIntelMention) msgs.push("🚨 Trump nämnde Intel nyligen");
-    if(highScore) msgs.push(`📈 Stark nyhetssignal: ${intelData.news_summary || ""}`);
-    return `<div style="background:#ff660018;border:1px solid #ff660066;border-radius:6px;padding:9px 12px;margin-bottom:10px">
-      <div style="font-size:11px;font-weight:700;color:#ff8800;margin-bottom:3px">⚡ INTEL-ALERT</div>
-      ${msgs.map(m=>`<div style="font-size:11px;color:var(--text2)">${m}</div>`).join("")}
-    </div>`;
-  })();
   const reasons=s.anledningar.map(r=>`<div class="reason-row"><span class="reason-icon">✓</span><span>${r}</span></div>`).join("");
   const risks=s.risker.map(r=>`<div class="risk-row"><span class="risk-icon">⚠</span><span>${r}</span></div>`).join("");
   card.innerHTML=`
@@ -1355,7 +1309,7 @@ function buildCard(s){
       <div class="bar-track"><div class="bar-fill" style="width:${styrka*10}%"></div></div>
       <div class="card-name-row"><div style="display:flex;flex-direction:column;gap:2px"><span class="card-name">${s.namn}${s.sym?` <span style="font-weight:400;color:var(--text3);font-size:12px">(${s.sym})</span>`:""}</span>${has&&live.price?`<span style="font-size:11px;color:var(--text2);font-family:monospace">${live.price.toFixed(2)}</span>`:""}</div><span class="card-styrka">Styrka ${styrka}/10</span></div>
       ${techHtml}
-      ${earningsHtml}${intelAlertHtml}
+      ${earningsHtml}
       <div class="summary">${summary}</div>
       ${live?.momentum==="MOMENTUM_UP"?`<div style="background:#4d9fff18;border:1px solid #4d9fff44;border-radius:6px;padding:6px 10px;margin-bottom:8px;font-size:11px;color:#4d9fff">⚡ Starkt momentum — RSI-signal nedviktad</div>`:""}
       <div class="section-label">${VARFOR[signal]}</div>${reasons}
@@ -1383,7 +1337,6 @@ function toggleFav(e, sym){
   // Rebuild Favoriter tab if active
   if(activeTab==="Favoriter") buildFavoriterTab();
   if(activeTab==="⚡ SWING"){const sl=document.getElementById("list-⚡ SWING");if(sl)buildSwingTab(sl);}
-    if(activeTab==="TrumpPump"){const tl=document.getElementById("list-TrumpPump");if(tl)buildTrumpTab(tl);}
   checkSwingNotifications();
   saveDailySnapshot();
 }
@@ -1486,7 +1439,6 @@ async function refreshAll(){
     updateFearGreed();
     if(activeTab==="Favoriter") buildFavoriterTab();
     if(activeTab==="⚡ SWING"){const sl=document.getElementById("list-⚡ SWING");if(sl)buildSwingTab(sl);}
-    if(activeTab==="TrumpPump"){const tl=document.getElementById("list-TrumpPump");if(tl)buildTrumpTab(tl);}
     checkSwingNotifications();
     saveDailySnapshot();
     if(updated){
