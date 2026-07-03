@@ -1715,11 +1715,12 @@ function scheduleNextRefresh(){
     scheduleNextRefresh();
   }, msUntilNext);
 }
+// Previous signals - stored in memory, updated each time LADDA DATA is pressed
+let prevSignals = {};
+
 scheduleNextRefresh();
 // Ladda data direkt vid start
 refreshAll();
-// Previous signals - stored in memory, updated each time LADDA DATA is pressed
-let prevSignals = {};
 
 function savePrevSignals(){
   // Save current signals as "previous" before loading new ones
