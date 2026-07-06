@@ -189,12 +189,12 @@
     }
   },
   "AZN": {
-    "headlines_hash": "7861d7b34635a6984af3af78a026afe4",
+    "headlines_hash": "71359f88bfd7c83507665d458f589f5a",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "Citi k\u00f6p-rekommendation, nytt lungcancer-partnerskap Abbisko",
-      "catalyst": "Partnership expansion och analyst support pre-earnings"
+      "summary": "Citi k\u00f6prekkommendation, lungcancerpartnerskap, sektorsintresse",
+      "catalyst": "AstraZeneca-Abbisko lungcancersamarbete och analytikerst\u00f6d inf\u00f6r Q2-resultat"
     }
   },
   "RELX": {
@@ -216,11 +216,11 @@
     }
   },
   "NVDA": {
-    "headlines_hash": "10332c1c6894d525e5ee119f87871764",
+    "headlines_hash": "c6e5dce3ae9daf1780b698123741164f",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Generisk marknadskommentar utan konkreta NVDA-katalysatorer",
+      "summary": "Generisk marknadskommentar utan specifika NVDA-katalysatorer",
       "catalyst": "none"
     }
   },
@@ -234,57 +234,57 @@
     }
   },
   "AAPL": {
-    "headlines_hash": "8e841ab802cc75a744c9a8254210abe3",
+    "headlines_hash": "9e771454b611d550c1cd44400c2e50be",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "L\u00e5ngsiktig chipf\u00f6rs\u00f6rjning s\u00e4krad genom 2031, strategisk stabilitet",
-      "catalyst": "Multi-year supply agreement secures custom chip production"
+      "summary": "L\u00e5ngsiktig chipf\u00f6rs\u00f6rjning s\u00e4krad, stabilitet f\u00f6r produktutveckling",
+      "catalyst": "Broadcom leveransavtal genom 2031 s\u00e4kerst\u00e4ller tillg\u00e5ng p\u00e5 custom chips"
     }
   },
   "MSFT": {
-    "headlines_hash": "408d325fb5ff5e344e561e85ca848ad2",
+    "headlines_hash": "d1b661ce2c731b267cd3f3d7f8ca253f",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "Massiva jobbkutt signalerar svaghet i Xbox-division",
-      "catalyst": "4800 jobbkutt (2.1% av arbetsstyrka), Xbox-division under press"
+      "summary": "Massiva upps\u00e4gningar signalerar omstrukturering, Xbox svag",
+      "catalyst": "4,800 upps\u00e4gningar (2,1% av personal), Xbox-division problematisk"
     }
   },
   "AMZN": {
-    "headlines_hash": "1a92a853b6caaafa31b8045f01431786",
+    "headlines_hash": "565b9e1079a0a7a54b3aba044a0d7211",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Generisk tech-sektor kommentar utan AMZN-specifika katalysatorer",
+      "summary": "Generisk tekniksentiment, ingen AMZN-specifik katalysator identifierad",
       "catalyst": "none"
     }
   },
   "GOOGL": {
-    "headlines_hash": "d7e81f84abbd1fb3ea6d700ab6205e15",
+    "headlines_hash": "95c767dcc0832ee1191f05a8e88f1303",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Generisk tech-sektor kommentar utan GOOGL-specifika katalysatorer",
+      "summary": "Generisk marknadskommentar utan specifika GOOGL-katalysatorer",
       "catalyst": "none"
     }
   },
   "META": {
-    "headlines_hash": "2e7bf6373669f86f99e97048b2c7783e",
+    "headlines_hash": "c853f423460195d3a483179fe80d3840",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Generisk teknikkommentar utan specifik META-p\u00e5verkan identifierad",
+      "summary": "Generisk tech-kommentar utan specifika META-katalisatorer",
       "catalyst": "none"
     }
   },
   "TSLA": {
-    "headlines_hash": "6f71a8c120c355c452dde78090954970",
+    "headlines_hash": "44e0adb932747cb8ca5c93862648750c",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "Robotaxi expansion Miami + Model Y L launch positiv",
-      "catalyst": "Robotaxi geographic expansion och nytt produkttilbud"
+      "summary": "Robotaxi expansion Miami, ny Model Y variant lansering",
+      "catalyst": "Produktexpansion och operativ tillv\u00e4xt"
     }
   },
   "JPM": {
@@ -306,12 +306,12 @@
     }
   },
   "LLY": {
-    "headlines_hash": "ed6e6eda1e1eee0605a0b9728849077f",
+    "headlines_hash": "3a873d48bd73b6153167e5d070d22ab6",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "Regulatoriska och prispolitiska utmaningar v\u00e4ger tyngre \u00e4n sektorsoptimism",
-      "catalyst": "Regulatory and pricing policy challenges"
+      "summary": "Regulatoriska och prispolitiska utmaningar v\u00e4ger ned LLY",
+      "catalyst": "Regulatory and pricing policy headwinds"
     }
   },
   "BYDDF": {
@@ -324,20 +324,20 @@
     }
   },
   "TSM": {
-    "headlines_hash": "26bc7b16b9db563fca78789d290283db",
+    "headlines_hash": "8bc04c7c8b26f81e5beb97aacb96a1fa",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "TSM marginaler f\u00f6rb\u00e4ttras, positiv semprestanda H2 2026",
-      "catalyst": "Gross margin expansion and semiconductor sector momentum"
+      "summary": "TSM marginaler f\u00f6rb\u00e4ttras, konkurrensposistion st\u00e4rks",
+      "catalyst": "Gross margin improvement och Winbond DRAM deal"
     }
   },
   "CL=F": {
-    "headlines_hash": "576b8e007cdb1040685af930b2c60434",
+    "headlines_hash": "7bee7948b6cd8529382ce0fc3e3203ac",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "CL=F \u00e4r l\u00e5ngtidsinvesterare-fokuserad, ingen kortsiktig katalysator.",
+      "summary": "CL=F \u00e4r r\u00e5olja; rubrikerna \u00e4r om Colgate-Palmolive och makro",
       "catalyst": "none"
     }
   },
@@ -360,39 +360,39 @@
     }
   },
   "BTC-USD": {
-    "headlines_hash": "d62cc433818f2e8f8c3ae1e3daee2fe5",
+    "headlines_hash": "bb49ce8704c0f7e1dd166fee3ea2fbc6",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "BTC tappning efter rebound, konkurrens fr\u00e5n stablecoins",
-      "catalyst": "Omallokering fr\u00e5n BTC till ETH och stablecoins, risk-off sentiment"
+      "summary": "BTC f\u00f6rlorar favorit-status; ETH och stablecoins tar \u00f6ver",
+      "catalyst": "Institutionell rotation fr\u00e5n BTC till ETH och stablecoins"
     }
   },
   "ETH-USD": {
-    "headlines_hash": "b6c0ce9d8f1f41943b57198d30a5febd",
+    "headlines_hash": "8cb613b5f948264c57f7b07c8865ff55",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "ETH faller efter rebound; inflation stigande pressar tillv\u00e4xt",
-      "catalyst": "H\u00f6gre inflation (4.2% YoY) och stigande r\u00e4ntor skadar tillv\u00e4xttillg\u00e5ngar"
+      "summary": "ETH faller efter rebound; inflation oroar, stablecoins favorit",
+      "catalyst": "Inflationsh\u00f6jning 4,2% och fallande kryptopriser efter rebound"
     }
   },
   "CSPX.L": {
-    "headlines_hash": "0e2e1d9a98c6c41d276737af628c2857",
+    "headlines_hash": "4b161235fd14281e6667edfbb3d4ee9f",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Makroekonomisk brus utan direkta CSPX-katalysat\u00f6rer identifierade",
+      "summary": "Makroekonomisk brus. Ingen f\u00f6retagsspecifik p\u00e5verkan p\u00e5 CSPX.",
       "catalyst": "none"
     }
   },
   "EQQQ.DE": {
-    "headlines_hash": "e11b9e714d451fc5bded5a19b33881af",
+    "headlines_hash": "0caae82a4547bb64f118300ec29f609f",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "AI-bubbelvarning fr\u00e5n BIS v\u00e4ger tyngre \u00e4n chip\u00e5terh\u00e4mtning",
-      "catalyst": "BIS-varning om AI-bubbla och kreditrisker"
+      "summary": "AI-bubbel oro och chipsektor turbulens v\u00e4ger ned teknikledning",
+      "catalyst": "BIS varning om AI-bubblor och kreditrisker; chip-sektor volatilitet"
     }
   },
   "JEDI.DE": {
@@ -414,12 +414,12 @@
     }
   },
   "DFNS.L": {
-    "headlines_hash": "880f02a073c514b5fcdddcef806f52cf",
+    "headlines_hash": "238178cfc0e91ddbc3ac37776534ad45",
     "sentiment": {
       "sentiment": "positive",
       "score": 2,
-      "summary": "NATO 5% GDP f\u00f6rsvar 2035 driver l\u00e5ngsiktig tillv\u00e4xt f\u00f6r f\u00f6rsvarsleverant\u00f6rer",
-      "catalyst": "NATO f\u00f6rsvarsbeslut och europeisk f\u00f6rsvarskostnadskydd"
+      "summary": "NATO 5% GDP f\u00f6rsvar 2035 driver l\u00e5ngsiktig efterfr\u00e5gan",
+      "catalyst": "NATO f\u00f6rsvarsbeslut och europeisk f\u00f6rsvarssatsning"
     }
   },
   "VWRL.L": {
