@@ -71,7 +71,7 @@
   },
   "ASML": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 9,
     "news_score": 1
   },
   "SAP": {
@@ -95,8 +95,8 @@
     "news_score": -1
   },
   "SIEGY": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 8,
     "news_score": 0
   },
   "NSRGY": {
@@ -120,8 +120,8 @@
     "news_score": 1
   },
   "BAESY": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 1
   },
   "NVDA": {
@@ -150,8 +150,8 @@
     "news_score": -1
   },
   "GOOGL": {
-    "signal": "KOP",
-    "styrka": 8,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "META": {
@@ -190,8 +190,8 @@
     "news_score": 0
   },
   "CL=F": {
-    "signal": "KOP",
-    "styrka": 8,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": -2
   },
   "GC=F": {
@@ -245,8 +245,8 @@
     "news_score": 0
   },
   "DFNS.L": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 2
   },
   "VWRL.L": {
