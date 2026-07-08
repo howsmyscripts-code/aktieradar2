@@ -92,7 +92,7 @@
   "SHEL": {
     "signal": "KOP",
     "styrka": 8,
-    "news_score": 1
+    "news_score": 0
   },
   "SIEGY": {
     "signal": "KOP",
@@ -120,19 +120,19 @@
     "news_score": 1
   },
   "BAESY": {
-    "signal": "SALJ",
-    "styrka": 3,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 1
   },
   "NVDA": {
-    "signal": "HALL",
-    "styrka": 5,
-    "news_score": -1
+    "signal": "KOP",
+    "styrka": 7,
+    "news_score": 1
   },
   "INTC": {
     "signal": "KOP",
-    "styrka": 9,
-    "news_score": 1
+    "styrka": 8,
+    "news_score": 0
   },
   "AAPL": {
     "signal": "HALL",
@@ -141,8 +141,8 @@
   },
   "MSFT": {
     "signal": "HALL",
-    "styrka": 6,
-    "news_score": 0
+    "styrka": 5,
+    "news_score": -1
   },
   "AMZN": {
     "signal": "HALL",
@@ -156,8 +156,8 @@
   },
   "META": {
     "signal": "SALJ",
-    "styrka": 2,
-    "news_score": 0
+    "styrka": 3,
+    "news_score": 1
   },
   "TSLA": {
     "signal": "SALJ",
@@ -165,19 +165,19 @@
     "news_score": 0
   },
   "JPM": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 0
   },
   "BRK-B": {
     "signal": "HALL",
-    "styrka": 5,
-    "news_score": 1
+    "styrka": 6,
+    "news_score": 0
   },
   "LLY": {
-    "signal": "HALL",
-    "styrka": 5,
-    "news_score": 1
+    "signal": "SALJ",
+    "styrka": 4,
+    "news_score": 0
   },
   "BYDDF": {
     "signal": "SALJ",
@@ -192,12 +192,12 @@
   "CL=F": {
     "signal": "KOP",
     "styrka": 10,
-    "news_score": 2
+    "news_score": 1
   },
   "GC=F": {
-    "signal": "HALL",
-    "styrka": 5,
-    "news_score": -1
+    "signal": "KOP",
+    "styrka": 7,
+    "news_score": 1
   },
   "SI=F": {
     "signal": "KOP",
@@ -205,9 +205,9 @@
     "news_score": 0
   },
   "BTC-USD": {
-    "signal": "KOP",
-    "styrka": 7,
-    "news_score": 0
+    "signal": "HALL",
+    "styrka": 6,
+    "news_score": -1
   },
   "ETH-USD": {
     "signal": "HALL",
@@ -241,8 +241,8 @@
   },
   "SMH.DE": {
     "signal": "KOP",
-    "styrka": 8,
-    "news_score": 0
+    "styrka": 9,
+    "news_score": 1
   },
   "DFNS.L": {
     "signal": "KOP",
