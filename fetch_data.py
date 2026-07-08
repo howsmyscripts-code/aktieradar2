@@ -963,11 +963,39 @@ if sector_warnings:
     for sym, warning in sector_warnings.items():
         print(f"  {sym}: {warning}")
 
+# Dämpa KÖP-confidence: sänk styrkan 1 steg för instrument med aktiv sektorvarning.
+# En flaggad drivare (t.ex. NVDA starkt negativt news) höjer nedsiderisken för ETF:en.
+for _etf in sector_warnings:
+    _d = results.get(_etf)
+    if _d and _d.get("ok") and _d.get("signal") == "KOP":
+        _d["styrka"] = max(1, _d["styrka"] - 1)
+        _d["signal"] = "KOP" if _d["styrka"] >= 7 else "SALJ" if _d["styrka"] <= 4 else "HALL"
+
+# ── Marknadsbredd + marknadsfilter ───────────────────────────────────────────
+# Designat filter: vid Extreme Fear (F&G < 15) OCH majoritet negativt news_score
+# nedviktas KÖP-signaler ett extra steg (utöver den per-aktie -2 som redan skett).
+_ok_list = [d for d in results.values() if d.get("ok")]
+_neg_news = sum(1 for d in _ok_list if (d.get("news_score") or 0) < 0)
+market_breadth = {
+    "total": len(_ok_list),
+    "negative_news": _neg_news,
+    "negative_pct": round(100 * _neg_news / len(_ok_list), 1) if _ok_list else 0.0,
+    "filter_applied": False,
+}
+if fg_value is not None and fg_value < 15 and _ok_list and _neg_news > len(_ok_list) / 2:
+    for _d in results.values():
+        if _d.get("ok") and _d.get("signal") == "KOP":
+            _d["styrka"] = max(1, _d["styrka"] - 1)
+            _d["signal"] = "KOP" if _d["styrka"] >= 7 else "SALJ" if _d["styrka"] <= 4 else "HALL"
+    market_breadth["filter_applied"] = True
+    print(f"Marknadsfilter AKTIVT: F&G {fg_value} + {_neg_news}/{len(_ok_list)} negativt news → KÖP nedviktade")
+
 output = {
     "updated": (datetime.now(ZoneInfo("Europe/Stockholm"))).strftime("%Y-%m-%d %H:%M svensk tid"),
     "stocks": results,
     "fear_greed": {"value": fg_value, "classification": fg_class} if fg_value is not None else None,
-    "accuracy_summary": accuracy_summary
+    "accuracy_summary": accuracy_summary,
+    "market_breadth": market_breadth,
 }
 if sector_warnings:
     output["sector_warnings"] = sector_warnings
