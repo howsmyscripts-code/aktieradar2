@@ -361,6 +361,8 @@ async function loadData() {
     const d = await r.json();
     stockData = d.stocks || {};
     window._fearGreed = d.fear_greed || null;
+    window._sectorWarnings = d.sector_warnings || {};
+    window._marketBreadth = d.market_breadth || null;
     window._earningsMap = {};
     return d.updated || null;
   } catch(e) {
@@ -884,6 +886,15 @@ function updateFearGreed(){
     <div style="background:var(--bg3);height:4px;border-radius:2px;overflow:hidden">
       <div style="width:${pct};height:100%;background:${col};border-radius:2px;transition:width 0.5s"></div>
     </div>
+    ${(()=>{
+      const mb=window._marketBreadth;
+      if(!mb) return "";
+      const bc=mb.filter_applied?"#ff4444":mb.negative_pct>=50?"#ff8800":"var(--text3)";
+      return `<div style="margin-top:5px;font-size:9px;color:${bc};display:flex;justify-content:space-between">
+        <span>Marknadsbredd: ${mb.negative_news}/${mb.total} negativt news (${mb.negative_pct}%)</span>
+        ${mb.filter_applied?`<span style="font-weight:700">⚠ MARKNADSFILTER AKTIVT</span>`:""}
+      </div>`;
+    })()}
   `;
 }
 
@@ -1295,6 +1306,15 @@ function buildCard(s){
       </div>
     </div>`;
   })();
+  const warningsHtml=(()=>{
+    const w=[];
+    const sw=(window._sectorWarnings&&s.sym)?window._sectorWarnings[s.sym]:null;
+    if(sw) w.push({icon:"🔗",txt:sw,col:"#ff8800"});
+    if(live?.fear_greed_warning) w.push({icon:"😱",txt:live.fear_greed_warning,col:"#ff4444"});
+    if(live?.futures_warning) w.push({icon:"📉",txt:live.futures_warning,col:"#ffaa00"});
+    if(!w.length) return "";
+    return w.map(x=>`<div style="background:${x.col}18;border:1px solid ${x.col}44;border-radius:6px;padding:6px 10px;margin-bottom:8px;font-size:11px;color:${x.col};display:flex;align-items:center;gap:6px"><span>${x.icon}</span><span>${x.txt}</span></div>`).join("");
+  })();
   const reasons=s.anledningar.map(r=>`<div class="reason-row"><span class="reason-icon">✓</span><span>${r}</span></div>`).join("");
   const risks=s.risker.map(r=>`<div class="risk-row"><span class="risk-icon">⚠</span><span>${r}</span></div>`).join("");
   card.innerHTML=`
@@ -1310,6 +1330,7 @@ function buildCard(s){
       <div class="card-name-row"><div style="display:flex;flex-direction:column;gap:2px"><span class="card-name">${s.namn}${s.sym?` <span style="font-weight:400;color:var(--text3);font-size:12px">(${s.sym})</span>`:""}</span>${has&&live.price?`<span style="font-size:11px;color:var(--text2);font-family:monospace">${live.price.toFixed(2)}</span>`:""}</div><span class="card-styrka">Styrka ${styrka}/10</span></div>
       ${techHtml}
       ${earningsHtml}
+      ${warningsHtml}
       <div class="summary">${summary}</div>
       ${live?.momentum==="MOMENTUM_UP"?`<div style="background:#4d9fff18;border:1px solid #4d9fff44;border-radius:6px;padding:6px 10px;margin-bottom:8px;font-size:11px;color:#4d9fff">⚡ Starkt momentum — RSI-signal nedviktad</div>`:""}
       <div class="section-label">${VARFOR[signal]}</div>${reasons}
