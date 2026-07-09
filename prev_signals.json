@@ -5,8 +5,8 @@
     "news_score": 0
   },
   "ATCO-B.ST": {
-    "signal": "KOP",
-    "styrka": 9,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "SWED-A.ST": {
@@ -26,7 +26,7 @@
   },
   "VOLV-B.ST": {
     "signal": "SALJ",
-    "styrka": 4,
+    "styrka": 2,
     "news_score": -2
   },
   "KINV-B.ST": {
@@ -46,12 +46,12 @@
   },
   "TEL2-B.ST": {
     "signal": "KOP",
-    "styrka": 10,
+    "styrka": 9,
     "news_score": 1
   },
   "BEAMMW-B.ST": {
-    "signal": "KOP",
-    "styrka": 8,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "NANEXA.ST": {
@@ -156,7 +156,7 @@
   },
   "META": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 4,
     "news_score": 1
   },
   "TSLA": {
@@ -165,8 +165,8 @@
     "news_score": 0
   },
   "JPM": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "KOP",
+    "styrka": 8,
     "news_score": 0
   },
   "BRK-B": {
@@ -215,8 +215,8 @@
     "news_score": -1
   },
   "CSPX.L": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": -1
   },
   "EQQQ.DE": {
@@ -226,7 +226,7 @@
   },
   "JEDI.DE": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 8,
     "news_score": 0
   },
   "XACT-OMXS30.ST": {
@@ -235,8 +235,8 @@
     "news_score": 0
   },
   "XACTHDIV.ST": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 0
   },
   "SMH.DE": {
@@ -251,12 +251,12 @@
   },
   "VWRL.L": {
     "signal": "KOP",
-    "styrka": 10,
+    "styrka": 7,
     "news_score": 0
   },
   "IS3N.DE": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 8,
     "news_score": 0
   },
   "IQQH.DE": {
