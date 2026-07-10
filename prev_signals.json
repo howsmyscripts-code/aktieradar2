@@ -71,7 +71,7 @@
   },
   "ASML": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": 0
   },
   "SAP": {
@@ -116,7 +116,7 @@
   },
   "RELX": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 4,
     "news_score": 1
   },
   "BAESY": {
@@ -171,7 +171,7 @@
   },
   "BRK-B": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": 0
   },
   "LLY": {

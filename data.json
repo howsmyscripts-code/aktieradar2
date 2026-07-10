@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-10 18:20 svensk tid",
+  "updated": "2026-07-10 19:09 svensk tid",
   "stocks": {
     "INVE-B.ST": {
       "price": 394.4,
@@ -35,7 +35,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "ATCO-B.ST": {
       "price": 167.2,
@@ -71,7 +71,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "SWED-A.ST": {
       "price": 364.0,
@@ -107,7 +107,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "SAAB-B.ST": {
       "price": 546.5,
@@ -143,7 +143,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "ERIC-B.ST": {
       "price": 110.2,
@@ -179,7 +179,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "VOLV-B.ST": {
       "price": 336.9,
@@ -215,7 +215,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "KINV-B.ST": {
       "price": 50.74,
@@ -251,7 +251,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "HM-B.ST": {
       "price": 166.0,
@@ -289,7 +289,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "SEB-A.ST": {
       "price": 200.9,
@@ -325,7 +325,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "TEL2-B.ST": {
       "price": 167.85,
@@ -363,7 +363,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "BEAMMW-B.ST": {
       "price": 14.0,
@@ -399,7 +399,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "NANEXA.ST": {
       "price": 3.7,
@@ -435,7 +435,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "FREEM.ST": {
       "price": 1.75,
@@ -471,7 +471,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "INDU-C.ST": {
       "price": 524.6,
@@ -507,20 +507,20 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "ASML": {
-      "price": 1800.31,
-      "change": -0.22,
-      "rsi": 42.8,
-      "ma50": 1683.34,
-      "ma200": 1333.8,
-      "macd": 27.716,
-      "bollinger": 0.35,
-      "w52": 0.85,
+      "price": 1803.24,
+      "change": -0.06,
+      "rsi": 43.0,
+      "ma50": 1683.4,
+      "ma200": 1333.82,
+      "macd": 27.95,
+      "bollinger": 0.36,
+      "w52": 0.86,
       "trend": 0.5,
       "signal": "HALL",
-      "styrka": 6,
+      "styrka": 5,
       "ok": true,
       "ath": null,
       "momentum": null,
@@ -535,23 +535,23 @@
       "divergence": "NEGATIV_DIVERGENS",
       "support_resistance": null,
       "insider_signal": 0,
-      "pe_ratio": 57.1874,
-      "ps_ratio": 17.8789,
+      "pe_ratio": 59.9476,
+      "ps_ratio": 18.7418,
       "net_margin": 31.26,
       "short_interest": 0.4,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "SAP": {
-      "price": 157.37,
-      "change": -0.69,
-      "rsi": 52.5,
-      "ma50": 168.33,
+      "price": 157.21,
+      "change": -0.79,
+      "rsi": 52.3,
+      "ma50": 168.32,
       "ma200": 207.96,
-      "macd": -3.254,
+      "macd": -3.267,
       "bollinger": 0.47,
       "w52": 0.06,
       "trend": 0.45,
@@ -571,25 +571,25 @@
       "divergence": null,
       "support_resistance": null,
       "insider_signal": 0,
-      "pe_ratio": 22.026,
-      "ps_ratio": 4.3135,
+      "pe_ratio": 21.9909,
+      "ps_ratio": 4.3067,
       "net_margin": 19.58,
       "short_interest": 0.9,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "NVO": {
-      "price": 49.56,
-      "change": 1.4,
-      "rsi": 78.8,
+      "price": 49.36,
+      "change": 0.98,
+      "rsi": 78.4,
       "ma50": 45.38,
       "ma200": 46.43,
-      "macd": 1.497,
-      "bollinger": 0.77,
-      "w52": 0.44,
+      "macd": 1.481,
+      "bollinger": 0.75,
+      "w52": 0.43,
       "trend": 0.55,
       "signal": "SALJ",
       "styrka": 4,
@@ -615,16 +615,16 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "LVMUY": {
-      "price": 111.92,
-      "change": -0.91,
-      "rsi": 38.2,
+      "price": 112.1,
+      "change": -0.75,
+      "rsi": 38.5,
       "ma50": 110.78,
       "ma200": 124.6,
-      "macd": 0.122,
-      "bollinger": 0.36,
+      "macd": 0.137,
+      "bollinger": 0.37,
       "w52": 0.2,
       "trend": 0.6,
       "signal": "HALL",
@@ -653,17 +653,17 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "SHEL": {
-      "price": 81.57,
-      "change": 0.21,
-      "rsi": 60.9,
+      "price": 81.74,
+      "change": 0.42,
+      "rsi": 61.4,
       "ma50": 83.57,
       "ma200": 78.87,
-      "macd": -0.95,
-      "bollinger": 0.64,
-      "w52": 0.54,
+      "macd": -0.937,
+      "bollinger": 0.65,
+      "w52": 0.55,
       "trend": 0.4,
       "signal": "HALL",
       "styrka": 5,
@@ -689,7 +689,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "SIEGY": {
       "price": 155.79,
@@ -727,18 +727,18 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "NSRGY": {
-      "price": 103.15,
-      "change": 0.04,
-      "rsi": 64.7,
+      "price": 103.07,
+      "change": -0.04,
+      "rsi": 64.4,
       "ma50": 100.36,
       "ma200": 96.19,
-      "macd": 1.23,
-      "bollinger": 0.65,
-      "w52": 0.9,
-      "trend": 0.5,
+      "macd": 1.223,
+      "bollinger": 0.64,
+      "w52": 0.89,
+      "trend": 0.45,
       "signal": "SALJ",
       "styrka": 3,
       "ok": true,
@@ -763,15 +763,15 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "EADSY": {
-      "price": 56.3,
-      "change": 0.18,
+      "price": 56.28,
+      "change": 0.14,
       "rsi": 55.3,
       "ma50": 52.58,
       "ma200": 54.47,
-      "macd": 1.491,
+      "macd": 1.49,
       "bollinger": 0.63,
       "w52": 0.64,
       "trend": 0.65,
@@ -799,15 +799,15 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "AZN": {
-      "price": 172.38,
-      "change": -3.42,
-      "rsi": 48.0,
+      "price": 172.24,
+      "change": -3.5,
+      "rsi": 47.9,
       "ma50": 183.64,
       "ma200": 183.31,
-      "macd": -0.024,
+      "macd": -0.035,
       "bollinger": 0.07,
       "w52": 0.51,
       "trend": 0.5,
@@ -835,20 +835,20 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "RELX": {
-      "price": 32.49,
-      "change": 1.33,
-      "rsi": 63.7,
+      "price": 32.42,
+      "change": 1.11,
+      "rsi": 63.2,
       "ma50": 33.07,
       "ma200": 36.83,
-      "macd": -0.267,
-      "bollinger": 0.67,
-      "w52": 0.21,
+      "macd": -0.273,
+      "bollinger": 0.65,
+      "w52": 0.2,
       "trend": 0.45,
       "signal": "SALJ",
-      "styrka": 3,
+      "styrka": 4,
       "ok": true,
       "ath": null,
       "momentum": null,
@@ -871,18 +871,18 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "BAESY": {
-      "price": 99.77,
-      "change": -0.15,
-      "rsi": 55.0,
+      "price": 99.96,
+      "change": 0.04,
+      "rsi": 55.4,
       "ma50": 103.36,
       "ma200": 104.64,
-      "macd": -0.349,
-      "bollinger": 0.5,
+      "macd": -0.333,
+      "bollinger": 0.51,
       "w52": 0.41,
-      "trend": 0.45,
+      "trend": 0.5,
       "signal": "HALL",
       "styrka": 5,
       "ok": true,
@@ -907,16 +907,16 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "NVDA": {
-      "price": 209.59,
-      "change": 3.36,
-      "rsi": 48.9,
+      "price": 209.74,
+      "change": 3.43,
+      "rsi": 49.0,
       "ma50": 209.17,
       "ma200": 191.66,
-      "macd": -1.844,
-      "bollinger": 0.83,
+      "macd": -1.832,
+      "bollinger": 0.84,
       "w52": 0.64,
       "trend": 0.5,
       "signal": "KOP",
@@ -945,16 +945,16 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "INTC": {
-      "price": 109.48,
-      "change": -2.72,
-      "rsi": 32.9,
+      "price": 109.81,
+      "change": -2.43,
+      "rsi": 33.1,
       "ma50": 117.0,
-      "ma200": 62.46,
-      "macd": -0.152,
-      "bollinger": 0.1,
+      "ma200": 62.47,
+      "macd": -0.126,
+      "bollinger": 0.11,
       "w52": 0.74,
       "trend": 0.55,
       "signal": "KOP",
@@ -981,17 +981,17 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "AAPL": {
-      "price": 314.26,
-      "change": -0.62,
-      "rsi": 61.0,
+      "price": 314.6,
+      "change": -0.51,
+      "rsi": 61.3,
       "ma50": 297.71,
       "ma200": 272.09,
-      "macd": 4.54,
-      "bollinger": 0.86,
-      "w52": 0.98,
+      "macd": 4.567,
+      "bollinger": 0.87,
+      "w52": 0.99,
       "trend": 0.55,
       "signal": "SALJ",
       "styrka": 4,
@@ -1017,17 +1017,17 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "MSFT": {
-      "price": 384.59,
-      "change": 0.06,
-      "rsi": 52.6,
-      "ma50": 403.32,
+      "price": 385.36,
+      "change": 0.26,
+      "rsi": 53.0,
+      "ma50": 403.33,
       "ma200": 440.71,
-      "macd": -5.529,
-      "bollinger": 0.59,
-      "w52": 0.17,
+      "macd": -5.467,
+      "bollinger": 0.61,
+      "w52": 0.18,
       "trend": 0.55,
       "signal": "HALL",
       "styrka": 6,
@@ -1053,17 +1053,17 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "AMZN": {
-      "price": 246.33,
-      "change": -0.29,
-      "rsi": 52.0,
-      "ma50": 254.05,
-      "ma200": 233.34,
-      "macd": -1.444,
-      "bollinger": 0.78,
-      "w52": 0.62,
+      "price": 245.43,
+      "change": -0.65,
+      "rsi": 51.0,
+      "ma50": 254.04,
+      "ma200": 233.33,
+      "macd": -1.516,
+      "bollinger": 0.74,
+      "w52": 0.61,
       "trend": 0.6,
       "signal": "HALL",
       "styrka": 6,
@@ -1089,15 +1089,15 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "GOOGL": {
-      "price": 354.9,
-      "change": -1.11,
-      "rsi": 41.2,
+      "price": 354.93,
+      "change": -1.1,
+      "rsi": 41.3,
       "ma50": 372.58,
       "ma200": 318.57,
-      "macd": -1.958,
+      "macd": -1.955,
       "bollinger": 0.42,
       "w52": 0.79,
       "trend": 0.5,
@@ -1125,17 +1125,17 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "META": {
-      "price": 669.12,
-      "change": 5.96,
-      "rsi": 68.7,
-      "ma50": 600.08,
-      "ma200": 641.67,
-      "macd": 8.602,
+      "price": 664.26,
+      "change": 5.19,
+      "rsi": 68.1,
+      "ma50": 599.99,
+      "ma200": 641.65,
+      "macd": 8.213,
       "bollinger": 1,
-      "w52": 0.55,
+      "w52": 0.53,
       "trend": 0.55,
       "signal": "SALJ",
       "styrka": 4,
@@ -1161,15 +1161,15 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "TSLA": {
-      "price": 410.95,
-      "change": 1.08,
+      "price": 410.86,
+      "change": 1.06,
       "rsi": 52.8,
       "ma50": 409.26,
       "ma200": 418.16,
-      "macd": 0.111,
+      "macd": 0.104,
       "bollinger": 0.67,
       "w52": 0.58,
       "trend": 0.6,
@@ -1200,17 +1200,17 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "JPM": {
-      "price": 336.39,
-      "change": 0.27,
-      "rsi": 63.3,
+      "price": 336.67,
+      "change": 0.36,
+      "rsi": 63.5,
       "ma50": 313.82,
       "ma200": 306.13,
-      "macd": 6.634,
-      "bollinger": 0.76,
-      "w52": 0.95,
+      "macd": 6.657,
+      "bollinger": 0.77,
+      "w52": 0.96,
       "trend": 0.7,
       "signal": "KOP",
       "styrka": 7,
@@ -1236,20 +1236,20 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "BRK-B": {
-      "price": 491.52,
-      "change": -0.79,
-      "rsi": 51.8,
-      "ma50": 485.46,
+      "price": 492.67,
+      "change": -0.56,
+      "rsi": 52.8,
+      "ma50": 485.48,
       "ma200": 490.41,
-      "macd": 3.7,
-      "bollinger": 0.34,
-      "w52": 0.59,
+      "macd": 3.791,
+      "bollinger": 0.39,
+      "w52": 0.61,
       "trend": 0.45,
       "signal": "HALL",
-      "styrka": 6,
+      "styrka": 5,
       "ok": true,
       "ath": null,
       "momentum": null,
@@ -1275,17 +1275,17 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "LLY": {
-      "price": 1188.83,
-      "change": -2.31,
-      "rsi": 65.6,
-      "ma50": 1086.36,
-      "ma200": 993.95,
-      "macd": 36.455,
-      "bollinger": 0.62,
-      "w52": 0.92,
+      "price": 1182.72,
+      "change": -2.81,
+      "rsi": 64.2,
+      "ma50": 1086.24,
+      "ma200": 993.92,
+      "macd": 35.967,
+      "bollinger": 0.59,
+      "w52": 0.91,
       "trend": 0.5,
       "signal": "SALJ",
       "styrka": 2,
@@ -1311,7 +1311,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "BYDDF": {
       "price": 10.87,
@@ -1347,18 +1347,18 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "TSM": {
-      "price": 435.05,
-      "change": -0.44,
-      "rsi": 42.5,
-      "ma50": 423.39,
-      "ma200": 346.88,
-      "macd": 4.778,
-      "bollinger": 0.39,
-      "w52": 0.83,
-      "trend": 0.55,
+      "price": 438.23,
+      "change": 0.29,
+      "rsi": 43.4,
+      "ma50": 423.46,
+      "ma200": 346.89,
+      "macd": 5.032,
+      "bollinger": 0.45,
+      "w52": 0.84,
+      "trend": 0.6,
       "signal": "KOP",
       "styrka": 8,
       "ok": true,
@@ -1383,17 +1383,17 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "CL=F": {
-      "price": 71.23,
-      "change": -1.18,
-      "rsi": 37.6,
-      "ma50": 87.86,
+      "price": 71.06,
+      "change": -1.42,
+      "rsi": 37.4,
+      "ma50": 87.85,
       "ma200": 74.21,
-      "macd": -4.869,
-      "bollinger": 0.38,
-      "w52": 0.28,
+      "macd": -4.883,
+      "bollinger": 0.37,
+      "w52": 0.27,
       "trend": 0.3,
       "signal": "KOP",
       "styrka": 10,
@@ -1419,16 +1419,16 @@
       "is_volatile": false,
       "seasonal_factor": -0.5,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "GC=F": {
-      "price": 4119.9,
-      "change": -0.26,
-      "rsi": 42.2,
-      "ma50": 4373.56,
-      "ma200": 4467.25,
-      "macd": -77.537,
-      "bollinger": 0.45,
+      "price": 4114.1,
+      "change": -0.4,
+      "rsi": 41.8,
+      "ma50": 4373.45,
+      "ma200": 4467.22,
+      "macd": -78.0,
+      "bollinger": 0.44,
       "w52": 0.41,
       "trend": 0.55,
       "signal": "HALL",
@@ -1455,16 +1455,16 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "SI=F": {
-      "price": 60.35,
-      "change": -0.05,
-      "rsi": 35.3,
+      "price": 60.16,
+      "change": -0.36,
+      "rsi": 35.0,
       "ma50": 70.49,
       "ma200": 69.06,
-      "macd": -3.104,
-      "bollinger": 0.37,
+      "macd": -3.119,
+      "bollinger": 0.35,
       "w52": 0.3,
       "trend": 0.5,
       "signal": "HALL",
@@ -1491,17 +1491,17 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "BTC-USD": {
-      "price": 64029.48,
-      "change": 1.32,
-      "rsi": 67.3,
-      "ma50": 65366.27,
-      "ma200": 74102.31,
-      "macd": -441.658,
+      "price": 63992.42,
+      "change": 1.26,
+      "rsi": 67.2,
+      "ma50": 65365.53,
+      "ma200": 74102.13,
+      "macd": -444.614,
       "bollinger": 0.82,
-      "w52": 0.11,
+      "w52": 0.1,
       "trend": 0.55,
       "signal": "HALL",
       "styrka": 5,
@@ -1527,15 +1527,15 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "ETH-USD": {
-      "price": 1792.08,
-      "change": 2.73,
-      "rsi": 75.7,
-      "ma50": 1772.77,
-      "ma200": 2233.11,
-      "macd": 4.939,
+      "price": 1793.46,
+      "change": 2.81,
+      "rsi": 75.8,
+      "ma50": 1772.8,
+      "ma200": 2233.12,
+      "macd": 5.049,
       "bollinger": 0.82,
       "w52": 0.1,
       "trend": 0.55,
@@ -1565,7 +1565,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "CSPX.L": {
       "price": 813.67,
@@ -1601,7 +1601,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "EQQQ.DE": {
       "price": 635.9,
@@ -1637,7 +1637,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "JEDI.DE": {
       "price": 77.73,
@@ -1673,7 +1673,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "XACT-OMXS30.ST": {
       "price": 475.25,
@@ -1711,7 +1711,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "XACTHDIV.ST": {
       "price": 167.0,
@@ -1749,7 +1749,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "SMH.DE": {
       "price": 95.95,
@@ -1785,7 +1785,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "DFNS.L": {
       "price": 58.48,
@@ -1821,7 +1821,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "VWRL.L": {
       "price": 137.16,
@@ -1859,7 +1859,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "IS3N.DE": {
       "price": 47.82,
@@ -1897,7 +1897,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "IQQH.DE": {
       "price": 9.64,
@@ -1933,7 +1933,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "IGLN.L": {
       "price": 79.61,
@@ -1969,7 +1969,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     },
     "QUTM.DE": {
       "price": 25.42,
@@ -2005,7 +2005,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "close_se"
+      "time_weight": "intraday"
     }
   },
   "fear_greed": {
