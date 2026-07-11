@@ -852,9 +852,12 @@ for sym in STOCKS:
 
 # ── Accuracy Tracking ────────────────────────────────────────────────────────
 def update_accuracy_tracking(results, fg_value):
-    """Spara signaler och priser for accuracy-tracking. Returnerar hela accuracy-dicten."""
+    """Spara signaler och priser for accuracy-tracking. Returnerar hela accuracy-dicten.
+    Robust mot schemaglidning i GitHub Actions: forsta korningen per dag sparar
+    morgonsignal + morgonpris. Varje efterfoljande korning samma dag skriver over
+    stangningspris/correct med senaste pris, sa den sista korningen pa dagen blir
+    facit - oavsett exakt klockslag pa korningen."""
     now_sw = datetime.now(ZoneInfo("Europe/Stockholm"))
-    now_hour = now_sw.hour
     today = now_sw.strftime("%Y-%m-%d")
 
     try:
@@ -863,7 +866,9 @@ def update_accuracy_tracking(results, fg_value):
     except:
         accuracy = {}
 
-    if 9 <= now_hour <= 10:
+    is_first_run_today = not any(key.startswith(f"{today}_") for key in accuracy)
+
+    if is_first_run_today:
         for sym, d in results.items():
             if not d.get("ok"): continue
             accuracy[f"{today}_{sym}"] = {
@@ -874,14 +879,13 @@ def update_accuracy_tracking(results, fg_value):
                 "fg_value": fg_value,
                 "closing_price": None, "correct": None
             }
-        print(f"Accuracy: sparade {len(results)} morgonsignaler")
-
-    elif (17 <= now_hour <= 18) or now_hour >= 22:
+        print(f"Accuracy: sparade {len(results)} morgonsignaler (forsta korningen {today})")
+    else:
         updated = 0
         for sym, d in results.items():
             if not d.get("ok"): continue
             key = f"{today}_{sym}"
-            if key in accuracy and accuracy[key]["closing_price"] is None:
+            if key in accuracy:
                 morning_price = accuracy[key]["morning_price"]
                 closing_price = d["price"]
                 signal = accuracy[key]["signal"]
@@ -896,7 +900,7 @@ def update_accuracy_tracking(results, fg_value):
                 accuracy[key]["pct_change"] = round(pct_change, 2)
                 accuracy[key]["correct"] = correct
                 updated += 1
-        print(f"Accuracy: uppdaterade {updated} stangningspriser")
+        print(f"Accuracy: uppdaterade {updated} stangningspriser ({today})")
 
     with open("accuracy.json", "w") as f:
         json.dump(accuracy, f, indent=2)
