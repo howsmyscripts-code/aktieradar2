@@ -1,8 +1,8 @@
 {
   "INVE-B.ST": {
     "signal": "KOP",
-    "styrka": 8,
-    "news_score": 1
+    "styrka": 7,
+    "news_score": 0
   },
   "ATCO-B.ST": {
     "signal": "KOP",
@@ -15,8 +15,8 @@
     "news_score": 0
   },
   "SAAB-B.ST": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 2
   },
   "ERIC-B.ST": {
@@ -31,12 +31,12 @@
   },
   "KINV-B.ST": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 7,
     "news_score": 0
   },
   "HM-B.ST": {
     "signal": "SALJ",
-    "styrka": 1,
+    "styrka": 3,
     "news_score": -1
   },
   "SEB-A.ST": {
@@ -56,7 +56,7 @@
   },
   "NANEXA.ST": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 10,
     "news_score": 2
   },
   "FREEM.ST": {
@@ -95,9 +95,9 @@
     "news_score": 0
   },
   "SIEGY": {
-    "signal": "SALJ",
-    "styrka": 4,
-    "news_score": 0
+    "signal": "HALL",
+    "styrka": 5,
+    "news_score": 1
   },
   "NSRGY": {
     "signal": "SALJ",
@@ -135,13 +135,13 @@
     "news_score": -1
   },
   "AAPL": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 1
   },
   "MSFT": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "AMZN": {
@@ -191,8 +191,8 @@
   },
   "CL=F": {
     "signal": "KOP",
-    "styrka": 8,
-    "news_score": 1
+    "styrka": 9,
+    "news_score": 2
   },
   "GC=F": {
     "signal": "HALL",
