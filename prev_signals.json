@@ -86,8 +86,8 @@
   },
   "LVMUY": {
     "signal": "SALJ",
-    "styrka": 3,
-    "news_score": 0
+    "styrka": 4,
+    "news_score": 1
   },
   "SHEL": {
     "signal": "KOP",
@@ -96,8 +96,8 @@
   },
   "SIEGY": {
     "signal": "KOP",
-    "styrka": 7,
-    "news_score": 0
+    "styrka": 8,
+    "news_score": 1
   },
   "NSRGY": {
     "signal": "HALL",
@@ -220,9 +220,9 @@
     "news_score": -1
   },
   "EQQQ.DE": {
-    "signal": "HALL",
-    "styrka": 5,
-    "news_score": -1
+    "signal": "KOP",
+    "styrka": 7,
+    "news_score": 1
   },
   "JEDI.DE": {
     "signal": "KOP",
@@ -251,8 +251,8 @@
   },
   "VWRL.L": {
     "signal": "HALL",
-    "styrka": 6,
-    "news_score": 0
+    "styrka": 5,
+    "news_score": -1
   },
   "IS3N.DE": {
     "signal": "KOP",
