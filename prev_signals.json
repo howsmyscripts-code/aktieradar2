@@ -5,8 +5,8 @@
     "news_score": 0
   },
   "ATCO-B.ST": {
-    "signal": "KOP",
-    "styrka": 8,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "SWED-A.ST": {
@@ -15,8 +15,8 @@
     "news_score": 0
   },
   "SAAB-B.ST": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 2
   },
   "ERIC-B.ST": {
@@ -30,13 +30,13 @@
     "news_score": -1
   },
   "KINV-B.ST": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "HM-B.ST": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 1,
     "news_score": -1
   },
   "SEB-A.ST": {
@@ -71,8 +71,8 @@
   },
   "ASML": {
     "signal": "HALL",
-    "styrka": 5,
-    "news_score": -1
+    "styrka": 6,
+    "news_score": 0
   },
   "SAP": {
     "signal": "HALL",
@@ -90,9 +90,9 @@
     "news_score": 0
   },
   "SHEL": {
-    "signal": "KOP",
-    "styrka": 7,
-    "news_score": 1
+    "signal": "HALL",
+    "styrka": 6,
+    "news_score": 0
   },
   "SIEGY": {
     "signal": "HALL",
@@ -125,9 +125,9 @@
     "news_score": 1
   },
   "NVDA": {
-    "signal": "HALL",
-    "styrka": 6,
-    "news_score": 0
+    "signal": "KOP",
+    "styrka": 7,
+    "news_score": 1
   },
   "INTC": {
     "signal": "KOP",
@@ -155,14 +155,14 @@
     "news_score": 0
   },
   "META": {
-    "signal": "SALJ",
-    "styrka": 4,
-    "news_score": 0
+    "signal": "HALL",
+    "styrka": 5,
+    "news_score": 1
   },
   "TSLA": {
     "signal": "SALJ",
-    "styrka": 2,
-    "news_score": 0
+    "styrka": 3,
+    "news_score": 1
   },
   "JPM": {
     "signal": "KOP",
@@ -186,8 +186,8 @@
   },
   "TSM": {
     "signal": "KOP",
-    "styrka": 9,
-    "news_score": 2
+    "styrka": 8,
+    "news_score": 1
   },
   "CL=F": {
     "signal": "KOP",
@@ -195,24 +195,24 @@
     "news_score": 2
   },
   "GC=F": {
-    "signal": "SALJ",
-    "styrka": 4,
-    "news_score": -1
-  },
-  "SI=F": {
-    "signal": "KOP",
-    "styrka": 9,
-    "news_score": 1
-  },
-  "BTC-USD": {
     "signal": "KOP",
     "styrka": 7,
     "news_score": 1
   },
-  "ETH-USD": {
-    "signal": "HALL",
-    "styrka": 5,
+  "SI=F": {
+    "signal": "KOP",
+    "styrka": 8,
     "news_score": 0
+  },
+  "BTC-USD": {
+    "signal": "KOP",
+    "styrka": 7,
+    "news_score": 0
+  },
+  "ETH-USD": {
+    "signal": "KOP",
+    "styrka": 7,
+    "news_score": 1
   },
   "CSPX.L": {
     "signal": "HALL",
@@ -221,7 +221,7 @@
   },
   "EQQQ.DE": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": -1
   },
   "JEDI.DE": {
@@ -266,8 +266,8 @@
   },
   "IGLN.L": {
     "signal": "HALL",
-    "styrka": 5,
-    "news_score": 0
+    "styrka": 6,
+    "news_score": 1
   },
   "QUTM.DE": {
     "signal": "KOP",
