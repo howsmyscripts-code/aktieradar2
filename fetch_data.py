@@ -853,11 +853,16 @@ for sym in STOCKS:
 # ── Accuracy Tracking ────────────────────────────────────────────────────────
 def market_close_hour(sym):
     """Ungefarlig stangningstid i svensk lokal tid per marknad.
-    Kravs eftersom cron bara kor 09-18 svensk tid, medan US-marknaden
-    stanger 22:00 svensk sommartid - utan denna sparr utvarderas
+    OBS: satt till 18, inte 17, aven om Stockholmsborsen stanger 17:30 -
+    timschemat (0 7-21) ger en korning exakt kl 17:00 svensk tid, vilket
+    ar 30 min FORE riktig stangning. Med gransen 18 blir forsta mojliga
+    utvardering korningen kl 18:00, garanterat efter borsens stangning
+    bade sommar- och vintertid.
+    Kravs ocksa eftersom cron annars bara skulle na 09-18 svensk tid, medan
+    US-marknaden stanger 22:00 sommartid - utan denna sparr utvarderas
     US-tickers mot ett lunchtidspris, aldrig den riktiga stangningen."""
     if sym.endswith((".ST", ".DE", ".L")):
-        return 17
+        return 18
     return 22  # US-noterade (AAPL, MSFT, NVDA, etc), krypto, ravaror
 
 def update_accuracy_tracking(results, fg_value):
