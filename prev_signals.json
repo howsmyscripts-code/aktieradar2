@@ -111,7 +111,7 @@
   },
   "AZN": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 2,
     "news_score": -2
   },
   "RELX": {
@@ -170,8 +170,8 @@
     "news_score": 0
   },
   "BRK-B": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 1
   },
   "LLY": {
@@ -181,7 +181,7 @@
   },
   "BYDDF": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 4,
     "news_score": 1
   },
   "TSM": {
@@ -196,12 +196,12 @@
   },
   "GC=F": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 8,
     "news_score": 1
   },
   "SI=F": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 9,
     "news_score": 0
   },
   "BTC-USD": {
