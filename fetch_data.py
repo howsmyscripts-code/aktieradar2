@@ -851,27 +851,52 @@ for sym in STOCKS:
         print(f"FAIL {sym}: {e}")
 
 # ── Accuracy Tracking ────────────────────────────────────────────────────────
+def market_close_hour(sym):
+    """Ungefarlig stangningstid i svensk lokal tid per marknad.
+    Kravs eftersom cron bara kor 09-18 svensk tid, medan US-marknaden
+    stanger 22:00 svensk sommartid - utan denna sparr utvarderas
+    US-tickers mot ett lunchtidspris, aldrig den riktiga stangningen."""
+    if sym.endswith((".ST", ".DE", ".L")):
+        return 17
+    return 22  # US-noterade (AAPL, MSFT, NVDA, etc), krypto, ravaror
+
 def update_accuracy_tracking(results, fg_value):
     """Spara signaler och priser for accuracy-tracking. Returnerar hela accuracy-dicten.
-    Robust mot schemaglidning i GitHub Actions: forsta korningen per dag sparar
-    morgonsignal + morgonpris. Varje efterfoljande korning samma dag skriver over
-    stangningspris/correct med senaste pris, sa den sista korningen pa dagen blir
-    facit - oavsett exakt klockslag pa korningen."""
+
+    Robust mot tre kanda problem:
+    1. Schemaglidning i GitHub Actions - varje symbol fangas individuellt forsta
+       gangen den ar "ok" idag, inte bara pa en global "forsta korningen".
+       Om NVDA misslyckas kl 09:00 (API-fel) men lyckas kl 09:05 fangas den anda,
+       istallet for att tappa hela dagen for just den symbolen.
+    2. For tidig utvardering - closing_price/correct satts forst efter respektive
+       marknads stangningstid (market_close_hour), sa US-tickers (stanger 22:00
+       svensk tid) inte domms mot ett pris fran mitten av handelsdagen bara for
+       att cron sista korning ar 18:00.
+    3. Robust felhantering vid las/skriv av accuracy.json."""
     now_sw = datetime.now(ZoneInfo("Europe/Stockholm"))
     today = now_sw.strftime("%Y-%m-%d")
 
     try:
         with open("accuracy.json", "r") as f:
             accuracy = json.load(f)
-    except:
+        if not isinstance(accuracy, dict):
+            print("Accuracy: ogiltigt format i accuracy.json, aterstaller")
+            accuracy = {}
+    except FileNotFoundError:
+        accuracy = {}
+    except (json.JSONDecodeError, OSError) as e:
+        print(f"Accuracy: kunde inte lasa accuracy.json ({e}), aterstaller")
         accuracy = {}
 
-    is_first_run_today = not any(key.startswith(f"{today}_") for key in accuracy)
+    created, evaluated = 0, 0
+    for sym, d in results.items():
+        if not d.get("ok"):
+            continue
+        key = f"{today}_{sym}"
 
-    if is_first_run_today:
-        for sym, d in results.items():
-            if not d.get("ok"): continue
-            accuracy[f"{today}_{sym}"] = {
+        if key not in accuracy:
+            # Forsta gangen vi ser DENNA symbol lyckas idag - spara morgonpris.
+            accuracy[key] = {
                 "date": today, "sym": sym,
                 "signal": d["signal"], "styrka": d["styrka"],
                 "morning_price": d["price"],
@@ -879,31 +904,37 @@ def update_accuracy_tracking(results, fg_value):
                 "fg_value": fg_value,
                 "closing_price": None, "correct": None
             }
-        print(f"Accuracy: sparade {len(results)} morgonsignaler (forsta korningen {today})")
-    else:
-        updated = 0
-        for sym, d in results.items():
-            if not d.get("ok"): continue
-            key = f"{today}_{sym}"
-            if key in accuracy:
-                morning_price = accuracy[key]["morning_price"]
-                closing_price = d["price"]
-                signal = accuracy[key]["signal"]
-                pct_change = ((closing_price - morning_price) / morning_price * 100) if morning_price else 0
-                if signal == "KOP":
-                    correct = pct_change > 0.5
-                elif signal == "SALJ":
-                    correct = pct_change < -0.5
-                else:
-                    correct = abs(pct_change) < 1.0
-                accuracy[key]["closing_price"] = closing_price
-                accuracy[key]["pct_change"] = round(pct_change, 2)
-                accuracy[key]["correct"] = correct
-                updated += 1
-        print(f"Accuracy: uppdaterade {updated} stangningspriser ({today})")
+            created += 1
+            continue
 
-    with open("accuracy.json", "w") as f:
-        json.dump(accuracy, f, indent=2)
+        if accuracy[key]["closing_price"] is not None:
+            continue  # redan avgjord for idag
+
+        if now_sw.hour < market_close_hour(sym):
+            continue  # marknaden inte stangd an - vanta med att domma
+
+        morning_price = accuracy[key]["morning_price"]
+        closing_price = d["price"]
+        signal = accuracy[key]["signal"]
+        pct_change = ((closing_price - morning_price) / morning_price * 100) if morning_price else 0
+        if signal == "KOP":
+            correct = pct_change > 0.5
+        elif signal == "SALJ":
+            correct = pct_change < -0.5
+        else:
+            correct = abs(pct_change) < 1.0
+        accuracy[key]["closing_price"] = closing_price
+        accuracy[key]["pct_change"] = round(pct_change, 2)
+        accuracy[key]["correct"] = correct
+        evaluated += 1
+
+    print(f"Accuracy: {created} nya morgonposter, {evaluated} utvarderade ({today})")
+
+    try:
+        with open("accuracy.json", "w") as f:
+            json.dump(accuracy, f, indent=2)
+    except OSError as e:
+        print(f"Accuracy: kunde inte skriva accuracy.json: {e}")
 
     return accuracy
 
@@ -911,31 +942,33 @@ def compute_accuracy_summary(accuracy, symbols=None):
     """
     Sammanstaller traffsakerhet per aktie fran accuracy.json.
     Om symbols anges (lista), begransas summeringen till dessa tickers.
-    Returnerar dict: {sym: {"total": N, "correct": N, "pct": N}}
+    Returnerar dict: {sym: {"total": N, "correct": N, "pending": N, "pct": N}}
+    "pending" racknar dagens/olosta poster sa summeringen inte ser tom ut
+    bara for att inget hunnit avgoras an.
     """
     per_symbol = {}
     for key, entry in accuracy.items():
         sym = entry.get("sym")
         if symbols is not None and sym not in symbols:
             continue
+        stats = per_symbol.setdefault(sym, {"total": 0, "correct": 0, "pending": 0})
         if entry.get("correct") is None:
-            continue  # dagens signal ej stangd an
-        per_symbol.setdefault(sym, {"total": 0, "correct": 0})
-        per_symbol[sym]["total"] += 1
+            stats["pending"] += 1
+            continue
+        stats["total"] += 1
         if entry["correct"]:
-            per_symbol[sym]["correct"] += 1
+            stats["correct"] += 1
 
     summary = {}
     for sym, stats in per_symbol.items():
         pct = round(stats["correct"] / stats["total"] * 100, 1) if stats["total"] > 0 else None
-        summary[sym] = {"total": stats["total"], "correct": stats["correct"], "pct": pct}
+        summary[sym] = {"total": stats["total"], "correct": stats["correct"], "pending": stats["pending"], "pct": pct}
     return summary
 
-accuracy_data = update_accuracy_tracking(results, fg_value)
+accuracy_data = {}  # fylls efter sektorvarning/marknadsfilter, se nedan
 
 # Sammanstall traffsakerhet for dina innehav specifikt (utoka listan vid behov)
 TRACKED_HOLDINGS = ["INVE-B.ST", "SAAB-B.ST", "BEAMMW-B.ST", "XACTHDIV.ST", "JEDI.DE"]
-accuracy_summary = compute_accuracy_summary(accuracy_data, symbols=TRACKED_HOLDINGS)
 
 # ── Sektorkorrelation ────────────────────────────────────────────────────────
 SECTOR_CORRELATIONS = {
@@ -993,6 +1026,12 @@ if fg_value is not None and fg_value < 15 and _ok_list and _neg_news > len(_ok_l
             _d["signal"] = "KOP" if _d["styrka"] >= 7 else "SALJ" if _d["styrka"] <= 4 else "HALL"
     market_breadth["filter_applied"] = True
     print(f"Marknadsfilter AKTIVT: F&G {fg_value} + {_neg_news}/{len(_ok_list)} negativt news → KÖP nedviktade")
+
+# Kor accuracy-tracking HAR - efter sektorvarning + marknadsfilter - sa den
+# registrerar den slutgiltiga, dampade signalen som faktiskt visas i appen,
+# inte den odampade rasignalen fran compute_signal().
+accuracy_data = update_accuracy_tracking(results, fg_value)
+accuracy_summary = compute_accuracy_summary(accuracy_data, symbols=TRACKED_HOLDINGS)
 
 output = {
     "updated": (datetime.now(ZoneInfo("Europe/Stockholm"))).strftime("%Y-%m-%d %H:%M svensk tid"),
