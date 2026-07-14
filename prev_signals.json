@@ -186,8 +186,8 @@
   },
   "TSM": {
     "signal": "KOP",
-    "styrka": 9,
-    "news_score": 1
+    "styrka": 10,
+    "news_score": 2
   },
   "CL=F": {
     "signal": "KOP",
@@ -221,8 +221,8 @@
   },
   "EQQQ.DE": {
     "signal": "HALL",
-    "styrka": 5,
-    "news_score": -1
+    "styrka": 6,
+    "news_score": 0
   },
   "JEDI.DE": {
     "signal": "KOP",
@@ -265,9 +265,9 @@
     "news_score": 0
   },
   "IGLN.L": {
-    "signal": "HALL",
-    "styrka": 5,
-    "news_score": 1
+    "signal": "SALJ",
+    "styrka": 4,
+    "news_score": 0
   },
   "QUTM.DE": {
     "signal": "KOP",
