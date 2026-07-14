@@ -16,7 +16,7 @@
   },
   "SAAB-B.ST": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 7,
     "news_score": 2
   },
   "ERIC-B.ST": {
@@ -30,8 +30,8 @@
     "news_score": -1
   },
   "KINV-B.ST": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 0
   },
   "HM-B.ST": {
@@ -95,8 +95,8 @@
     "news_score": 1
   },
   "SIEGY": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": -2
   },
   "NSRGY": {
@@ -165,8 +165,8 @@
     "news_score": 0
   },
   "JPM": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "SALJ",
+    "styrka": 3,
     "news_score": -1
   },
   "BRK-B": {
@@ -201,7 +201,7 @@
   },
   "SI=F": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 8,
     "news_score": -1
   },
   "BTC-USD": {
