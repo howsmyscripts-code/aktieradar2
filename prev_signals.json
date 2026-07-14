@@ -1,7 +1,7 @@
 {
   "INVE-B.ST": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 8,
     "news_score": 0
   },
   "ATCO-B.ST": {
@@ -16,7 +16,7 @@
   },
   "SAAB-B.ST": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 7,
     "news_score": 2
   },
   "ERIC-B.ST": {
@@ -201,7 +201,7 @@
   },
   "SI=F": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 8,
     "news_score": 0
   },
   "BTC-USD": {
