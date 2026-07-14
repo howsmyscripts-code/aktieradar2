@@ -101,7 +101,7 @@
   },
   "NSRGY": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 2,
     "news_score": 0
   },
   "EADSY": {
@@ -126,7 +126,7 @@
   },
   "NVDA": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": 1
   },
   "INTC": {
@@ -136,7 +136,7 @@
   },
   "AAPL": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 2,
     "news_score": -2
   },
   "MSFT": {
@@ -146,12 +146,12 @@
   },
   "AMZN": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": 0
   },
   "GOOGL": {
     "signal": "KOP",
-    "styrka": 10,
+    "styrka": 9,
     "news_score": 1
   },
   "META": {
@@ -161,7 +161,7 @@
   },
   "TSLA": {
     "signal": "SALJ",
-    "styrka": 1,
+    "styrka": 2,
     "news_score": -1
   },
   "JPM": {
@@ -171,7 +171,7 @@
   },
   "BRK-B": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": 1
   },
   "LLY": {
