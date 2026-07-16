@@ -126,11 +126,11 @@
     }
   },
   "SAP": {
-    "headlines_hash": "2e6fafe07a8b2f362911b65199beaa6c",
+    "headlines_hash": "c5e7fde9ff2bf1058954bd6033db5bf2",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Ingen konkreta nyheter om SAP; generisk analys utan katalysatorer",
+      "summary": "Ingen SAP-specifik nyhet. IBM-f\u00f6rs\u00e4ljning p\u00e5verkar IT-sektor generellt.",
       "catalyst": "none"
     }
   },
@@ -189,12 +189,12 @@
     }
   },
   "AZN": {
-    "headlines_hash": "46b343ea649f24576a007ff312015d9e",
+    "headlines_hash": "632e2731fc6f26bba2f0ed5313a9da65",
     "sentiment": {
-      "sentiment": "neutral",
-      "score": 0,
-      "summary": "AZN oncology stark trots Wainua motg\u00e5ng; kompetitiv milj\u00f6",
-      "catalyst": "none"
+      "sentiment": "negative",
+      "score": -1,
+      "summary": "Wainua-f\u00f6rs\u00f6ksupps\u00e4ttning v\u00e4ger mot stark onkologimotor",
+      "catalyst": "Wainua trial setback motverkar positiv f\u00f6rs\u00e4ljningstillv\u00e4xt"
     }
   },
   "RELX": {
@@ -225,12 +225,12 @@
     }
   },
   "INTC": {
-    "headlines_hash": "b8b6d7369c84ad2bb78d3ce92e1543d6",
+    "headlines_hash": "bae502a21d4f641271dfde23ee8f9b4b",
     "sentiment": {
-      "sentiment": "negative",
-      "score": -1,
-      "summary": "M\u00e5lh\u00f6jning offsettad av AI-momentum-svaghet i chipsektor",
-      "catalyst": "AI-handels-avkylning pressar chipaktier trots analytikerst\u00f6d"
+      "sentiment": "neutral",
+      "score": 0,
+      "summary": "Blandad signal: m\u00e5lpris upp men aktien faller, AI-fokus unclear",
+      "catalyst": "none"
     }
   },
   "AAPL": {
@@ -252,48 +252,48 @@
     }
   },
   "AMZN": {
-    "headlines_hash": "ef3b98bf7628d81a6f98d376770aa850",
+    "headlines_hash": "3132d6c85ce9e396216188f896d05e25",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Vaga AI-utgiftskommentarer, ingen specifik AMZN-katalysator identifierad",
+      "summary": "AI spending fokus kommande, men ingen AMZN-specifik nyhet",
       "catalyst": "none"
     }
   },
   "GOOGL": {
-    "headlines_hash": "b04f7deb1361fce84db50eec1a5555ac",
+    "headlines_hash": "9525e714e3f0b472ba0abde88d28d5e2",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "Tekniksektor faller, Alphabet sjunker med chipaktier",
-      "catalyst": "Bred tekniksektor-f\u00f6rs\u00e4ljning och chipaktieschw\u00e4che"
+      "summary": "Tekniksektor faller. Antropic-konkurrens och bred sektor-svaghet",
+      "catalyst": "Sector-wide tech selloff, AI competition pressure"
     }
   },
   "META": {
-    "headlines_hash": "20caf6ba2a800e198b1a0e804dc7d09e",
+    "headlines_hash": "f009a88b43158cc2cfbfdb554d1ae0af",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "Tech sektor faller; META AI-investeringar p\u00e5verkar aktie\u00e5terk\u00f6p",
-      "catalyst": "Sector-wide tech selloff och os\u00e4kerhet kring AI-utgifternas p\u00e5verkan p\u00e5 kassafl\u00f6de"
+      "summary": "Tekniksektor faller, META:s AI-utgifter v\u00e4cker investerarfr\u00e5gor",
+      "catalyst": "Sektorbred teknikuppg\u00e5ng kombinerat med oro \u00f6ver AI-investeringar"
     }
   },
   "TSLA": {
-    "headlines_hash": "992113fb10f68ef5113f4de7da736be7",
+    "headlines_hash": "703f206379b75b115459aefdd929fbbb",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "Leverans\u00f6verraskning f\u00f6re resultat. Elon-f\u00f6rm\u00f6genhet irrelevant f\u00f6r TSLA.",
-      "catalyst": "Surprise delivery beat ahead of earnings"
+      "summary": "Leverans\u00f6verraskning st\u00e4rker f\u00f6re resultat, Musk-f\u00f6rm\u00f6genhet irrelevant",
+      "catalyst": "Leveransbeatexpektationer inf\u00f6r Q2-resultat"
     }
   },
   "JPM": {
-    "headlines_hash": "f27eb90df44b5c6df25c93ad24381233",
+    "headlines_hash": "0c2d033b8297c6ab96d254a500fa7c1b",
     "sentiment": {
       "sentiment": "positive",
-      "score": 1,
-      "summary": "Defense budget boost och M&A boom st\u00f6der investeringsbankverksamhet",
-      "catalyst": "\u00d6kad M&A och underwriting-aktivitet inom f\u00f6rsvar och tech"
+      "score": 2,
+      "summary": "Stark Q2-resultat, stark ekonomi, underwriting boom",
+      "catalyst": "Earnings beat + optimistisk CEO guidance + M&A activity tailwinds"
     }
   },
   "BRK-B": {
@@ -324,21 +324,21 @@
     }
   },
   "TSM": {
-    "headlines_hash": "06f966bf7378788b694515bd6d073749",
+    "headlines_hash": "81114e3d274082b721aded6f4fe61f69",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "TSM earnings solid men sektor pressad; chipaktier faller",
-      "catalyst": "Sector-wide semiconductor selloff trots positiva TSM-resultat"
+      "summary": "TSM stark resultat \u00f6verskuggas av bred chipsektor-s\u00e4ljning",
+      "catalyst": "Chipsektor-bred f\u00f6rs\u00e4ljning trots solida TSM-resultat"
     }
   },
   "CL=F": {
-    "headlines_hash": "293b1a9cf541790d8e483c1a2f597b71",
+    "headlines_hash": "013a1bb5d8427c6b2f1555800d022f68",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "Geopolitisk sp\u00e4nning st\u00e4rker oljepriset; risk f\u00f6r $150/fat",
-      "catalyst": "Iran-sp\u00e4nning driver oljeprisuppg\u00e5ng"
+      "summary": "Geopolitisk sp\u00e4nning st\u00f6der oljepriset upp\u00e5t mot $150",
+      "catalyst": "Iran-sp\u00e4nningar driver oljepris\u00f6kning"
     }
   },
   "GC=F": {
@@ -369,29 +369,29 @@
     }
   },
   "ETH-USD": {
-    "headlines_hash": "bbdc88e07011d264897f1fe9e98ceae2",
+    "headlines_hash": "dbf09ed466334bb39b1ff72637f4c5dd",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "Svagare inflation \u00f6ppnar f\u00f6r l\u00e4gre r\u00e4ntor, st\u00f6djer risktillg\u00e5ngar",
-      "catalyst": "Fed rate cut expectations boosting crypto demand"
+      "summary": "Svagare inflation \u00f6kar risktillg\u00e5ngar. Fed-nedsk\u00e4rning st\u00f6der ETH.",
+      "catalyst": "Fed rate cut expectations boost risk-on sentiment for crypto"
     }
   },
   "CSPX.L": {
-    "headlines_hash": "ff63a6b0813bba804635f21bee8f8b51",
+    "headlines_hash": "dfd27c4a9e29a129d4ada134d9b389ef",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Generisk marknadskommentar utan relevans f\u00f6r CSPX.L",
+      "summary": "Generisk marknadskommentar, ingen f\u00f6retagsspecifik nyhet",
       "catalyst": "none"
     }
   },
   "EQQQ.DE": {
-    "headlines_hash": "4bcc2f87a5a25b64d0b12deeacb04631",
+    "headlines_hash": "cb2c017e0790a5f7a509d0efb0592476",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Generisk marknadskommentar utan direktp\u00e5verkan p\u00e5 EQQQ.DE",
+      "summary": "Makrokommentarer utan direkt p\u00e5verkan p\u00e5 EQQQ.DE",
       "catalyst": "none"
     }
   },
@@ -459,12 +459,12 @@
     }
   },
   "QUTM.DE": {
-    "headlines_hash": "9d81b27e53bc3a31f20f0f3961edd707",
+    "headlines_hash": "bca9eca8a36d74b80aa7bc86d86b1ca7",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "Quantum sektor nedg\u00e5ng, spekulativa aktier drabbade",
-      "catalyst": "Risk-off marknadssentiment p\u00e5verkar quantum computing ETF:er negativt"
+      "summary": "Quantum sektor selloff p\u00e5verkar QUTM negativ trots Nokia AI-nyheter",
+      "catalyst": "Risk-off marknad sl\u00e5r quantum stocks"
     }
   }
 }
