@@ -131,8 +131,8 @@
   },
   "INTC": {
     "signal": "KOP",
-    "styrka": 8,
-    "news_score": 0
+    "styrka": 7,
+    "news_score": -1
   },
   "AAPL": {
     "signal": "SALJ",
@@ -157,7 +157,7 @@
   "META": {
     "signal": "SALJ",
     "styrka": 1,
-    "news_score": -1
+    "news_score": 0
   },
   "TSLA": {
     "signal": "SALJ",
@@ -166,8 +166,8 @@
   },
   "JPM": {
     "signal": "KOP",
-    "styrka": 9,
-    "news_score": 2
+    "styrka": 8,
+    "news_score": 1
   },
   "BRK-B": {
     "signal": "HALL",
@@ -196,8 +196,8 @@
   },
   "GC=F": {
     "signal": "HALL",
-    "styrka": 6,
-    "news_score": 0
+    "styrka": 5,
+    "news_score": -1
   },
   "SI=F": {
     "signal": "HALL",
@@ -221,8 +221,8 @@
   },
   "EQQQ.DE": {
     "signal": "KOP",
-    "styrka": 8,
-    "news_score": 0
+    "styrka": 7,
+    "news_score": -1
   },
   "JEDI.DE": {
     "signal": "HALL",
