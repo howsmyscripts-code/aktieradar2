@@ -75,8 +75,8 @@
     "news_score": 1
   },
   "SAP": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 0
   },
   "NVO": {
@@ -96,12 +96,12 @@
   },
   "SIEGY": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": 0
   },
   "NSRGY": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 0
   },
   "EADSY": {
@@ -141,7 +141,7 @@
   },
   "MSFT": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 2,
     "news_score": 0
   },
   "AMZN": {
@@ -171,7 +171,7 @@
   },
   "BRK-B": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": 0
   },
   "LLY": {
