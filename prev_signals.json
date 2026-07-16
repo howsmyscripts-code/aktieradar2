@@ -100,8 +100,8 @@
     "news_score": 0
   },
   "NSRGY": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "EADSY": {
@@ -151,7 +151,7 @@
   },
   "GOOGL": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 9,
     "news_score": -1
   },
   "META": {
@@ -161,7 +161,7 @@
   },
   "TSLA": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 2,
     "news_score": 0
   },
   "JPM": {
@@ -170,8 +170,8 @@
     "news_score": 0
   },
   "BRK-B": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "LLY": {
@@ -195,13 +195,13 @@
     "news_score": 1
   },
   "GC=F": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 1
   },
   "SI=F": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "BTC-USD": {
