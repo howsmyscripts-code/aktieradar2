@@ -117,21 +117,21 @@
     }
   },
   "ASML": {
-    "headlines_hash": "10bfade6682868be231f47ef307eec0c",
+    "headlines_hash": "0a0dfe1c7058f99000c02edfc2fd4d73",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "AI-chipsektor selloff p\u00e5verkar ASML indirekt via efterfr\u00e5gan",
-      "catalyst": "Bred AI/tech-aktieselloff pressar halvledartillverkare"
+      "summary": "AI-chipsektor pressad; ASML f\u00f6ljer negativ marknadstrend",
+      "catalyst": "Bred AI/chipsektor-f\u00f6rs\u00e4ljning drabbar leverant\u00f6rer"
     }
   },
   "SAP": {
-    "headlines_hash": "b227cf9006ebfb7238874e2214d9b189",
+    "headlines_hash": "0c7c5b6040a668229421c374f487a2a0",
     "sentiment": {
-      "sentiment": "positive",
-      "score": 1,
-      "summary": "Upgrade till Buy efter 40% fall, rabatt vs sektor",
-      "catalyst": "Analyst upgrade och v\u00e4rderingsmultipel arbitrage"
+      "sentiment": "negative",
+      "score": -1,
+      "summary": "Analystarrangemang blandat; prisfall trots k\u00f6puppgradering signalerar svaghet",
+      "catalyst": "Bred europeisk aktief\u00f6rs\u00e4ljning, IBM-varning sl\u00e5r tech-outsiders"
     }
   },
   "NVO": {
@@ -144,21 +144,21 @@
     }
   },
   "LVMUY": {
-    "headlines_hash": "1bfb77161b70eb3bf87b06a089edfb6f",
+    "headlines_hash": "4dd78cec859867a7b6b38c1a01efffeb",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "V\u00e4rderingsjustering efter nedg\u00e5ng, inga nya katalisat\u00f6rer",
+      "summary": "Q1 stabilisering positiv, men Kina-exponering och v\u00e4rdering os\u00e4ker",
       "catalyst": "none"
     }
   },
   "SHEL": {
-    "headlines_hash": "534fe970fdcd219420d08c8a0ff0d48c",
+    "headlines_hash": "cffa5b88398607c65e0aabcd5232a10a",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "Delta SAF-avtal st\u00e4rker Shell, men breda marknadsfall v\u00e4ger delvis",
-      "catalyst": "Delta Air Lines fem\u00e5rsavtal f\u00f6r h\u00e5llbar flygbr\u00e4nsle fr\u00e5n Shell Aviation"
+      "summary": "L\u00e5ngtidskontrakt med Delta positiv; marknadsf\u00f6rs\u00e4ljning neutral",
+      "catalyst": "Shell Aviation fem-\u00e5rs SAF-avtalet med Delta Air Lines"
     }
   },
   "SIEGY": {
@@ -171,21 +171,21 @@
     }
   },
   "NSRGY": {
-    "headlines_hash": "26e22337161c2bf3f49a4769e8245bfe",
+    "headlines_hash": "640d207740e72c9d9a52bda288b84e54",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Ingen NSRGY-specifik nyhet. Generisk inneh\u00e5l.",
+      "summary": "Generiska listuppgifter utan NSRGY-specifika katalysatorer",
       "catalyst": "none"
     }
   },
   "EADSY": {
-    "headlines_hash": "6d62f583283e0e9440fe3c1bfb619788",
+    "headlines_hash": "01a1a6ebf8e040d0e49f6b944d057f6f",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "Air China order bekr\u00e4ftar efterfr\u00e5gan, konkurrenssituation neutral",
-      "catalyst": "Major contract win - Air China order $12.4B"
+      "summary": "Airbus s\u00e4kerst\u00e4ller order fr\u00e5n Air China; konkurrerar om st\u00f6rre SMBC-deal",
+      "catalyst": "Major contract win fr\u00e5n Air China; orderbok styrka"
     }
   },
   "AZN": {
@@ -198,30 +198,30 @@
     }
   },
   "RELX": {
-    "headlines_hash": "aa416d03e23c97bc08054a6067143885",
+    "headlines_hash": "8f98af1a6cc433f940ede484c361e1e5",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "Goldman Sachs Buy-initiering st\u00f6djer aktien kort-siktigt",
-      "catalyst": "Analyst upgrade fr\u00e5n Goldman Sachs"
+      "summary": "Goldman Sachs Buy-initiering och bullish analystesis st\u00f6djer RELX",
+      "catalyst": "Analyst upgrade - Goldman Sachs Buy initiation"
     }
   },
   "BAESY": {
-    "headlines_hash": "079d7b39afb0a28f48490d495dd8306b",
+    "headlines_hash": "3858b8c2b7954817b9687dff33d72821",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "F\u00f6rsvar-rearmering i Europa st\u00f6djer BAESY l\u00e5ngsiktigt",
-      "catalyst": "Europeisk f\u00f6rsvarsuppbyggnad och sektorstyrka"
+      "summary": "F\u00f6rsvarssektorn st\u00e4rks av omrustning, BAESY gynnas indirekt",
+      "catalyst": "Europeisk f\u00f6rsvarsomrustning och \u00f6kade f\u00f6rsvarsbudgetar"
     }
   },
   "NVDA": {
-    "headlines_hash": "9a4cad2d91e25a39e360bcb140994b24",
+    "headlines_hash": "a2085196a6acfe8b7654f0d1e7788af6",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "Tekniksektor s\u00e4ljs, konkurrens fr\u00e5n kinesisk AI-modell, geopolitisk os\u00e4kerhet",
-      "catalyst": "Chinese AI model competition + tech sector selloff + Middle East tensions"
+      "summary": "Tekniksektor s\u00e4ljs av; Kina AI-modell och Mellan\u00f6stern-sp\u00e4nningar trycker",
+      "catalyst": "Konkurrens fr\u00e5n kinesisk AI-modell + geopolitisk os\u00e4kerhet"
     }
   },
   "INTC": {
@@ -234,66 +234,66 @@
     }
   },
   "AAPL": {
-    "headlines_hash": "fcc7ef7aa20abc90cc3a588120b0a3d7",
+    "headlines_hash": "0b35ce10ea8c9fa3f84a1c73deac0450",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Sektoromfattande teknikneds\u00e4lj \u00f6verv\u00e4ger positiv AI-investering fr\u00e5n Apple",
+      "summary": "Bred marknadsr\u00f6relser, AAPL stabil trots tekniksektor nedg\u00e5ng",
       "catalyst": "none"
     }
   },
   "MSFT": {
-    "headlines_hash": "67332d2a3b70dba2eb47207c3ca920cc",
+    "headlines_hash": "501ebd6dc14c39ae129d934bf3b66862",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "Azure AI partnership framh\u00e4vs, bred tech-sektor svag men MSFT differentiererad",
-      "catalyst": "3M Azure AI Optics partnership visar stark MSFT molnpositionering"
+      "summary": "Azure AI partnership st\u00e4rker position, men sektor-bred f\u00f6rs\u00e4ljning d\u00e4mpar",
+      "catalyst": "3M Azure AI Optics partnership visar MSFT-efterfr\u00e5gan trots tech-selloff"
     }
   },
   "AMZN": {
-    "headlines_hash": "bd11d4f94562cece337feafa8a71f08a",
+    "headlines_hash": "88b19d0d25568b0903cce99e2ea23c4f",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "Amazon besegrade Starlink p\u00e5 satellitmarknad via regulatorisk f\u00f6rdel",
-      "catalyst": "Regulatory win in satellite internet market, competitive advantage vs Starlink"
+      "summary": "Amazon sl\u00e5r Starlink p\u00e5 internetmarknad genom regulatorisk framg\u00e5ng",
+      "catalyst": "Regulatory win in satellite internet market"
     }
   },
   "GOOGL": {
-    "headlines_hash": "c3bb4e1badec998fb1de59e0ebf15f8f",
+    "headlines_hash": "03deb7f740fb507cd27aae2c8cc0513e",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Generisk marknadskommentar utan konkret GOOGL-specifik nyhet",
+      "summary": "Generisk marknadskommentar utan GOOGL-specifik p\u00e5verkan.",
       "catalyst": "none"
     }
   },
   "META": {
-    "headlines_hash": "5eff4b89cf3b28ccc619424deacd63aa",
+    "headlines_hash": "a9c1bdef72c7debb6b886ca5c7e87513",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "Potentiell $10B AI-h\u00e5rdvaru-deal med Anthropic, offset av sektor-selloff",
-      "catalyst": "Anthropic h\u00e5rdvaru-hyresavtal st\u00e4rker META:s datacenter-position"
+      "summary": "Anthropic AI-h\u00e5rdvaru-deal potentiell, men bred tech-nedg\u00e5ng d\u00e4mpar",
+      "catalyst": "Potentiell Anthropic h\u00e5rdvaru-avtal v\u00e4rde $10B"
     }
   },
   "TSLA": {
-    "headlines_hash": "bc6532cfddffe08285cbbc803a95725c",
+    "headlines_hash": "2a1a88d1d7aace7ff2442a933333c6ff",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "Konkurrenter st\u00e4rks, TSLA svagare i EV-rally och AI-s\u00e4ljning",
-      "catalyst": "Lucid uppg\u00e5ng och Mercedes-Benz ny EV hotande TSLA marknadsposition"
+      "summary": "Konkurrenter st\u00e4rks i EV-segmentet, bredare tech-s\u00e4ljning",
+      "catalyst": "Lucid rally och Mercedes EV lansering; AI-sektor s\u00e4ljning"
     }
   },
   "JPM": {
-    "headlines_hash": "f3266035b575df1b0687053d8643cee7",
+    "headlines_hash": "1cfc8cb458507c98a7cd12725282b5fa",
     "sentiment": {
-      "sentiment": "neutral",
-      "score": 0,
-      "summary": "Finansiell sektor blandat; JPM neutral utan spesifika katalysatorer",
-      "catalyst": "none"
+      "sentiment": "positive",
+      "score": 1,
+      "summary": "Finansiella aktier \u00e5terh\u00e4mtar sig, JPM rallying till nya h\u00f6gsta",
+      "catalyst": "Sektor-bred finansiell uppg\u00e5ng trots eftermiddagsnedg\u00e5ng"
     }
   },
   "BRK-B": {
@@ -306,93 +306,93 @@
     }
   },
   "LLY": {
-    "headlines_hash": "c3343bc21db6942e4d45c2800ad184b3",
+    "headlines_hash": "8b787fa06e15ffdc57e76c91b997df4e",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "Zepbound marknadsledarposition i GLP-1-segment, Wegovy-piller utg\u00f6r begr\u00e4nsad hot",
-      "catalyst": "Zepbound marknadsdominans \u00f6ver Novo Nordisk konkurrens"
+      "summary": "Zepbound marknadsledande, Wegovy piller hotar konkurrens men LLY f\u00f6rblir stark",
+      "catalyst": "GLP-1 marknad\u7af6\u7af6\u7af6 - Zepbound dominans trots Wegovy pillthreat"
     }
   },
   "BYDDF": {
-    "headlines_hash": "01c390cd24386182ec568fca08b6377d",
+    "headlines_hash": "c4227a65c53ab7e05ae2ca80d7445282",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Ingen BYDDF-specifik nyhet. Generiska EV-sektorkommentarer.",
+      "summary": "Blandad EV-marknad, inga specifika BYDDF-nyheter identifierade",
       "catalyst": "none"
     }
   },
   "TSM": {
-    "headlines_hash": "704562631ee85d723410aed02298ae49",
+    "headlines_hash": "48e0e01543212fc53d63f02787abc64c",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "Chip-sektor faller bredt; TSM p\u00e5verkat av generell semiconductor-selloff",
-      "catalyst": "Sector-wide chip stock decline"
+      "summary": "Chip-sektor faller, TSM p\u00e5verkas av bred nedg\u00e5ng",
+      "catalyst": "Semiconductor sector selloff"
     }
   },
   "CL=F": {
-    "headlines_hash": "279bb22a4a671e89040af0b2fb0b430b",
+    "headlines_hash": "ee0096735bfb58fa76331e33b3aa8b0c",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "Geopolitisk eskalering Iran driver upp oljepriserna",
-      "catalyst": "US-Iran konflikt eskalering \u00f6kar efterfr\u00e5gan p\u00e5 r\u00e5olja"
+      "summary": "Geopolitisk eskalering Iran driver oljepriserna h\u00f6gre",
+      "catalyst": "US-Iran conflict escalation pushes oil prices up"
     }
   },
   "GC=F": {
-    "headlines_hash": "ae097820ce32bcffaab623ca1e12b315",
+    "headlines_hash": "f0356131d12ed3cbf1d2f8be3d17cf89",
     "sentiment": {
       "sentiment": "negative",
       "score": -2,
-      "summary": "Guldpriser faller kraftigt p\u00e5 geopolitisk de-eskalering trots konflikter",
-      "catalyst": "Guldprisfall till niv\u00e5er fr\u00e5n november 2025 minskar ETF-v\u00e4rde"
+      "summary": "Guldpriser faller kraftigt d\u00e5 geopolitisk sp\u00e4nning minskar",
+      "catalyst": "Iran-luftanfall intensifieras men guldpris sjunker - riskaversion minskar"
     }
   },
   "SI=F": {
-    "headlines_hash": "70206546ccd0c9a902c496e2534e8c77",
+    "headlines_hash": "56297668416f24291ee6383b14da5cb3",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "Silver faller p\u00e5 geopolitisk instabilitet, Iran-konflikter pressar priserna",
-      "catalyst": "Milit\u00e4r eskalering Iran s\u00e4nker silver spot-pris"
+      "summary": "Silverpriser sjunker till 8-m\u00e5nadsl\u00e4gsta p\u00e5 geopolitisk sp\u00e4nning",
+      "catalyst": "Milit\u00e4r eskalering Iran \u2013 negativ f\u00f6r silverpriser"
     }
   },
   "BTC-USD": {
-    "headlines_hash": "5e314ca631d3224d85e1984e0a4de3bd",
+    "headlines_hash": "102d037606220e9c4cb8b51348051fa3",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "Geopolitisk eskalering och marknadss\u00e4ljning pressar BTC ned\u00e5t",
-      "catalyst": "Iran-konflikt + bred aktiemarknadss\u00e4ljning skapar risk-off sentiment"
+      "summary": "Geopolitisk eskalering och tekniksektor-selloff pressar BTC",
+      "catalyst": "Iran-konflikt eskalering + risk-off marknadssentiment"
     }
   },
   "ETH-USD": {
-    "headlines_hash": "926f6ef19a460058d020746c2b7e8b0b",
+    "headlines_hash": "6ae57621b890243e62b15e4bded768d8",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "Geopolitisk eskalering Iran v\u00e4ger tyngre \u00e4n Fed-f\u00f6rv\u00e4ntningar",
-      "catalyst": "Milit\u00e4r konflikt Iran - risk-off st\u00e4mning trots l\u00e4gre inflation"
+      "summary": "Inflationsdata positiv f\u00f6r ETH, men geopolitisk eskalering i Iran v\u00e4ger tyngre",
+      "catalyst": "Geopolitisk sp\u00e4nning Iran, risk-off marknadssentiment"
     }
   },
   "CSPX.L": {
-    "headlines_hash": "6628ad64498c32a81b8f0a40299fd2ba",
+    "headlines_hash": "89f681bae58f0bb3ae2ea9392acd0251",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "Tekniksektor svag, semiconductor-nedg\u00e5ng p\u00e5verkar bred marknad",
-      "catalyst": "Semiconductor sector selloff, tech leadership fade, valuation concerns"
+      "summary": "Chipsektor-pullback och marknados\u00e4kerhet p\u00e5verkar tech-exponering",
+      "catalyst": "Semiconductor-sektor ner ~20% sedan juni, bred marknadretr\u00e4tt fr\u00e5n teknik"
     }
   },
   "EQQQ.DE": {
-    "headlines_hash": "cbc6f5f4eb441dfe60adde685bef5c30",
+    "headlines_hash": "53346b9c290034d8290a9f6bcbdc6e47",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "Kinesisk AI-framsteg skadar halvledare; tech-ETF-press",
-      "catalyst": "China AI breakthrough triggers semiconductor selloff"
+      "summary": "Kina AI-framsteg pressar halvledare, tech-spridning \u00f6kar volatilitet",
+      "catalyst": "Kinas AI-genombrott skapar halvledars\u00e4ljning"
     }
   },
   "JEDI.DE": {
@@ -405,21 +405,21 @@
     }
   },
   "SMH.DE": {
-    "headlines_hash": "71d58e75710ab4802a89450d29953591",
+    "headlines_hash": "4ff1c35b5a159078ee4398fa9327e02a",
     "sentiment": {
       "sentiment": "negative",
-      "score": -1,
-      "summary": "Chipsektor-f\u00f6rs\u00e4ljning och Kina-AI-chock pressade SMH",
-      "catalyst": "Chipmaker-f\u00f6rs\u00e4ljning och kinesisk AI-konkurrens"
+      "score": -2,
+      "summary": "Chipmakers i bj\u00f6rnmarknad, Kinas AI-chock, geopolitisk eskalering Iran",
+      "catalyst": "Semiconductor sector selloff, China AI concerns, Middle East geopolitical tension"
     }
   },
   "DFNS.L": {
-    "headlines_hash": "d95066b187b5a339efc4da19a0988709",
+    "headlines_hash": "01a6ae2bf8aecb61535285dbcb6102d1",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "Geopolitisk sp\u00e4nning \u00f6kar f\u00f6rsvarsbudgetar globalt",
-      "catalyst": "Milit\u00e4r eskalering och f\u00f6rsvarsinvesteringar"
+      "summary": "Geopolitisk eskalering st\u00e4rker f\u00f6rsvarssektorn, positivt f\u00f6r DFNS",
+      "catalyst": "Milit\u00e4r konflikt och \u00f6kade f\u00f6rsvarsbud"
     }
   },
   "VWRL.L": {
@@ -441,11 +441,11 @@
     }
   },
   "IQQH.DE": {
-    "headlines_hash": "65e3905e4667c42763ec57b0adfb830a",
+    "headlines_hash": "c4333581e57bb0eedaffdc4b5fb05488",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Generiska sektorkommentarer om r\u00e5varor, ingen f\u00f6retagsspecifik p\u00e5verkan.",
+      "summary": "Generisk sektornyheter om mineraler. Ingen IQQH-specifik p\u00e5verkan.",
       "catalyst": "none"
     }
   },
@@ -459,12 +459,12 @@
     }
   },
   "QUTM.DE": {
-    "headlines_hash": "15d215a131ac93bfdbd22be907795de6",
+    "headlines_hash": "1742f020419b82ef40bf6dce1beb6396",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "Quantum sektor s\u00e4ljpress. Spekulativa aktier faller.",
-      "catalyst": "Risk-off marknadssentiment drabbat quantum computing"
+      "summary": "Quantum sektor risk-off, spekulativa aktier s\u00e4ljs. Branschtryck.",
+      "catalyst": "Quantum computing sector selloff - risk-off sentiment"
     }
   }
 }

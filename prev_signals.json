@@ -75,9 +75,9 @@
     "news_score": -1
   },
   "SAP": {
-    "signal": "KOP",
-    "styrka": 7,
-    "news_score": 1
+    "signal": "HALL",
+    "styrka": 5,
+    "news_score": -1
   },
   "NVO": {
     "signal": "SALJ",
@@ -125,8 +125,8 @@
     "news_score": 1
   },
   "NVDA": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": -1
   },
   "INTC": {
@@ -166,8 +166,8 @@
   },
   "JPM": {
     "signal": "KOP",
-    "styrka": 7,
-    "news_score": 0
+    "styrka": 8,
+    "news_score": 1
   },
   "BRK-B": {
     "signal": "HALL",
@@ -241,8 +241,8 @@
   },
   "SMH.DE": {
     "signal": "KOP",
-    "styrka": 8,
-    "news_score": -1
+    "styrka": 7,
+    "news_score": -2
   },
   "DFNS.L": {
     "signal": "HALL",
