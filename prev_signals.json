@@ -120,8 +120,8 @@
     "news_score": 0
   },
   "BAESY": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 1
   },
   "NVDA": {
@@ -211,7 +211,7 @@
   },
   "ETH-USD": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 4,
     "news_score": -1
   },
   "CSPX.L": {
