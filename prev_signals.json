@@ -80,19 +80,19 @@
     "news_score": 0
   },
   "NVO": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 2
   },
   "LVMUY": {
     "signal": "HALL",
-    "styrka": 5,
-    "news_score": -1
+    "styrka": 6,
+    "news_score": 0
   },
   "SHEL": {
     "signal": "SALJ",
-    "styrka": 3,
-    "news_score": 0
+    "styrka": 2,
+    "news_score": -1
   },
   "SIEGY": {
     "signal": "KOP",
@@ -176,8 +176,8 @@
   },
   "LLY": {
     "signal": "HALL",
-    "styrka": 6,
-    "news_score": 0
+    "styrka": 5,
+    "news_score": -1
   },
   "BYDDF": {
     "signal": "SALJ",
@@ -266,8 +266,8 @@
   },
   "IGLN.L": {
     "signal": "HALL",
-    "styrka": 5,
-    "news_score": -1
+    "styrka": 6,
+    "news_score": 0
   },
   "QUTM.DE": {
     "signal": "KOP",
