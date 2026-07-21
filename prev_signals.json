@@ -76,7 +76,7 @@
   },
   "ASML": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 7,
     "news_score": 2
   },
   "SAP": {
@@ -91,7 +91,7 @@
   },
   "LVMUY": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": 0
   },
   "SHEL": {
@@ -120,8 +120,8 @@
     "news_score": -1
   },
   "RELX": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 1
   },
   "BAESY": {
@@ -131,7 +131,7 @@
   },
   "NVDA": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 7,
     "news_score": 1
   },
   "INTC": {
@@ -191,7 +191,7 @@
   },
   "TSM": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 10,
     "news_score": 1
   },
   "CL=F": {
