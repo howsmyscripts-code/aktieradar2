@@ -1,7 +1,7 @@
 {
   "INVE-B.ST": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 0
   },
   "ATCO-B.ST": {
@@ -25,8 +25,8 @@
     "news_score": -1
   },
   "VOLV-B.ST": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "KINV-B.ST": {
@@ -36,7 +36,7 @@
   },
   "HM-B.ST": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 4,
     "news_score": -1
   },
   "SEB-A.ST": {
@@ -66,7 +66,7 @@
   },
   "INDU-C.ST": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 7,
     "news_score": 0
   },
   "CLA-B.ST": {
@@ -111,7 +111,7 @@
   },
   "EADSY": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 3,
     "news_score": -1
   },
   "AZN": {
