@@ -146,8 +146,8 @@
   },
   "MSFT": {
     "signal": "HALL",
-    "styrka": 6,
-    "news_score": 1
+    "styrka": 5,
+    "news_score": 0
   },
   "AMZN": {
     "signal": "HALL",
@@ -176,13 +176,13 @@
   },
   "BRK-B": {
     "signal": "SALJ",
-    "styrka": 4,
-    "news_score": 0
+    "styrka": 3,
+    "news_score": -1
   },
   "LLY": {
     "signal": "HALL",
-    "styrka": 6,
-    "news_score": -1
+    "styrka": 5,
+    "news_score": 1
   },
   "BYDDF": {
     "signal": "SALJ",
@@ -225,9 +225,9 @@
     "news_score": 0
   },
   "EQQQ.DE": {
-    "signal": "KOP",
-    "styrka": 7,
-    "news_score": 1
+    "signal": "HALL",
+    "styrka": 6,
+    "news_score": 0
   },
   "JEDI.DE": {
     "signal": "KOP",
