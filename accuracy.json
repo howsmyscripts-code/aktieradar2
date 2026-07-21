@@ -7712,5 +7712,16 @@
     "fg_value": 25,
     "closing_price": null,
     "correct": null
+  },
+  "2026-07-21_CLA-B.ST": {
+    "date": "2026-07-21",
+    "sym": "CLA-B.ST",
+    "signal": "HALL",
+    "styrka": 5,
+    "morning_price": 55.95,
+    "news_score": 0,
+    "fg_value": 25,
+    "closing_price": null,
+    "correct": null
   }
 }
