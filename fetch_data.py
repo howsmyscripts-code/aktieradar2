@@ -249,7 +249,7 @@ Headlines:
 
 STOCKS = [
     "INVE-B.ST", "ATCO-B.ST", "SWED-A.ST", "SAAB-B.ST", "ERIC-B.ST",
-    "VOLV-B.ST", "KINV-B.ST", "HM-B.ST", "SEB-A.ST", "TEL2-B.ST", "BEAMMW-B.ST", "NANEXA.ST", "FREEM.ST", "INDU-C.ST",
+    "VOLV-B.ST", "KINV-B.ST", "HM-B.ST", "SEB-A.ST", "TEL2-B.ST", "BEAMMW-B.ST", "NANEXA.ST", "FREEM.ST", "INDU-C.ST", "CLA-B.ST",
     "ASML", "SAP", "NVO", "LVMUY", "SHEL", "SIEGY", "NSRGY", "EADSY", "AZN", "RELX", "BAESY",
     "NVDA", "INTC", "AAPL", "MSFT", "AMZN", "GOOGL", "META", "TSLA", "JPM", "BRK-B", "LLY",
     "BYDDF", "TSM",
@@ -289,6 +289,7 @@ MFN_TICKER_MAP = {
     "NANEXA.ST": "nanexa",
     "FREEM.ST": "freemelt",
     "INDU-C.ST": "industrivarden",
+    "CLA-B.ST": "cloetta",
     "XACT-OMXS30.ST": None,
     "XACTHDIV.ST": None,
 }
