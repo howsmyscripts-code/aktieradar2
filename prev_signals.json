@@ -80,8 +80,8 @@
     "news_score": 0
   },
   "SAP": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": -1
   },
   "NVO": {
@@ -120,8 +120,8 @@
     "news_score": 1
   },
   "RELX": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 1
   },
   "BAESY": {
@@ -206,7 +206,7 @@
   },
   "SI=F": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 4,
     "news_score": 0
   },
   "BTC-USD": {
