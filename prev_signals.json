@@ -80,8 +80,8 @@
     "news_score": 0
   },
   "SAP": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": -1
   },
   "NVO": {
@@ -125,23 +125,23 @@
     "news_score": 1
   },
   "BAESY": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 2
   },
   "NVDA": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": 0
   },
   "INTC": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 9,
     "news_score": 1
   },
   "AAPL": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "SALJ",
+    "styrka": 3,
     "news_score": -1
   },
   "MSFT": {
@@ -170,8 +170,8 @@
     "news_score": 0
   },
   "JPM": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 0
   },
   "BRK-B": {
@@ -181,7 +181,7 @@
   },
   "LLY": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": 0
   },
   "BYDDF": {
@@ -250,8 +250,8 @@
     "news_score": -1
   },
   "DFNS.L": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 0
   },
   "VWRL.L": {
