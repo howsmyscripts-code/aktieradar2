@@ -36,12 +36,12 @@
     }
   },
   "ERIC-B.ST": {
-    "headlines_hash": "7748c674f9f23fb298a40cc28636128e",
+    "headlines_hash": "4d0628b6a1acd18d77fe4dbe1296a2e9",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
       "summary": "CEO-avg\u00e5ng v\u00e4ger tyngre \u00e4n aktie\u00e5terk\u00f6p och 5G-tester",
-      "catalyst": "B\u00f6rje Ekholm avg\u00e5r som VD"
+      "catalyst": "B\u00f6rje Ekholm pensionering skapar ledarskapsovishet"
     }
   },
   "VOLV-B.ST": {
@@ -117,30 +117,30 @@
     }
   },
   "ASML": {
-    "headlines_hash": "2d12f4d6db3a024851a19ec97123211e",
+    "headlines_hash": "b5cc911be948401d5f989c5bedeb35fd",
     "sentiment": {
-      "sentiment": "positive",
-      "score": 2,
-      "summary": "2026-utsikt h\u00f6jd, High-NA EUV i Intels produktion",
-      "catalyst": "Stark efterfr\u00e5gan p\u00e5 EUV-maskiner fr\u00e5n AI-boom och Intel-produktion"
+      "sentiment": "neutral",
+      "score": 0,
+      "summary": "Generiska AI-bygguttalanden utan konkreta nyheter f\u00f6r ASML",
+      "catalyst": "none"
     }
   },
   "SAP": {
-    "headlines_hash": "2d552f747740b024dce7e88422e40631",
+    "headlines_hash": "8180768dd1813ceace32f1518ca4dbb3",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "Barclays s\u00e4nker pris m\u00e5l trots \u00f6verv\u00e4g, blandat signal",
-      "catalyst": "Analysprisreduktion fr\u00e5n Barclays"
+      "summary": "Barclays s\u00e4nker prism\u00e5l f\u00f6r SAP till $255 trots \u00f6vertendensmening",
+      "catalyst": "Analytikerranking: Barclays s\u00e4nkning av prism\u00e5l"
     }
   },
   "NVO": {
-    "headlines_hash": "e7731aa3544c6388f7e81f946a3a7b28",
+    "headlines_hash": "1b25bd865ea7b67f4283c84f1a8d745e",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "NVO sl\u00e5r tillbaka i r\u00e4tteg\u00e5ng mot Lilly, men marknaden fokuserar p\u00e5 tech-f\u00f6rs\u00e4ljning",
-      "catalyst": "Eli Lilly f\u00f6rsvara sig aggressivt i NVO-st\u00e4mning; tech-f\u00f6rs\u00e4ljningsuppmaning skapar f\u00f6rs\u00e4ljningstryck"
+      "summary": "NVO s\u00e4nks av r\u00e4ttsliga utgifter och konkurrenstryck fr\u00e5n Eli Lilly",
+      "catalyst": "Eli Lilly GLP-1 r\u00e4tteg\u00e5ng och marknadsposition"
     }
   },
   "LVMUY": {
@@ -153,20 +153,20 @@
     }
   },
   "SHEL": {
-    "headlines_hash": "c3fbcaafaad9d18a75d671e0b134c624",
+    "headlines_hash": "af2db348f651cb0bf21b1d24f62b22dc",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "Shell vinner LNG-kontrakt och expanderar flygbr\u00e4nslef\u00f6rs\u00e4ljning",
-      "catalyst": "Multi-\u00e5rigt LNG-avtal med Egypten, \u00f6kad flygbr\u00e4nslekapacitet"
+      "summary": "Shell i LNG-f\u00f6rhandlingar med Egypten, ut\u00f6kar flygbr\u00e4nslef\u00f6rs\u00f6rjning",
+      "catalyst": "Multi-year LNG-avtal och aviation fuel expansion"
     }
   },
   "SIEGY": {
-    "headlines_hash": "7a7fd55fc4dd64bfbf243267fe342c33",
+    "headlines_hash": "a47f02bbbac90b87df62c4ded2798f5d",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Ingen relevant SIEGY-specifik nyhet. \u00d6vriga headlines om andra bolag.",
+      "summary": "Ingen SIEGY-specifik nyhet. Bort fr\u00e5n relevanta nyheter.",
       "catalyst": "none"
     }
   },
@@ -180,21 +180,21 @@
     }
   },
   "EADSY": {
-    "headlines_hash": "dbbf9f5a093a5e0a15815da4e2473f78",
+    "headlines_hash": "10968e03b87254d37d21a0206699302e",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "Airbus presenterar stark framtidsutsikt med h\u00f6jda vinstm\u00e5l",
-      "catalyst": "Ny mid-term outlook 2029 med \u20ac12-13B EBIT och \u20ac5B aktie\u00e5terk\u00f6p"
+      "summary": "Stark v\u00e4gledning 2029, aktie\u00e5terk\u00f6p \u20ac5B, kassafl\u00f6de p\u00e5 sp\u00e5r",
+      "catalyst": "Ny medell\u00e5ng sikt outlook med l\u00f6nsam tillv\u00e4xt och aktie\u00e4garv\u00e4rde"
     }
   },
   "AZN": {
-    "headlines_hash": "b529c8b9b39b7252f53b40478465e492",
+    "headlines_hash": "e1253af9eebe39e56a1d264dd2534000",
     "sentiment": {
-      "sentiment": "negative",
-      "score": -1,
-      "summary": "AZN faller mer \u00e4n marknaden. Konkurrentsituation kan p\u00e5verka.",
-      "catalyst": "Marknadsunderprestanda relativt index"
+      "sentiment": "positive",
+      "score": 1,
+      "summary": "Septembers lungdata kan kompensera tidigare misslyckande",
+      "catalyst": "Kommande lungdata resultat September"
     }
   },
   "RELX": {
@@ -207,218 +207,218 @@
     }
   },
   "BAESY": {
-    "headlines_hash": "bb99ac3a4cabde11c4688857af8deea2",
+    "headlines_hash": "96d7c8a381187e48323788c5b94eb805",
     "sentiment": {
       "sentiment": "positive",
-      "score": 1,
-      "summary": "F\u00f6rsvarskontrakt och teknikframsteg st\u00e4rker BAESY l\u00e5ngsiktigt",
-      "catalyst": "Pilottr\u00e4ningsavtal och unmanned fighter-competition deltagande"
+      "score": 2,
+      "summary": "Flera stora f\u00f6rsvarkontrakt och innovativa produkter lanserade",
+      "catalyst": "Flera nya f\u00f6rsvarseriekontrakt och teknologiska genombrott"
     }
   },
   "NVDA": {
-    "headlines_hash": "86b15781cbc18e7aee000b9fde1bf72b",
+    "headlines_hash": "e6de7f923c73f137837d2e06a9821d0d",
     "sentiment": {
-      "sentiment": "negative",
-      "score": -1,
-      "summary": "AI sektor volatilitet och avveckling d\u00e4mpar. Kina-konkurrens neutral.",
-      "catalyst": "AI-marknadskorrektion och \u00f6verv\u00e4rdering oroar"
+      "sentiment": "neutral",
+      "score": 0,
+      "summary": "Ingen direkt NVDA-nyheter, bara marknadskommentar och konkurrenter",
+      "catalyst": "none"
     }
   },
   "INTC": {
-    "headlines_hash": "cfc776fe00e43948fa6e767fa1ae5adc",
+    "headlines_hash": "eab5610997ac85e05ff872b027cef8ab",
     "sentiment": {
-      "sentiment": "neutral",
-      "score": 0,
-      "summary": "INTC n\u00e4mnd i fokus, saknar specifik nyhet eller katalysator",
-      "catalyst": "none"
+      "sentiment": "positive",
+      "score": 1,
+      "summary": "F\u00f6rv\u00e4ntningar p\u00e5 stark Q2-rapport; AI-chipefterfr\u00e5gan st\u00f6der sektor",
+      "catalyst": "Kommande Q2-resultat juli 23; AI-serverorder boost"
     }
   },
   "AAPL": {
-    "headlines_hash": "1a078514fd10fc9623e079fe141c3e86",
+    "headlines_hash": "2875192cd737bceb1ac7a2dc680ff3aa",
     "sentiment": {
-      "sentiment": "neutral",
-      "score": 0,
-      "summary": "Generisk tech-j\u00e4mf\u00f6relse och opinion, ingen konkret nyhet f\u00f6r AAPL",
-      "catalyst": "none"
+      "sentiment": "negative",
+      "score": -1,
+      "summary": "Apple Watch-dom st\u00e4rker konkurrens, Samsung foldables pressmarginal",
+      "catalyst": "Apple Watch domslut $634M + Samsung foldable lansering"
     }
   },
   "MSFT": {
-    "headlines_hash": "8d6f4cffc209f5bc3d2c14241ae8bc13",
+    "headlines_hash": "057229962b1b1acd83052011eda52a3e",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Ingen MSFT-specifik nyhet, endast generisk marknadskommentar",
+      "summary": "OpenAI datacenter neutral; AI capex concern offsettar",
       "catalyst": "none"
     }
   },
   "AMZN": {
-    "headlines_hash": "a0b69da525fdeec813dedfa7566db221",
+    "headlines_hash": "985b1f0717a8ed218df95b1f018d80cd",
     "sentiment": {
-      "sentiment": "neutral",
-      "score": 0,
-      "summary": "Disaster relief hub \u00e4r PR; ingen material p\u00e5verkan p\u00e5 aktien",
-      "catalyst": "none"
+      "sentiment": "negative",
+      "score": -1,
+      "summary": "AI-utgifter under granskning, skuldupptagning f\u00f6r AI v\u00e4cker fr\u00e5gor",
+      "catalyst": "Tech AI spending scrutiny, sector-wide concern about ROI"
     }
   },
   "GOOGL": {
-    "headlines_hash": "34c0f8258d234da1c2acdecfab805bb5",
+    "headlines_hash": "2f4a4d0eea3f812fd9622eb8350dbbd4",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "GOOGL earnings v\u00e4ntas, marknaden st\u00e5r still inf\u00f6r rapport",
-      "catalyst": "none"
+      "summary": "Earnings v\u00e4ntas, macro-vind motsatta, AI-fokus ifr\u00e5gasatt",
+      "catalyst": "Q2 earnings report kommer n\u00e4sta"
     }
   },
   "META": {
-    "headlines_hash": "2a07b0178586d8607c7291e53cd1e5a9",
+    "headlines_hash": "5009a256b40955b7d2efe018318a73b3",
     "sentiment": {
-      "sentiment": "neutral",
-      "score": 0,
-      "summary": "Generiska nyheter utan direkt p\u00e5verkan p\u00e5 META aktiekurs",
-      "catalyst": "none"
+      "sentiment": "positive",
+      "score": 1,
+      "summary": "META f\u00f6rv\u00e4ntas stark Q2, solid annonsmarknad, Wedbush positiv",
+      "catalyst": "F\u00f6rv\u00e4ntningar p\u00e5 stark Q2-rapport och annonsint\u00e4kter"
     }
   },
   "TSLA": {
-    "headlines_hash": "a63285374d09fb26f7b35092670bc879",
+    "headlines_hash": "8ec533eec763801cfb7a91d4495924f9",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "TSLA earnings imminent; macro noise dominates headlines",
+      "summary": "TSLA earnings v\u00e4ntas snart, ingen konkret nyhet \u00e4nnu",
       "catalyst": "none"
     }
   },
   "JPM": {
-    "headlines_hash": "1da2c770e483403d2f7329ed85e6d14d",
-    "sentiment": {
-      "sentiment": "negative",
-      "score": -1,
-      "summary": "Dimon varnar f\u00f6r kreditkris; olja driver bankpositioner",
-      "catalyst": "Jamie Dimon kreditkrisvining och makroekonomisk os\u00e4kerhet"
-    }
-  },
-  "BRK-B": {
-    "headlines_hash": "ce5a1073de33ea82844029de44255298",
+    "headlines_hash": "4082ea86f66ee7200679e5d71b9f2b5e",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "UnitedHealth earnings beat relevant f\u00f6r BRK-B portf\u00f6lj, ej direkt nyhet",
+      "summary": "Earnings tillv\u00e4xt men aktien sl\u00e4par marknaden. Ingen tydlig katalysator.",
       "catalyst": "none"
     }
   },
+  "BRK-B": {
+    "headlines_hash": "7b7c75934f4db67c5d6309bc2e16682e",
+    "sentiment": {
+      "sentiment": "negative",
+      "score": -1,
+      "summary": "Buffett missteg med UnitedHealth-f\u00f6rs\u00e4ljning skadar BRK-B-rykte.",
+      "catalyst": "Berkshire s\u00e5lde UnitedHealth f\u00f6r tidigt f\u00f6re stark vinst"
+    }
+  },
   "LLY": {
-    "headlines_hash": "ffe0ef882cea0bb67fb6e050dcf390c9",
-    "sentiment": {
-      "sentiment": "positive",
-      "score": 1,
-      "summary": "Novo Nordisk-r\u00e4tteg\u00e5ng om GLP-1 marknadsf\u00f6ring h\u00e5ller LLY fokuserad och relevant",
-      "catalyst": "Konkurrenstvist pekar p\u00e5 marknadsstyrka inom GLP-1-segmentet"
-    }
-  },
-  "BYDDF": {
-    "headlines_hash": "47893ce1423da0e9c80715a838643d4b",
-    "sentiment": {
-      "sentiment": "positive",
-      "score": 1,
-      "summary": "BYD stark Q2-leverans st\u00e4rker marknadsposition mot Tesla",
-      "catalyst": "BYD's Q2 2026 EV-f\u00f6rs\u00e4ljning p\u00e5 557,090 enheter visar stark tillv\u00e4xt"
-    }
-  },
-  "TSM": {
-    "headlines_hash": "5ab802bb49e6dbaadb7742f6332a819f",
-    "sentiment": {
-      "sentiment": "positive",
-      "score": 1,
-      "summary": "TSM planerar pris\u00f6kning 2027, signalerar l\u00e5ngsiktig AI-efterfr\u00e5gan",
-      "catalyst": "Bekr\u00e4ftelse av fortsatt stark efterfr\u00e5gan och priss\u00e4ttningskraft"
-    }
-  },
-  "CL=F": {
-    "headlines_hash": "7123f7e08e4be01f96875ec8ddf0c734",
-    "sentiment": {
-      "sentiment": "positive",
-      "score": 1,
-      "summary": "Kinesisk efterfr\u00e5geminskning negativ, men oljepriser stiger moderatpositivt",
-      "catalyst": "Oljepris\u00f6kning trots l\u00e4gre kinesisk efterfr\u00e5gan"
-    }
-  },
-  "GC=F": {
-    "headlines_hash": "b5bd804c43eea9a94f95eae7d4054417",
-    "sentiment": {
-      "sentiment": "positive",
-      "score": 1,
-      "summary": "Guld hovrar \u00f6ver $4000 inf\u00f6r Fed-m\u00f6te n\u00e4sta vecka",
-      "catalyst": "Fed-m\u00f6te n\u00e4sta vecka skapar os\u00e4kerhet kring r\u00e4ntebeslut"
-    }
-  },
-  "SI=F": {
-    "headlines_hash": "1d634722f2930eb7d3f30d0cacc65d92",
+    "headlines_hash": "e51fab858a52890b805a1f60638d4857",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Blandad data. Kreditfacilitet positiv, men silverpriser irrelevanta f\u00f6r SI=F",
+      "summary": "Momentum diskuterad men valuation redan prissatt, ej operativ nyhet",
+      "catalyst": "none"
+    }
+  },
+  "BYDDF": {
+    "headlines_hash": "7d74a3868bd83c1e4ef157f15a7fc9f2",
+    "sentiment": {
+      "sentiment": "positive",
+      "score": 1,
+      "summary": "BYD starka leveranser Q2 utmanar Tesla globalt, EV-boom positiv",
+      "catalyst": "BYD levererade 557,090 elfordon Q2 2026, v\u00e4xande marknadsandel"
+    }
+  },
+  "TSM": {
+    "headlines_hash": "3982089ee0b1deda78002282a07a7179",
+    "sentiment": {
+      "sentiment": "positive",
+      "score": 1,
+      "summary": "Rekordvinster och AI-supercykel bekr\u00e4ftad, men topprisker noterade",
+      "catalyst": "AI-efterfr\u00e5gan och rekordtaiwanesiska exporter driver h\u00f6ga marginaler"
+    }
+  },
+  "CL=F": {
+    "headlines_hash": "bf9b2b0459a0da98c52a0e2e9ec0669d",
+    "sentiment": {
+      "sentiment": "positive",
+      "score": 1,
+      "summary": "Oljepriset stiger p\u00e5 geopolitiska sp\u00e4nningar och inflationstryck",
+      "catalyst": "Minskad iranisk oljeproduktion, kanadensiska tariffer, inflationsrisk"
+    }
+  },
+  "GC=F": {
+    "headlines_hash": "0798ef229279b9e68081806c9658eb6b",
+    "sentiment": {
+      "sentiment": "positive",
+      "score": 1,
+      "summary": "Guldpriser stiger p\u00e5 s\u00e4ker tillflyktsefterfr\u00e5gan, positiv f\u00f6r GLD-liknande instrument",
+      "catalyst": "F\u00f6rnyad efterfr\u00e5gan p\u00e5 s\u00e4kra tillg\u00e5ngar driver guldpriser h\u00f6gre"
+    }
+  },
+  "SI=F": {
+    "headlines_hash": "91156d0b7861b08136e8816b4624082b",
+    "sentiment": {
+      "sentiment": "neutral",
+      "score": 0,
+      "summary": "SI=F \u00e4r silverpriser. Rubrikerna \u00e4r generiska och omrelaterade.",
       "catalyst": "none"
     }
   },
   "BTC-USD": {
-    "headlines_hash": "bbc6419fe6b6bc34957e61acbebaf37f",
+    "headlines_hash": "8bb6cfa0b7e0b60f2fc9f0cb66402cf8",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Blandad signal: pris\u00f6kning motv\u00e4gas av whale-os\u00e4kerhet och index-uteslutning",
-      "catalyst": "Riskaptit \u00e5terkommer men institutionell adoption begr\u00e4nsad"
+      "summary": "Bitcoin stiger till $66K men valar \u00e5terkommer inte fullt \u00e4n",
+      "catalyst": "none"
     }
   },
   "ETH-USD": {
-    "headlines_hash": "55f5d81dc5fb38718a84f5c06a81a928",
+    "headlines_hash": "bdb254c12b29dbe7cff9b4ee91d5ee9a",
     "sentiment": {
       "sentiment": "positive",
       "score": 1,
-      "summary": "Svagare inflation \u00f6kar risk-on sentiment och minskar r\u00e4nteh\u00f6jningsrisker",
-      "catalyst": "L\u00e4gre inflationsdata st\u00f6djer kryptoefterfr\u00e5gan via Fed-f\u00f6rv\u00e4ntningar"
+      "summary": "Svagare inflation \u00f6kar risktillg\u00e5ngarnas attraktivitet; Fed-rate-cut-f\u00f6rv\u00e4ntningar positiva",
+      "catalyst": "L\u00e4gre inflationsdata reducerar Fed-h\u00f6jningsrisk, st\u00e4rker risk-on sentiment f\u00f6r crypto"
     }
   },
   "CSPX.L": {
-    "headlines_hash": "510617bdf63af06c8a0a70ac4bbdb153",
+    "headlines_hash": "d9368af862abe1a7ecf5dc1d67de55f8",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Makroekonomisk brus, ej CSPX-specifikt. Semindukt\u00f6rer st\u00f6ds.",
+      "summary": "Generiska marknadsnyheter utan CSPX.L-specifik information",
       "catalyst": "none"
     }
   },
   "EQQQ.DE": {
-    "headlines_hash": "44d382014edbe0100bbc6da11f94046e",
+    "headlines_hash": "e991d544f1046c7afeece7f80e7f1ec3",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "Mjukvara-marginalkompression fr\u00e5n GPU-kapex, stigande r\u00e4ntor negativa f\u00f6r tech",
-      "catalyst": "AI-driven capex-shift fr\u00e5n software till semiconductors, rising yields"
+      "summary": "Teknikaktier svaga innan stora earnings; hyperscaler capex orosmoment",
+      "catalyst": "Nasdaq svaghet och hyperscaler capex/ROI-fokus f\u00f8r Alphabet earnings"
     }
   },
   "JEDI.DE": {
-    "headlines_hash": "c0d20c8711e735fdb2cdf9e42fb8fd5b",
+    "headlines_hash": "ffdc7fa011ea350e1b2e014959cebf4a",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Generisk AI-sektor-kommentar, ingen JEDI.DE-specifik nyhet",
+      "summary": "Ingen relevant nyhet om JEDI.DE. Generisk marknadskommentar.",
       "catalyst": "none"
     }
   },
   "SMH.DE": {
-    "headlines_hash": "318327bf1c14106fa1afd78f115fd3fa",
+    "headlines_hash": "f74b07b394358a629008258172ba6444",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "AI-sektor os\u00e4kerhet och margin-press p\u00e5 halvledarbolag.",
-      "catalyst": "GPU-prisfall och AI-omv\u00e4rdering hotar SMH-innehav"
+      "summary": "AI-sektor omv\u00e4rdering och chipskepsis pressar SMH kortsiktigt",
+      "catalyst": "Violent AI unwind + hyperscaler capex concerns + chip sector caution"
     }
   },
   "DFNS.L": {
-    "headlines_hash": "a1d48e9b682cd873543976ca5a51282d",
+    "headlines_hash": "3121742272e3e4972f5c68ca98ebb5c7",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Generisk sektornyheter utan direkt p\u00e5verkan p\u00e5 DFNS.L",
+      "summary": "Generiska marknadsnyheter utan direkt p\u00e5verkan p\u00e5 DFNS.L",
       "catalyst": "none"
     }
   },
@@ -450,21 +450,21 @@
     }
   },
   "IGLN.L": {
-    "headlines_hash": "4fc698cceec756636fea61be9f903be5",
+    "headlines_hash": "a690e1ab98b5ce24a00689c566ec3f4a",
     "sentiment": {
-      "sentiment": "positive",
-      "score": 1,
-      "summary": "Guldpriser stiger, inflationsskydd efterfr\u00e5gas, l\u00e4gre avgifter konkurrerar",
-      "catalyst": "Stigande r\u00e5varupriser och inflationshedgefr\u00e5ga st\u00e4rker guldefterfr\u00e5gan"
+      "sentiment": "neutral",
+      "score": 0,
+      "summary": "Generiska guldmarknadskommentarer, inget IGLN-specifikt.",
+      "catalyst": "none"
     }
   },
   "QUTM.DE": {
-    "headlines_hash": "9a606c154f444153e0595474b9f4d9b5",
+    "headlines_hash": "90f552c4215840003e4812ced9d20c54",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "Quantum-sektor f\u00f6rsvagas; riskavversion p\u00e5verkar spekulativa aktier",
-      "catalyst": "Risk-off marknadssentiment och quantum-aktiers nedg\u00e5ng"
+      "summary": "Quantum-sektor selloff p\u00e5verkar QUTM negativt; risk-off st\u00e4mning",
+      "catalyst": "Speculative tech selloff och marknadsmomentum"
     }
   },
   "CLA-B.ST": {
