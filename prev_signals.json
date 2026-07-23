@@ -36,7 +36,7 @@
   },
   "HM-B.ST": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 3,
     "news_score": 0
   },
   "SEB-A.ST": {
@@ -226,7 +226,7 @@
   },
   "CSPX.L": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 8,
     "news_score": 0
   },
   "EQQQ.DE": {
@@ -271,7 +271,7 @@
   },
   "IQQH.DE": {
     "signal": "KOP",
-    "styrka": 10,
+    "styrka": 9,
     "news_score": 0
   },
   "IGLN.L": {
