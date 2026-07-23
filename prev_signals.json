@@ -135,19 +135,19 @@
     "news_score": 0
   },
   "NVDA": {
-    "signal": "HALL",
-    "styrka": 6,
-    "news_score": -1
+    "signal": "KOP",
+    "styrka": 8,
+    "news_score": 1
   },
   "INTC": {
     "signal": "KOP",
-    "styrka": 10,
-    "news_score": 2
+    "styrka": 9,
+    "news_score": 1
   },
   "AAPL": {
     "signal": "HALL",
-    "styrka": 5,
-    "news_score": -1
+    "styrka": 6,
+    "news_score": 0
   },
   "MSFT": {
     "signal": "KOP",
@@ -160,14 +160,14 @@
     "news_score": -1
   },
   "GOOGL": {
-    "signal": "KOP",
-    "styrka": 7,
-    "news_score": -2
+    "signal": "HALL",
+    "styrka": 5,
+    "news_score": -1
   },
   "META": {
     "signal": "SALJ",
-    "styrka": 3,
-    "news_score": 0
+    "styrka": 2,
+    "news_score": -1
   },
   "TSLA": {
     "signal": "SALJ",
@@ -200,9 +200,9 @@
     "news_score": -1
   },
   "CL=F": {
-    "signal": "HALL",
-    "styrka": 6,
-    "news_score": 0
+    "signal": "KOP",
+    "styrka": 7,
+    "news_score": 1
   },
   "GC=F": {
     "signal": "HALL",
@@ -271,7 +271,7 @@
   },
   "IQQH.DE": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 7,
     "news_score": 0
   },
   "IGLN.L": {
@@ -281,7 +281,7 @@
   },
   "QUTM.DE": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 7,
     "news_score": -1
   }
 }
