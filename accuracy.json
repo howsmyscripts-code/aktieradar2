@@ -9067,5 +9067,16 @@
     "fg_value": 33,
     "closing_price": null,
     "correct": null
+  },
+  "2026-07-23_BOL.ST": {
+    "date": "2026-07-23",
+    "sym": "BOL.ST",
+    "signal": "KOP",
+    "styrka": 8,
+    "morning_price": 485.2,
+    "news_score": 0,
+    "fg_value": 31,
+    "closing_price": null,
+    "correct": null
   }
 }
