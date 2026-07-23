@@ -36,7 +36,7 @@
   },
   "HM-B.ST": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 4,
     "news_score": 0
   },
   "SEB-A.ST": {
@@ -200,8 +200,8 @@
     "news_score": 1
   },
   "GC=F": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 1
   },
   "SI=F": {
@@ -226,7 +226,7 @@
   },
   "EQQQ.DE": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": -1
   },
   "JEDI.DE": {
@@ -255,8 +255,8 @@
     "news_score": 0
   },
   "VWRL.L": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": -1
   },
   "IS3N.DE": {
@@ -266,7 +266,7 @@
   },
   "IQQH.DE": {
     "signal": "KOP",
-    "styrka": 10,
+    "styrka": 8,
     "news_score": 0
   },
   "IGLN.L": {
