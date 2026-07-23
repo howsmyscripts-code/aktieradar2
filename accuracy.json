@@ -8640,8 +8640,9 @@
     "morning_price": 1801.86,
     "news_score": 0,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 1803.0,
+    "correct": true,
+    "pct_change": 0.06
   },
   "2026-07-23_SAP": {
     "date": "2026-07-23",
@@ -8651,8 +8652,9 @@
     "morning_price": 148.75,
     "news_score": -1,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 146.38,
+    "correct": true,
+    "pct_change": -1.59
   },
   "2026-07-23_NVO": {
     "date": "2026-07-23",
@@ -8662,8 +8664,9 @@
     "morning_price": 48.19,
     "news_score": -1,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 48.18,
+    "correct": true,
+    "pct_change": -0.02
   },
   "2026-07-23_LVMUY": {
     "date": "2026-07-23",
@@ -8673,8 +8676,9 @@
     "morning_price": 107.66,
     "news_score": 0,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 103.33,
+    "correct": false,
+    "pct_change": -4.02
   },
   "2026-07-23_SHEL": {
     "date": "2026-07-23",
@@ -8684,8 +8688,9 @@
     "morning_price": 87.77,
     "news_score": 1,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 87.95,
+    "correct": false,
+    "pct_change": 0.21
   },
   "2026-07-23_SIEGY": {
     "date": "2026-07-23",
@@ -8695,8 +8700,9 @@
     "morning_price": 155.08,
     "news_score": 0,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 152.51,
+    "correct": true,
+    "pct_change": -1.66
   },
   "2026-07-23_NSRGY": {
     "date": "2026-07-23",
@@ -8706,8 +8712,9 @@
     "morning_price": 104.1,
     "news_score": 0,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 96.8,
+    "correct": false,
+    "pct_change": -7.01
   },
   "2026-07-23_EADSY": {
     "date": "2026-07-23",
@@ -8717,8 +8724,9 @@
     "morning_price": 59.33,
     "news_score": 1,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 58.09,
+    "correct": true,
+    "pct_change": -2.09
   },
   "2026-07-23_AZN": {
     "date": "2026-07-23",
@@ -8728,8 +8736,9 @@
     "morning_price": 169.73,
     "news_score": 1,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 168.27,
+    "correct": false,
+    "pct_change": -0.86
   },
   "2026-07-23_RELX": {
     "date": "2026-07-23",
@@ -8739,8 +8748,9 @@
     "morning_price": 32.74,
     "news_score": 1,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 32.86,
+    "correct": true,
+    "pct_change": 0.37
   },
   "2026-07-23_BAESY": {
     "date": "2026-07-23",
@@ -8750,8 +8760,9 @@
     "morning_price": 102.92,
     "news_score": 0,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 104.99,
+    "correct": false,
+    "pct_change": 2.01
   },
   "2026-07-23_NVDA": {
     "date": "2026-07-23",
@@ -8761,8 +8772,9 @@
     "morning_price": 212.06,
     "news_score": -1,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 208.76,
+    "correct": false,
+    "pct_change": -1.56
   },
   "2026-07-23_INTC": {
     "date": "2026-07-23",
@@ -8772,8 +8784,9 @@
     "morning_price": 102.62,
     "news_score": 0,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 100.23,
+    "correct": false,
+    "pct_change": -2.33
   },
   "2026-07-23_AAPL": {
     "date": "2026-07-23",
@@ -8783,8 +8796,9 @@
     "morning_price": 325.89,
     "news_score": 0,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 321.66,
+    "correct": false,
+    "pct_change": -1.3
   },
   "2026-07-23_MSFT": {
     "date": "2026-07-23",
@@ -8794,8 +8808,9 @@
     "morning_price": 390.34,
     "news_score": -1,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 381.58,
+    "correct": false,
+    "pct_change": -2.24
   },
   "2026-07-23_AMZN": {
     "date": "2026-07-23",
@@ -8805,8 +8820,9 @@
     "morning_price": 244.85,
     "news_score": -1,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 233.66,
+    "correct": false,
+    "pct_change": -4.57
   },
   "2026-07-23_GOOGL": {
     "date": "2026-07-23",
@@ -8816,8 +8832,9 @@
     "morning_price": 342.09,
     "news_score": 0,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 317.69,
+    "correct": false,
+    "pct_change": -7.13
   },
   "2026-07-23_META": {
     "date": "2026-07-23",
@@ -8827,8 +8844,9 @@
     "morning_price": 627.17,
     "news_score": -1,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 606.1,
+    "correct": true,
+    "pct_change": -3.36
   },
   "2026-07-23_TSLA": {
     "date": "2026-07-23",
@@ -8838,8 +8856,9 @@
     "morning_price": 374.01,
     "news_score": -1,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 319.69,
+    "correct": true,
+    "pct_change": -14.52
   },
   "2026-07-23_JPM": {
     "date": "2026-07-23",
@@ -8849,8 +8868,9 @@
     "morning_price": 348.21,
     "news_score": 2,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 349.9,
+    "correct": false,
+    "pct_change": 0.49
   },
   "2026-07-23_BRK-B": {
     "date": "2026-07-23",
@@ -8860,8 +8880,9 @@
     "morning_price": 489.39,
     "news_score": 0,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 490.85,
+    "correct": false,
+    "pct_change": 0.3
   },
   "2026-07-23_LLY": {
     "date": "2026-07-23",
@@ -8871,8 +8892,9 @@
     "morning_price": 1163.01,
     "news_score": 1,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 1185.07,
+    "correct": true,
+    "pct_change": 1.9
   },
   "2026-07-23_BYDDF": {
     "date": "2026-07-23",
@@ -8882,8 +8904,9 @@
     "morning_price": 11.2,
     "news_score": -1,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 11.1,
+    "correct": true,
+    "pct_change": -0.89
   },
   "2026-07-23_TSM": {
     "date": "2026-07-23",
@@ -8893,8 +8916,9 @@
     "morning_price": 421.21,
     "news_score": 1,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 415.58,
+    "correct": false,
+    "pct_change": -1.34
   },
   "2026-07-23_CL=F": {
     "date": "2026-07-23",
@@ -8904,8 +8928,9 @@
     "morning_price": 86.48,
     "news_score": 1,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 91.54,
+    "correct": false,
+    "pct_change": 5.85
   },
   "2026-07-23_GC=F": {
     "date": "2026-07-23",
@@ -8915,8 +8940,9 @@
     "morning_price": 4135.0,
     "news_score": 1,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 4050.9,
+    "correct": false,
+    "pct_change": -2.03
   },
   "2026-07-23_SI=F": {
     "date": "2026-07-23",
@@ -8926,8 +8952,9 @@
     "morning_price": 60.03,
     "news_score": 0,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 57.83,
+    "correct": true,
+    "pct_change": -3.66
   },
   "2026-07-23_BTC-USD": {
     "date": "2026-07-23",
@@ -8937,8 +8964,9 @@
     "morning_price": 66009.29,
     "news_score": -1,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 65045.74,
+    "correct": true,
+    "pct_change": -1.46
   },
   "2026-07-23_ETH-USD": {
     "date": "2026-07-23",
@@ -8948,8 +8976,9 @@
     "morning_price": 1937.07,
     "news_score": -1,
     "fg_value": 33,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 1884.55,
+    "correct": true,
+    "pct_change": -2.71
   },
   "2026-07-23_CSPX.L": {
     "date": "2026-07-23",
