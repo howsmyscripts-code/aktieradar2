@@ -81,7 +81,7 @@
   },
   "ASML": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 7,
     "news_score": 1
   },
   "SAP": {
@@ -91,7 +91,7 @@
   },
   "NVO": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": -1
   },
   "LVMUY": {
@@ -105,8 +105,8 @@
     "news_score": 1
   },
   "SIEGY": {
-    "signal": "KOP",
-    "styrka": 8,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "NSRGY": {
@@ -116,7 +116,7 @@
   },
   "EADSY": {
     "signal": "SALJ",
-    "styrka": 1,
+    "styrka": 2,
     "news_score": -1
   },
   "AZN": {
@@ -135,8 +135,8 @@
     "news_score": 0
   },
   "NVDA": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": -1
   },
   "INTC": {
@@ -151,12 +151,12 @@
   },
   "MSFT": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 7,
     "news_score": 0
   },
   "AMZN": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 8,
     "news_score": 0
   },
   "GOOGL": {
@@ -166,7 +166,7 @@
   },
   "META": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 3,
     "news_score": 0
   },
   "TSLA": {
@@ -215,13 +215,13 @@
     "news_score": 0
   },
   "BTC-USD": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": -1
   },
   "ETH-USD": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 4,
     "news_score": -1
   },
   "CSPX.L": {
