@@ -81,12 +81,12 @@
   },
   "ASML": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 9,
     "news_score": 1
   },
   "SAP": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": 0
   },
   "NVO": {
@@ -115,8 +115,8 @@
     "news_score": -1
   },
   "EADSY": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 1
   },
   "AZN": {
@@ -136,12 +136,12 @@
   },
   "NVDA": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 9,
     "news_score": 1
   },
   "INTC": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 10,
     "news_score": 1
   },
   "AAPL": {
@@ -190,18 +190,18 @@
     "news_score": 1
   },
   "BYDDF": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 0
   },
   "TSM": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 9,
     "news_score": -1
   },
   "CL=F": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": 1
   },
   "GC=F": {
