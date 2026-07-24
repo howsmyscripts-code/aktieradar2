@@ -100,9 +100,9 @@
     "news_score": 1
   },
   "SHEL": {
-    "signal": "SALJ",
-    "styrka": 4,
-    "news_score": 0
+    "signal": "HALL",
+    "styrka": 5,
+    "news_score": 1
   },
   "SIEGY": {
     "signal": "SALJ",
@@ -115,9 +115,9 @@
     "news_score": -1
   },
   "EADSY": {
-    "signal": "HALL",
-    "styrka": 5,
-    "news_score": 1
+    "signal": "SALJ",
+    "styrka": 4,
+    "news_score": 0
   },
   "AZN": {
     "signal": "KOP",
@@ -141,8 +141,8 @@
   },
   "INTC": {
     "signal": "KOP",
-    "styrka": 10,
-    "news_score": 1
+    "styrka": 8,
+    "news_score": -1
   },
   "AAPL": {
     "signal": "HALL",
@@ -166,8 +166,8 @@
   },
   "META": {
     "signal": "SALJ",
-    "styrka": 4,
-    "news_score": 0
+    "styrka": 3,
+    "news_score": -1
   },
   "TSLA": {
     "signal": "SALJ",
