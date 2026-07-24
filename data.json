@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-25 01:02 svensk tid",
+  "updated": "2026-07-25 01:15 svensk tid",
   "stocks": {
     "INVE-B.ST": {
       "price": 398.3,
@@ -1702,12 +1702,12 @@
       "time_weight": "intraday"
     },
     "BTC-USD": {
-      "price": 64091.08,
-      "change": -1.47,
-      "rsi": 49.8,
-      "ma50": 63107.02,
-      "ma200": 72406.62,
-      "macd": 482.065,
+      "price": 64094.95,
+      "change": -1.46,
+      "rsi": 49.9,
+      "ma50": 63107.1,
+      "ma200": 72406.63,
+      "macd": 482.374,
       "bollinger": 0.47,
       "w52": 0.14,
       "trend": 0.45,
@@ -1741,13 +1741,13 @@
       "time_weight": "intraday"
     },
     "ETH-USD": {
-      "price": 1857.31,
-      "change": -1.05,
-      "rsi": 56.9,
-      "ma50": 1735.69,
-      "ma200": 2153.05,
-      "macd": 41.645,
-      "bollinger": 0.58,
+      "price": 1858.2,
+      "change": -1.01,
+      "rsi": 57.0,
+      "ma50": 1735.71,
+      "ma200": 2153.06,
+      "macd": 41.716,
+      "bollinger": 0.59,
       "w52": 0.16,
       "trend": 0.6,
       "signal": "KOP",
