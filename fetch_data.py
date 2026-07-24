@@ -257,7 +257,75 @@ STOCKS = [
     "CSPX.L", "EQQQ.DE", "JEDI.DE", "XACT-OMXS30.ST", "XACTHDIV.ST", "SMH.DE", "DFNS.L", "VWRL.L", "IS3N.DE", "IQQH.DE", "IGLN.L", "QUTM.DE",
 ]
 
-# Mappa Xetra/London ETF:er mot amerikanska tickers för nyheter
+# ── Instrumentprofiler ────────────────────────────────────────────────────────
+# Varje profil styr hur strikt bekraftelse kravs innan oversaldhet ger KOP.
+# Grundprincipen (ChatGPT/Claude-konsensus 2026-07-25):
+#   Oversaldhet skapar uppmarksamhet — bekraftad trendvandning skapar KOP-signalen.
+#
+# Profiler:
+#   broad_etf   : breda index, medelvardeatergång fungerar oft — bekraftelse lättare
+#   large_cap   : stabila storbolag — normal signalmotor, latt bekraftelse
+#   small_cap   : smabolag/mikrobolag — krav pa volymbekraftelse, begransad maxstyrka
+#   thematic_etf: smala teman (rymd, quantum, cleantech, försvar) — strikt bekraftelse
+#   commodity   : råvaror — trender kan vara starka, krav pa MACD + RSI-riktning
+#   crypto      : krypto — extrem volatilitet, strict bekraftelse
+#
+# Bekraftelsetröskel = minsta antal bekraftelser for KOP (annars HALL/OVERSALD).
+# max_strength_unconfirmed = max styrka NÄR bekraftelsekravet INTE ar uppfyllt.
+
+INSTRUMENT_PROFILES = {
+    # Breda ETF:er
+    "CSPX.L":        {"profile": "broad_etf",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
+    "EQQQ.DE":       {"profile": "broad_etf",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
+    "VWRL.L":        {"profile": "broad_etf",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
+    "IS3N.DE":       {"profile": "broad_etf",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
+    "XACT-OMXS30.ST":{"profile": "broad_etf",   "min_confirmations": 1, "max_strength_unconfirmed": 6},
+    "XACTHDIV.ST":   {"profile": "broad_etf",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
+    "SMH.DE":        {"profile": "broad_etf",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
+    "IGLN.L":        {"profile": "broad_etf",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
+    # Tematiska/smala ETF:er — strikt, krav 2/4 bekraftelser
+    "JEDI.DE":       {"profile": "thematic_etf", "min_confirmations": 2, "max_strength_unconfirmed": 5},
+    "QUTM.DE":       {"profile": "thematic_etf", "min_confirmations": 2, "max_strength_unconfirmed": 5},
+    "IQQH.DE":       {"profile": "thematic_etf", "min_confirmations": 2, "max_strength_unconfirmed": 5},
+    "DFNS.L":        {"profile": "thematic_etf", "min_confirmations": 2, "max_strength_unconfirmed": 5},
+    # Råvaror — krav 2/4 bekraftelser (starka trender, RSI-riktning viktigt)
+    "CL=F":          {"profile": "commodity",    "min_confirmations": 2, "max_strength_unconfirmed": 5},
+    "GC=F":          {"profile": "commodity",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
+    "SI=F":          {"profile": "commodity",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
+    # Krypto — strikt, krav 2/4 bekraftelser
+    "BTC-USD":       {"profile": "crypto",       "min_confirmations": 2, "max_strength_unconfirmed": 5},
+    "ETH-USD":       {"profile": "crypto",       "min_confirmations": 2, "max_strength_unconfirmed": 5},
+    # Smabolag — volymbekraftelse viktigt, begransad maxstyrka i negativ trend
+    "BEAMMW-B.ST":   {"profile": "small_cap",    "min_confirmations": 2, "max_strength_unconfirmed": 5},
+    "NANEXA.ST":     {"profile": "small_cap",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
+    "FREEM.ST":      {"profile": "small_cap",    "min_confirmations": 2, "max_strength_unconfirmed": 5},
+}
+# Standardprofil for instrument som INTE finns i INSTRUMENT_PROFILES
+DEFAULT_PROFILE = {"profile": "large_cap", "min_confirmations": 1, "max_strength_unconfirmed": 6}
+
+
+def calc_trend_confirmations(rsi, rsi_prev, price, ma50, ma200, macd, macd_signal, vol_signal):
+    """Rakna bekraftelserna for att en KOP-signal ar valid (ej bara oversald).
+    Returnerar (antal_bekraftelser, dict med detaljer).
+    Bekraftelser:
+      1. RSI stiger        (rsi > rsi_prev, dvs momentum vander uppat)
+      2. Kurs atertar MA   (price > MA50 ELLER MA200)
+      3. MACD forbattras   (macd > macd_signal)
+      4. Volymbekraftelse  (vol_signal > 0)
+    MA-bekraftelsen godtar bade MA50 och MA200: i ett djupt oversalt lage ligger
+    kursen nastan alltid under MA200, sa ett MA50-atertag ar det forsta reella
+    tecknet pa vandning och bor rakna som bekraftelse (dokumentets "MA200 eller MA50").
+    """
+    c = {}
+    c["rsi_rising"] = (rsi is not None and rsi_prev is not None and rsi > rsi_prev)
+    _above_ma200 = (ma200 is not None and ma200 > 0 and price is not None and price > ma200)
+    _above_ma50  = (ma50 is not None and ma50 > 0 and price is not None and price > ma50)
+    c["price_reclaimed_ma"] = bool(_above_ma200 or _above_ma50)
+    c["macd_positive"] = (macd is not None and macd_signal is not None and macd > macd_signal)
+    c["volume_positive"] = (vol_signal is not None and vol_signal > 0)
+    return sum(c.values()), c
+
+
 NEWS_TICKER_MAP = {
     "JEDI.DE": "ARKX",    # ARK Space Exploration ETF — samma tema, nyheter finns
     "SMH.DE":  "SMH",     # VanEck Semiconductor USA — identisk fond
@@ -703,7 +771,7 @@ for sym in STOCKS:
         fundamentals = fetch_fundamentals(sym, finnhub_key_tmp)
         short_data = fetch_short_interest(ticker)
 
-        # RSI-divergens kräver RSI-historik
+        # RSI-divergens kraever RSI-historik
         rsi_history = []
         try:
             for i in range(max(0, len(closes)-30), len(closes)):
@@ -712,7 +780,10 @@ for sym in STOCKS:
             rsi_history = []
         divergence = calc_rsi_divergence(closes, rsi_history) if len(rsi_history) >= 20 else None
 
-        # Hämta prev news_score tidigt för compute_signal (återanvänder _prev_sigs_all)
+        # RSI foregaende vaerde - anvands for att avgora om RSI stiger (trendvandning)
+        rsi_prev = rsi_history[-2] if len(rsi_history) >= 2 else None
+
+        # Hamta prev news_score tidigt for compute_signal (ateranvaender _prev_sigs_all)
         prev_news_score_early = _prev_sigs_all.get(sym, {}).get("news_score", 0) or 0
 
         signal, styrka, momentum = compute_signal(
@@ -727,6 +798,12 @@ for sym in STOCKS:
             news_score=prev_news_score_early,
             is_volatile=is_volatile
         )
+
+        # NOTERA: det profilerade bekraftelsesystemet har flyttats till EFTER att
+        # farska news_score applicerats (langre ner, precis innan results[sym]).
+        # Grundprincipen ar densamma, men kontrollen maste vara sista ordet -
+        # annars kan en positiv nyhet angra dampningen eller en news-driven KOP
+        # hoppa over profilkontrollen helt.
 
         if sym in ["BTC-USD", "ETH-USD"] and fg_adj != 0:
             styrka = max(1, min(10, styrka + fg_adj))
@@ -816,6 +893,40 @@ for sym in STOCKS:
         styrka = max(1, min(10, styrka + news_score))
         signal = "KOP" if styrka >= 7 else "SALJ" if styrka <= 4 else "HALL"
 
+        # ── Profilerat bekraftelsesystem (ChatGPT/Claude-konsensus 2026-07-25) ──
+        # Kors HAR, sist i kedjan, efter att bade gardagens (compute_signal) och
+        # dagens farska news_score applicerats. Da blir profil-kapet sista ordet:
+        # en positiv nyhet kan inte langre angra dampningen, och en KOP som uppstar
+        # forst efter news kan inte hoppa over kontrollen.
+        # Grundprincip: Oversaldhet skapar uppmarksamhet. Bekraftad vandning skapar KOP.
+        oversold_label = None
+        oversold_confirmations = None
+        _prof = INSTRUMENT_PROFILES.get(sym, DEFAULT_PROFILE)
+        if rsi is not None and rsi < 35:
+            _n_conf, _conf_detail = calc_trend_confirmations(
+                rsi, rsi_prev, closes[-1] if closes else None,
+                ma50, ma200, macd, macd_sig, vol_signal
+            )
+            oversold_confirmations = _n_conf
+            _min_conf = _prof["min_confirmations"]
+            if signal == "KOP" and _n_conf < _min_conf:
+                # Oversald men obekraftad KOP -> dampa till HALL/INVANTA
+                signal = "HALL"
+                styrka = min(styrka, _prof["max_strength_unconfirmed"])
+                oversold_label = "ÖVERSÅLD – invänta bekräftelse"
+                print(f"Bekraftelsesystem ({sym}, profil={_prof['profile']}): "
+                      f"KOP dampat till HALL ({_n_conf}/{_min_conf} bekraftelser). "
+                      f"RSI_stiger={_conf_detail['rsi_rising']}, "
+                      f">MA(50/200)={_conf_detail['price_reclaimed_ma']}, "
+                      f"MACD+={_conf_detail['macd_positive']}, "
+                      f"Vol+={_conf_detail['volume_positive']})")
+            elif signal == "KOP":
+                # Tillrackligt bekraftad rekyl fran oversalt lage
+                oversold_label = "ÖVERSÅLD – bekräftad rekyl"
+            else:
+                # Oversald men ingen KOP (HALL/SALJ) - rent bevakningslage
+                oversold_label = "ÖVERSÅLD – möjlig rekyl"
+
         results[sym] = {
             "price": price, "change": change,
             "rsi": safe(rsi), "ma50": safe(ma50), "ma200": safe(ma200),
@@ -824,6 +935,9 @@ for sym in STOCKS:
             "w52": safe(w52_pos),
             "trend": safe(trend),
             "signal": signal, "styrka": styrka, "ok": True,
+            "oversold_label": oversold_label,
+            "oversold_confirmations": oversold_confirmations,
+            "profile": _prof["profile"],
             "ath": ath,
             "momentum": momentum,
             "earnings_date": earnings_date,
