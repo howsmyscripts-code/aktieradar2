@@ -36,7 +36,7 @@
   },
   "HM-B.ST": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 2,
     "news_score": 0
   },
   "SEB-A.ST": {
@@ -145,8 +145,8 @@
     "news_score": 2
   },
   "AAPL": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 0
   },
   "MSFT": {
@@ -215,8 +215,8 @@
     "news_score": 0
   },
   "BTC-USD": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "ETH-USD": {
@@ -256,7 +256,7 @@
   },
   "DFNS.L": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 4,
     "news_score": 1
   },
   "VWRL.L": {
