@@ -156,8 +156,8 @@
   },
   "AMZN": {
     "signal": "HALL",
-    "styrka": 5,
-    "news_score": -1
+    "styrka": 6,
+    "news_score": 0
   },
   "GOOGL": {
     "signal": "KOP",
@@ -176,13 +176,13 @@
   },
   "JPM": {
     "signal": "KOP",
-    "styrka": 7,
-    "news_score": 0
+    "styrka": 8,
+    "news_score": 1
   },
   "BRK-B": {
-    "signal": "HALL",
-    "styrka": 6,
-    "news_score": 0
+    "signal": "KOP",
+    "styrka": 7,
+    "news_score": 1
   },
   "LLY": {
     "signal": "HALL",
@@ -201,8 +201,8 @@
   },
   "CL=F": {
     "signal": "HALL",
-    "styrka": 6,
-    "news_score": 1
+    "styrka": 5,
+    "news_score": 0
   },
   "GC=F": {
     "signal": "HALL",
@@ -220,9 +220,9 @@
     "news_score": -1
   },
   "ETH-USD": {
-    "signal": "HALL",
-    "styrka": 6,
-    "news_score": 0
+    "signal": "KOP",
+    "styrka": 7,
+    "news_score": 1
   },
   "CSPX.L": {
     "signal": "KOP",
@@ -275,9 +275,9 @@
     "news_score": 0
   },
   "IGLN.L": {
-    "signal": "HALL",
-    "styrka": 5,
-    "news_score": 1
+    "signal": "SALJ",
+    "styrka": 4,
+    "news_score": 0
   },
   "QUTM.DE": {
     "signal": "KOP",
