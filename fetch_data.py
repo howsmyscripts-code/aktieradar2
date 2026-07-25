@@ -303,27 +303,48 @@ INSTRUMENT_PROFILES = {
 # Standardprofil for instrument som INTE finns i INSTRUMENT_PROFILES
 DEFAULT_PROFILE = {"profile": "large_cap", "min_confirmations": 1, "max_strength_unconfirmed": 6}
 
+# 2.2: Graderat styrketak per antal bekraftelser (galler i oversalt lage, rsi<35).
+# En enda bekraftelse far aldrig ge KOP 9-10 - taket vaxer med bekraftelserna.
+OVERSOLD_STRENGTH_CAP = {0: 6, 1: 7, 2: 8, 3: 10, 4: 10}
 
-def calc_trend_confirmations(rsi, rsi_prev, price, ma50, ma200, macd, macd_signal, vol_signal):
+
+MA_CONFIRM_BUFFER = 1.005  # 2.6: kurs maste ligga >0.5% over MA for att rakna som atertag
+
+def calc_trend_confirmations(rsi, rsi_prev, price, ma50, ma200,
+                             macd, macd_signal, macd_prev, macd_signal_prev, vol_signal):
     """Rakna bekraftelserna for att en KOP-signal ar valid (ej bara oversald).
     Returnerar (antal_bekraftelser, dict med detaljer).
-    Bekraftelser:
-      1. RSI stiger        (rsi > rsi_prev, dvs momentum vander uppat)
-      2. Kurs atertar MA   (price > MA50 ELLER MA200)
-      3. MACD forbattras   (macd > macd_signal)
+    Fyra bekraftelser raknas:
+      1. RSI stiger        (rsi > rsi_prev, momentum vander uppat)
+      2. Kurs atertar MA   (price > MA50 ELLER MA200, med 0.5% buffert - 2.6)
+      3. MACD FORBATTRAS    (histogrammet macd-signal vaxer mot foregaende dag - 2.5)
       4. Volymbekraftelse  (vol_signal > 0)
+    Detaljdicten exponerar aven macd_above_signal och price_above_ma200 separat
+    for transparens, men de RAKNAS inte (bara de fyra ovan).
     MA-bekraftelsen godtar bade MA50 och MA200: i ett djupt oversalt lage ligger
     kursen nastan alltid under MA200, sa ett MA50-atertag ar det forsta reella
-    tecknet pa vandning och bor rakna som bekraftelse (dokumentets "MA200 eller MA50").
+    vandningstecknet (dokumentets "MA200 eller MA50").
     """
     c = {}
-    c["rsi_rising"] = (rsi is not None and rsi_prev is not None and rsi > rsi_prev)
-    _above_ma200 = (ma200 is not None and ma200 > 0 and price is not None and price > ma200)
-    _above_ma50  = (ma50 is not None and ma50 > 0 and price is not None and price > ma50)
+    c["rsi_rising"] = bool(rsi is not None and rsi_prev is not None and rsi > rsi_prev)
+
+    _above_ma200 = bool(ma200 and ma200 > 0 and price is not None and price > ma200 * MA_CONFIRM_BUFFER)
+    _above_ma50  = bool(ma50 and ma50 > 0 and price is not None and price > ma50 * MA_CONFIRM_BUFFER)
+    c["price_above_ma200"]  = _above_ma200
     c["price_reclaimed_ma"] = bool(_above_ma200 or _above_ma50)
-    c["macd_positive"] = (macd is not None and macd_signal is not None and macd > macd_signal)
-    c["volume_positive"] = (vol_signal is not None and vol_signal > 0)
-    return sum(c.values()), c
+
+    # macd_above_signal = linjen ligger over signallinjen (statiskt lage, RAKNAS EJ)
+    c["macd_above_signal"] = bool(macd is not None and macd_signal is not None and macd > macd_signal)
+    # macd_improving = histogrammet vaxer jamfort med foregaende dag (verklig forbattring)
+    if None in (macd, macd_signal, macd_prev, macd_signal_prev):
+        c["macd_improving"] = False
+    else:
+        c["macd_improving"] = bool((macd - macd_signal) > (macd_prev - macd_signal_prev))
+
+    c["volume_positive"] = bool(vol_signal is not None and vol_signal > 0)
+
+    n = sum([c["rsi_rising"], c["price_reclaimed_ma"], c["macd_improving"], c["volume_positive"]])
+    return n, c
 
 
 NEWS_TICKER_MAP = {
@@ -757,6 +778,7 @@ for sym in STOCKS:
         ma50 = calc_ma(closes, 50)
         ma200 = calc_ma(closes, 200)
         macd, macd_sig = calc_macd(closes)
+        macd_prev, macd_sig_prev = calc_macd(closes[:-1]) if len(closes) > 27 else (None, None)
         bollinger = calc_bollinger(closes)
         w52_pos = calc_52w_position(closes)
         trend = calc_trend_strength(closes)
@@ -795,15 +817,9 @@ for sym in STOCKS:
             support_resistance=support_resistance,
             seasonal=seasonal,
             insider=insider,
-            news_score=prev_news_score_early,
+            news_score=0,  # 2.8: news appliceras EXAKT EN gang langre ner (ej har + senare)
             is_volatile=is_volatile
         )
-
-        # NOTERA: det profilerade bekraftelsesystemet har flyttats till EFTER att
-        # farska news_score applicerats (langre ner, precis innan results[sym]).
-        # Grundprincipen ar densamma, men kontrollen maste vara sista ordet -
-        # annars kan en positiv nyhet angra dampningen eller en news-driven KOP
-        # hoppa over profilkontrollen helt.
 
         if sym in ["BTC-USD", "ETH-USD"] and fg_adj != 0:
             styrka = max(1, min(10, styrka + fg_adj))
@@ -889,43 +905,16 @@ for sym in STOCKS:
                     news_cache[sym] = {"headlines_hash": headlines_hash, "sentiment": news_sentiment}
         news_headlines = all_headlines
 
+        # 2.8: news_score appliceras har EXAKT EN gang (compute_signal fick 0 ovan).
         news_score = news_sentiment.get("score", 0) if news_sentiment else 0
         styrka = max(1, min(10, styrka + news_score))
         signal = "KOP" if styrka >= 7 else "SALJ" if styrka <= 4 else "HALL"
 
-        # ── Profilerat bekraftelsesystem (ChatGPT/Claude-konsensus 2026-07-25) ──
-        # Kors HAR, sist i kedjan, efter att bade gardagens (compute_signal) och
-        # dagens farska news_score applicerats. Da blir profil-kapet sista ordet:
-        # en positiv nyhet kan inte langre angra dampningen, och en KOP som uppstar
-        # forst efter news kan inte hoppa over kontrollen.
-        # Grundprincip: Oversaldhet skapar uppmarksamhet. Bekraftad vandning skapar KOP.
-        oversold_label = None
-        oversold_confirmations = None
+        # Signalen HAR ar "pre-gate": efter teknik + news + F&G + futures, men FORE
+        # bekraftelsegrind, graderat styrketak och volatilitetssparr. De grindarna
+        # kors i apply_final_gates() pa modulniva - sist av allt, efter aven sektor-
+        # och marknadsbreddsfiltret - sa att ingen senare justering kan kringga dem.
         _prof = INSTRUMENT_PROFILES.get(sym, DEFAULT_PROFILE)
-        if rsi is not None and rsi < 35:
-            _n_conf, _conf_detail = calc_trend_confirmations(
-                rsi, rsi_prev, closes[-1] if closes else None,
-                ma50, ma200, macd, macd_sig, vol_signal
-            )
-            oversold_confirmations = _n_conf
-            _min_conf = _prof["min_confirmations"]
-            if signal == "KOP" and _n_conf < _min_conf:
-                # Oversald men obekraftad KOP -> dampa till HALL/INVANTA
-                signal = "HALL"
-                styrka = min(styrka, _prof["max_strength_unconfirmed"])
-                oversold_label = "ÖVERSÅLD – invänta bekräftelse"
-                print(f"Bekraftelsesystem ({sym}, profil={_prof['profile']}): "
-                      f"KOP dampat till HALL ({_n_conf}/{_min_conf} bekraftelser). "
-                      f"RSI_stiger={_conf_detail['rsi_rising']}, "
-                      f">MA(50/200)={_conf_detail['price_reclaimed_ma']}, "
-                      f"MACD+={_conf_detail['macd_positive']}, "
-                      f"Vol+={_conf_detail['volume_positive']})")
-            elif signal == "KOP":
-                # Tillrackligt bekraftad rekyl fran oversalt lage
-                oversold_label = "ÖVERSÅLD – bekräftad rekyl"
-            else:
-                # Oversald men ingen KOP (HALL/SALJ) - rent bevakningslage
-                oversold_label = "ÖVERSÅLD – möjlig rekyl"
 
         results[sym] = {
             "price": price, "change": change,
@@ -935,9 +924,23 @@ for sym in STOCKS:
             "w52": safe(w52_pos),
             "trend": safe(trend),
             "signal": signal, "styrka": styrka, "ok": True,
-            "oversold_label": oversold_label,
-            "oversold_confirmations": oversold_confirmations,
             "profile": _prof["profile"],
+            "required_confirmations": _prof["min_confirmations"],
+            "oversold_label": None,            # sätts i apply_final_gates()
+            "oversold_confirmations": None,    # sätts i apply_final_gates()
+            "confirmation_details": None,      # sätts i apply_final_gates()
+            "pre_gate_signal": signal,
+            "pre_gate_strength": styrka,
+            "final_signal": signal,            # ev. omskriven i apply_final_gates()
+            "final_strength": styrka,
+            "_gate": {
+                "rsi": rsi, "rsi_prev": rsi_prev,
+                "price": closes[-1] if closes else None,
+                "ma50": ma50, "ma200": ma200,
+                "macd": macd, "macd_sig": macd_sig,
+                "macd_prev": macd_prev, "macd_sig_prev": macd_sig_prev,
+                "vol_signal": vol_signal, "is_volatile": is_volatile,
+            },
             "ath": ath,
             "momentum": momentum,
             "earnings_date": earnings_date,
@@ -1091,6 +1094,83 @@ accuracy_data = {}  # fylls efter sektorvarning/marknadsfilter, se nedan
 # Sammanstall traffsakerhet for dina innehav specifikt (utoka listan vid behov)
 TRACKED_HOLDINGS = ["INVE-B.ST", "SAAB-B.ST", "BEAMMW-B.ST", "XACTHDIV.ST", "JEDI.DE"]
 
+def apply_final_gates(results):
+    """Slutgrind - kors SIST av allt (efter teknik, news, F&G, futures, sektor-
+    och marknadsbreddsfilter). Har appliceras det som ALDRIG far kringgas:
+      * Bekraftelsegrind + graderat styrketak (2.2) i oversalt lage (rsi<35)
+      * Permanent volatilitetssparr (2.4)
+    Grinden kan bara neutralisera/sanka en KOP - aldrig skapa en ny KOP eller SALJ.
+    Skriver transparenta falt: profile, oversold_label, oversold_confirmations,
+    required_confirmations, confirmation_details, pre_gate_*, final_*.
+    """
+    for sym, d in results.items():
+        if not d.get("ok"):
+            continue
+        g = d.pop("_gate", {})
+        prof = INSTRUMENT_PROFILES.get(sym, DEFAULT_PROFILE)
+        min_conf = prof["min_confirmations"]
+        signal = d["signal"]
+        styrka = d["styrka"]
+
+        oversold_label = None
+        oversold_conf = None
+        conf_detail = None
+
+        rsi = g.get("rsi")
+        if rsi is not None and rsi < 35:
+            n_conf, conf_detail = calc_trend_confirmations(
+                rsi, g.get("rsi_prev"), g.get("price"),
+                g.get("ma50"), g.get("ma200"),
+                g.get("macd"), g.get("macd_sig"),
+                g.get("macd_prev"), g.get("macd_sig_prev"),
+                g.get("vol_signal"),
+            )
+            oversold_conf = n_conf
+
+            # 2.2: graderat styrketak per antal bekraftelser
+            cap = OVERSOLD_STRENGTH_CAP.get(min(n_conf, 4), 10)
+            if n_conf < min_conf:
+                cap = min(cap, prof["max_strength_unconfirmed"])
+            if styrka > cap:
+                styrka = cap
+
+            # Profilkravet ej uppfyllt -> KOP far aldrig sta kvar (grinden promotar aldrig)
+            if n_conf < min_conf and signal == "KOP":
+                signal = "HALL"
+            elif signal == "KOP" and styrka < 7:
+                signal = "HALL"
+
+            # Standardiserade etiketter (ChatGPT sektion 5)
+            if n_conf >= 3:
+                oversold_label = "Bekräftad trendvändning"
+            elif n_conf >= min_conf:
+                oversold_label = "ÖVERSÅLD - bekräftad rekyl"
+            elif n_conf >= 1:
+                oversold_label = "ÖVERSÅLD - tidigt rekylförsök"
+            else:
+                oversold_label = "ÖVERSÅLD - ingen vändning bekräftad"
+
+            if d["pre_gate_signal"] == "KOP" and signal != "KOP":
+                print(f"Slutgrind ({sym}, {prof['profile']}): KOP {d['pre_gate_strength']} "
+                      f"-> {signal} {styrka} ({n_conf}/{min_conf} bekr) {conf_detail}")
+
+        # 2.4: permanent volatilitetssparr - sist, kan aldrig kringgas av news
+        if g.get("is_volatile"):
+            if signal == "KOP":
+                print(f"Slutgrind ({sym}): is_volatile -> tvingar HALL (var {signal} {styrka})")
+            signal = "HALL"
+            styrka = min(styrka, 5)
+
+        d["signal"] = signal
+        d["styrka"] = styrka
+        d["oversold_label"] = oversold_label
+        d["oversold_confirmations"] = oversold_conf
+        d["confirmation_details"] = conf_detail
+        d["final_signal"] = signal
+        d["final_strength"] = styrka
+    return results
+
+
 # ── Sektorkorrelation ────────────────────────────────────────────────────────
 SECTOR_CORRELATIONS = {
     "SMH.DE":    ["NVDA", "TSM"],
@@ -1148,9 +1228,14 @@ if fg_value is not None and fg_value < 15 and _ok_list and _neg_news > len(_ok_l
     market_breadth["filter_applied"] = True
     print(f"Marknadsfilter AKTIVT: F&G {fg_value} + {_neg_news}/{len(_ok_list)} negativt news → KÖP nedviktade")
 
-# Kor accuracy-tracking HAR - efter sektorvarning + marknadsfilter - sa den
-# registrerar den slutgiltiga, dampade signalen som faktiskt visas i appen,
-# inte den odampade rasignalen fran compute_signal().
+# SLUTGRIND: bekraftelsegrind + graderat styrketak + volatilitetssparr kors HAR,
+# allra sist efter sektor- och marknadsbreddsfiltret, sa ingen justering kan kringga
+# dem (ChatGPT-granskning 2026-07-25, punkt 2.1/2.2/2.4). Detta ar sista stallet
+# signal/styrka andras innan de sparas och utvarderas.
+apply_final_gates(results)
+
+# Kor accuracy-tracking HAR - efter slutgrinden - sa den registrerar den
+# slutgiltiga signalen som faktiskt visas i appen, inte rasignalen.
 accuracy_data = update_accuracy_tracking(results, fg_value)
 accuracy_summary = compute_accuracy_summary(accuracy_data, symbols=TRACKED_HOLDINGS)
 
