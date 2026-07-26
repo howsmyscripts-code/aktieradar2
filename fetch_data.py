@@ -603,6 +603,70 @@ def fetch_fundamentals(sym, finnhub_key):
     except Exception:
         return {"pe_ratio": None, "ps_ratio": None, "net_margin": None}
 
+# ── Avanza market-guide (inofficiell endpoint) ───────────────────────────────
+# Inofficiell Avanza-endpoint, atkomlig utan inloggning. Anvands ENDAST som
+# kompletterande kalla for svenska nyckeltal - kan andras eller blockeras utan
+# forvarning. orderbookId verifierade mot Avanzas egna om-aktien-URL:er 2026-07-26.
+# OBS: CLA-B = Cloetta B (INTE Clas Ohlson). XACT-ETF:erna saknas (annan endpoint,
+# inga P/E-tal). Finnhub har dalig .ST-tackning, darfor kompletterar Avanza P/E,
+# P/B, EV/EBIT, direktavkastning + rapportdatum for svenska bolag.
+AVANZA_IDS = {
+    "INVE-B.ST": "5247",  "ATCO-B.ST": "5235",  "SWED-A.ST": "5241",
+    "SAAB-B.ST": "5401",  "ERIC-B.ST": "5240",  "VOLV-B.ST": "5269",
+    "KINV-B.ST": "5369",  "HM-B.ST":   "5364",  "SEB-A.ST":  "5255",
+    "TEL2-B.ST": "5386",  "INDU-C.ST": "5245",  "CLA-B.ST":  "163148",  # Cloetta B
+    "BOL.ST":    "5564",  "BEAMMW-B.ST": "1361888",
+    "NANEXA.ST": "572681", "FREEM.ST": "1247607",
+}
+# P/E, P/B, EV/EBIT och rapportdatum andras inte intradag -> cacha lange, anropa
+# Avanza hogst ngn gang per halvdygn (skonsamt mot endpointen, undviker block).
+AVANZA_CACHE_HOURS = 12
+
+def safe_number(v):
+    """Returnera float bara for akta tal, annars None. Skydd mot typandringar/HTML
+    fran en inofficiell endpoint (str, dict, None -> None). bool exkluderas."""
+    if isinstance(v, bool):
+        return None
+    return float(v) if isinstance(v, (int, float)) else None
+
+def fetch_avanza_fundamentals(orderbook_id):
+    """Inofficiell Avanza market-guide. Returnerar validerad dict eller None.
+    Alla numeriska falt gar via safe_number. Direktavkastning omvandlas till
+    procent (Avanza ger decimal, t.ex. 0.0147 -> 1.47). Kursfalten (avanza_last,
+    avanza_change_pct) ar ENBART for jamforelse/felsokning - de far aldrig ersatta
+    yfinance-kursen i signalmotorn.
+    """
+    if not orderbook_id:
+        return None
+    url = f"https://www.avanza.se/_api/market-guide/stock/{orderbook_id}"
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=6) as r:
+            d = json.loads(r.read().decode("utf-8"))
+        if not isinstance(d, dict):
+            return None
+        ki = d.get("keyIndicators", {}) or {}
+        q  = d.get("quote", {}) or {}
+        # Ett giltigt aktiesvar har ALLTID keyIndicators + quote. Saknas bada ar det
+        # ett ovantat svar (endpoint andrad/stangd) -> None sa health-kollen fangar
+        # det. Enskilda null-falt (t.ex. P/E for forlustbolag) ar daremot normalt.
+        if not ki and not q:
+            return None
+        nr = ki.get("nextReport") or {}
+        nr_date = nr.get("date") if isinstance(nr.get("date"), str) else None
+        dy = safe_number(ki.get("directYield"))
+        return {
+            "pe": safe_number(ki.get("priceEarningsRatio")),
+            "pb": safe_number(ki.get("priceBookRatio")),
+            "ev_ebit": safe_number(ki.get("evEbitRatio")),
+            "direct_yield_pct": round(dy * 100, 2) if dy is not None else None,
+            "next_report": nr_date,
+            "avanza_last": safe_number(q.get("last")),
+            "avanza_change_pct": safe_number(q.get("changePercent")),
+        }
+    except Exception:
+        return None
+
 def fetch_short_interest(ticker_obj):
     """Hämta short interest från yfinance"""
     try:
@@ -721,6 +785,7 @@ def compute_signal(rsi, ma50, ma200, change, macd=None, macd_signal=None,
     return signal, score, momentum
 
 results = {}
+avanza_failures = []  # svenska symboler dar Avanza-endpointen inte svarade (health-koll)
 
 fg_value, fg_class = fetch_fear_greed()
 fg_adj = fear_greed_signal(fg_value)
@@ -754,6 +819,13 @@ try:
         _prev_sigs_all = json.load(f)
 except:
     _prev_sigs_all = {}
+
+# Ladda Avanza-cache (fundamenta cachas AVANZA_CACHE_HOURS tim, se fetch-logiken)
+try:
+    with open("avanza_cache.json", "r") as f:
+        avanza_cache = json.load(f)
+except:
+    avanza_cache = {}
 
 for sym in STOCKS:
     try:
@@ -791,6 +863,41 @@ for sym in STOCKS:
         finnhub_key_tmp = os.environ.get("FINNHUB_API_KEY", "")
         insider = fetch_insider_transactions(sym, finnhub_key_tmp)
         fundamentals = fetch_fundamentals(sym, finnhub_key_tmp)
+        # Avanza-fundamenta for svenska bolag (Finnhub har dalig .ST-tackning).
+        # Cachas AVANZA_CACHE_HOURS tim - anropar bara nar cachen ar for gammal.
+        # Vid misslyckat anrop anvands senaste giltiga cache (markeras som stale).
+        avanza_fund = None
+        avanza_stale = False
+        avanza_source = None  # None=icke-svenskt; annars fresh_fetch/fresh_cache/stale_cache/unavailable
+        if sym in AVANZA_IDS:
+            _c = avanza_cache.get(sym) or {}
+            _age = time.time() - _c.get("epoch", 0)
+            if _c.get("data") and _age < AVANZA_CACHE_HOURS * 3600:
+                avanza_fund = _c["data"]  # cache fortfarande farsk (inget anrop)
+                avanza_source = "fresh_cache"
+            else:
+                _fresh = fetch_avanza_fundamentals(AVANZA_IDS[sym])
+                if _fresh is not None:
+                    avanza_fund = _fresh
+                    avanza_source = "fresh_fetch"
+                    avanza_cache[sym] = {
+                        "data": _fresh,
+                        "fetched_at": datetime.now(ZoneInfo("Europe/Stockholm")).strftime("%Y-%m-%d %H:%M"),
+                        "epoch": time.time(),
+                    }
+                elif _c.get("data"):
+                    avanza_fund = _c["data"]  # anropet foll -> anvand gammal cache
+                    avanza_stale = True
+                    avanza_source = "stale_cache"
+                    print(f"VARNING: Avanza-anrop foll for {sym} (id {AVANZA_IDS[sym]}) "
+                          f"- anvander gammal cache fran {_c.get('fetched_at','?')}")
+                else:
+                    avanza_source = "unavailable"
+                    avanza_failures.append(sym)  # helt utan data (anrop foll + ingen cache)
+                    print(f"VARNING: Avanza-anrop foll for {sym} (id {AVANZA_IDS[sym]}) "
+                          f"och ingen cache finns - faller tillbaka pa yfinance")
+        if avanza_fund and avanza_fund.get("pe") is not None:
+            fundamentals["pe_ratio"] = avanza_fund["pe"]  # Prioritera Avanzas svenska P/E nar giltigt varde finns
         short_data = fetch_short_interest(ticker)
 
         # RSI-divergens kraever RSI-historik
@@ -855,6 +962,10 @@ for sym in STOCKS:
                         earnings_date = ed.strftime("%Y-%m-%d")
         except Exception:
             earnings_date = None
+
+        # Avanza har palitligare rapportdatum for svenska bolag an yfinance-kalendern
+        if avanza_fund and avanza_fund.get("next_report"):
+            earnings_date = avanza_fund["next_report"]
 
         def safe(v): return None if v is None or (isinstance(v, float) and math.isnan(v)) else v
 
@@ -957,6 +1068,15 @@ for sym in STOCKS:
             "pe_ratio": fundamentals.get("pe_ratio"),
             "ps_ratio": fundamentals.get("ps_ratio"),
             "net_margin": fundamentals.get("net_margin"),
+            "pb_ratio": avanza_fund.get("pb") if avanza_fund else None,
+            "ev_ebit": avanza_fund.get("ev_ebit") if avanza_fund else None,
+            "direct_yield_pct": avanza_fund.get("direct_yield_pct") if avanza_fund else None,
+            "avanza_last": avanza_fund.get("avanza_last") if avanza_fund else None,
+            "fundamentals_source": ("avanza_cache" if avanza_stale else "avanza+finnhub") if avanza_fund else "finnhub",
+            "avanza_source": avanza_source,
+            "avanza_available": bool(avanza_fund),
+            "avanza_data_stale": avanza_stale,
+            "avanza_fetched_at": (avanza_cache.get(sym, {}).get("fetched_at") if sym in AVANZA_IDS else None),
             "short_interest": short_data.get("pct"),
             "short_interest_high": short_data.get("high"),
             "is_volatile": is_volatile,
@@ -1239,12 +1359,59 @@ apply_final_gates(results)
 accuracy_data = update_accuracy_tracking(results, fg_value)
 accuracy_summary = compute_accuracy_summary(accuracy_data, symbols=TRACKED_HOLDINGS)
 
+# ── Avanza-endpoint health-koll ──────────────────────────────────────────────
+# Skiljer fyra tillstand: fresh_fetch (nytt lyckat anrop), fresh_cache (cache annu
+# giltig, inget anrop), stale_cache (anrop foll -> gammal cache anvands), unavailable
+# (anrop foll + ingen cache). VIKTIGT: endpoint-halsan mats pa ANROPEN, inte pa om
+# data fanns - annars kan stale-cache dolja en trasig endpoint (ChatGPT punkt 1).
+# I GitHub Actions ger "::warning::" en gul annotering sa du ser det direkt.
+_av_expected = len(AVANZA_IDS)
+_src = {"fresh_fetch": 0, "fresh_cache": 0, "stale_cache": 0, "unavailable": 0}
+for _s in AVANZA_IDS:
+    _st = results.get(_s, {}).get("avanza_source")
+    if _st in _src:
+        _src[_st] += 1
+_attempts = _src["fresh_fetch"] + _src["stale_cache"] + _src["unavailable"]  # gjorda anrop
+_endpoint_failed = _src["stale_cache"] + _src["unavailable"]                 # anrop som foll
+# Endpoint anses trasig om vi FORSOKTE och majoriteten av forsoken foll - aven om
+# stale-cache fortfarande levererar data at signalmotorn.
+_endpoint_broken = _attempts > 0 and _endpoint_failed > _attempts // 2
+_av_stale = [s for s in AVANZA_IDS if results.get(s, {}).get("avanza_data_stale")]
+avanza_status = {
+    "expected": _av_expected,
+    "fresh_fetch": _src["fresh_fetch"],
+    "fresh_cache": _src["fresh_cache"],
+    "stale_cache": _src["stale_cache"],
+    "unavailable": _src["unavailable"],
+    "endpoint_attempts": _attempts,
+    "endpoint_failed": _endpoint_failed,
+    "failed_symbols": avanza_failures,   # helt utan data (unavailable)
+    "stale_symbols": _av_stale,          # kor pa gammal cache efter misslyckat anrop
+    "cache_hours": AVANZA_CACHE_HOURS,
+    "healthy": not _endpoint_broken,     # baseras pa ANROPEN, inte pa datatillgang
+    "checked": (datetime.now(ZoneInfo("Europe/Stockholm"))).strftime("%Y-%m-%d %H:%M"),
+}
+if _attempts == 0:
+    print(f"Avanza market-guide: cache farsk for alla {_av_expected} bolag (inga anrop denna korning)")
+elif _endpoint_broken:
+    print(f"::warning title=Avanza-endpoint trasig::{_endpoint_failed}/{_attempts} Avanza-anrop foll "
+          f"(fresh_fetch={_src['fresh_fetch']}, stale_cache={_src['stale_cache']}, "
+          f"unavailable={_src['unavailable']}). Endpointen kan ha andrats/stangts - kontrollera "
+          f"https://www.avanza.se/_api/market-guide/stock/. Appen kor pa cache/yfinance under tiden.")
+    print(f"⚠️  AVANZA TROLIGEN TRASIG: {_endpoint_failed}/{_attempts} anrop foll")
+elif _endpoint_failed > 0:
+    print(f"::warning title=Avanza delvis nere::{_endpoint_failed}/{_attempts} anrop foll "
+          f"(stale_cache={_src['stale_cache']}, unavailable={_src['unavailable']}). Ovriga lyckades.")
+else:
+    print(f"Avanza market-guide: OK ({_src['fresh_fetch']} nya anrop lyckades)")
+
 output = {
     "updated": (datetime.now(ZoneInfo("Europe/Stockholm"))).strftime("%Y-%m-%d %H:%M svensk tid"),
     "stocks": results,
     "fear_greed": {"value": fg_value, "classification": fg_class} if fg_value is not None else None,
     "accuracy_summary": accuracy_summary,
     "market_breadth": market_breadth,
+    "avanza_status": avanza_status,
 }
 if sector_warnings:
     output["sector_warnings"] = sector_warnings
@@ -1255,6 +1422,10 @@ with open("data.json", "w") as f:
 # Spara nyhets-cachen så nästa körning kan hoppa över oförändrade rubriker
 with open("news_cache.json", "w") as f:
     json.dump(news_cache, f, indent=2)
+
+# Spara Avanza-cachen så fundamenta återanvänds i AVANZA_CACHE_HOURS timmar
+with open("avanza_cache.json", "w") as f:
+    json.dump(avanza_cache, f, indent=2)
 
 # PUNKT 3: Spara prev_signals.json så news_score-historiken bevaras mellan körningar.
 # compute_signal() läser detta nästa körning för trendanalys av nyhetssentiment.
