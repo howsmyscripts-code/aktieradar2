@@ -1140,12 +1140,24 @@ def update_accuracy_tracking(results, fg_value):
 
         if key not in accuracy:
             # Forsta gangen vi ser DENNA symbol lyckas idag - spara morgonpris.
+            # signal/styrka = SLUTLIG (efter grind). pre_gate_* + confirmations/rsi
+            # sparas sa vi i efterhand kan mata grindens edge: undvek nedgraderingar
+            # forluster, och slar bekraftade rekyler obekraftade? (Signalneutralt -
+            # detta paverkar inte motorn, bara vad vi loggar.)
             accuracy[key] = {
                 "date": today, "sym": sym,
                 "signal": d["signal"], "styrka": d["styrka"],
                 "morning_price": d["price"],
                 "news_score": d.get("news_score", 0),
                 "fg_value": fg_value,
+                "pre_gate_signal": d.get("pre_gate_signal"),
+                "pre_gate_strength": d.get("pre_gate_strength"),
+                "oversold_confirmations": d.get("oversold_confirmations"),
+                "required_confirmations": d.get("required_confirmations"),
+                "oversold_label": d.get("oversold_label"),
+                "rsi": d.get("rsi"),
+                "profile": d.get("profile"),
+                "is_volatile": d.get("is_volatile", False),
                 "closing_price": None, "correct": None
             }
             created += 1
