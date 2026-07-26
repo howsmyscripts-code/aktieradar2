@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-26 08:46 svensk tid",
+  "updated": "2026-07-26 09:16 svensk tid",
   "stocks": {
     "INVE-B.ST": {
       "price": 403.5,
@@ -27,7 +27,7 @@
       "momentum": null,
       "earnings_date": "2026-10-16",
       "news_sentiment": "neutral",
-      "news_summary": "Nyheter om andra bolag, ej INVE-B.ST. Irrelevant.",
+      "news_summary": "Investor AB Q2-resultat och styrelsebyte, ingen direkt priseffekt",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -47,13 +47,13 @@
       "avanza_source": "fresh_fetch",
       "avanza_available": true,
       "avanza_data_stale": false,
-      "avanza_fetched_at": "2026-07-26 08:44",
+      "avanza_fetched_at": "2026-07-26 09:13",
       "short_interest": null,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "ATCO-B.ST": {
       "price": 180.1,
@@ -101,13 +101,13 @@
       "avanza_source": "fresh_fetch",
       "avanza_available": true,
       "avanza_data_stale": false,
-      "avanza_fetched_at": "2026-07-26 08:44",
+      "avanza_fetched_at": "2026-07-26 09:13",
       "short_interest": null,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "SWED-A.ST": {
       "price": 371.0,
@@ -155,13 +155,13 @@
       "avanza_source": "fresh_fetch",
       "avanza_available": true,
       "avanza_data_stale": false,
-      "avanza_fetched_at": "2026-07-26 08:44",
+      "avanza_fetched_at": "2026-07-26 09:13",
       "short_interest": null,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "SAAB-B.ST": {
       "price": 587.4,
@@ -209,13 +209,13 @@
       "avanza_source": "fresh_fetch",
       "avanza_available": true,
       "avanza_data_stale": false,
-      "avanza_fetched_at": "2026-07-26 08:44",
+      "avanza_fetched_at": "2026-07-26 09:13",
       "short_interest": null,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "ERIC-B.ST": {
       "price": 91.52,
@@ -270,13 +270,13 @@
       "avanza_source": "fresh_fetch",
       "avanza_available": true,
       "avanza_data_stale": false,
-      "avanza_fetched_at": "2026-07-26 08:44",
+      "avanza_fetched_at": "2026-07-26 09:13",
       "short_interest": null,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "VOLV-B.ST": {
       "price": 354.8,
@@ -304,7 +304,7 @@
       "momentum": "MOMENTUM_KOP",
       "earnings_date": "2026-10-23",
       "news_sentiment": "neutral",
-      "news_summary": "Ford-Geely partnerskap p\u00e5verkar inte Volvo direkt",
+      "news_summary": "Volvo underv\u00e4rderat men ej ny katalysator. Geely JV \u00e4r befintlig struktur.",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -324,13 +324,13 @@
       "avanza_source": "fresh_fetch",
       "avanza_available": true,
       "avanza_data_stale": false,
-      "avanza_fetched_at": "2026-07-26 08:45",
+      "avanza_fetched_at": "2026-07-26 09:13",
       "short_interest": null,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "KINV-B.ST": {
       "price": 50.4,
@@ -385,13 +385,13 @@
       "avanza_source": "fresh_fetch",
       "avanza_available": true,
       "avanza_data_stale": false,
-      "avanza_fetched_at": "2026-07-26 08:45",
+      "avanza_fetched_at": "2026-07-26 09:13",
       "short_interest": null,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "HM-B.ST": {
       "price": 164.1,
@@ -441,13 +441,13 @@
       "avanza_source": "fresh_fetch",
       "avanza_available": true,
       "avanza_data_stale": false,
-      "avanza_fetched_at": "2026-07-26 08:45",
+      "avanza_fetched_at": "2026-07-26 09:13",
       "short_interest": null,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "SEB-A.ST": {
       "price": 218.6,
@@ -495,13 +495,13 @@
       "avanza_source": "fresh_fetch",
       "avanza_available": true,
       "avanza_data_stale": false,
-      "avanza_fetched_at": "2026-07-26 08:45",
+      "avanza_fetched_at": "2026-07-26 09:13",
       "short_interest": null,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "TEL2-B.ST": {
       "price": 163.5,
@@ -551,13 +551,13 @@
       "avanza_source": "fresh_fetch",
       "avanza_available": true,
       "avanza_data_stale": false,
-      "avanza_fetched_at": "2026-07-26 08:45",
+      "avanza_fetched_at": "2026-07-26 09:13",
       "short_interest": null,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "BEAMMW-B.ST": {
       "price": 12.96,
@@ -612,13 +612,13 @@
       "avanza_source": "fresh_fetch",
       "avanza_available": true,
       "avanza_data_stale": false,
-      "avanza_fetched_at": "2026-07-26 08:45",
+      "avanza_fetched_at": "2026-07-26 09:13",
       "short_interest": null,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "NANEXA.ST": {
       "price": 3.67,
@@ -666,13 +666,13 @@
       "avanza_source": "fresh_fetch",
       "avanza_available": true,
       "avanza_data_stale": false,
-      "avanza_fetched_at": "2026-07-26 08:45",
+      "avanza_fetched_at": "2026-07-26 09:13",
       "short_interest": null,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "FREEM.ST": {
       "price": 1.59,
@@ -730,13 +730,13 @@
       "avanza_source": "fresh_fetch",
       "avanza_available": true,
       "avanza_data_stale": false,
-      "avanza_fetched_at": "2026-07-26 08:45",
+      "avanza_fetched_at": "2026-07-26 09:13",
       "short_interest": null,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "INDU-C.ST": {
       "price": 531.0,
@@ -784,13 +784,13 @@
       "avanza_source": "fresh_fetch",
       "avanza_available": true,
       "avanza_data_stale": false,
-      "avanza_fetched_at": "2026-07-26 08:45",
+      "avanza_fetched_at": "2026-07-26 09:13",
       "short_interest": null,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "CLA-B.ST": {
       "price": 56.55,
@@ -838,13 +838,13 @@
       "avanza_source": "fresh_fetch",
       "avanza_available": true,
       "avanza_data_stale": false,
-      "avanza_fetched_at": "2026-07-26 08:45",
+      "avanza_fetched_at": "2026-07-26 09:13",
       "short_interest": null,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "BOL.ST": {
       "price": 481.4,
@@ -892,13 +892,13 @@
       "avanza_source": "fresh_fetch",
       "avanza_available": true,
       "avanza_data_stale": false,
-      "avanza_fetched_at": "2026-07-26 08:45",
+      "avanza_fetched_at": "2026-07-26 09:13",
       "short_interest": null,
       "short_interest_high": false,
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "ASML": {
       "price": 1757.09,
@@ -911,7 +911,7 @@
       "w52": 0.82,
       "trend": 0.5,
       "signal": "KOP",
-      "styrka": 9,
+      "styrka": 8,
       "ok": true,
       "profile": "large_cap",
       "required_confirmations": 1,
@@ -919,15 +919,15 @@
       "oversold_confirmations": null,
       "confirmation_details": null,
       "pre_gate_signal": "KOP",
-      "pre_gate_strength": 9,
+      "pre_gate_strength": 8,
       "final_signal": "KOP",
-      "final_strength": 9,
+      "final_strength": 8,
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "positive",
-      "news_summary": "Chipmaking equipment sektor st\u00e4rks av Intel CapEx-\u00f6kning",
-      "news_score": 1,
+      "news_sentiment": "neutral",
+      "news_summary": "Teknisk styrka noterad men ingen konkret nyhet. V\u00e4rderingsbekymmer efter 150% uppg\u00e5ng.",
+      "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -954,7 +954,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "SAP": {
       "price": 160.0,
@@ -982,7 +982,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "Analysst\u00f6d h\u00f6jning av prism\u00e5l st\u00f6djer SAP positivt",
+      "news_summary": "BMO h\u00f6jer kursm\u00e5l till $177, outperform. Mild positiv kort sikt.",
       "news_score": 1,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1008,7 +1008,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "NVO": {
       "price": 48.77,
@@ -1036,7 +1036,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "negative",
-      "news_summary": "Novo Nordisk s\u00f6ker injunktion mot Eli Lillys GLP-1 reklam; konkurrenstvist.",
+      "news_summary": "NVO s\u00f6ker r\u00e4ttslig blockad mot Lillys GLP-1-annonsering",
       "news_score": -1,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1062,7 +1062,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "LVMUY": {
       "price": 104.68,
@@ -1097,7 +1097,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "LVMH handlas under historiskt P/E, v\u00e4rdem\u00f6jlighet identifierad",
+      "news_summary": "V\u00e4rdek\u00f6p efter nedg\u00e5ng, men makrouveckling kvarst\u00e5r os\u00e4ker",
       "news_score": 1,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1123,7 +1123,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "SHEL": {
       "price": 88.38,
@@ -1151,7 +1151,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "Potentiell l\u00e5ngtidskontrakt med Egypten st\u00e4rker efterfr\u00e5gan",
+      "news_summary": "Neutral analyst rating offset by LNG contract negotiations win",
       "news_score": 1,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1177,7 +1177,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "SIEGY": {
       "price": 153.91,
@@ -1205,7 +1205,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Ingen SIEGY-specifik nyhet; irrelevant inneh\u00e5l om andra bolag",
+      "news_summary": "Ingen SIEGY-specifik nyhet, endast FCEL och EMR omn\u00e4mnda",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1233,7 +1233,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "NSRGY": {
       "price": 98.52,
@@ -1296,7 +1296,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "EADSY": {
       "price": 58.33,
@@ -1324,7 +1324,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Airbus nyheter \u00e4r inte EADSY-specifika. Ignorerat.",
+      "news_summary": "EADSY inte n\u00e4mnd. Airbus-nyheter irrelevanta f\u00f6r EADSY.",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1350,7 +1350,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "AZN": {
       "price": 169.26,
@@ -1385,7 +1385,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "Tre EU-godk\u00e4nnanden f\u00f6r br\u00f6stcancerl\u00e4kemedel - stark katalysator",
+      "news_summary": "EU-godk\u00e4nnande f\u00f6r Etcamah vid br\u00f6stcancer \u00e4r stark katalysator",
       "news_score": 2,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1411,7 +1411,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "RELX": {
       "price": 34.41,
@@ -1439,7 +1439,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "Stark H1-resultat, \u00f6kande vinster och dividend\u00f6kning.",
+      "news_summary": "Stark H1-resultat, int\u00e4kter upp 7%, vinst upp 11%, dividend\u00f6kning",
       "news_score": 1,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1465,7 +1465,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "BAESY": {
       "price": 105.06,
@@ -1477,24 +1477,24 @@
       "bollinger": 0.77,
       "w52": 0.54,
       "trend": 0.65,
-      "signal": "KOP",
-      "styrka": 7,
+      "signal": "HALL",
+      "styrka": 6,
       "ok": true,
       "profile": "large_cap",
       "required_confirmations": 1,
       "oversold_label": null,
       "oversold_confirmations": null,
       "confirmation_details": null,
-      "pre_gate_signal": "KOP",
-      "pre_gate_strength": 7,
-      "final_signal": "KOP",
-      "final_strength": 7,
+      "pre_gate_signal": "HALL",
+      "pre_gate_strength": 6,
+      "final_signal": "HALL",
+      "final_strength": 6,
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "positive",
-      "news_summary": "F\u00f6rsvarskontakt och ordervinst st\u00f6djer mild positiv drift",
-      "news_score": 1,
+      "news_sentiment": "neutral",
+      "news_summary": "Rubrik avserBAE Systems, inte BAESY. Ingen relevant data.",
+      "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -1521,7 +1521,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "NVDA": {
       "price": 206.84,
@@ -1534,7 +1534,7 @@
       "w52": 0.59,
       "trend": 0.55,
       "signal": "KOP",
-      "styrka": 8,
+      "styrka": 7,
       "ok": true,
       "profile": "large_cap",
       "required_confirmations": 1,
@@ -1542,15 +1542,15 @@
       "oversold_confirmations": null,
       "confirmation_details": null,
       "pre_gate_signal": "KOP",
-      "pre_gate_strength": 8,
+      "pre_gate_strength": 7,
       "final_signal": "KOP",
-      "final_strength": 8,
+      "final_strength": 7,
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "positive",
-      "news_summary": "Compute shortage forts\u00e4tter, stark AI-efterfr\u00e5gan, regulatory risk moderat",
-      "news_score": 1,
+      "news_sentiment": "neutral",
+      "news_summary": "Ingen NVDA-specifik nyhet, bara sektor-bred teknikneds\u00e4ttning",
+      "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -1577,7 +1577,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "INTC": {
       "price": 92.32,
@@ -1612,7 +1612,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "negative",
-      "news_summary": "Earnings beat \u00f6verskuggas av sektors\u00f6verf\u00f6rs\u00e4ljning och negativ momentum",
+      "news_summary": "AI-chipkompetition f\u00f6rsvagar INTC; Nvidia och AMD dominerar marknaden",
       "news_score": -1,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1638,7 +1638,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "AAPL": {
       "price": 333.02,
@@ -1650,24 +1650,24 @@
       "bollinger": 0.8,
       "w52": 0.99,
       "trend": 0.65,
-      "signal": "HALL",
-      "styrka": 6,
+      "signal": "KOP",
+      "styrka": 7,
       "ok": true,
       "profile": "large_cap",
       "required_confirmations": 1,
       "oversold_label": null,
       "oversold_confirmations": null,
       "confirmation_details": null,
-      "pre_gate_signal": "HALL",
-      "pre_gate_strength": 6,
-      "final_signal": "HALL",
-      "final_strength": 6,
+      "pre_gate_signal": "KOP",
+      "pre_gate_strength": 7,
+      "final_signal": "KOP",
+      "final_strength": 7,
       "ath": null,
       "momentum": "MOMENTUM_KOP",
       "earnings_date": null,
-      "news_sentiment": "negative",
-      "news_summary": "Bred teksektor-s\u00e4ljning p\u00e5verkar AAPL, ingen f\u00f6retagsspecifik negativ nyhet",
-      "news_score": -1,
+      "news_sentiment": "neutral",
+      "news_summary": "Ingen direkt AAPL-specifik nyhet, generell tech-sektor svaghet",
+      "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -1692,7 +1692,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "MSFT": {
       "price": 381.7,
@@ -1720,7 +1720,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "AI-ledande position bekr\u00e4ftad, h\u00f6ga prism\u00e5l, regulatory support os\u00e4ker",
+      "news_summary": "Morgan Stanley reset, stark Q4 earnings setup, AI monetization acceleration",
       "news_score": 1,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1746,7 +1746,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "AMZN": {
       "price": 232.11,
@@ -1774,7 +1774,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Generisk tekniksektor-nedg\u00e5ng, inga AMZN-specifika katalysatorer",
+      "news_summary": "Generiska j\u00e4mf\u00f6relser och portf\u00f6ljuppdateringar, ingen AMZN-specifik nyhet",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -1802,7 +1802,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "GOOGL": {
       "price": 319.74,
@@ -1830,15 +1830,15 @@
         "volume_positive": false
       },
       "pre_gate_signal": "KOP",
-      "pre_gate_strength": 10,
+      "pre_gate_strength": 8,
       "final_signal": "HALL",
       "final_strength": 6,
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "neutral",
-      "news_summary": "Blandad signal: AI-efterfr\u00e5gan stark men utgiftbekymring kvarst\u00e5r",
-      "news_score": 0,
+      "news_sentiment": "negative",
+      "news_summary": "Alfabets vinstrapport missade f\u00f6rv\u00e4ntningar, aktien sj\u00f6nk dagen efter",
+      "news_score": -2,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -1865,7 +1865,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "META": {
       "price": 595.19,
@@ -1877,24 +1877,24 @@
       "bollinger": 0.33,
       "w52": 0.27,
       "trend": 0.5,
-      "signal": "SALJ",
-      "styrka": 3,
+      "signal": "HALL",
+      "styrka": 5,
       "ok": true,
       "profile": "large_cap",
       "required_confirmations": 1,
       "oversold_label": null,
       "oversold_confirmations": null,
       "confirmation_details": null,
-      "pre_gate_signal": "SALJ",
-      "pre_gate_strength": 3,
-      "final_signal": "SALJ",
-      "final_strength": 3,
+      "pre_gate_signal": "HALL",
+      "pre_gate_strength": 5,
+      "final_signal": "HALL",
+      "final_strength": 5,
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "negative",
-      "news_summary": "Tech sektor faller; AI-konkurrens \u00f6kar men META inte direkt p\u00e5verkad",
-      "news_score": -1,
+      "news_sentiment": "positive",
+      "news_summary": "Meta lanserar Marketplace-app, konkurrerar med eBay. Positiv expansion.",
+      "news_score": 1,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -1919,7 +1919,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "TSLA": {
       "price": 313.03,
@@ -1932,7 +1932,7 @@
       "w52": 0.06,
       "trend": 0.45,
       "signal": "HALL",
-      "styrka": 4,
+      "styrka": 3,
       "ok": true,
       "profile": "large_cap",
       "required_confirmations": 1,
@@ -1947,15 +1947,15 @@
         "volume_positive": false
       },
       "pre_gate_signal": "SALJ",
-      "pre_gate_strength": 4,
+      "pre_gate_strength": 3,
       "final_signal": "HALL",
-      "final_strength": 4,
+      "final_strength": 3,
       "ath": null,
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "negative",
-      "news_summary": "TSLA sjunker 18% m\u00e5naden, konkurrenter stiger. Bred tech-f\u00f6rs\u00e4ljning.",
-      "news_score": -1,
+      "news_summary": "Tesla rapporterade svaga resultat, aktien sj\u00f6nk 14% post-earnings",
+      "news_score": -2,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -1980,7 +1980,7 @@
       "is_volatile": true,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "JPM": {
       "price": 353.21,
@@ -1993,7 +1993,7 @@
       "w52": 1.0,
       "trend": 0.65,
       "signal": "KOP",
-      "styrka": 8,
+      "styrka": 7,
       "ok": true,
       "profile": "large_cap",
       "required_confirmations": 1,
@@ -2001,15 +2001,15 @@
       "oversold_confirmations": null,
       "confirmation_details": null,
       "pre_gate_signal": "KOP",
-      "pre_gate_strength": 8,
+      "pre_gate_strength": 7,
       "final_signal": "KOP",
-      "final_strength": 8,
+      "final_strength": 7,
       "ath": null,
       "momentum": "MOMENTUM_UP",
       "earnings_date": null,
-      "news_sentiment": "positive",
-      "news_summary": "Oljepris \u00f6ver $100 st\u00e4rker banker, JPM momentum-pick",
-      "news_score": 1,
+      "news_sentiment": "neutral",
+      "news_summary": "Blandade signaler: positiv resultatanalys motv\u00e4gs av regulatoriska bekymmer",
+      "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -2034,7 +2034,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "BRK-B": {
       "price": 494.93,
@@ -2046,24 +2046,24 @@
       "bollinger": 0.47,
       "w52": 0.65,
       "trend": 0.45,
-      "signal": "KOP",
-      "styrka": 7,
+      "signal": "HALL",
+      "styrka": 6,
       "ok": true,
       "profile": "large_cap",
       "required_confirmations": 1,
       "oversold_label": null,
       "oversold_confirmations": null,
       "confirmation_details": null,
-      "pre_gate_signal": "KOP",
-      "pre_gate_strength": 7,
-      "final_signal": "KOP",
-      "final_strength": 7,
+      "pre_gate_signal": "HALL",
+      "pre_gate_strength": 6,
+      "final_signal": "HALL",
+      "final_strength": 6,
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "positive",
-      "news_summary": "Senator st\u00f6der BRK-B post-Buffett, milder positiv signal",
-      "news_score": 1,
+      "news_sentiment": "neutral",
+      "news_summary": "Buffett kommentarer om Alphabet relevanta f\u00f6r portf\u00f6lj\u00f6versikt, ej BRK-B-specifikt",
+      "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -2091,7 +2091,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "LLY": {
       "price": 1196.03,
@@ -2119,7 +2119,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Sektor upp\u00e5t, men inga LLY-specifika katalysatorer",
+      "news_summary": "Generiska marknadskommentarer utan konkreta LLY-katalysatorer",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -2145,7 +2145,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "BYDDF": {
       "price": 11.12,
@@ -2157,24 +2157,24 @@
       "bollinger": 0.66,
       "w52": 0.25,
       "trend": 0.55,
-      "signal": "HALL",
-      "styrka": 5,
+      "signal": "KOP",
+      "styrka": 7,
       "ok": true,
       "profile": "large_cap",
       "required_confirmations": 1,
       "oversold_label": null,
       "oversold_confirmations": null,
       "confirmation_details": null,
-      "pre_gate_signal": "HALL",
-      "pre_gate_strength": 5,
-      "final_signal": "HALL",
-      "final_strength": 5,
+      "pre_gate_signal": "KOP",
+      "pre_gate_strength": 7,
+      "final_signal": "KOP",
+      "final_strength": 7,
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "negative",
-      "news_summary": "Kinesiska EV-restriktioner och TSLA-svaghet p\u00e5verkar sektor negativt",
-      "news_score": -1,
+      "news_sentiment": "positive",
+      "news_summary": "Kinesisk EV-ledare BYD v\u00e4xer stark; US-tariff-hot neutraliseras lokalt",
+      "news_score": 1,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -2201,42 +2201,35 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "TSM": {
-      "price": 403.41,
-      "change": -2.93,
-      "rsi": 27.9,
-      "ma50": 425.68,
-      "ma200": 353.48,
-      "macd": -5.616,
-      "bollinger": 0.17,
-      "w52": 0.71,
+      "price": 415.58,
+      "change": -1.34,
+      "rsi": 41.9,
+      "ma50": 425.54,
+      "ma200": 352.96,
+      "macd": -4.596,
+      "bollinger": 0.3,
+      "w52": 0.75,
       "trend": 0.3,
       "signal": "KOP",
       "styrka": 7,
       "ok": true,
       "profile": "large_cap",
       "required_confirmations": 1,
-      "oversold_label": "\u00d6VERS\u00c5LD - bekr\u00e4ftad rekyl",
-      "oversold_confirmations": 1,
-      "confirmation_details": {
-        "rsi_rising": false,
-        "price_above_ma200": true,
-        "price_reclaimed_ma": true,
-        "macd_above_signal": false,
-        "macd_improving": false,
-        "volume_positive": false
-      },
+      "oversold_label": null,
+      "oversold_confirmations": null,
+      "confirmation_details": null,
       "pre_gate_signal": "KOP",
-      "pre_gate_strength": 9,
+      "pre_gate_strength": 7,
       "final_signal": "KOP",
       "final_strength": 7,
       "ath": null,
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "negative",
-      "news_summary": "Sektors\u00e4lj i chips trots Intel-beat; AI-utgiftoro",
+      "news_summary": "Rekordkvart\u00e5l motsatt av konkurrentvinst och pris\u00f6kningstryck",
       "news_score": -1,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -2262,7 +2255,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "CL=F": {
       "price": 89.31,
@@ -2274,24 +2267,24 @@
       "bollinger": 0.92,
       "w52": 0.59,
       "trend": 0.6,
-      "signal": "HALL",
-      "styrka": 5,
+      "signal": "SALJ",
+      "styrka": 4,
       "ok": true,
       "profile": "commodity",
       "required_confirmations": 2,
       "oversold_label": null,
       "oversold_confirmations": null,
       "confirmation_details": null,
-      "pre_gate_signal": "HALL",
-      "pre_gate_strength": 5,
-      "final_signal": "HALL",
-      "final_strength": 5,
+      "pre_gate_signal": "SALJ",
+      "pre_gate_strength": 4,
+      "final_signal": "SALJ",
+      "final_strength": 4,
       "ath": 147.27,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "neutral",
-      "news_summary": "CL=F \u00e4r olja; nyheterna handlar om Colgate-Palmolive. Ingen relevant data.",
-      "news_score": 0,
+      "news_sentiment": "negative",
+      "news_summary": "Sjunkande energiefterfr\u00e5gan och volatilitet pressar oljepriserna",
+      "news_score": -1,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -2316,7 +2309,7 @@
       "is_volatile": false,
       "seasonal_factor": -0.5,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "GC=F": {
       "price": 4070.8,
@@ -2344,7 +2337,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Guldpriser under $4,100, v\u00e4ntar p\u00e5 r\u00e4ntebeslut n\u00e4sta vecka",
+      "news_summary": "Newmont-resultat irrelevant f\u00f6r GC=F guldterminer",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -2370,7 +2363,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "SI=F": {
       "price": 58.91,
@@ -2398,7 +2391,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Silver commodity news, ingen SI=F-specifik katalysator",
+      "news_summary": "Ingen relevant nyhet f\u00f6r SI=F identifierad",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -2424,16 +2417,16 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "BTC-USD": {
-      "price": 64326.85,
-      "change": 0.02,
-      "rsi": 52.6,
-      "ma50": 63244.14,
-      "ma200": 72124.66,
-      "macd": 364.868,
-      "bollinger": 0.52,
+      "price": 64377.08,
+      "change": 0.1,
+      "rsi": 52.8,
+      "ma50": 63245.14,
+      "ma200": 72124.91,
+      "macd": 368.875,
+      "bollinger": 0.53,
       "w52": 0.15,
       "trend": 0.45,
       "signal": "SALJ",
@@ -2452,7 +2445,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "negative",
-      "news_summary": "Risk-off macro milj\u00f6, oljechock tvingar Bitcoin-f\u00f6rs\u00e4ljning vid margin calls",
+      "news_summary": "Risk-off marknad, oljeprischock, makro os\u00e4kerhet pressar BTC",
       "news_score": -1,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -2478,36 +2471,36 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "ETH-USD": {
-      "price": 1880.83,
-      "change": 0.41,
-      "rsi": 58.6,
-      "ma50": 1747.84,
-      "ma200": 2139.53,
-      "macd": 37.464,
-      "bollinger": 0.65,
+      "price": 1883.33,
+      "change": 0.54,
+      "rsi": 58.8,
+      "ma50": 1747.89,
+      "ma200": 2139.54,
+      "macd": 37.663,
+      "bollinger": 0.66,
       "w52": 0.18,
       "trend": 0.6,
-      "signal": "HALL",
-      "styrka": 5,
+      "signal": "SALJ",
+      "styrka": 2,
       "ok": true,
       "profile": "crypto",
       "required_confirmations": 2,
       "oversold_label": null,
       "oversold_confirmations": null,
       "confirmation_details": null,
-      "pre_gate_signal": "HALL",
-      "pre_gate_strength": 5,
-      "final_signal": "HALL",
-      "final_strength": 5,
+      "pre_gate_signal": "SALJ",
+      "pre_gate_strength": 2,
+      "final_signal": "SALJ",
+      "final_strength": 2,
       "ath": 4953.73,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "positive",
-      "news_summary": "Institutionell k\u00f6pintresse och regulatorisk klarhet st\u00f6djer ETH",
-      "news_score": 1,
+      "news_sentiment": "negative",
+      "news_summary": "Regulatorisk os\u00e4kerhet om kryptolagstiftning v\u00e4ger tyngre \u00e4n builder-positiv sentiment",
+      "news_score": -1,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -2532,7 +2525,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "CSPX.L": {
       "price": 801.86,
@@ -2560,7 +2553,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Generisk marknadsbullish, inget CSPX-specifikt",
+      "news_summary": "Makroekonomisk brus utan direkt CSPX-p\u00e5verkan identifierad",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -2588,7 +2581,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "EQQQ.DE": {
       "price": 608.8,
@@ -2623,7 +2616,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "negative",
-      "news_summary": "Geopolitiska risker och energikris hotar teknik och tillv\u00e4xt",
+      "news_summary": "AI capex oro, oljepriser upp, tech-f\u00f6rs\u00e4ljning pressar Nasdaq",
       "news_score": -1,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -2649,7 +2642,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "JEDI.DE": {
       "price": 69.38,
@@ -2684,7 +2677,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Cathie Wood portf\u00f6ljaktivitet irrelevant f\u00f6r JEDI.DE",
+      "news_summary": "Cathie Wood portf\u00f6ljf\u00f6r\u00e4ndring ej relevant f\u00f6r JEDI.DE",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -2710,7 +2703,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "XACT-OMXS30.ST": {
       "price": 477.0,
@@ -2766,7 +2759,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "XACTHDIV.ST": {
       "price": 170.3,
@@ -2820,7 +2813,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "SMH.DE": {
       "price": 94.67,
@@ -2848,7 +2841,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "negative",
-      "news_summary": "Chipsektor svag. Intel-kollaps p\u00e5verkar SMH negativt.",
+      "news_summary": "Bred semiconductorselloff med SMH p\u00e5verkat, hyperscaler capex os\u00e4kerhet",
       "news_score": -1,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -2874,7 +2867,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "DFNS.L": {
       "price": 60.42,
@@ -2902,7 +2895,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "positive",
-      "news_summary": "F\u00f6rsvarsbudget \u00f6kar, sektor f\u00e5r tailwind. DFNS drar nytta.",
+      "news_summary": "F\u00f6rsvarssektorn f\u00e5r vind i seglen fr\u00e5n budget\u00f6kning",
       "news_score": 1,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -2930,7 +2923,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "VWRL.L": {
       "price": 135.74,
@@ -2958,7 +2951,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Generisk marknadskommentar utan f\u00f6retagsspecifik p\u00e5verkan",
+      "news_summary": "Generisk marknadskommentar utan specifika katalysat\u00f6rer f\u00f6r VWRL",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -2986,7 +2979,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "IS3N.DE": {
       "price": 45.93,
@@ -3021,7 +3014,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "neutral",
-      "news_summary": "Generiska marknadskommentarer utan IS3N-specifik p\u00e5verkan identifierad",
+      "news_summary": "Generiska marknadskommentarer utan IS3N-specifik p\u00e5verkan",
       "news_score": 0,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -3047,7 +3040,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "IQQH.DE": {
       "price": 9.14,
@@ -3075,15 +3068,15 @@
         "volume_positive": false
       },
       "pre_gate_signal": "KOP",
-      "pre_gate_strength": 8,
+      "pre_gate_strength": 9,
       "final_signal": "HALL",
       "final_strength": 5,
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "neutral",
-      "news_summary": "Energirapport utan direkt relevans f\u00f6r IQQH.DE",
-      "news_score": 0,
+      "news_sentiment": "positive",
+      "news_summary": "Oljepris\u00f6kning fr\u00e5n geopolitisk konflikt gynn\u00e5r energisektorn",
+      "news_score": 1,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -3110,7 +3103,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "IGLN.L": {
       "price": 79.07,
@@ -3123,7 +3116,7 @@
       "w52": 0.39,
       "trend": 0.5,
       "signal": "SALJ",
-      "styrka": 4,
+      "styrka": 3,
       "ok": true,
       "profile": "broad_etf",
       "required_confirmations": 1,
@@ -3131,15 +3124,15 @@
       "oversold_confirmations": null,
       "confirmation_details": null,
       "pre_gate_signal": "SALJ",
-      "pre_gate_strength": 4,
+      "pre_gate_strength": 3,
       "final_signal": "SALJ",
-      "final_strength": 4,
+      "final_strength": 3,
       "ath": null,
       "momentum": null,
       "earnings_date": null,
-      "news_sentiment": "neutral",
-      "news_summary": "Makroekonomisk os\u00e4kerhet, ej f\u00f6retagsspecifik nyheter",
-      "news_score": 0,
+      "news_sentiment": "negative",
+      "news_summary": "Stigande obligationsr\u00e4ntor pressar guldpriser och ETF-infl\u00f6den",
+      "news_score": -1,
       "news_confidence": null,
       "news_time_horizon": null,
       "fear_greed_warning": null,
@@ -3164,7 +3157,7 @@
       "is_volatile": false,
       "seasonal_factor": 0,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     },
     "QUTM.DE": {
       "price": 23.24,
@@ -3199,7 +3192,7 @@
       "momentum": null,
       "earnings_date": null,
       "news_sentiment": "negative",
-      "news_summary": "Quantum sektor s\u00e4ljs av; risk-off sentiment sl\u00e5r spekulativa aktier",
+      "news_summary": "Kvantdatoraktier faller i risk-off marknad. Sektornegativitet p\u00e5verkar QUTM.DE",
       "news_score": -1,
       "news_confidence": null,
       "news_time_horizon": null,
@@ -3227,7 +3220,7 @@
       "is_volatile": false,
       "seasonal_factor": 0.5,
       "futures_warning": null,
-      "time_weight": "intraday"
+      "time_weight": "morning"
     }
   },
   "fear_greed": {
@@ -3268,8 +3261,8 @@
   },
   "market_breadth": {
     "total": 57,
-    "negative_news": 13,
-    "negative_pct": 22.8,
+    "negative_news": 14,
+    "negative_pct": 24.6,
     "filter_applied": false
   },
   "avanza_status": {
@@ -3284,6 +3277,6 @@
     "stale_symbols": [],
     "cache_hours": 12,
     "healthy": true,
-    "checked": "2026-07-26 08:46"
+    "checked": "2026-07-26 09:16"
   }
 }
