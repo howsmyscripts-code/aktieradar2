@@ -120,8 +120,8 @@
     "news_score": 1
   },
   "AZN": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 1
   },
   "RELX": {
@@ -136,7 +136,7 @@
   },
   "NVDA": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 7,
     "news_score": 1
   },
   "INTC": {
@@ -166,7 +166,7 @@
   },
   "META": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 3,
     "news_score": -1
   },
   "TSLA": {
@@ -200,8 +200,8 @@
     "news_score": -1
   },
   "CL=F": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": -1
   },
   "GC=F": {
@@ -210,8 +210,8 @@
     "news_score": -1
   },
   "SI=F": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "BTC-USD": {
@@ -221,7 +221,7 @@
   },
   "ETH-USD": {
     "signal": "SALJ",
-    "styrka": 4,
+    "styrka": 2,
     "news_score": -1
   },
   "CSPX.L": {
