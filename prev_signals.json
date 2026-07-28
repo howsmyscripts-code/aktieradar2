@@ -101,12 +101,12 @@
   },
   "SHEL": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": 0
   },
   "SIEGY": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "NSRGY": {
@@ -165,8 +165,8 @@
     "news_score": -1
   },
   "META": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 1
   },
   "TSLA": {
@@ -206,7 +206,7 @@
   },
   "GC=F": {
     "signal": "SALJ",
-    "styrka": 1,
+    "styrka": 3,
     "news_score": -1
   },
   "SI=F": {
