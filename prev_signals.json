@@ -45,8 +45,8 @@
     "news_score": 0
   },
   "TEL2-B.ST": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 8,
     "news_score": 0
   },
   "BEAMMW-B.ST": {
@@ -115,8 +115,8 @@
     "news_score": 0
   },
   "EADSY": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 2
   },
   "AZN": {
@@ -206,12 +206,12 @@
   },
   "GC=F": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 4,
     "news_score": 0
   },
   "SI=F": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 1
   },
   "BTC-USD": {
@@ -231,7 +231,7 @@
   },
   "EQQQ.DE": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 8,
     "news_score": -1
   },
   "JEDI.DE": {
@@ -266,12 +266,12 @@
   },
   "IS3N.DE": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 8,
     "news_score": 0
   },
   "IQQH.DE": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "KOP",
+    "styrka": 8,
     "news_score": 1
   },
   "IGLN.L": {
