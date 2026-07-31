@@ -95,8 +95,8 @@
     "news_score": -2
   },
   "LVMUY": {
-    "signal": "SALJ",
-    "styrka": 3,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 1
   },
   "SHEL": {
@@ -146,7 +146,7 @@
   },
   "AAPL": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": -1
   },
   "MSFT": {
@@ -206,7 +206,7 @@
   },
   "GC=F": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": 2
   },
   "SI=F": {
