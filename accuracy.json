@@ -15970,8 +15970,9 @@
     "rsi": 39.0,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 1629.0,
+    "correct": false,
+    "pct_change": -1.36
   },
   "2026-07-31_SAP": {
     "date": "2026-07-31",
@@ -15989,8 +15990,9 @@
     "rsi": 65.5,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 183.62,
+    "correct": false,
+    "pct_change": 1.51
   },
   "2026-07-31_NVO": {
     "date": "2026-07-31",
@@ -16008,8 +16010,9 @@
     "rsi": 61.2,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 47.08,
+    "correct": false,
+    "pct_change": -8.78
   },
   "2026-07-31_LVMUY": {
     "date": "2026-07-31",
@@ -16027,8 +16030,9 @@
     "rsi": 45.6,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 109.86,
+    "correct": true,
+    "pct_change": 0.41
   },
   "2026-07-31_SHEL": {
     "date": "2026-07-31",
@@ -16046,8 +16050,9 @@
     "rsi": 77.8,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 91.98,
+    "correct": false,
+    "pct_change": 1.62
   },
   "2026-07-31_SIEGY": {
     "date": "2026-07-31",
@@ -16065,8 +16070,9 @@
     "rsi": 61.4,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 162.9,
+    "correct": true,
+    "pct_change": -0.1
   },
   "2026-07-31_NSRGY": {
     "date": "2026-07-31",
@@ -16084,8 +16090,9 @@
     "rsi": 48.7,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 99.94,
+    "correct": false,
+    "pct_change": -2.56
   },
   "2026-07-31_EADSY": {
     "date": "2026-07-31",
@@ -16103,8 +16110,9 @@
     "rsi": 59.3,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 58.44,
+    "correct": true,
+    "pct_change": -1.0
   },
   "2026-07-31_AZN": {
     "date": "2026-07-31",
@@ -16122,8 +16130,9 @@
     "rsi": 49.6,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 169.64,
+    "correct": true,
+    "pct_change": -0.99
   },
   "2026-07-31_RELX": {
     "date": "2026-07-31",
@@ -16141,8 +16150,9 @@
     "rsi": 66.9,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 35.42,
+    "correct": false,
+    "pct_change": -3.25
   },
   "2026-07-31_BAESY": {
     "date": "2026-07-31",
@@ -16160,8 +16170,9 @@
     "rsi": 85.0,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 113.57,
+    "correct": false,
+    "pct_change": 1.51
   },
   "2026-07-31_NVDA": {
     "date": "2026-07-31",
@@ -16179,8 +16190,9 @@
     "rsi": 37.4,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 200.75,
+    "correct": true,
+    "pct_change": 2.93
   },
   "2026-07-31_INTC": {
     "date": "2026-07-31",
@@ -16198,8 +16210,9 @@
     "rsi": 36.1,
     "profile": "large_cap",
     "is_volatile": true,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 90.2,
+    "correct": false,
+    "pct_change": -1.02
   },
   "2026-07-31_AAPL": {
     "date": "2026-07-31",
@@ -16217,8 +16230,9 @@
     "rsi": 64.4,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 308.91,
+    "correct": false,
+    "pct_change": -7.35
   },
   "2026-07-31_MSFT": {
     "date": "2026-07-31",
@@ -16236,8 +16250,9 @@
     "rsi": 73.6,
     "profile": "large_cap",
     "is_volatile": true,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 464.72,
+    "correct": false,
+    "pct_change": 3.02
   },
   "2026-07-31_AMZN": {
     "date": "2026-07-31",
@@ -16255,8 +16270,9 @@
     "rsi": 40.6,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 271.58,
+    "correct": true,
+    "pct_change": 15.32
   },
   "2026-07-31_GOOGL": {
     "date": "2026-07-31",
@@ -16274,8 +16290,9 @@
     "rsi": 39.2,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 356.13,
+    "correct": true,
+    "pct_change": 6.73
   },
   "2026-07-31_META": {
     "date": "2026-07-31",
@@ -16293,8 +16310,9 @@
     "rsi": 13.7,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 556.71,
+    "correct": false,
+    "pct_change": 3.28
   },
   "2026-07-31_TSLA": {
     "date": "2026-07-31",
@@ -16312,8 +16330,9 @@
     "rsi": 15.1,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 311.21,
+    "correct": true,
+    "pct_change": 0.76
   },
   "2026-07-31_JPM": {
     "date": "2026-07-31",
@@ -16331,8 +16350,9 @@
     "rsi": 62.1,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 351.79,
+    "correct": false,
+    "pct_change": 0.27
   },
   "2026-07-31_BRK-B": {
     "date": "2026-07-31",
@@ -16350,8 +16370,9 @@
     "rsi": 66.8,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 511.54,
+    "correct": true,
+    "pct_change": 0.36
   },
   "2026-07-31_LLY": {
     "date": "2026-07-31",
@@ -16369,8 +16390,9 @@
     "rsi": 43.5,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 1148.84,
+    "correct": false,
+    "pct_change": -0.53
   },
   "2026-07-31_BYDDF": {
     "date": "2026-07-31",
@@ -16388,8 +16410,9 @@
     "rsi": 68.7,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 11.95,
+    "correct": false,
+    "pct_change": -0.33
   },
   "2026-07-31_TSM": {
     "date": "2026-07-31",
@@ -16407,8 +16430,9 @@
     "rsi": 39.0,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 404.25,
+    "correct": false,
+    "pct_change": 0.23
   },
   "2026-07-31_CL=F": {
     "date": "2026-07-31",
@@ -16426,8 +16450,9 @@
     "rsi": 65.4,
     "profile": "commodity",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 84.59,
+    "correct": true,
+    "pct_change": 0.75
   },
   "2026-07-31_GC=F": {
     "date": "2026-07-31",
@@ -16445,8 +16470,9 @@
     "rsi": 54.1,
     "profile": "commodity",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 4108.4,
+    "correct": true,
+    "pct_change": -1.31
   },
   "2026-07-31_SI=F": {
     "date": "2026-07-31",
@@ -16464,8 +16490,9 @@
     "rsi": 48.4,
     "profile": "commodity",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 58.03,
+    "correct": false,
+    "pct_change": -2.08
   },
   "2026-07-31_BTC-USD": {
     "date": "2026-07-31",
@@ -16483,8 +16510,9 @@
     "rsi": 55.0,
     "profile": "crypto",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 62872.88,
+    "correct": false,
+    "pct_change": -2.82
   },
   "2026-07-31_ETH-USD": {
     "date": "2026-07-31",
@@ -16502,8 +16530,9 @@
     "rsi": 57.1,
     "profile": "crypto",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 1860.55,
+    "correct": true,
+    "pct_change": -3.05
   },
   "2026-07-31_CSPX.L": {
     "date": "2026-07-31",
