@@ -115,8 +115,8 @@
     "news_score": 0
   },
   "EADSY": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 0
   },
   "AZN": {
@@ -135,8 +135,8 @@
     "news_score": 1
   },
   "NVDA": {
-    "signal": "KOP",
-    "styrka": 8,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 1
   },
   "INTC": {
@@ -216,7 +216,7 @@
   },
   "BTC-USD": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 8,
     "news_score": 1
   },
   "ETH-USD": {
