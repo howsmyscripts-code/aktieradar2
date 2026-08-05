@@ -95,9 +95,9 @@
     "news_score": -1
   },
   "LVMUY": {
-    "signal": "SALJ",
-    "styrka": 4,
-    "news_score": 0
+    "signal": "HALL",
+    "styrka": 5,
+    "news_score": 1
   },
   "SHEL": {
     "signal": "KOP",
@@ -200,9 +200,9 @@
     "news_score": 1
   },
   "CL=F": {
-    "signal": "HALL",
-    "styrka": 6,
-    "news_score": 0
+    "signal": "KOP",
+    "styrka": 7,
+    "news_score": 1
   },
   "GC=F": {
     "signal": "SALJ",
@@ -216,8 +216,8 @@
   },
   "BTC-USD": {
     "signal": "SALJ",
-    "styrka": 3,
-    "news_score": 0
+    "styrka": 4,
+    "news_score": 1
   },
   "ETH-USD": {
     "signal": "SALJ",
