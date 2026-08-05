@@ -5,8 +5,8 @@
     "news_score": 0
   },
   "ATCO-B.ST": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 0
   },
   "SWED-A.ST": {
@@ -16,7 +16,7 @@
   },
   "SAAB-B.ST": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 2,
     "news_score": 0
   },
   "ERIC-B.ST": {
@@ -31,32 +31,32 @@
   },
   "KINV-B.ST": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 2,
     "news_score": 0
   },
   "HM-B.ST": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 2,
     "news_score": 0
   },
   "SEB-A.ST": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "SALJ",
+    "styrka": 2,
     "news_score": 0
   },
   "TEL2-B.ST": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 7,
     "news_score": 0
   },
   "BEAMMW-B.ST": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 0
   },
   "NANEXA.ST": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 2
   },
   "FREEM.ST": {
@@ -70,13 +70,13 @@
     "news_score": 0
   },
   "CLA-B.ST": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 0
   },
   "BOL.ST": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 10,
     "news_score": 2
   },
   "ASML": {
@@ -86,7 +86,7 @@
   },
   "SAP": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 2,
     "news_score": 1
   },
   "NVO": {
@@ -95,13 +95,13 @@
     "news_score": -1
   },
   "LVMUY": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 0
   },
   "SHEL": {
     "signal": "SALJ",
-    "styrka": 4,
+    "styrka": 3,
     "news_score": -1
   },
   "SIEGY": {
@@ -116,7 +116,7 @@
   },
   "EADSY": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": 1
   },
   "AZN": {
@@ -126,12 +126,12 @@
   },
   "RELX": {
     "signal": "SALJ",
-    "styrka": 4,
+    "styrka": 3,
     "news_score": 1
   },
   "BAESY": {
     "signal": "SALJ",
-    "styrka": 4,
+    "styrka": 3,
     "news_score": 1
   },
   "NVDA": {
@@ -160,18 +160,18 @@
     "news_score": -1
   },
   "GOOGL": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 0
   },
   "META": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 0
   },
   "TSLA": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 1
   },
   "JPM": {
@@ -186,12 +186,12 @@
   },
   "LLY": {
     "signal": "KOP",
-    "styrka": 10,
+    "styrka": 9,
     "news_score": 1
   },
   "BYDDF": {
     "signal": "SALJ",
-    "styrka": 4,
+    "styrka": 3,
     "news_score": 1
   },
   "TSM": {
@@ -201,27 +201,27 @@
   },
   "CL=F": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 10,
     "news_score": 1
   },
   "GC=F": {
     "signal": "SALJ",
-    "styrka": 4,
+    "styrka": 3,
     "news_score": 1
   },
   "SI=F": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 2,
     "news_score": 1
   },
   "BTC-USD": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 1
   },
   "ETH-USD": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": 0
   },
   "CSPX.L": {
@@ -236,12 +236,12 @@
   },
   "JEDI.DE": {
     "signal": "KOP",
-    "styrka": 10,
+    "styrka": 7,
     "news_score": 0
   },
   "XACT-OMXS30.ST": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 0
   },
   "XACTHDIV.ST": {
@@ -266,7 +266,7 @@
   },
   "IS3N.DE": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 8,
     "news_score": 0
   },
   "IQQH.DE": {
@@ -275,13 +275,13 @@
     "news_score": -1
   },
   "IGLN.L": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "SALJ",
+    "styrka": 3,
     "news_score": 1
   },
   "QUTM.DE": {
-    "signal": "KOP",
-    "styrka": 8,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   }
 }
