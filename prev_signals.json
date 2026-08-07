@@ -1,7 +1,7 @@
 {
   "INVE-B.ST": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": -1
   },
   "ATCO-B.ST": {
@@ -26,7 +26,7 @@
   },
   "VOLV-B.ST": {
     "signal": "SALJ",
-    "styrka": 4,
+    "styrka": 3,
     "news_score": -1
   },
   "KINV-B.ST": {
@@ -40,8 +40,8 @@
     "news_score": -1
   },
   "SEB-A.ST": {
-    "signal": "SALJ",
-    "styrka": 2,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 0
   },
   "TEL2-B.ST": {
@@ -56,12 +56,12 @@
   },
   "NANEXA.ST": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 7,
     "news_score": 2
   },
   "FREEM.ST": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "KOP",
+    "styrka": 8,
     "news_score": 0
   },
   "INDU-C.ST": {
@@ -75,13 +75,13 @@
     "news_score": 0
   },
   "BOL.ST": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 2
   },
   "ASML": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": -1
   },
   "SAP": {
@@ -120,8 +120,8 @@
     "news_score": 1
   },
   "AZN": {
-    "signal": "KOP",
-    "styrka": 8,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "RELX": {
@@ -201,7 +201,7 @@
   },
   "CL=F": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 8,
     "news_score": -1
   },
   "GC=F": {
@@ -220,8 +220,8 @@
     "news_score": 1
   },
   "ETH-USD": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 1
   },
   "CSPX.L": {
