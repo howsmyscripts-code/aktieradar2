@@ -106,8 +106,8 @@
   },
   "SIEGY": {
     "signal": "KOP",
-    "styrka": 7,
-    "news_score": -1
+    "styrka": 8,
+    "news_score": 0
   },
   "NSRGY": {
     "signal": "KOP",
