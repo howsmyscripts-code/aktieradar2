@@ -1,12 +1,12 @@
 {
   "INVE-B.ST": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 8,
     "news_score": 0
   },
   "ATCO-B.ST": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 0
   },
   "SWED-A.ST": {
@@ -25,8 +25,8 @@
     "news_score": 1
   },
   "VOLV-B.ST": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 0
   },
   "KINV-B.ST": {
@@ -40,13 +40,13 @@
     "news_score": -1
   },
   "SEB-A.ST": {
-    "signal": "SALJ",
-    "styrka": 2,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 0
   },
   "TEL2-B.ST": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 7,
     "news_score": 0
   },
   "BEAMMW-B.ST": {
@@ -60,23 +60,23 @@
     "news_score": 2
   },
   "FREEM.ST": {
-    "signal": "KOP",
-    "styrka": 8,
-    "news_score": 0
-  },
-  "INDU-C.ST": {
     "signal": "HALL",
     "styrka": 5,
     "news_score": 0
   },
-  "CLA-B.ST": {
+  "INDU-C.ST": {
     "signal": "HALL",
     "styrka": 6,
     "news_score": 0
   },
-  "BOL.ST": {
+  "CLA-B.ST": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 7,
+    "news_score": 0
+  },
+  "BOL.ST": {
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 2
   },
   "ASML": {
@@ -101,23 +101,23 @@
   },
   "SHEL": {
     "signal": "SALJ",
-    "styrka": 2,
-    "news_score": -1
+    "styrka": 3,
+    "news_score": 0
   },
   "SIEGY": {
     "signal": "KOP",
-    "styrka": 8,
-    "news_score": 0
+    "styrka": 7,
+    "news_score": -1
   },
   "NSRGY": {
     "signal": "KOP",
-    "styrka": 7,
-    "news_score": 0
+    "styrka": 8,
+    "news_score": 1
   },
   "EADSY": {
-    "signal": "HALL",
-    "styrka": 6,
-    "news_score": -1
+    "signal": "KOP",
+    "styrka": 8,
+    "news_score": 1
   },
   "AZN": {
     "signal": "KOP",
@@ -131,8 +131,8 @@
   },
   "BAESY": {
     "signal": "SALJ",
-    "styrka": 4,
-    "news_score": 1
+    "styrka": 3,
+    "news_score": 0
   },
   "NVDA": {
     "signal": "KOP",
@@ -146,8 +146,8 @@
   },
   "AAPL": {
     "signal": "HALL",
-    "styrka": 6,
-    "news_score": -1
+    "styrka": 5,
+    "news_score": -2
   },
   "MSFT": {
     "signal": "SALJ",
@@ -156,8 +156,8 @@
   },
   "AMZN": {
     "signal": "SALJ",
-    "styrka": 4,
-    "news_score": 1
+    "styrka": 3,
+    "news_score": 0
   },
   "GOOGL": {
     "signal": "KOP",
@@ -196,8 +196,8 @@
   },
   "TSM": {
     "signal": "KOP",
-    "styrka": 10,
-    "news_score": 2
+    "styrka": 9,
+    "news_score": 1
   },
   "CL=F": {
     "signal": "SALJ",
@@ -216,12 +216,12 @@
   },
   "BTC-USD": {
     "signal": "KOP",
-    "styrka": 7,
-    "news_score": 0
+    "styrka": 8,
+    "news_score": 1
   },
   "ETH-USD": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": 1
   },
   "CSPX.L": {
@@ -251,8 +251,8 @@
   },
   "SMH.DE": {
     "signal": "KOP",
-    "styrka": 8,
-    "news_score": 0
+    "styrka": 7,
+    "news_score": -1
   },
   "DFNS.L": {
     "signal": "SALJ",
