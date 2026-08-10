@@ -146,7 +146,7 @@
   },
   "AAPL": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": -1
   },
   "MSFT": {
@@ -161,7 +161,7 @@
   },
   "GOOGL": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 9,
     "news_score": 1
   },
   "META": {
@@ -220,8 +220,8 @@
     "news_score": 0
   },
   "ETH-USD": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 0
   },
   "CSPX.L": {
