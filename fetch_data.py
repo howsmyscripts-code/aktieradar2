@@ -8,7 +8,14 @@ import hashlib
 from datetime import datetime, timezone, timedelta
 from zoneinfo import ZoneInfo
 
-def fetch_fear_greed():
+def fetch_crypto_fear_greed():
+    """Hamtar Crypto Fear & Greed Index (api.alternative.me).
+    OBS: detta ar ETT KRYPTOSPECIFIKT index (Bitcoin-volatilitet, momentum,
+    social media) - INTE ett generellt aktiemarknadsindex som CNN:s Fear & Greed.
+    Far darfor ENDAST anvandas for att justera BTC-USD/ETH-USD, aldrig som ett
+    globalt marknadsfilter for aktier, ETF:er eller ravaror (se AktieRadar
+    scope-fix 2026-08-10).
+    """
     try:
         req = urllib.request.Request(
             "https://api.alternative.me/fng/?limit=1",
@@ -18,13 +25,13 @@ def fetch_fear_greed():
             data = json.loads(r.read().decode())
         value = int(data["data"][0]["value"])
         classification = data["data"][0]["value_classification"]
-        print(f"Fear & Greed Index: {value} ({classification})")
+        print(f"Crypto Fear & Greed Index: {value} ({classification})")
         return value, classification
     except Exception as e:
-        print(f"Fear & Greed fetch failed: {e}")
+        print(f"Crypto Fear & Greed fetch failed: {e}")
         return None, None
 
-def fear_greed_signal(value):
+def crypto_fear_greed_signal(value):
     if value is None: return 0
     if value <= 25:   return 2
     elif value <= 40: return 1
@@ -520,6 +527,53 @@ def calc_rsi_divergence(closes, rsi_values, period=14):
         return "NEGATIV_DIVERGENS"  # Pris stiger men RSI faller - säljsignal
     return None
 
+CRYPTO_SYMS = {"BTC-USD", "ETH-USD"}
+
+def calc_market_regime(results, sp500_futures):
+    """Eget, transparent marknadsklimat-matt for aktier/ETF:er/ravaror - ISTALLET
+    for Crypto Fear & Greed (fel datakalla for detta syfte, se scope-fix 2026-08-10).
+    Byggs ENDAST av data vi redan hamtar i denna korning:
+      - MA50-bredd: andel instrument (ej krypto) som handlas over sitt eget MA50
+      - Andel instrument (ej krypto) som stiger idag
+      - S&P 500-futures (redan hamtad separat)
+    Reproducerbart och testbart mot accuracy.json (till skillnad fran ett
+    ogenomskinligt tredjepartstal). Paverkar ALDRIG krypto - de har redan sin
+    egna dedikerade crypto_fg_adj.
+    """
+    non_crypto = [d for sym, d in results.items() if sym not in CRYPTO_SYMS and d.get("ok")]
+    n = len(non_crypto)
+    if n == 0:
+        return {"regime": "NEUTRAL", "score": 0, "breadth_above_ma50_pct": None,
+                "pct_positive_today": None, "sp500_futures": sp500_futures, "n": 0}
+
+    above_ma50 = sum(1 for d in non_crypto if d.get("ma50") and d.get("price") and d["price"] > d["ma50"])
+    breadth_pct = round(100 * above_ma50 / n, 1)
+
+    positive_today = sum(1 for d in non_crypto if (d.get("change") or 0) > 0)
+    positive_pct = round(100 * positive_today / n, 1)
+
+    score = 0
+    if breadth_pct >= 60: score += 1
+    elif breadth_pct <= 20: score -= 2
+    elif breadth_pct <= 35: score -= 1
+
+    if positive_pct >= 60: score += 1
+    elif positive_pct <= 20: score -= 2
+    elif positive_pct <= 35: score -= 1
+
+    if sp500_futures is not None:
+        if sp500_futures > 1.0: score += 1
+        elif sp500_futures < -2.0: score -= 2
+        elif sp500_futures < -1.0: score -= 1
+
+    if score >= 2: regime = "RISK_ON"
+    elif score <= -4: regime = "EXTREME_RISK_OFF"
+    elif score <= -2: regime = "RISK_OFF"
+    else: regime = "NEUTRAL"
+
+    return {"regime": regime, "score": score, "breadth_above_ma50_pct": breadth_pct,
+            "pct_positive_today": positive_pct, "sp500_futures": sp500_futures, "n": n}
+
 def calc_support_resistance(closes, ma50, ma200):
     """Beräkna om pris är nära stöd/motstånd"""
     price = closes[-1]
@@ -787,8 +841,8 @@ def compute_signal(rsi, ma50, ma200, change, macd=None, macd_signal=None,
 results = {}
 avanza_failures = []  # svenska symboler dar Avanza-endpointen inte svarade (health-koll)
 
-fg_value, fg_class = fetch_fear_greed()
-fg_adj = fear_greed_signal(fg_value)
+crypto_fg_value, crypto_fg_class = fetch_crypto_fear_greed()
+crypto_fg_adj = crypto_fear_greed_signal(crypto_fg_value)
 sp500_futures = fetch_sp500_futures()
 time_weight = get_time_weight()
 if sp500_futures is not None:
@@ -928,16 +982,17 @@ for sym in STOCKS:
             is_volatile=is_volatile
         )
 
-        if sym in ["BTC-USD", "ETH-USD"] and fg_adj != 0:
-            styrka = max(1, min(10, styrka + fg_adj))
+        if sym in ["BTC-USD", "ETH-USD"] and crypto_fg_adj != 0:
+            styrka = max(1, min(10, styrka + crypto_fg_adj))
             signal = "KOP" if styrka >= 7 else "SALJ" if styrka <= 4 else "HALL"
 
-        # Marknadsfilter: nedgradera KÖP-signaler vid Extreme Fear (F&G < 15)
+        # BORTTAGET 2026-08-10 (scope-fix): tidigare dampade denna Crypto Fear & Greed
+        # KOP-signaler for ALLA 57 instrument (aktier, ETF:er, ravaror) - inte bara
+        # krypto. Crypto Fear & Greed ar kryptospecifikt (Bitcoin-volatilitet,
+        # social media) och ska inte kunna nedgradera t.ex. Investor eller Boliden pa
+        # grund av en kryptospecifik handelse (exchange-krasch, reglering etc).
+        # Kryptojusteringen ovan (rad 931-933) ar korrekt avgransad och paverkas ej.
         fear_greed_warning = None
-        if fg_value is not None and fg_value < 15 and signal == "KOP":
-            styrka = max(1, styrka - 2)
-            signal = "KOP" if styrka >= 7 else "SALJ" if styrka <= 4 else "HALL"
-            fear_greed_warning = "Extreme Fear - KOP-signal nedgraderad"
 
         # Futures-justering: nedgradera om S&P 500 futures är starkt negativa
         futures_warning = None
@@ -1104,7 +1159,7 @@ def market_close_hour(sym):
         return 18
     return 22  # US-noterade (AAPL, MSFT, NVDA, etc), krypto, ravaror
 
-def update_accuracy_tracking(results, fg_value):
+def update_accuracy_tracking(results, crypto_fg_value):
     """Spara signaler och priser for accuracy-tracking. Returnerar hela accuracy-dicten.
 
     Robust mot tre kanda problem:
@@ -1149,7 +1204,7 @@ def update_accuracy_tracking(results, fg_value):
                 "signal": d["signal"], "styrka": d["styrka"],
                 "morning_price": d["price"],
                 "news_score": d.get("news_score", 0),
-                "fg_value": fg_value,
+                "crypto_fg_value": crypto_fg_value,  # OBS: nyckel bytt fran "fg_value" 2026-08-10 (kryptospecifikt, ej marknadssentiment)
                 "pre_gate_signal": d.get("pre_gate_signal"),
                 "pre_gate_strength": d.get("pre_gate_strength"),
                 "oversold_confirmations": d.get("oversold_confirmations"),
@@ -1341,9 +1396,12 @@ for _etf in sector_warnings:
         _d["styrka"] = max(1, _d["styrka"] - 1)
         _d["signal"] = "KOP" if _d["styrka"] >= 7 else "SALJ" if _d["styrka"] <= 4 else "HALL"
 
-# ── Marknadsbredd + marknadsfilter ───────────────────────────────────────────
-# Designat filter: vid Extreme Fear (F&G < 15) OCH majoritet negativt news_score
-# nedviktas KÖP-signaler ett extra steg (utöver den per-aktie -2 som redan skett).
+# ── Marknadsbredd (info) ──────────────────────────────────────────────────────
+# BORTTAGET 2026-08-10 (scope-fix): filtret anvande tidigare Crypto Fear & Greed
+# (kryptospecifikt index) for att nedvikta KOP over ALLA 57 instrument - samma
+# scope-bugg som ovan. market_breadth kvarstar som ren informationsstatistik
+# (negativt news-andel) men styr inte langre nagon signal. "filter_applied" star
+# kvar i schemat (alltid False) for bakatkompatibilitet med frontend/historik.
 _ok_list = [d for d in results.values() if d.get("ok")]
 _neg_news = sum(1 for d in _ok_list if (d.get("news_score") or 0) < 0)
 market_breadth = {
@@ -1352,13 +1410,6 @@ market_breadth = {
     "negative_pct": round(100 * _neg_news / len(_ok_list), 1) if _ok_list else 0.0,
     "filter_applied": False,
 }
-if fg_value is not None and fg_value < 15 and _ok_list and _neg_news > len(_ok_list) / 2:
-    for _d in results.values():
-        if _d.get("ok") and _d.get("signal") == "KOP":
-            _d["styrka"] = max(1, _d["styrka"] - 1)
-            _d["signal"] = "KOP" if _d["styrka"] >= 7 else "SALJ" if _d["styrka"] <= 4 else "HALL"
-    market_breadth["filter_applied"] = True
-    print(f"Marknadsfilter AKTIVT: F&G {fg_value} + {_neg_news}/{len(_ok_list)} negativt news → KÖP nedviktade")
 
 # SLUTGRIND: bekraftelsegrind + graderat styrketak + volatilitetssparr kors HAR,
 # allra sist efter sektor- och marknadsbreddsfiltret, sa ingen justering kan kringga
@@ -1366,9 +1417,35 @@ if fg_value is not None and fg_value < 15 and _ok_list and _neg_news > len(_ok_l
 # signal/styrka andras innan de sparas och utvarderas.
 apply_final_gates(results)
 
+# ── Eget marknadsklimat-matt (ersatter den borttagna Crypto-F&G-baserade filtret) ──
+# Kors EFTER slutgrinden, sist av allt - sa aven detta blir en del av "sista ordet".
+# Ingriper ENDAST vid genuin extrem (EXTREME_RISK_OFF), konservativt och engangs,
+# precis som det gamla (buggiga) filtret gjorde vid F&G<15 - men nu med akta
+# aktiemarknadsdata istallet for kryptosentiment. Paverkar aldrig BTC/ETH.
+market_regime = calc_market_regime(results, sp500_futures)
+print(f"Market regime: {market_regime['regime']} (score {market_regime['score']}, "
+      f"MA50-bredd {market_regime['breadth_above_ma50_pct']}%, "
+      f"positiva idag {market_regime['pct_positive_today']}%, "
+      f"S&P futures {sp500_futures})")
+
+for _sym, _d in results.items():
+    if not _d.get("ok"):
+        continue
+    _d["market_regime_warning"] = None
+    if _sym in CRYPTO_SYMS:
+        continue  # krypto styrs uteslutande av crypto_fg_adj, aldrig av market_regime
+    if market_regime["regime"] == "EXTREME_RISK_OFF" and _d.get("final_signal") == "KOP":
+        _d["final_strength"] = max(1, _d["final_strength"] - 1)
+        _d["final_signal"] = ("KOP" if _d["final_strength"] >= 7
+                               else "SALJ" if _d["final_strength"] <= 4 else "HALL")
+        _d["signal"] = _d["final_signal"]
+        _d["styrka"] = _d["final_strength"]
+        _d["market_regime_warning"] = f"EXTREME_RISK_OFF (score {market_regime['score']}) - KOP nedgraderad"
+        print(f"Market regime EXTREME_RISK_OFF: {_sym} KOP nedgraderad -> {_d['final_signal']} {_d['final_strength']}")
+
 # Kor accuracy-tracking HAR - efter slutgrinden - sa den registrerar den
 # slutgiltiga signalen som faktiskt visas i appen, inte rasignalen.
-accuracy_data = update_accuracy_tracking(results, fg_value)
+accuracy_data = update_accuracy_tracking(results, crypto_fg_value)
 accuracy_summary = compute_accuracy_summary(accuracy_data, symbols=TRACKED_HOLDINGS)
 
 # ── Avanza-endpoint health-koll ──────────────────────────────────────────────
@@ -1420,9 +1497,15 @@ else:
 output = {
     "updated": (datetime.now(ZoneInfo("Europe/Stockholm"))).strftime("%Y-%m-%d %H:%M svensk tid"),
     "stocks": results,
-    "fear_greed": {"value": fg_value, "classification": fg_class} if fg_value is not None else None,
+    # OBS 2026-08-10: "fear_greed" ar KRYPTOSPECIFIKT (Crypto Fear & Greed Index),
+    # inte ett generellt aktiemarknadsmatt. Nyckeln behalls for bakatkompatibilitet
+    # med index.html; "crypto_fear_greed" ar samma data under ett tydligare namn.
+    # Paverkar ENDAST BTC-USD/ETH-USD i signallogiken - se fetch_crypto_fear_greed().
+    "fear_greed": {"value": crypto_fg_value, "classification": crypto_fg_class} if crypto_fg_value is not None else None,
+    "crypto_fear_greed": {"value": crypto_fg_value, "classification": crypto_fg_class} if crypto_fg_value is not None else None,
     "accuracy_summary": accuracy_summary,
     "market_breadth": market_breadth,
+    "market_regime": market_regime,
     "avanza_status": avanza_status,
 }
 if sector_warnings:
