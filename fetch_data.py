@@ -40,12 +40,28 @@ def crypto_fear_greed_signal(value):
     else:             return -2
 
 def fetch_sp500_futures():
-    """Hämta S&P 500 futures för att förutsäga marknadsöppning"""
+    """Hämta S&P 500 futures för att förutsäga marknadsöppning.
+    ChatGPT-granskning 2026-08-10 punkt 3 - semantik verifierad genom kodlasning
+    (kunde EJ testas live har - yfinance/Yahoo ar inte i sandladans natverkslista):
+    history(period="2d") ger DAGSBARER (standardintervall 1d), inte hogupplost
+    intradagsdata. Berakningen ar alltsa "senaste tillgangliga dagsbarens Close"
+    (kan vara en fortfarande pagaende handelsdags senaste pris om ES=F handlas)
+    jamfort med "foregaende dagsbars Close" - analogt med hur 'change' beraknas
+    for ovriga instrument i appen, men INTE minut-for-minut-futuresrorelse.
+    Loggar rada varden (tidsstampel, referenspris, senaste pris) for full
+    transparens i GitHub Actions-loggen.
+    """
     try:
         futures = yf.Ticker("ES=F")
         hist = futures.history(period="2d")
         if len(hist) >= 2:
-            change = ((hist["Close"].iloc[-1] - hist["Close"].iloc[-2]) / hist["Close"].iloc[-2]) * 100
+            prev_close = hist["Close"].iloc[-2]
+            last_close = hist["Close"].iloc[-1]
+            prev_ts = hist.index[-2]
+            last_ts = hist.index[-1]
+            change = ((last_close - prev_close) / prev_close) * 100
+            print(f"S&P futures (ES=F) rådata: {prev_ts} close={prev_close:.2f} -> "
+                  f"{last_ts} close={last_close:.2f} => {change:+.2f}%")
             return round(change, 2)
         return None
     except Exception as e:
@@ -529,27 +545,46 @@ def calc_rsi_divergence(closes, rsi_values, period=14):
 
 CRYPTO_SYMS = {"BTC-USD", "ETH-USD"}
 
+# ChatGPT-granskning 2026-08-10 punkt 2: breadth-universumet for market_regime ska
+# vara RENA AKTIER - inte en blandning av aktier/ETF:er/ravaror. En bred ETF (t.ex.
+# SMH.DE) haller manga av samma bolag som redan rakas individuellt (NVDA m.fl.),
+# vilket ger dubbelrakning/skev viktning. Harleds DYNAMISKT fran INSTRUMENT_PROFILES
+# (istallet for en andra hardkodad lista som kan bli inaktuell nar instrument
+# laggs till) - allt som INTE ar broad_etf/thematic_etf/commodity/crypto raknas
+# som "aktie" (small_cap + default large_cap).
+_NON_EQUITY_PROFILES = {"broad_etf", "thematic_etf", "commodity", "crypto"}
+MARKET_REGIME_EQUITIES = set(
+    sym for sym in STOCKS
+    if INSTRUMENT_PROFILES.get(sym, DEFAULT_PROFILE)["profile"] not in _NON_EQUITY_PROFILES
+)
+
 def calc_market_regime(results, sp500_futures):
-    """Eget, transparent marknadsklimat-matt for aktier/ETF:er/ravaror - ISTALLET
-    for Crypto Fear & Greed (fel datakalla for detta syfte, se scope-fix 2026-08-10).
+    """Eget, transparent marknadsklimat-matt for aktier - ISTALLET for Crypto Fear
+    & Greed (fel datakalla for detta syfte, se scope-fix 2026-08-10).
     Byggs ENDAST av data vi redan hamtar i denna korning:
-      - MA50-bredd: andel instrument (ej krypto) som handlas over sitt eget MA50
-      - Andel instrument (ej krypto) som stiger idag
-      - S&P 500-futures (redan hamtad separat)
+      - MA50-bredd: andel RENA AKTIER (MARKET_REGIME_EQUITIES) som handlas over
+        sitt eget MA50 - INTE ETF:er/ravaror, for att undvika dubbelrakning
+        (ChatGPT-granskning 2026-08-10 punkt 2; en bred ETF innehaller manga av
+        samma bolag som redan rakas individuellt).
+      - Andel av samma aktieurval som stiger idag
+      - S&P 500-futures (redan hamtad separat; se fetch_sp500_futures for exakt
+        semantik - dagsforandring pa senaste vs foregaende dagsbar, ej hogupplost
+        intradagsdata, punkt 3 i granskningen)
     Reproducerbart och testbart mot accuracy.json (till skillnad fran ett
     ogenomskinligt tredjepartstal). Paverkar ALDRIG krypto - de har redan sin
     egna dedikerade crypto_fg_adj.
     """
-    non_crypto = [d for sym, d in results.items() if sym not in CRYPTO_SYMS and d.get("ok")]
-    n = len(non_crypto)
+    universe = [d for sym, d in results.items()
+                if sym in MARKET_REGIME_EQUITIES and d.get("ok")]
+    n = len(universe)
     if n == 0:
         return {"regime": "NEUTRAL", "score": 0, "breadth_above_ma50_pct": None,
                 "pct_positive_today": None, "sp500_futures": sp500_futures, "n": 0}
 
-    above_ma50 = sum(1 for d in non_crypto if d.get("ma50") and d.get("price") and d["price"] > d["ma50"])
+    above_ma50 = sum(1 for d in universe if d.get("ma50") and d.get("price") and d["price"] > d["ma50"])
     breadth_pct = round(100 * above_ma50 / n, 1)
 
-    positive_today = sum(1 for d in non_crypto if (d.get("change") or 0) > 0)
+    positive_today = sum(1 for d in universe if (d.get("change") or 0) > 0)
     positive_pct = round(100 * positive_today / n, 1)
 
     score = 0
@@ -1159,7 +1194,7 @@ def market_close_hour(sym):
         return 18
     return 22  # US-noterade (AAPL, MSFT, NVDA, etc), krypto, ravaror
 
-def update_accuracy_tracking(results, crypto_fg_value):
+def update_accuracy_tracking(results, crypto_fg_value, market_regime=None):
     """Spara signaler och priser for accuracy-tracking. Returnerar hela accuracy-dicten.
 
     Robust mot tre kanda problem:
@@ -1205,6 +1240,11 @@ def update_accuracy_tracking(results, crypto_fg_value):
                 "morning_price": d["price"],
                 "news_score": d.get("news_score", 0),
                 "crypto_fg_value": crypto_fg_value,  # OBS: nyckel bytt fran "fg_value" 2026-08-10 (kryptospecifikt, ej marknadssentiment)
+                "market_regime": market_regime.get("regime") if market_regime else None,
+                "market_regime_score": market_regime.get("score") if market_regime else None,
+                "breadth_above_ma50_pct": market_regime.get("breadth_above_ma50_pct") if market_regime else None,
+                "pct_positive_today": market_regime.get("pct_positive_today") if market_regime else None,
+                "sp500_futures": market_regime.get("sp500_futures") if market_regime else None,
                 "pre_gate_signal": d.get("pre_gate_signal"),
                 "pre_gate_strength": d.get("pre_gate_strength"),
                 "oversold_confirmations": d.get("oversold_confirmations"),
@@ -1411,20 +1451,16 @@ market_breadth = {
     "filter_applied": False,
 }
 
-# SLUTGRIND: bekraftelsegrind + graderat styrketak + volatilitetssparr kors HAR,
-# allra sist efter sektor- och marknadsbreddsfiltret, sa ingen justering kan kringga
-# dem (ChatGPT-granskning 2026-07-25, punkt 2.1/2.2/2.4). Detta ar sista stallet
-# signal/styrka andras innan de sparas och utvarderas.
-apply_final_gates(results)
-
 # ── Eget marknadsklimat-matt (ersatter den borttagna Crypto-F&G-baserade filtret) ──
-# Kors EFTER slutgrinden, sist av allt - sa aven detta blir en del av "sista ordet".
-# Ingriper ENDAST vid genuin extrem (EXTREME_RISK_OFF), konservativt och engangs,
-# precis som det gamla (buggiga) filtret gjorde vid F&G<15 - men nu med akta
-# aktiemarknadsdata istallet for kryptosentiment. Paverkar aldrig BTC/ETH.
+# ChatGPT-granskning 2026-08-10 punkt 1: apply_final_gates() MASTE forbli absolut
+# sist. Darfor beraknas och appliceras market_regime HAR - pa signal/styrka (fore
+# grinden), INTE pa final_signal/final_strength. apply_final_gates() kors sedan
+# EFTER och har darmed fortsatt sista ordet over allt, inklusive denna justering.
+# Ingriper ENDAST vid genuin extrem (EXTREME_RISK_OFF), konservativt och engangs.
+# Paverkar aldrig BTC/ETH (de har redan sin egen dedikerade crypto_fg_adj).
 market_regime = calc_market_regime(results, sp500_futures)
 print(f"Market regime: {market_regime['regime']} (score {market_regime['score']}, "
-      f"MA50-bredd {market_regime['breadth_above_ma50_pct']}%, "
+      f"equity-bredd {market_regime['breadth_above_ma50_pct']}% (n={market_regime['n']}), "
       f"positiva idag {market_regime['pct_positive_today']}%, "
       f"S&P futures {sp500_futures})")
 
@@ -1434,18 +1470,22 @@ for _sym, _d in results.items():
     _d["market_regime_warning"] = None
     if _sym in CRYPTO_SYMS:
         continue  # krypto styrs uteslutande av crypto_fg_adj, aldrig av market_regime
-    if market_regime["regime"] == "EXTREME_RISK_OFF" and _d.get("final_signal") == "KOP":
-        _d["final_strength"] = max(1, _d["final_strength"] - 1)
-        _d["final_signal"] = ("KOP" if _d["final_strength"] >= 7
-                               else "SALJ" if _d["final_strength"] <= 4 else "HALL")
-        _d["signal"] = _d["final_signal"]
-        _d["styrka"] = _d["final_strength"]
+    if market_regime["regime"] == "EXTREME_RISK_OFF" and _d.get("signal") == "KOP":
+        _d["styrka"] = max(1, _d["styrka"] - 1)
+        _d["signal"] = ("KOP" if _d["styrka"] >= 7
+                         else "SALJ" if _d["styrka"] <= 4 else "HALL")
         _d["market_regime_warning"] = f"EXTREME_RISK_OFF (score {market_regime['score']}) - KOP nedgraderad"
-        print(f"Market regime EXTREME_RISK_OFF: {_sym} KOP nedgraderad -> {_d['final_signal']} {_d['final_strength']}")
+        print(f"Market regime EXTREME_RISK_OFF: {_sym} KOP nedgraderad -> {_d['signal']} {_d['styrka']} (fore slutgrind)")
+
+# SLUTGRIND: bekraftelsegrind + graderat styrketak + volatilitetssparr kors HAR,
+# allra sist - efter sektorvarning OCH market_regime - sa ingen tidigare justering
+# kan kringga dem (ChatGPT-granskning 2026-07-25 punkt 2.1/2.2/2.4, samt 2026-08-10
+# punkt 1). Detta ar det enda stallet dar final_signal/final_strength satts.
+apply_final_gates(results)
 
 # Kor accuracy-tracking HAR - efter slutgrinden - sa den registrerar den
 # slutgiltiga signalen som faktiskt visas i appen, inte rasignalen.
-accuracy_data = update_accuracy_tracking(results, crypto_fg_value)
+accuracy_data = update_accuracy_tracking(results, crypto_fg_value, market_regime)
 accuracy_summary = compute_accuracy_summary(accuracy_data, symbols=TRACKED_HOLDINGS)
 
 # ── Avanza-endpoint health-koll ──────────────────────────────────────────────
