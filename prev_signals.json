@@ -5,8 +5,8 @@
     "news_score": 0
   },
   "ATCO-B.ST": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "SWED-A.ST": {
@@ -60,13 +60,13 @@
     "news_score": 2
   },
   "FREEM.ST": {
-    "signal": "KOP",
-    "styrka": 10,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 0
   },
   "INDU-C.ST": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "CLA-B.ST": {
@@ -75,8 +75,8 @@
     "news_score": 0
   },
   "BOL.ST": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 2
   },
   "ASML": {
@@ -95,9 +95,9 @@
     "news_score": -1
   },
   "LVMUY": {
-    "signal": "SALJ",
-    "styrka": 3,
-    "news_score": -1
+    "signal": "HALL",
+    "styrka": 5,
+    "news_score": 1
   },
   "SHEL": {
     "signal": "SALJ",
@@ -131,8 +131,8 @@
   },
   "BAESY": {
     "signal": "SALJ",
-    "styrka": 4,
-    "news_score": 1
+    "styrka": 3,
+    "news_score": 0
   },
   "NVDA": {
     "signal": "KOP",
@@ -171,8 +171,8 @@
   },
   "TSLA": {
     "signal": "SALJ",
-    "styrka": 4,
-    "news_score": 0
+    "styrka": 3,
+    "news_score": -1
   },
   "JPM": {
     "signal": "KOP",
@@ -196,13 +196,13 @@
   },
   "TSM": {
     "signal": "KOP",
-    "styrka": 10,
-    "news_score": 2
+    "styrka": 9,
+    "news_score": 1
   },
   "CL=F": {
     "signal": "SALJ",
-    "styrka": 4,
-    "news_score": 0
+    "styrka": 3,
+    "news_score": -1
   },
   "GC=F": {
     "signal": "SALJ",
@@ -211,7 +211,7 @@
   },
   "SI=F": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 3,
     "news_score": 1
   },
   "BTC-USD": {
@@ -220,8 +220,8 @@
     "news_score": 0
   },
   "ETH-USD": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 1
   },
   "CSPX.L": {
@@ -235,8 +235,8 @@
     "news_score": 0
   },
   "JEDI.DE": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "XACT-OMXS30.ST": {
@@ -251,8 +251,8 @@
   },
   "SMH.DE": {
     "signal": "KOP",
-    "styrka": 8,
-    "news_score": 0
+    "styrka": 9,
+    "news_score": 1
   },
   "DFNS.L": {
     "signal": "SALJ",
