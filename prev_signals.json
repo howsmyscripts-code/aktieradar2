@@ -106,7 +106,7 @@
   },
   "SIEGY": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 7,
     "news_score": 1
   },
   "NSRGY": {
@@ -161,7 +161,7 @@
   },
   "GOOGL": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": 0
   },
   "META": {
@@ -170,8 +170,8 @@
     "news_score": -1
   },
   "TSLA": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 3,
     "news_score": 1
   },
   "JPM": {
@@ -181,7 +181,7 @@
   },
   "BRK-B": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 7,
     "news_score": 1
   },
   "LLY": {
