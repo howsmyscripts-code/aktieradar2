@@ -27314,8 +27314,9 @@
     "rsi": 72.3,
     "profile": "broad_etf",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 489.8,
+    "correct": true,
+    "pct_change": -0.26
   },
   "2026-08-12_XACTHDIV.ST": {
     "date": "2026-08-12",
