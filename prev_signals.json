@@ -1,7 +1,7 @@
 {
   "INVE-B.ST": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 0
   },
   "ATCO-B.ST": {
@@ -40,8 +40,8 @@
     "news_score": -1
   },
   "SEB-A.ST": {
-    "signal": "KOP",
-    "styrka": 9,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 2
   },
   "TEL2-B.ST": {
@@ -55,8 +55,8 @@
     "news_score": 0
   },
   "NANEXA.ST": {
-    "signal": "KOP",
-    "styrka": 9,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 2
   },
   "FREEM.ST": {
@@ -75,8 +75,8 @@
     "news_score": 0
   },
   "BOL.ST": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 2
   },
   "ASML": {
@@ -100,8 +100,8 @@
     "news_score": 0
   },
   "SHEL": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 0
   },
   "SIEGY": {
@@ -141,7 +141,7 @@
   },
   "INTC": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 9,
     "news_score": 2
   },
   "AAPL": {
@@ -215,8 +215,8 @@
     "news_score": 1
   },
   "BTC-USD": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": -1
   },
   "ETH-USD": {
