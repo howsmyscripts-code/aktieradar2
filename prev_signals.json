@@ -1,12 +1,12 @@
 {
   "INVE-B.ST": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 0
   },
   "ATCO-B.ST": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "SWED-A.ST": {
@@ -40,8 +40,8 @@
     "news_score": -1
   },
   "SEB-A.ST": {
-    "signal": "KOP",
-    "styrka": 9,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 2
   },
   "TEL2-B.ST": {
@@ -55,8 +55,8 @@
     "news_score": 0
   },
   "NANEXA.ST": {
-    "signal": "KOP",
-    "styrka": 9,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 2
   },
   "FREEM.ST": {
@@ -86,12 +86,12 @@
   },
   "SAP": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 1,
     "news_score": 0
   },
   "NVO": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": -1
   },
   "LVMUY": {
@@ -120,8 +120,8 @@
     "news_score": 0
   },
   "AZN": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": -1
   },
   "RELX": {
@@ -141,12 +141,12 @@
   },
   "INTC": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 8,
     "news_score": 2
   },
   "AAPL": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 7,
     "news_score": 1
   },
   "MSFT": {
@@ -195,13 +195,13 @@
     "news_score": 1
   },
   "TSM": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": -1
   },
   "CL=F": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": -1
   },
   "GC=F": {
