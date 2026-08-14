@@ -1,11 +1,11 @@
 {
   "INVE-B.ST": {
-    "headlines_hash": "d807ba9d1961865e665403039cc57325",
+    "headlines_hash": "1d858d2d459c474c1b8e77ce1b59d8ce",
     "sentiment": {
-      "sentiment": "neutral",
-      "score": 0,
-      "summary": "Blandad nyhet. CEO-avg\u00e5ng negativ, IoT-f\u00f6rs\u00e4ljning kan vara strategisk.",
-      "catalyst": "none"
+      "sentiment": "negative",
+      "score": -2,
+      "summary": "B\u00e5de Q2-missning och Q3-v\u00e4gledning l\u00e5ngt under f\u00f6rv\u00e4ntningar",
+      "catalyst": "Betydande int\u00e4ktsmissar och svag framtidsv\u00e4gledning"
     }
   },
   "ATCO-B.ST": {
@@ -72,12 +72,12 @@
     }
   },
   "SEB-A.ST": {
-    "headlines_hash": "3dcdbdbfec123b06784811d8cab31d85",
+    "headlines_hash": "4207e753ac8fcfef86e20edab10e6e38",
     "sentiment": {
-      "sentiment": "positive",
-      "score": 2,
-      "summary": "Stark vinst\u00f6kning 52% och f\u00f6rs\u00e4ljnings\u00f6kning 18% \u00e5r-\u00f6ver-\u00e5r",
-      "catalyst": "Q2 earnings beat med b\u00e5de EPS och revenue \u00f6vertr\u00e4ffande"
+      "sentiment": "neutral",
+      "score": 0,
+      "summary": "Fel ticker - SEB-A \u00e4r bank, inte Seaboard (SEB)",
+      "catalyst": "none"
     }
   },
   "TEL2-B.ST": {
@@ -117,20 +117,20 @@
     }
   },
   "ASML": {
-    "headlines_hash": "b8e493b56682324cf84f7302537bfeb4",
+    "headlines_hash": "810ff49d95de0960c77341b0e5fa81f4",
     "sentiment": {
       "sentiment": "negative",
       "score": -1,
-      "summary": "Analytiker varnar f\u00f6r problem i chipaktier; ASML p\u00e5verkas negativt",
-      "catalyst": "Sektoromfattande nedg\u00e5ng i semiconductors, analytikernegativitet"
+      "summary": "Analytiker varnar f\u00f6r chipstockproblem; ASML p\u00e5verkas indirekt",
+      "catalyst": "Chipsektor-bredvid f\u00f6rs\u00e4mring och analytikerov\u00e4ntningar"
     }
   },
   "SAP": {
-    "headlines_hash": "2d150cf77037a1078b065e7619f5f513",
+    "headlines_hash": "d5d5785c23885ca0ccb2b1ae697d6a2d",
     "sentiment": {
       "sentiment": "neutral",
       "score": 0,
-      "summary": "Ingen SAP-specifik nyhet; generisk sektorkommentar ignoreras",
+      "summary": "Ingen SAP-specifik nyhet, endast generisk sektor-kontext",
       "catalyst": "none"
     }
   },
