@@ -1,7 +1,7 @@
 {
   "INVE-B.ST": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": -2
   },
   "ATCO-B.ST": {
@@ -66,7 +66,7 @@
   },
   "INDU-C.ST": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 7,
     "news_score": 0
   },
   "CLA-B.ST": {
@@ -136,7 +136,7 @@
   },
   "NVDA": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 4,
     "news_score": 0
   },
   "INTC": {
@@ -176,7 +176,7 @@
   },
   "JPM": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 7,
     "news_score": 0
   },
   "BRK-B": {
@@ -220,8 +220,8 @@
     "news_score": 1
   },
   "ETH-USD": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 1
   },
   "CSPX.L": {
