@@ -1,12 +1,12 @@
 {
   "INVE-B.ST": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 0
   },
   "ATCO-B.ST": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "SWED-A.ST": {
@@ -16,12 +16,12 @@
   },
   "SAAB-B.ST": {
     "signal": "SALJ",
-    "styrka": 4,
+    "styrka": 2,
     "news_score": 0
   },
   "ERIC-B.ST": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": 0
   },
   "VOLV-B.ST": {
@@ -36,12 +36,12 @@
   },
   "HM-B.ST": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 3,
     "news_score": -1
   },
   "SEB-A.ST": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "TEL2-B.ST": {
@@ -56,17 +56,17 @@
   },
   "NANEXA.ST": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 8,
     "news_score": 2
   },
   "FREEM.ST": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "KOP",
+    "styrka": 8,
     "news_score": 0
   },
   "INDU-C.ST": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 8,
     "news_score": 0
   },
   "CLA-B.ST": {
@@ -76,7 +76,7 @@
   },
   "BOL.ST": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": 2
   },
   "ASML": {
@@ -86,7 +86,7 @@
   },
   "SAP": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 1,
     "news_score": 0
   },
   "NVO": {
@@ -215,8 +215,8 @@
     "news_score": 0
   },
   "BTC-USD": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 3,
     "news_score": 0
   },
   "ETH-USD": {
@@ -235,6 +235,11 @@
     "news_score": 0
   },
   "JEDI.DE": {
+    "signal": "HALL",
+    "styrka": 6,
+    "news_score": 0
+  },
+  "XACT-OMXS30.ST": {
     "signal": "SALJ",
     "styrka": 4,
     "news_score": 0
@@ -260,8 +265,8 @@
     "news_score": 0
   },
   "IS3N.DE": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 0
   },
   "IQQH.DE": {
@@ -275,8 +280,8 @@
     "news_score": 0
   },
   "QUTM.DE": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 0
   }
 }
