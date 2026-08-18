@@ -6,7 +6,7 @@
   },
   "ATCO-B.ST": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": 0
   },
   "SWED-A.ST": {
@@ -61,7 +61,7 @@
   },
   "FREEM.ST": {
     "signal": "KOP",
-    "styrka": 10,
+    "styrka": 8,
     "news_score": 0
   },
   "INDU-C.ST": {
@@ -105,13 +105,13 @@
     "news_score": 0
   },
   "SIEGY": {
-    "signal": "KOP",
-    "styrka": 8,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "NSRGY": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 0
   },
   "EADSY": {
@@ -206,7 +206,7 @@
   },
   "GC=F": {
     "signal": "SALJ",
-    "styrka": 1,
+    "styrka": 2,
     "news_score": 0
   },
   "SI=F": {
