@@ -6,7 +6,7 @@
   },
   "ATCO-B.ST": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": 0
   },
   "SWED-A.ST": {
@@ -45,8 +45,8 @@
     "news_score": 0
   },
   "TEL2-B.ST": {
-    "signal": "SALJ",
-    "styrka": 3,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "BEAMMW-B.ST": {
@@ -106,7 +106,7 @@
   },
   "SIEGY": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 7,
     "news_score": 1
   },
   "NSRGY": {
@@ -165,8 +165,8 @@
     "news_score": 1
   },
   "META": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "TSLA": {
@@ -215,8 +215,8 @@
     "news_score": 1
   },
   "BTC-USD": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 1
   },
   "ETH-USD": {
