@@ -45,8 +45,8 @@
     "news_score": 0
   },
   "TEL2-B.ST": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 0
   },
   "BEAMMW-B.ST": {
@@ -81,12 +81,12 @@
   },
   "ASML": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": -1
   },
   "SAP": {
     "signal": "SALJ",
-    "styrka": 1,
+    "styrka": 2,
     "news_score": 0
   },
   "NVO": {
@@ -96,7 +96,7 @@
   },
   "LVMUY": {
     "signal": "SALJ",
-    "styrka": 4,
+    "styrka": 3,
     "news_score": 0
   },
   "SHEL": {
@@ -105,8 +105,8 @@
     "news_score": 0
   },
   "SIEGY": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 1
   },
   "NSRGY": {
@@ -121,7 +121,7 @@
   },
   "AZN": {
     "signal": "SALJ",
-    "styrka": 4,
+    "styrka": 2,
     "news_score": -2
   },
   "RELX": {
@@ -186,7 +186,7 @@
   },
   "LLY": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 8,
     "news_score": 1
   },
   "BYDDF": {
@@ -201,7 +201,7 @@
   },
   "CL=F": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": 0
   },
   "GC=F": {
