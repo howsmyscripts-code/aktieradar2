@@ -20,8 +20,8 @@
     "news_score": 0
   },
   "ERIC-B.ST": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 0
   },
   "VOLV-B.ST": {
@@ -45,8 +45,8 @@
     "news_score": 0
   },
   "TEL2-B.ST": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 0
   },
   "BEAMMW-B.ST": {
@@ -105,8 +105,8 @@
     "news_score": 0
   },
   "SIEGY": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "NSRGY": {
@@ -216,7 +216,7 @@
   },
   "BTC-USD": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 4,
     "news_score": 0
   },
   "ETH-USD": {
