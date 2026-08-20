@@ -1,8 +1,8 @@
 {
   "INVE-B.ST": {
-    "signal": "HALL",
-    "styrka": 5,
-    "news_score": -2
+    "signal": "KOP",
+    "styrka": 7,
+    "news_score": 0
   },
   "ATCO-B.ST": {
     "signal": "KOP",
@@ -21,13 +21,13 @@
   },
   "ERIC-B.ST": {
     "signal": "KOP",
-    "styrka": 8,
-    "news_score": 1
+    "styrka": 7,
+    "news_score": 0
   },
   "VOLV-B.ST": {
     "signal": "KOP",
     "styrka": 10,
-    "news_score": 1
+    "news_score": 0
   },
   "KINV-B.ST": {
     "signal": "SALJ",
@@ -56,7 +56,7 @@
   },
   "NANEXA.ST": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 8,
     "news_score": 2
   },
   "FREEM.ST": {
@@ -76,13 +76,13 @@
   },
   "BOL.ST": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": 2
   },
   "ASML": {
     "signal": "HALL",
-    "styrka": 5,
-    "news_score": -1
+    "styrka": 6,
+    "news_score": 0
   },
   "SAP": {
     "signal": "SALJ",
@@ -91,8 +91,8 @@
   },
   "NVO": {
     "signal": "HALL",
-    "styrka": 5,
-    "news_score": -1
+    "styrka": 6,
+    "news_score": 0
   },
   "LVMUY": {
     "signal": "HALL",
@@ -105,9 +105,9 @@
     "news_score": 0
   },
   "SIEGY": {
-    "signal": "KOP",
-    "styrka": 7,
-    "news_score": 1
+    "signal": "HALL",
+    "styrka": 6,
+    "news_score": 0
   },
   "NSRGY": {
     "signal": "KOP",
@@ -121,18 +121,18 @@
   },
   "AZN": {
     "signal": "SALJ",
-    "styrka": 3,
-    "news_score": -2
+    "styrka": 4,
+    "news_score": 0
   },
   "RELX": {
-    "signal": "HALL",
-    "styrka": 5,
-    "news_score": 1
-  },
-  "BAESY": {
     "signal": "SALJ",
     "styrka": 3,
-    "news_score": -1
+    "news_score": 0
+  },
+  "BAESY": {
+    "signal": "HALL",
+    "styrka": 5,
+    "news_score": 0
   },
   "NVDA": {
     "signal": "HALL",
@@ -142,7 +142,7 @@
   "INTC": {
     "signal": "KOP",
     "styrka": 10,
-    "news_score": 1
+    "news_score": 0
   },
   "AAPL": {
     "signal": "SALJ",
@@ -150,9 +150,9 @@
     "news_score": 0
   },
   "MSFT": {
-    "signal": "HALL",
-    "styrka": 5,
-    "news_score": 1
+    "signal": "SALJ",
+    "styrka": 4,
+    "news_score": 0
   },
   "AMZN": {
     "signal": "SALJ",
@@ -160,9 +160,9 @@
     "news_score": 0
   },
   "GOOGL": {
-    "signal": "KOP",
-    "styrka": 7,
-    "news_score": 1
+    "signal": "HALL",
+    "styrka": 6,
+    "news_score": 0
   },
   "META": {
     "signal": "HALL",
@@ -185,19 +185,19 @@
     "news_score": 0
   },
   "LLY": {
-    "signal": "KOP",
-    "styrka": 7,
-    "news_score": 1
+    "signal": "HALL",
+    "styrka": 6,
+    "news_score": 0
   },
   "BYDDF": {
     "signal": "SALJ",
-    "styrka": 3,
-    "news_score": 1
+    "styrka": 2,
+    "news_score": 0
   },
   "TSM": {
     "signal": "KOP",
-    "styrka": 9,
-    "news_score": -1
+    "styrka": 10,
+    "news_score": 0
   },
   "CL=F": {
     "signal": "HALL",
@@ -206,23 +206,23 @@
   },
   "GC=F": {
     "signal": "SALJ",
-    "styrka": 3,
-    "news_score": 1
+    "styrka": 1,
+    "news_score": 0
   },
   "SI=F": {
     "signal": "SALJ",
-    "styrka": 2,
-    "news_score": 1
+    "styrka": 1,
+    "news_score": 0
   },
   "BTC-USD": {
     "signal": "SALJ",
-    "styrka": 2,
-    "news_score": 1
+    "styrka": 1,
+    "news_score": 0
   },
   "ETH-USD": {
     "signal": "HALL",
-    "styrka": 5,
-    "news_score": 1
+    "styrka": 4,
+    "news_score": 0
   },
   "CSPX.L": {
     "signal": "KOP",
@@ -231,17 +231,17 @@
   },
   "EQQQ.DE": {
     "signal": "KOP",
-    "styrka": 8,
-    "news_score": -1
+    "styrka": 9,
+    "news_score": 0
   },
   "JEDI.DE": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": 0
   },
   "XACT-OMXS30.ST": {
-    "signal": "KOP",
-    "styrka": 8,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "XACTHDIV.ST": {
@@ -251,22 +251,22 @@
   },
   "SMH.DE": {
     "signal": "KOP",
-    "styrka": 9,
-    "news_score": 1
+    "styrka": 8,
+    "news_score": 0
   },
   "DFNS.L": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 4,
     "news_score": 0
   },
   "VWRL.L": {
-    "signal": "SALJ",
-    "styrka": 4,
-    "news_score": -1
+    "signal": "HALL",
+    "styrka": 5,
+    "news_score": 0
   },
   "IS3N.DE": {
-    "signal": "KOP",
-    "styrka": 8,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "IQQH.DE": {
@@ -277,11 +277,11 @@
   "IGLN.L": {
     "signal": "SALJ",
     "styrka": 2,
-    "news_score": 1
+    "news_score": 0
   },
   "QUTM.DE": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 9,
     "news_score": 0
   }
 }
