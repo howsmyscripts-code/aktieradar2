@@ -1,8 +1,8 @@
 {
   "INVE-B.ST": {
-    "signal": "KOP",
-    "styrka": 8,
-    "news_score": 0
+    "signal": "HALL",
+    "styrka": 6,
+    "news_score": -2
   },
   "ATCO-B.ST": {
     "signal": "HALL",
@@ -21,13 +21,13 @@
   },
   "ERIC-B.ST": {
     "signal": "HALL",
-    "styrka": 5,
-    "news_score": 0
+    "styrka": 6,
+    "news_score": 1
   },
   "VOLV-B.ST": {
     "signal": "KOP",
     "styrka": 10,
-    "news_score": 0
+    "news_score": 1
   },
   "KINV-B.ST": {
     "signal": "SALJ",
@@ -80,9 +80,9 @@
     "news_score": 2
   },
   "ASML": {
-    "signal": "KOP",
-    "styrka": 7,
-    "news_score": 0
+    "signal": "HALL",
+    "styrka": 5,
+    "news_score": -1
   },
   "SAP": {
     "signal": "SALJ",
@@ -92,7 +92,7 @@
   "NVO": {
     "signal": "KOP",
     "styrka": 8,
-    "news_score": 0
+    "news_score": -1
   },
   "LVMUY": {
     "signal": "HALL",
@@ -105,9 +105,9 @@
     "news_score": 0
   },
   "SIEGY": {
-    "signal": "SALJ",
-    "styrka": 4,
-    "news_score": 0
+    "signal": "HALL",
+    "styrka": 5,
+    "news_score": 1
   },
   "NSRGY": {
     "signal": "HALL",
@@ -121,18 +121,18 @@
   },
   "AZN": {
     "signal": "SALJ",
-    "styrka": 4,
-    "news_score": 0
+    "styrka": 2,
+    "news_score": -2
   },
   "RELX": {
     "signal": "SALJ",
-    "styrka": 2,
-    "news_score": 0
+    "styrka": 3,
+    "news_score": 1
   },
   "BAESY": {
-    "signal": "HALL",
-    "styrka": 5,
-    "news_score": 0
+    "signal": "SALJ",
+    "styrka": 4,
+    "news_score": -1
   },
   "NVDA": {
     "signal": "HALL",
@@ -141,8 +141,8 @@
   },
   "INTC": {
     "signal": "KOP",
-    "styrka": 9,
-    "news_score": 0
+    "styrka": 10,
+    "news_score": 1
   },
   "AAPL": {
     "signal": "SALJ",
@@ -150,9 +150,9 @@
     "news_score": 0
   },
   "MSFT": {
-    "signal": "SALJ",
-    "styrka": 4,
-    "news_score": 0
+    "signal": "HALL",
+    "styrka": 5,
+    "news_score": 1
   },
   "AMZN": {
     "signal": "HALL",
@@ -162,7 +162,7 @@
   "GOOGL": {
     "signal": "KOP",
     "styrka": 7,
-    "news_score": 0
+    "news_score": 1
   },
   "META": {
     "signal": "HALL",
@@ -176,7 +176,7 @@
   },
   "JPM": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 9,
     "news_score": 0
   },
   "BRK-B": {
@@ -185,19 +185,19 @@
     "news_score": 0
   },
   "LLY": {
-    "signal": "HALL",
-    "styrka": 6,
-    "news_score": 0
+    "signal": "KOP",
+    "styrka": 7,
+    "news_score": 1
   },
   "BYDDF": {
     "signal": "SALJ",
-    "styrka": 2,
-    "news_score": 0
+    "styrka": 3,
+    "news_score": 1
   },
   "TSM": {
     "signal": "KOP",
-    "styrka": 10,
-    "news_score": 0
+    "styrka": 9,
+    "news_score": -1
   },
   "CL=F": {
     "signal": "SALJ",
@@ -206,23 +206,23 @@
   },
   "GC=F": {
     "signal": "SALJ",
-    "styrka": 1,
-    "news_score": 0
+    "styrka": 2,
+    "news_score": 1
   },
   "SI=F": {
     "signal": "SALJ",
-    "styrka": 1,
-    "news_score": 0
+    "styrka": 2,
+    "news_score": 1
   },
   "BTC-USD": {
     "signal": "SALJ",
-    "styrka": 1,
-    "news_score": 0
+    "styrka": 2,
+    "news_score": 1
   },
   "ETH-USD": {
     "signal": "HALL",
-    "styrka": 4,
-    "news_score": 0
+    "styrka": 5,
+    "news_score": 1
   },
   "CSPX.L": {
     "signal": "HALL",
@@ -230,9 +230,9 @@
     "news_score": 0
   },
   "EQQQ.DE": {
-    "signal": "KOP",
-    "styrka": 7,
-    "news_score": 0
+    "signal": "HALL",
+    "styrka": 6,
+    "news_score": -1
   },
   "JEDI.DE": {
     "signal": "HALL",
@@ -251,8 +251,8 @@
   },
   "SMH.DE": {
     "signal": "KOP",
-    "styrka": 7,
-    "news_score": 0
+    "styrka": 8,
+    "news_score": 1
   },
   "DFNS.L": {
     "signal": "SALJ",
@@ -260,9 +260,9 @@
     "news_score": 0
   },
   "VWRL.L": {
-    "signal": "HALL",
-    "styrka": 5,
-    "news_score": 0
+    "signal": "SALJ",
+    "styrka": 4,
+    "news_score": -1
   },
   "IS3N.DE": {
     "signal": "HALL",
@@ -276,8 +276,8 @@
   },
   "IGLN.L": {
     "signal": "SALJ",
-    "styrka": 1,
-    "news_score": 0
+    "styrka": 2,
+    "news_score": 1
   },
   "QUTM.DE": {
     "signal": "KOP",
