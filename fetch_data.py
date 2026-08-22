@@ -208,21 +208,21 @@ SECTOR-SPECIFIC MACRO RULES (apply these when relevant news is present):
 GEOPOLITICS:
 - Peace deal / geopolitical de-escalation → NEGATIVE for defense stocks (SAAB, BAE Systems, defense ETFs), POSITIVE for airlines and transport
 - Military conflict / escalation → POSITIVE for defense stocks, NEGATIVE for airlines
-- China sanctions / export restrictions → NEGATIVE for semiconductors (TSM, SMH), POSITIVE for US alternatives
+- China sanctions / export restrictions → NEGATIVE for semiconductors (SMH), POSITIVE for US alternatives
 
 OIL & ENERGY:
 - Oil price falling → NEGATIVE for Shell and oil companies, POSITIVE for airlines and transport
 - Oil price rising → POSITIVE for Shell, NEGATIVE for airlines
-- Gold price rising → POSITIVE for gold ETFs (IGLN)
+- Gold price rising → POSITIVE for gold miners and gold-linked instruments
 - High inflation data → NEGATIVE for growth/tech stocks, POSITIVE for banks and commodities
 
 INTEREST RATES:
-- Fed raises rates → NEGATIVE for tech/growth stocks, POSITIVE for banks (JPMorgan, SEB)
+- Fed raises rates → NEGATIVE for tech/growth stocks, POSITIVE for banks (SEB)
 - Fed cuts rates → POSITIVE for tech, real estate, growth stocks
 
 AI & TECH:
 - New major AI model launch → POSITIVE for Nvidia (chips demand), NEGATIVE for AI software competitors
-- Chip export restrictions → NEGATIVE for TSM and semiconductor ETFs
+- Chip export restrictions → NEGATIVE for semiconductor ETFs
 - Major datacenter investment announced → POSITIVE for Nvidia, Amazon, Microsoft
 
 HEALTHCARE:
@@ -271,13 +271,13 @@ Headlines:
         return None
 
 STOCKS = [
-    "INVE-B.ST", "ATCO-B.ST", "SWED-A.ST", "SAAB-B.ST", "ERIC-B.ST",
-    "VOLV-B.ST", "KINV-B.ST", "HM-B.ST", "SEB-A.ST", "TEL2-B.ST", "BEAMMW-B.ST", "NANEXA.ST", "FREEM.ST", "INDU-C.ST", "CLA-B.ST", "BOL.ST",
-    "ASML", "SAP", "NVO", "LVMUY", "SHEL", "SIEGY", "NSRGY", "EADSY", "AZN", "RELX", "BAESY",
-    "NVDA", "INTC", "AAPL", "MSFT", "AMZN", "GOOGL", "META", "TSLA", "JPM", "BRK-B", "LLY",
-    "BYDDF", "TSM",
+    "INVE-B.ST", "ATCO-B.ST", "SWED-A.ST", "SAAB-B.ST",
+    "VOLV-B.ST", "KINV-B.ST", "SEB-A.ST", "BEAMMW-B.ST", "NANEXA.ST", "FREEM.ST", "INDU-C.ST", "CLA-B.ST", "BOL.ST",
+    "KAKEL.ST", "LATO-B.ST",  # Kakel Max, Latour B - tillagda 2026-08-22
+    "NVO", "SHEL", "SIEGY", "NSRGY", "EADSY", "AZN", "BAESY",
+    "NVDA", "INTC", "AAPL", "MSFT", "AMZN", "GOOGL", "META", "TSLA", "BRK-B", "LLY",
     "CL=F", "GC=F", "SI=F", "BTC-USD", "ETH-USD",
-    "CSPX.L", "EQQQ.DE", "JEDI.DE", "XACT-OMXS30.ST", "XACTHDIV.ST", "SMH.DE", "DFNS.L", "VWRL.L", "IS3N.DE", "IQQH.DE", "IGLN.L", "QUTM.DE",
+    "JEDI.DE", "XACTHDIV.ST", "SMH.DE", "QUTM.DE",
 ]
 
 # ── Instrumentprofiler ────────────────────────────────────────────────────────
@@ -298,19 +298,11 @@ STOCKS = [
 
 INSTRUMENT_PROFILES = {
     # Breda ETF:er
-    "CSPX.L":        {"profile": "broad_etf",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
-    "EQQQ.DE":       {"profile": "broad_etf",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
-    "VWRL.L":        {"profile": "broad_etf",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
-    "IS3N.DE":       {"profile": "broad_etf",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
-    "XACT-OMXS30.ST":{"profile": "broad_etf",   "min_confirmations": 1, "max_strength_unconfirmed": 6},
     "XACTHDIV.ST":   {"profile": "broad_etf",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
     "SMH.DE":        {"profile": "broad_etf",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
-    "IGLN.L":        {"profile": "broad_etf",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
     # Tematiska/smala ETF:er — strikt, krav 2/4 bekraftelser
     "JEDI.DE":       {"profile": "thematic_etf", "min_confirmations": 2, "max_strength_unconfirmed": 5},
     "QUTM.DE":       {"profile": "thematic_etf", "min_confirmations": 2, "max_strength_unconfirmed": 5},
-    "IQQH.DE":       {"profile": "thematic_etf", "min_confirmations": 2, "max_strength_unconfirmed": 5},
-    "DFNS.L":        {"profile": "thematic_etf", "min_confirmations": 2, "max_strength_unconfirmed": 5},
     # Råvaror — krav 2/4 bekraftelser (starka trender, RSI-riktning viktigt)
     "CL=F":          {"profile": "commodity",    "min_confirmations": 2, "max_strength_unconfirmed": 5},
     "GC=F":          {"profile": "commodity",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
@@ -322,6 +314,7 @@ INSTRUMENT_PROFILES = {
     "BEAMMW-B.ST":   {"profile": "small_cap",    "min_confirmations": 2, "max_strength_unconfirmed": 5},
     "NANEXA.ST":     {"profile": "small_cap",    "min_confirmations": 1, "max_strength_unconfirmed": 6},
     "FREEM.ST":      {"profile": "small_cap",    "min_confirmations": 2, "max_strength_unconfirmed": 5},
+    "KAKEL.ST":      {"profile": "small_cap",    "min_confirmations": 2, "max_strength_unconfirmed": 5},  # First North, tunn handel - tillagd 2026-08-22
 }
 # Standardprofil for instrument som INTE finns i INSTRUMENT_PROFILES
 DEFAULT_PROFILE = {"profile": "large_cap", "min_confirmations": 1, "max_strength_unconfirmed": 6}
@@ -373,15 +366,7 @@ def calc_trend_confirmations(rsi, rsi_prev, price, ma50, ma200,
 NEWS_TICKER_MAP = {
     "JEDI.DE": "ARKX",    # ARK Space Exploration ETF — samma tema, nyheter finns
     "SMH.DE":  "SMH",     # VanEck Semiconductor USA — identisk fond
-    "IS3N.DE": "IEMG",    # iShares MSCI EM USA — identisk fond
     "QUTM.DE": "QTUM",    # Defiance Quantum ETF USA — liknande tema, bättre nyhetstäckning
-    "JEDI.L":  "ARKX",
-    "IGLN.L":  "IAU",     # iShares Gold Trust USA
-    "DFNS.L":  "ITA",     # iShares Defense ETF USA
-    "CSPX.L":  "IVV",     # iShares S&P 500 USA
-    "VWRL.L":  "VT",      # Vanguard Total World USA
-    "IQQH.DE": "ICLN",    # iShares Global Clean Energy USA
-    "EQQQ.DE": "QQQ",     # Invesco Nasdaq-100 USA
 }
 
 
@@ -391,19 +376,17 @@ MFN_TICKER_MAP = {
     "ATCO-B.ST": "atlas-copco",
     "SWED-A.ST": "swedbank",
     "SAAB-B.ST": "saab",
-    "ERIC-B.ST": "ericsson",
     "VOLV-B.ST": "volvo",
     "KINV-B.ST": "kinnevik",
-    "HM-B.ST": "hm",
     "SEB-A.ST": "seb",
-    "TEL2-B.ST": "tele2",
     "BEAMMW-B.ST": "beammwave",
     "NANEXA.ST": "nanexa",
     "FREEM.ST": "freemelt",
     "INDU-C.ST": "industrivarden",
     "CLA-B.ST": "cloetta",
     "BOL.ST": "boliden",
-    "XACT-OMXS30.ST": None,
+    "KAKEL.ST": "kakel-max",   # verifierad slug, tillagd 2026-08-22
+    "LATO-B.ST": "latour",     # verifierad slug, tillagd 2026-08-22
     "XACTHDIV.ST": None,
 }
 
@@ -636,9 +619,9 @@ def calc_seasonal_factor(sym):
     """Enkel säsongskorrigering baserat på månad"""
     month = datetime.now(ZoneInfo("Europe/Stockholm")).month
     # Defensiva aktier starka jan-mars och sept-nov
-    defensive = ["XACTHDIV.ST", "NSRGY", "SHEL", "JPM", "BRK-B"]
+    defensive = ["XACTHDIV.ST", "NSRGY", "SHEL", "BRK-B"]
     # Tech/growth starka april-aug
-    growth = ["NVDA", "AAPL", "MSFT", "AMZN", "GOOGL", "META", "EQQQ.DE", "SMH.DE", "QUTM.DE"]
+    growth = ["NVDA", "AAPL", "MSFT", "AMZN", "GOOGL", "META", "SMH.DE", "QUTM.DE"]
     if sym in defensive and month in [9, 10, 11, 1, 2, 3]:
         return 0.5
     elif sym in growth and month in [4, 5, 6, 7, 8]:
@@ -701,11 +684,13 @@ def fetch_fundamentals(sym, finnhub_key):
 # P/B, EV/EBIT, direktavkastning + rapportdatum for svenska bolag.
 AVANZA_IDS = {
     "INVE-B.ST": "5247",  "ATCO-B.ST": "5235",  "SWED-A.ST": "5241",
-    "SAAB-B.ST": "5401",  "ERIC-B.ST": "5240",  "VOLV-B.ST": "5269",
-    "KINV-B.ST": "5369",  "HM-B.ST":   "5364",  "SEB-A.ST":  "5255",
-    "TEL2-B.ST": "5386",  "INDU-C.ST": "5245",  "CLA-B.ST":  "163148",  # Cloetta B
+    "SAAB-B.ST": "5401",  "VOLV-B.ST": "5269",
+    "KINV-B.ST": "5369",  "SEB-A.ST":  "5255",
+    "INDU-C.ST": "5245",  "CLA-B.ST":  "163148",  # Cloetta B
     "BOL.ST":    "5564",  "BEAMMW-B.ST": "1361888",
     "NANEXA.ST": "572681", "FREEM.ST": "1247607",
+    "KAKEL.ST": "16384",   # Kakel Max, tillagd 2026-08-22
+    "LATO-B.ST": "5321",   # Latour B, tillagd 2026-08-22
 }
 # P/E, P/B, EV/EBIT och rapportdatum andras inte intradag -> cacha lange, anropa
 # Avanza hogst ngn gang per halvdygn (skonsamt mot endpointen, undviker block).
@@ -1400,13 +1385,11 @@ def apply_final_gates(results):
 
 # ── Sektorkorrelation ────────────────────────────────────────────────────────
 SECTOR_CORRELATIONS = {
-    "SMH.DE":    ["NVDA", "TSM"],
+    "SMH.DE":    ["NVDA"],
     "QUTM.DE":   ["NVDA"],  # Nvidia driver kvantsimulering/AI-infrastruktur
     "JEDI.DE":   [],
-    "IS3N.DE":   ["BYDDF"],
-    "IQQH.DE":   ["CL=F"],
-    "INVE-B.ST": ["ATCO-B.ST", "ERIC-B.ST"],
-    "SAAB-B.ST": ["BAESY", "DFNS.L"],
+    "INVE-B.ST": ["ATCO-B.ST"],
+    "SAAB-B.ST": ["BAESY"],
 }
 
 def check_sector_warnings(results):
