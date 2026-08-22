@@ -43,6 +43,7 @@ jobs:
           [ -f accuracy.json ] && git add accuracy.json
           [ -f news_cache.json ] && git add news_cache.json
           [ -f prev_signals.json ] && git add prev_signals.json
+          [ -f avanza_cache.json ] && git add avanza_cache.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
