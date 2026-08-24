@@ -66,7 +66,7 @@
   },
   "KAKEL.ST": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 4,
     "news_score": 0
   },
   "LATO-B.ST": {
@@ -185,8 +185,8 @@
     "news_score": 0
   },
   "JEDI.DE": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "XACTHDIV.ST": {
