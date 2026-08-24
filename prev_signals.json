@@ -31,7 +31,7 @@
   },
   "SEB-A.ST": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 7,
     "news_score": 0
   },
   "BEAMMW-B.ST": {
@@ -75,13 +75,13 @@
     "news_score": 0
   },
   "NVO": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": -1
   },
   "SHEL": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 0
   },
   "SIEGY": {
@@ -111,12 +111,12 @@
   },
   "NVDA": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": 0
   },
   "INTC": {
     "signal": "KOP",
-    "styrka": 10,
+    "styrka": 7,
     "news_score": 1
   },
   "AAPL": {
@@ -126,17 +126,17 @@
   },
   "MSFT": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": 1
   },
   "AMZN": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "GOOGL": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 1
   },
   "META": {
@@ -156,7 +156,7 @@
   },
   "LLY": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 9,
     "news_score": 1
   },
   "CL=F": {
