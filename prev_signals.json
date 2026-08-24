@@ -86,7 +86,7 @@
   },
   "SIEGY": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": 1
   },
   "NSRGY": {
@@ -150,8 +150,8 @@
     "news_score": 0
   },
   "BRK-B": {
-    "signal": "KOP",
-    "styrka": 8,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "LLY": {
