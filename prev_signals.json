@@ -26,7 +26,7 @@
   },
   "KINV-B.ST": {
     "signal": "SALJ",
-    "styrka": 4,
+    "styrka": 2,
     "news_score": 0
   },
   "SEB-A.ST": {
@@ -36,7 +36,7 @@
   },
   "BEAMMW-B.ST": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 7,
     "news_score": 0
   },
   "NANEXA.ST": {
@@ -66,7 +66,7 @@
   },
   "KAKEL.ST": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": 0
   },
   "LATO-B.ST": {
@@ -101,7 +101,7 @@
   },
   "AZN": {
     "signal": "SALJ",
-    "styrka": 1,
+    "styrka": 2,
     "news_score": -2
   },
   "BAESY": {
@@ -116,7 +116,7 @@
   },
   "INTC": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 8,
     "news_score": 1
   },
   "AAPL": {
@@ -141,7 +141,7 @@
   },
   "META": {
     "signal": "SALJ",
-    "styrka": 4,
+    "styrka": 3,
     "news_score": 0
   },
   "TSLA": {
