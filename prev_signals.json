@@ -35,8 +35,8 @@
     "news_score": 0
   },
   "BEAMMW-B.ST": {
-    "signal": "KOP",
-    "styrka": 8,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "NANEXA.ST": {
@@ -56,7 +56,7 @@
   },
   "CLA-B.ST": {
     "signal": "SALJ",
-    "styrka": 4,
+    "styrka": 3,
     "news_score": 0
   },
   "BOL.ST": {
@@ -161,7 +161,7 @@
   },
   "CL=F": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": 0
   },
   "GC=F": {
@@ -200,8 +200,8 @@
     "news_score": 0
   },
   "QUTM.DE": {
-    "signal": "KOP",
-    "styrka": 8,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   }
 }
