@@ -1,17 +1,17 @@
 {
   "INVE-B.ST": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 8,
     "news_score": 0
   },
   "ATCO-B.ST": {
-    "signal": "KOP",
-    "styrka": 8,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "SWED-A.ST": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 10,
     "news_score": 0
   },
   "SAAB-B.ST": {
@@ -30,8 +30,8 @@
     "news_score": 0
   },
   "SEB-A.ST": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "BEAMMW-B.ST": {
@@ -40,13 +40,13 @@
     "news_score": 0
   },
   "NANEXA.ST": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 8,
     "news_score": 2
   },
   "FREEM.ST": {
-    "signal": "KOP",
-    "styrka": 8,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 0
   },
   "INDU-C.ST": {
@@ -56,12 +56,12 @@
   },
   "CLA-B.ST": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": 0
   },
   "BOL.ST": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 4,
     "news_score": 2
   },
   "KAKEL.ST": {
@@ -71,7 +71,7 @@
   },
   "LATO-B.ST": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 3,
     "news_score": 0
   },
   "NVO": {
@@ -161,7 +161,7 @@
   },
   "CL=F": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": 0
   },
   "GC=F": {
@@ -196,7 +196,7 @@
   },
   "SMH.DE": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 8,
     "news_score": 0
   },
   "QUTM.DE": {
