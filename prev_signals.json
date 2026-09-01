@@ -166,7 +166,7 @@
   },
   "GC=F": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 4,
     "news_score": 1
   },
   "SI=F": {
@@ -181,7 +181,7 @@
   },
   "ETH-USD": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 4,
     "news_score": 1
   },
   "JEDI.DE": {
