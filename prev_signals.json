@@ -76,7 +76,7 @@
   },
   "NVO": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 9,
     "news_score": -1
   },
   "SHEL": {
@@ -85,28 +85,28 @@
     "news_score": 0
   },
   "SIEGY": {
-    "signal": "KOP",
-    "styrka": 9,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 1
   },
   "NSRGY": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 8,
     "news_score": 0
   },
   "EADSY": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 8,
     "news_score": 0
   },
   "AZN": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": -2
   },
   "BAESY": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 8,
     "news_score": -1
   },
   "NVDA": {
@@ -150,8 +150,8 @@
     "news_score": 0
   },
   "BRK-B": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "KOP",
+    "styrka": 8,
     "news_score": 0
   },
   "LLY": {
