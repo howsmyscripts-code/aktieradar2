@@ -186,7 +186,7 @@
   },
   "JEDI.DE": {
     "signal": "HALL",
-    "styrka": 5,
+    "styrka": 6,
     "news_score": 0
   },
   "XACTHDIV.ST": {
@@ -200,8 +200,8 @@
     "news_score": 1
   },
   "QUTM.DE": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 0
   }
 }
