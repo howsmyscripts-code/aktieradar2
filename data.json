@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-25 01:12 svensk tid",
+  "updated": "2026-09-25 01:43 svensk tid",
   "stocks": {
     "INVE-B.ST": {
       "price": 409.2,
@@ -1808,14 +1808,14 @@
       "market_regime_warning": null
     },
     "CL=F": {
-      "price": 94.32,
-      "change": 2.34,
-      "rsi": 54.3,
-      "ma50": 87.77,
+      "price": 94.05,
+      "change": 2.05,
+      "rsi": 53.9,
+      "ma50": 87.76,
       "ma200": 81.38,
-      "macd": 2.853,
-      "bollinger": 0.48,
-      "w52": 0.68,
+      "macd": 2.832,
+      "bollinger": 0.47,
+      "w52": 0.67,
       "trend": 0.6,
       "signal": "HALL",
       "styrka": 5,
@@ -1863,12 +1863,12 @@
       "market_regime_warning": null
     },
     "GC=F": {
-      "price": 4307.8,
-      "change": -0.25,
-      "rsi": 24.9,
-      "ma50": 4348.16,
+      "price": 4308.4,
+      "change": -0.23,
+      "rsi": 25.0,
+      "ma50": 4348.17,
       "ma200": 4555.59,
-      "macd": -19.833,
+      "macd": -19.785,
       "bollinger": 0.14,
       "w52": 0.35,
       "trend": 0.4,
@@ -1927,13 +1927,13 @@
       "market_regime_warning": null
     },
     "SI=F": {
-      "price": 64.21,
-      "change": -0.26,
-      "rsi": 40.1,
+      "price": 64.15,
+      "change": -0.35,
+      "rsi": 39.9,
       "ma50": 63.48,
       "ma200": 72.63,
-      "macd": 0.042,
-      "bollinger": 0.28,
+      "macd": 0.037,
+      "bollinger": 0.27,
       "w52": 0.29,
       "trend": 0.5,
       "signal": "HALL",
@@ -1984,15 +1984,15 @@
       "market_regime_warning": null
     },
     "BTC-USD": {
-      "price": 84342.86,
-      "change": -0.05,
-      "rsi": 71.1,
-      "ma50": 74926.78,
-      "ma200": 70850.72,
-      "macd": 2483.161,
-      "bollinger": 0.85,
+      "price": 84430.13,
+      "change": 0.06,
+      "rsi": 71.3,
+      "ma50": 74928.53,
+      "ma200": 70851.16,
+      "macd": 2490.123,
+      "bollinger": 0.86,
       "w52": 0.7,
-      "trend": 0.5,
+      "trend": 0.55,
       "signal": "HALL",
       "styrka": 5,
       "ok": true,
@@ -2039,14 +2039,14 @@
       "market_regime_warning": null
     },
     "ETH-USD": {
-      "price": 2687.67,
-      "change": 0.11,
-      "rsi": 66.4,
-      "ma50": 2341.14,
-      "ma200": 2090.86,
-      "macd": 96.706,
+      "price": 2691.13,
+      "change": 0.24,
+      "rsi": 66.6,
+      "ma50": 2341.21,
+      "ma200": 2090.87,
+      "macd": 96.982,
       "bollinger": 0.82,
-      "w52": 0.64,
+      "w52": 0.65,
       "trend": 0.6,
       "signal": "HALL",
       "styrka": 6,
@@ -2316,7 +2316,7 @@
     "score": 1,
     "breadth_above_ma50_pct": 65.6,
     "pct_positive_today": 46.9,
-    "sp500_futures": -0.2,
+    "sp500_futures": -0.18,
     "n": 32
   },
   "avanza_status": {
@@ -2331,6 +2331,6 @@
     "stale_symbols": [],
     "cache_hours": 12,
     "healthy": true,
-    "checked": "2026-09-25 01:12"
+    "checked": "2026-09-25 01:43"
   }
 }
