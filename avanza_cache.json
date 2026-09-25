@@ -1,197 +1,197 @@
 {
   "INVE-B.ST": {
     "data": {
-      "pe": 4.78,
-      "pb": 1.15,
-      "ev_ebit": 5.05,
-      "direct_yield_pct": 1.37,
+      "pe": 4.82,
+      "pb": 1.16,
+      "ev_ebit": 5.09,
+      "direct_yield_pct": 1.36,
       "next_report": "2026-10-16",
-      "avanza_last": 409.25,
-      "avanza_change_pct": 0.01
+      "avanza_last": 412.7,
+      "avanza_change_pct": 0.94
     },
-    "fetched_at": "2026-09-24 14:25",
-    "epoch": 1790252731.1155586
+    "fetched_at": "2026-09-25 14:25",
+    "epoch": 1790339125.0359232
   },
   "ATCO-B.ST": {
     "data": {
-      "pe": 32.67,
-      "pb": 8.17,
-      "ev_ebit": 25.79,
+      "pe": 32.71,
+      "pb": 8.18,
+      "ev_ebit": 25.82,
       "direct_yield_pct": 1.68,
       "next_report": "2026-10-22",
-      "avanza_last": 178.3,
-      "avanza_change_pct": -0.94
+      "avanza_last": 178.5,
+      "avanza_change_pct": 1.31
     },
-    "fetched_at": "2026-09-24 14:25",
-    "epoch": 1790252734.6288826
+    "fetched_at": "2026-09-25 14:25",
+    "epoch": 1790339128.4083812
   },
   "SWED-A.ST": {
     "data": {
-      "pe": 14.67,
-      "pb": 2.21,
-      "ev_ebit": 32.99,
-      "direct_yield_pct": 5.02,
+      "pe": 14.83,
+      "pb": 2.24,
+      "ev_ebit": 33.12,
+      "direct_yield_pct": 4.96,
       "next_report": "2026-10-22",
-      "avanza_last": 407.4,
-      "avanza_change_pct": -0.32
+      "avanza_last": 412.0,
+      "avanza_change_pct": 1.25
     },
-    "fetched_at": "2026-09-24 14:25",
-    "epoch": 1790252736.9673467
+    "fetched_at": "2026-09-25 14:25",
+    "epoch": 1790339130.5557415
   },
   "SAAB-B.ST": {
     "data": {
-      "pe": 46.56,
-      "pb": 6.61,
-      "ev_ebit": 35.93,
+      "pe": 46.38,
+      "pb": 6.58,
+      "ev_ebit": 35.8,
       "direct_yield_pct": 0.39,
       "next_report": "2026-10-23",
-      "avanza_last": 620.5,
-      "avanza_change_pct": -1.82
+      "avanza_last": 618.2,
+      "avanza_change_pct": 0.44
     },
-    "fetched_at": "2026-09-24 14:25",
-    "epoch": 1790252739.1329582
+    "fetched_at": "2026-09-25 14:25",
+    "epoch": 1790339132.723789
   },
   "VOLV-B.ST": {
     "data": {
-      "pe": 18.38,
-      "pb": 3.73,
-      "ev_ebit": 17.66,
-      "direct_yield_pct": 2.62,
+      "pe": 18.49,
+      "pb": 3.76,
+      "ev_ebit": 17.74,
+      "direct_yield_pct": 2.6,
       "next_report": "2026-10-23",
-      "avanza_last": 324.4,
-      "avanza_change_pct": -0.89
+      "avanza_last": 326.4,
+      "avanza_change_pct": 1.62
     },
-    "fetched_at": "2026-09-24 14:25",
-    "epoch": 1790252741.7256312
+    "fetched_at": "2026-09-25 14:25",
+    "epoch": 1790339135.2744188
   },
   "KINV-B.ST": {
     "data": {
-      "pe": -2.31,
-      "pb": 0.56,
-      "ev_ebit": -1.12,
+      "pe": -2.34,
+      "pb": 0.57,
+      "ev_ebit": -1.15,
       "direct_yield_pct": 0.0,
       "next_report": "2026-10-15",
-      "avanza_last": 60.0,
-      "avanza_change_pct": 0.67
+      "avanza_last": 60.74,
+      "avanza_change_pct": 1.27
     },
-    "fetched_at": "2026-09-24 14:25",
-    "epoch": 1790252744.0148659
+    "fetched_at": "2026-09-25 14:25",
+    "epoch": 1790339137.4204528
   },
   "SEB-A.ST": {
     "data": {
-      "pe": 14.56,
-      "pb": 2.01,
-      "ev_ebit": 73.95,
-      "direct_yield_pct": 3.65,
+      "pe": 14.68,
+      "pb": 2.02,
+      "ev_ebit": 74.05,
+      "direct_yield_pct": 3.62,
       "next_report": "2026-10-22",
-      "avanza_last": 232.6,
-      "avanza_change_pct": 0.09
+      "avanza_last": 234.5,
+      "avanza_change_pct": 1.3
     },
-    "fetched_at": "2026-09-24 14:25",
-    "epoch": 1790252746.458308
+    "fetched_at": "2026-09-25 14:25",
+    "epoch": 1790339139.9973402
   },
   "BEAMMW-B.ST": {
     "data": {
-      "pe": -28.87,
-      "pb": 4.78,
-      "ev_ebit": -24.27,
+      "pe": -31.03,
+      "pb": 5.14,
+      "ev_ebit": -26.39,
       "direct_yield_pct": 0.0,
       "next_report": "2026-11-11",
-      "avanza_last": 18.5,
-      "avanza_change_pct": -5.03
+      "avanza_last": 19.88,
+      "avanza_change_pct": 3.43
     },
-    "fetched_at": "2026-09-24 14:25",
-    "epoch": 1790252749.7449799
+    "fetched_at": "2026-09-25 14:25",
+    "epoch": 1790339142.460121
   },
   "NANEXA.ST": {
     "data": {
-      "pe": -43.33,
-      "pb": 8.01,
-      "ev_ebit": -44.39,
+      "pe": -95.52,
+      "pb": 17.66,
+      "ev_ebit": -100.59,
       "direct_yield_pct": 0.0,
       "next_report": "2026-11-05",
-      "avanza_last": 5.57,
-      "avanza_change_pct": 1.27
+      "avanza_last": 12.28,
+      "avanza_change_pct": 107.08
     },
-    "fetched_at": "2026-09-24 14:25",
-    "epoch": 1790252751.8716595
+    "fetched_at": "2026-09-25 14:25",
+    "epoch": 1790339144.6556203
   },
   "FREEM.ST": {
     "data": {
-      "pe": -3.82,
-      "pb": 2.13,
-      "ev_ebit": -3.43,
+      "pe": -3.88,
+      "pb": 2.17,
+      "ev_ebit": -3.49,
       "direct_yield_pct": 0.0,
       "next_report": "2026-11-03",
-      "avanza_last": 1.626,
-      "avanza_change_pct": -2.05
+      "avanza_last": 1.652,
+      "avanza_change_pct": 1.72
     },
-    "fetched_at": "2026-09-24 14:25",
-    "epoch": 1790252753.9364576
+    "fetched_at": "2026-09-25 14:25",
+    "epoch": 1790339146.6460545
   },
   "INDU-C.ST": {
     "data": {
-      "pe": 3.71,
-      "pb": 1.04,
-      "ev_ebit": 3.73,
-      "direct_yield_pct": 1.62,
+      "pe": 3.74,
+      "pb": 1.05,
+      "ev_ebit": 3.75,
+      "direct_yield_pct": 1.61,
       "next_report": "2026-10-07",
-      "avanza_last": 539.8,
-      "avanza_change_pct": -0.07
+      "avanza_last": 543.8,
+      "avanza_change_pct": 1.12
     },
-    "fetched_at": "2026-09-24 14:25",
-    "epoch": 1790252756.1884236
+    "fetched_at": "2026-09-25 14:25",
+    "epoch": 1790339148.7750208
   },
   "CLA-B.ST": {
     "data": {
-      "pe": 18.25,
-      "pb": 2.66,
-      "ev_ebit": 14.38,
-      "direct_yield_pct": 2.6,
+      "pe": 17.96,
+      "pb": 2.62,
+      "ev_ebit": 14.16,
+      "direct_yield_pct": 2.64,
       "next_report": "2026-11-04",
-      "avanza_last": 53.9,
-      "avanza_change_pct": 1.6
+      "avanza_last": 53.05,
+      "avanza_change_pct": -0.84
     },
-    "fetched_at": "2026-09-24 14:25",
-    "epoch": 1790252758.8250766
+    "fetched_at": "2026-09-25 14:25",
+    "epoch": 1790339151.18304
   },
   "BOL.ST": {
     "data": {
-      "pe": 11.83,
-      "pb": 1.86,
-      "ev_ebit": 9.64,
-      "direct_yield_pct": 2.08,
+      "pe": 11.72,
+      "pb": 1.85,
+      "ev_ebit": 9.56,
+      "direct_yield_pct": 2.1,
       "next_report": "2026-10-29",
-      "avanza_last": 528.0,
-      "avanza_change_pct": -0.11
+      "avanza_last": 523.4,
+      "avanza_change_pct": 1.04
     },
-    "fetched_at": "2026-09-24 14:26",
-    "epoch": 1790252761.027885
+    "fetched_at": "2026-09-25 14:25",
+    "epoch": 1790339153.3910816
   },
   "KAKEL.ST": {
     "data": {
-      "pe": -49.01,
-      "pb": 0.68,
-      "ev_ebit": -111.02,
+      "pe": -49.9,
+      "pb": 0.7,
+      "ev_ebit": -112.64,
       "direct_yield_pct": 0.0,
       "next_report": "2026-11-05",
-      "avanza_last": 11.0,
-      "avanza_change_pct": 0.0
+      "avanza_last": 11.2,
+      "avanza_change_pct": 1.82
     },
-    "fetched_at": "2026-09-24 14:26",
-    "epoch": 1790252763.5697527
+    "fetched_at": "2026-09-25 14:25",
+    "epoch": 1790339155.8264234
   },
   "LATO-B.ST": {
     "data": {
-      "pe": 20.04,
-      "pb": 3.05,
-      "ev_ebit": 38.86,
-      "direct_yield_pct": 2.43,
+      "pe": 19.99,
+      "pb": 3.04,
+      "ev_ebit": 38.78,
+      "direct_yield_pct": 2.44,
       "next_report": "2026-11-03",
-      "avanza_last": 209.7,
-      "avanza_change_pct": -0.1
+      "avanza_last": 209.2,
+      "avanza_change_pct": 0.53
     },
-    "fetched_at": "2026-09-24 14:26",
-    "epoch": 1790252765.6738904
+    "fetched_at": "2026-09-25 14:25",
+    "epoch": 1790339157.8934054
   }
 }
