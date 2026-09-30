@@ -1,7 +1,7 @@
 {
   "INVE-B.ST": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": -2
   },
   "ATCO-B.ST": {
@@ -21,12 +21,12 @@
   },
   "VOLV-B.ST": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 10,
     "news_score": 1
   },
   "KINV-B.ST": {
     "signal": "SALJ",
-    "styrka": 1,
+    "styrka": 4,
     "news_score": 0
   },
   "SEB-A.ST": {
@@ -45,13 +45,13 @@
     "news_score": 2
   },
   "FREEM.ST": {
-    "signal": "SALJ",
-    "styrka": 4,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 0
   },
   "INDU-C.ST": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 7,
     "news_score": 0
   },
   "CLA-B.ST": {
@@ -60,8 +60,8 @@
     "news_score": 0
   },
   "BOL.ST": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 2
   },
   "KAKEL.ST": {
@@ -70,8 +70,8 @@
     "news_score": 0
   },
   "LATO-B.ST": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 0
   },
   "NVO": {
@@ -121,22 +121,22 @@
   },
   "AAPL": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 4,
     "news_score": 0
   },
   "MSFT": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 1
   },
   "AMZN": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "SALJ",
+    "styrka": 4,
     "news_score": 0
   },
   "GOOGL": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 10,
     "news_score": 1
   },
   "META": {
@@ -146,7 +146,7 @@
   },
   "TSLA": {
     "signal": "SALJ",
-    "styrka": 4,
+    "styrka": 3,
     "news_score": 0
   },
   "BRK-B": {
@@ -171,7 +171,7 @@
   },
   "SI=F": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 4,
     "news_score": 1
   },
   "BTC-USD": {
@@ -186,7 +186,7 @@
   },
   "JEDI.DE": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 4,
     "news_score": 0
   },
   "XACTHDIV.ST": {
@@ -196,7 +196,7 @@
   },
   "QUTM.DE": {
     "signal": "KOP",
-    "styrka": 7,
+    "styrka": 8,
     "news_score": 0
   }
 }
