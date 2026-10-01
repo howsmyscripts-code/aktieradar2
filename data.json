@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-02 01:42 svensk tid",
+  "updated": "2026-10-02 01:52 svensk tid",
   "stocks": {
     "INVE-B.ST": {
       "price": 405.8,
@@ -1865,14 +1865,14 @@
       "market_regime_warning": null
     },
     "GC=F": {
-      "price": 4210.2,
-      "change": 0.56,
-      "rsi": 30.6,
-      "ma50": 4364.19,
-      "ma200": 4554.27,
-      "macd": -57.69,
+      "price": 4207.4,
+      "change": 0.49,
+      "rsi": 30.2,
+      "ma50": 4364.13,
+      "ma200": 4554.26,
+      "macd": -57.914,
       "bollinger": 0.14,
-      "w52": 0.24,
+      "w52": 0.23,
       "trend": 0.5,
       "signal": "HALL",
       "styrka": 6,
@@ -1927,12 +1927,12 @@
       "market_regime_warning": null
     },
     "SI=F": {
-      "price": 61.42,
-      "change": 2.21,
-      "rsi": 39.0,
+      "price": 61.4,
+      "change": 2.17,
+      "rsi": 38.9,
       "ma50": 63.86,
       "ma200": 72.64,
-      "macd": -0.96,
+      "macd": -0.962,
       "bollinger": 0.16,
       "w52": 0.22,
       "trend": 0.5,
@@ -1982,12 +1982,12 @@
       "market_regime_warning": null
     },
     "BTC-USD": {
-      "price": 84773.52,
-      "change": 1.46,
-      "rsi": 76.6,
-      "ma50": 77699.41,
-      "ma200": 71322.66,
-      "macd": 2048.761,
+      "price": 84820.82,
+      "change": 1.52,
+      "rsi": 76.7,
+      "ma50": 77700.35,
+      "ma200": 71322.89,
+      "macd": 2052.534,
       "bollinger": 0.72,
       "w52": 0.85,
       "trend": 0.55,
@@ -2037,12 +2037,12 @@
       "market_regime_warning": null
     },
     "ETH-USD": {
-      "price": 2703.98,
-      "change": 0.76,
-      "rsi": 76.7,
-      "ma50": 2452.24,
-      "ma200": 2112.37,
-      "macd": 75.702,
+      "price": 2704.89,
+      "change": 0.79,
+      "rsi": 76.8,
+      "ma50": 2452.26,
+      "ma200": 2112.38,
+      "macd": 75.774,
       "bollinger": 0.69,
       "w52": 0.78,
       "trend": 0.7,
@@ -2316,7 +2316,7 @@
     "score": -1,
     "breadth_above_ma50_pct": 50.0,
     "pct_positive_today": 34.4,
-    "sp500_futures": 0.18,
+    "sp500_futures": 0.16,
     "n": 32
   },
   "avanza_status": {
@@ -2331,6 +2331,6 @@
     "stale_symbols": [],
     "cache_hours": 12,
     "healthy": true,
-    "checked": "2026-10-02 01:42"
+    "checked": "2026-10-02 01:52"
   }
 }
