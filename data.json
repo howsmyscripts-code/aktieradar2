@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07 01:28 svensk tid",
+  "updated": "2026-10-07 01:46 svensk tid",
   "stocks": {
     "INVE-B.ST": {
       "price": 403.8,
@@ -1830,12 +1830,12 @@
       "market_regime_warning": null
     },
     "CL=F": {
-      "price": 89.88,
-      "change": 0.5,
-      "rsi": 25.6,
-      "ma50": 88.72,
+      "price": 89.98,
+      "change": 0.62,
+      "rsi": 25.9,
+      "ma50": 88.73,
       "ma200": 82.73,
-      "macd": -0.019,
+      "macd": -0.011,
       "bollinger": 0.21,
       "w52": 0.6,
       "trend": 0.45,
@@ -1894,13 +1894,13 @@
       "market_regime_warning": null
     },
     "GC=F": {
-      "price": 4193.2,
-      "change": 0.88,
-      "rsi": 28.7,
-      "ma50": 4370.32,
-      "ma200": 4551.58,
-      "macd": -66.551,
-      "bollinger": 0.22,
+      "price": 4195.5,
+      "change": 0.93,
+      "rsi": 29.1,
+      "ma50": 4370.36,
+      "ma200": 4551.6,
+      "macd": -66.368,
+      "bollinger": 0.23,
       "w52": 0.17,
       "trend": 0.5,
       "signal": "HALL",
@@ -1956,12 +1956,12 @@
       "market_regime_warning": null
     },
     "SI=F": {
-      "price": 61.69,
-      "change": 1.34,
-      "rsi": 40.4,
+      "price": 61.76,
+      "change": 1.46,
+      "rsi": 40.7,
       "ma50": 64.0,
       "ma200": 72.59,
-      "macd": -1.152,
+      "macd": -1.147,
       "bollinger": 0.31,
       "w52": 0.22,
       "trend": 0.5,
@@ -2011,13 +2011,13 @@
       "market_regime_warning": null
     },
     "BTC-USD": {
-      "price": 85432.86,
-      "change": -0.41,
-      "rsi": 45.6,
-      "ma50": 79905.67,
-      "ma200": 71655.54,
-      "macd": 1927.702,
-      "bollinger": 0.67,
+      "price": 85566.24,
+      "change": -0.26,
+      "rsi": 46.3,
+      "ma50": 79908.34,
+      "ma200": 71656.2,
+      "macd": 1938.342,
+      "bollinger": 0.69,
       "w52": 0.88,
       "trend": 0.5,
       "signal": "SALJ",
@@ -2066,14 +2066,14 @@
       "market_regime_warning": null
     },
     "ETH-USD": {
-      "price": 2695.92,
-      "change": -0.56,
-      "rsi": 38.9,
-      "ma50": 2533.42,
-      "ma200": 2124.04,
-      "macd": 59.818,
-      "bollinger": 0.57,
-      "w52": 0.78,
+      "price": 2699.27,
+      "change": -0.43,
+      "rsi": 39.4,
+      "ma50": 2533.48,
+      "ma200": 2124.06,
+      "macd": 60.085,
+      "bollinger": 0.58,
+      "w52": 0.79,
       "trend": 0.65,
       "signal": "HALL",
       "styrka": 6,
@@ -2360,6 +2360,6 @@
     "stale_symbols": [],
     "cache_hours": 12,
     "healthy": true,
-    "checked": "2026-10-07 01:28"
+    "checked": "2026-10-07 01:46"
   }
 }
