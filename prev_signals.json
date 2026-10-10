@@ -176,12 +176,12 @@
   },
   "BTC-USD": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 8,
     "news_score": 1
   },
   "ETH-USD": {
-    "signal": "KOP",
-    "styrka": 8,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 1
   },
   "JEDI.DE": {
