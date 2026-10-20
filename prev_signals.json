@@ -1,8 +1,8 @@
 {
   "INVE-B.ST": {
     "signal": "KOP",
-    "styrka": 8,
-    "news_score": -2
+    "styrka": 10,
+    "news_score": 0
   },
   "ATCO-B.ST": {
     "signal": "KOP",
@@ -76,8 +76,8 @@
   },
   "NVO": {
     "signal": "SALJ",
-    "styrka": 1,
-    "news_score": -1
+    "styrka": 2,
+    "news_score": 0
   },
   "SHEL": {
     "signal": "KOP",
@@ -87,7 +87,7 @@
   "SIEGY": {
     "signal": "KOP",
     "styrka": 7,
-    "news_score": 1
+    "news_score": 0
   },
   "NSRGY": {
     "signal": "SALJ",
@@ -101,13 +101,13 @@
   },
   "AZN": {
     "signal": "SALJ",
-    "styrka": 2,
-    "news_score": -2
+    "styrka": 4,
+    "news_score": 0
   },
   "BAESY": {
     "signal": "SALJ",
-    "styrka": 3,
-    "news_score": -1
+    "styrka": 4,
+    "news_score": 0
   },
   "NVDA": {
     "signal": "HALL",
@@ -117,17 +117,17 @@
   "INTC": {
     "signal": "KOP",
     "styrka": 8,
-    "news_score": 1
+    "news_score": 0
   },
   "AAPL": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 3,
     "news_score": 0
   },
   "MSFT": {
     "signal": "KOP",
-    "styrka": 8,
-    "news_score": 1
+    "styrka": 7,
+    "news_score": 0
   },
   "AMZN": {
     "signal": "SALJ",
@@ -135,9 +135,9 @@
     "news_score": 0
   },
   "GOOGL": {
-    "signal": "HALL",
-    "styrka": 6,
-    "news_score": 1
+    "signal": "SALJ",
+    "styrka": 3,
+    "news_score": 0
   },
   "META": {
     "signal": "HALL",
@@ -156,8 +156,8 @@
   },
   "LLY": {
     "signal": "KOP",
-    "styrka": 8,
-    "news_score": 1
+    "styrka": 7,
+    "news_score": 0
   },
   "CL=F": {
     "signal": "KOP",
@@ -170,19 +170,19 @@
     "news_score": 0
   },
   "SI=F": {
-    "signal": "HALL",
-    "styrka": 5,
-    "news_score": 1
+    "signal": "SALJ",
+    "styrka": 4,
+    "news_score": 0
   },
   "BTC-USD": {
     "signal": "KOP",
-    "styrka": 8,
-    "news_score": 1
+    "styrka": 7,
+    "news_score": 0
   },
   "ETH-USD": {
     "signal": "KOP",
-    "styrka": 9,
-    "news_score": 1
+    "styrka": 8,
+    "news_score": 0
   },
   "JEDI.DE": {
     "signal": "HALL",
