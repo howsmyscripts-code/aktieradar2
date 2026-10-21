@@ -90156,8 +90156,9 @@
     "rsi": 62.9,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 39.06,
+    "correct": true,
+    "pct_change": -0.74
   },
   "2026-10-21_SHEL": {
     "date": "2026-10-21",
@@ -90180,8 +90181,9 @@
     "rsi": 83.2,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 105.36,
+    "correct": false,
+    "pct_change": -0.17
   },
   "2026-10-21_SIEGY": {
     "date": "2026-10-21",
@@ -90204,8 +90206,9 @@
     "rsi": 33.7,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 149.21,
+    "correct": true,
+    "pct_change": 1.83
   },
   "2026-10-21_NSRGY": {
     "date": "2026-10-21",
@@ -90228,8 +90231,9 @@
     "rsi": 84.5,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 101.01,
+    "correct": false,
+    "pct_change": 0.16
   },
   "2026-10-21_EADSY": {
     "date": "2026-10-21",
@@ -90252,8 +90256,9 @@
     "rsi": 53.8,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 55.61,
+    "correct": false,
+    "pct_change": 2.19
   },
   "2026-10-21_AZN": {
     "date": "2026-10-21",
@@ -90276,8 +90281,9 @@
     "rsi": 61.4,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 168.45,
+    "correct": false,
+    "pct_change": -0.22
   },
   "2026-10-21_BAESY": {
     "date": "2026-10-21",
@@ -90300,8 +90306,9 @@
     "rsi": 50.8,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 102.72,
+    "correct": true,
+    "pct_change": -1.18
   },
   "2026-10-21_NVDA": {
     "date": "2026-10-21",
@@ -90324,8 +90331,9 @@
     "rsi": 36.5,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 221.97,
+    "correct": false,
+    "pct_change": 2.54
   },
   "2026-10-21_INTC": {
     "date": "2026-10-21",
@@ -90348,8 +90356,9 @@
     "rsi": 11.5,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 92.96,
+    "correct": true,
+    "pct_change": 1.39
   },
   "2026-10-21_AAPL": {
     "date": "2026-10-21",
@@ -90372,8 +90381,9 @@
     "rsi": 60.5,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 343.99,
+    "correct": false,
+    "pct_change": 1.32
   },
   "2026-10-21_MSFT": {
     "date": "2026-10-21",
@@ -90396,8 +90406,9 @@
     "rsi": 62.3,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 532.95,
+    "correct": false,
+    "pct_change": 0.2
   },
   "2026-10-21_AMZN": {
     "date": "2026-10-21",
@@ -90420,8 +90431,9 @@
     "rsi": 62.6,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 262.37,
+    "correct": false,
+    "pct_change": -0.1
   },
   "2026-10-21_GOOGL": {
     "date": "2026-10-21",
@@ -90444,8 +90456,9 @@
     "rsi": 46.2,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 334.76,
+    "correct": true,
+    "pct_change": -1.62
   },
   "2026-10-21_META": {
     "date": "2026-10-21",
@@ -90468,8 +90481,9 @@
     "rsi": 39.8,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 697.52,
+    "correct": true,
+    "pct_change": 0.47
   },
   "2026-10-21_TSLA": {
     "date": "2026-10-21",
@@ -90492,8 +90506,9 @@
     "rsi": 60.8,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 386.47,
+    "correct": false,
+    "pct_change": 3.41
   },
   "2026-10-21_BRK-B": {
     "date": "2026-10-21",
@@ -90516,8 +90531,9 @@
     "rsi": 98.4,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 538.99,
+    "correct": false,
+    "pct_change": -0.15
   },
   "2026-10-21_LLY": {
     "date": "2026-10-21",
@@ -90540,8 +90556,9 @@
     "rsi": 74.4,
     "profile": "large_cap",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 1270.75,
+    "correct": false,
+    "pct_change": -1.01
   },
   "2026-10-21_CL=F": {
     "date": "2026-10-21",
@@ -90564,8 +90581,9 @@
     "rsi": 63.9,
     "profile": "commodity",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 97.58,
+    "correct": false,
+    "pct_change": -0.63
   },
   "2026-10-21_GC=F": {
     "date": "2026-10-21",
@@ -90588,8 +90606,9 @@
     "rsi": 44.5,
     "profile": "commodity",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 4157.7,
+    "correct": false,
+    "pct_change": 0.47
   },
   "2026-10-21_SI=F": {
     "date": "2026-10-21",
@@ -90612,8 +90631,9 @@
     "rsi": 42.7,
     "profile": "commodity",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 58.1,
+    "correct": true,
+    "pct_change": 0.07
   },
   "2026-10-21_BTC-USD": {
     "date": "2026-10-21",
@@ -90636,8 +90656,9 @@
     "rsi": 40.4,
     "profile": "crypto",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 84658.28,
+    "correct": true,
+    "pct_change": 2.13
   },
   "2026-10-21_ETH-USD": {
     "date": "2026-10-21",
@@ -90660,8 +90681,9 @@
     "rsi": 30.1,
     "profile": "crypto",
     "is_volatile": false,
-    "closing_price": null,
-    "correct": null
+    "closing_price": 2491.41,
+    "correct": true,
+    "pct_change": 1.81
   },
   "2026-10-21_JEDI.DE": {
     "date": "2026-10-21",
