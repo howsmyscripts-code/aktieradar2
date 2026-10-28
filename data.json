@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29 00:44 svensk tid",
+  "updated": "2026-10-29 00:59 svensk tid",
   "stocks": {
     "INVE-B.ST": {
       "price": 423.55,
@@ -1802,12 +1802,12 @@
       "market_regime_warning": null
     },
     "CL=F": {
-      "price": 101.9,
-      "change": 2.0,
-      "rsi": 67.3,
+      "price": 101.85,
+      "change": 1.95,
+      "rsi": 67.2,
       "ma50": 93.96,
       "ma200": 85.92,
-      "macd": 2.481,
+      "macd": 2.477,
       "bollinger": 0.78,
       "w52": 0.81,
       "trend": 0.65,
@@ -1857,13 +1857,13 @@
       "market_regime_warning": null
     },
     "GC=F": {
-      "price": 4064.4,
-      "change": -0.25,
-      "rsi": 40.8,
-      "ma50": 4318.78,
-      "ma200": 4525.9,
-      "macd": -63.836,
-      "bollinger": 0.18,
+      "price": 4066.3,
+      "change": -0.2,
+      "rsi": 41.0,
+      "ma50": 4318.82,
+      "ma200": 4525.91,
+      "macd": -63.685,
+      "bollinger": 0.19,
       "w52": 0.08,
       "trend": 0.45,
       "signal": "KOP",
@@ -1912,12 +1912,12 @@
       "market_regime_warning": null
     },
     "SI=F": {
-      "price": 53.89,
-      "change": -0.74,
-      "rsi": 31.4,
+      "price": 53.92,
+      "change": -0.69,
+      "rsi": 31.5,
       "ma50": 62.39,
       "ma200": 71.26,
-      "macd": -2.291,
+      "macd": -2.289,
       "bollinger": 0.13,
       "w52": 0.1,
       "trend": 0.45,
@@ -1974,12 +1974,12 @@
       "market_regime_warning": null
     },
     "BTC-USD": {
-      "price": 81234.99,
-      "change": 0.53,
-      "rsi": 48.3,
-      "ma50": 81887.57,
-      "ma200": 73066.57,
-      "macd": -432.682,
+      "price": 81249.32,
+      "change": 0.55,
+      "rsi": 48.4,
+      "ma50": 81887.85,
+      "ma200": 73066.64,
+      "macd": -431.539,
       "bollinger": 0.36,
       "w52": 0.81,
       "trend": 0.5,
@@ -2031,12 +2031,12 @@
       "market_regime_warning": null
     },
     "ETH-USD": {
-      "price": 2356.06,
-      "change": 0.35,
-      "rsi": 40.5,
-      "ma50": 2534.01,
+      "price": 2356.77,
+      "change": 0.39,
+      "rsi": 40.7,
+      "ma50": 2534.03,
       "ma200": 2158.82,
-      "macd": -56.887,
+      "macd": -56.83,
       "bollinger": 0.24,
       "w52": 0.65,
       "trend": 0.5,
@@ -2317,7 +2317,7 @@
     "score": 0,
     "breadth_above_ma50_pct": 56.2,
     "pct_positive_today": 53.1,
-    "sp500_futures": -0.14,
+    "sp500_futures": -0.11,
     "n": 32
   },
   "avanza_status": {
@@ -2332,6 +2332,6 @@
     "stale_symbols": [],
     "cache_hours": 12,
     "healthy": true,
-    "checked": "2026-10-29 00:44"
+    "checked": "2026-10-29 00:59"
   }
 }
