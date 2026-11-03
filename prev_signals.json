@@ -76,12 +76,12 @@
   },
   "NVO": {
     "signal": "SALJ",
-    "styrka": 1,
+    "styrka": 3,
     "news_score": -1
   },
   "SHEL": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 0
   },
   "SIEGY": {
@@ -120,8 +120,8 @@
     "news_score": 1
   },
   "AAPL": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "SALJ",
+    "styrka": 2,
     "news_score": 0
   },
   "MSFT": {
@@ -170,8 +170,8 @@
     "news_score": 0
   },
   "SI=F": {
-    "signal": "HALL",
-    "styrka": 6,
+    "signal": "KOP",
+    "styrka": 7,
     "news_score": 1
   },
   "BTC-USD": {
