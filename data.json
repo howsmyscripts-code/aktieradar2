@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-04 01:35 svensk tid",
+  "updated": "2026-11-04 01:59 svensk tid",
   "stocks": {
     "INVE-B.ST": {
       "price": 428.2,
@@ -1834,15 +1834,15 @@
       "market_regime_warning": null
     },
     "CL=F": {
-      "price": 96.4,
-      "change": -0.06,
-      "rsi": 51.7,
+      "price": 96.59,
+      "change": 0.13,
+      "rsi": 52.0,
       "ma50": 95.05,
       "ma200": 86.71,
-      "macd": 1.727,
-      "bollinger": 0.4,
-      "w52": 0.71,
-      "trend": 0.6,
+      "macd": 1.742,
+      "bollinger": 0.41,
+      "w52": 0.72,
+      "trend": 0.65,
       "signal": "KOP",
       "styrka": 8,
       "ok": true,
@@ -1866,9 +1866,7 @@
       "fear_greed_warning": null,
       "volume_signal": 0,
       "divergence": null,
-      "support_resistance": [
-        "STOD_MA50"
-      ],
+      "support_resistance": null,
       "insider_signal": 1,
       "pe_ratio": 37.1518,
       "ps_ratio": 3.5836,
@@ -1891,13 +1889,13 @@
       "market_regime_warning": null
     },
     "GC=F": {
-      "price": 3944.3,
-      "change": -0.64,
-      "rsi": 36.4,
-      "ma50": 4265.51,
-      "ma200": 4512.79,
-      "macd": -80.295,
-      "bollinger": 0.08,
+      "price": 3935.0,
+      "change": -0.87,
+      "rsi": 35.8,
+      "ma50": 4265.32,
+      "ma200": 4512.74,
+      "macd": -81.037,
+      "bollinger": 0.05,
       "w52": 0.03,
       "trend": 0.4,
       "signal": "KOP",
@@ -1946,12 +1944,12 @@
       "market_regime_warning": null
     },
     "SI=F": {
-      "price": 49.75,
-      "change": -1.91,
-      "rsi": 30.1,
-      "ma50": 60.98,
+      "price": 49.62,
+      "change": -2.17,
+      "rsi": 29.8,
+      "ma50": 60.97,
       "ma200": 70.48,
-      "macd": -2.967,
+      "macd": -2.978,
       "bollinger": 0.06,
       "w52": 0.04,
       "trend": 0.35,
@@ -1961,13 +1959,13 @@
       "profile": "commodity",
       "required_confirmations": 1,
       "oversold_label": "\u00d6VERS\u00c5LD - bekr\u00e4ftad rekyl",
-      "oversold_confirmations": 2,
+      "oversold_confirmations": 1,
       "confirmation_details": {
         "rsi_rising": true,
         "price_above_ma200": false,
         "price_reclaimed_ma": false,
         "macd_above_signal": false,
-        "macd_improving": true,
+        "macd_improving": false,
         "volume_positive": false
       },
       "pre_gate_signal": "HALL",
@@ -2008,14 +2006,14 @@
       "market_regime_warning": null
     },
     "BTC-USD": {
-      "price": 76743.6,
-      "change": 0.09,
-      "rsi": 26.3,
-      "ma50": 81884.3,
-      "ma200": 73154.6,
-      "macd": -1362.403,
-      "bollinger": 0.08,
-      "w52": 0.65,
+      "price": 77091.78,
+      "change": 0.54,
+      "rsi": 28.2,
+      "ma50": 81891.26,
+      "ma200": 73156.34,
+      "macd": -1334.628,
+      "bollinger": 0.12,
+      "w52": 0.66,
       "trend": 0.45,
       "signal": "KOP",
       "styrka": 8,
@@ -2070,14 +2068,14 @@
       "market_regime_warning": null
     },
     "ETH-USD": {
-      "price": 2257.77,
-      "change": 0.4,
-      "rsi": 26.0,
-      "ma50": 2505.78,
-      "ma200": 2156.37,
-      "macd": -69.939,
-      "bollinger": 0.18,
-      "w52": 0.57,
+      "price": 2269.72,
+      "change": 0.93,
+      "rsi": 28.2,
+      "ma50": 2506.02,
+      "ma200": 2156.43,
+      "macd": -68.986,
+      "bollinger": 0.22,
+      "w52": 0.58,
       "trend": 0.45,
       "signal": "KOP",
       "styrka": 8,
@@ -2361,7 +2359,7 @@
     "score": 0,
     "breadth_above_ma50_pct": 50.0,
     "pct_positive_today": 59.4,
-    "sp500_futures": 0.11,
+    "sp500_futures": -0.05,
     "n": 32
   },
   "avanza_status": {
@@ -2376,6 +2374,6 @@
     "stale_symbols": [],
     "cache_hours": 12,
     "healthy": true,
-    "checked": "2026-11-04 01:35"
+    "checked": "2026-11-04 01:59"
   }
 }
