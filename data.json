@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-07 01:05 svensk tid",
+  "updated": "2026-11-07 01:31 svensk tid",
   "stocks": {
     "INVE-B.ST": {
       "price": 432.3,
@@ -2002,14 +2002,14 @@
       "market_regime_warning": null
     },
     "BTC-USD": {
-      "price": 75795.23,
-      "change": -0.19,
+      "price": 75812.42,
+      "change": -0.17,
       "rsi": 34.8,
-      "ma50": 81975.85,
-      "ma200": 73191.05,
-      "macd": -1393.467,
+      "ma50": 81976.19,
+      "ma200": 73191.13,
+      "macd": -1392.095,
       "bollinger": 0.09,
-      "w52": 0.61,
+      "w52": 0.62,
       "trend": 0.45,
       "signal": "KOP",
       "styrka": 8,
@@ -2064,14 +2064,14 @@
       "market_regime_warning": null
     },
     "ETH-USD": {
-      "price": 2236.49,
-      "change": 0.09,
-      "rsi": 38.4,
-      "ma50": 2498.7,
-      "ma200": 2156.25,
-      "macd": -58.938,
-      "bollinger": 0.18,
-      "w52": 0.55,
+      "price": 2237.9,
+      "change": 0.15,
+      "rsi": 38.6,
+      "ma50": 2498.73,
+      "ma200": 2156.26,
+      "macd": -58.826,
+      "bollinger": 0.19,
+      "w52": 0.56,
       "trend": 0.5,
       "signal": "KOP",
       "styrka": 10,
@@ -2361,6 +2361,6 @@
     "stale_symbols": [],
     "cache_hours": 12,
     "healthy": true,
-    "checked": "2026-11-07 01:05"
+    "checked": "2026-11-07 01:31"
   }
 }
