@@ -180,8 +180,8 @@
     "news_score": 1
   },
   "ETH-USD": {
-    "signal": "HALL",
-    "styrka": 5,
+    "signal": "KOP",
+    "styrka": 8,
     "news_score": 1
   },
   "JEDI.DE": {
