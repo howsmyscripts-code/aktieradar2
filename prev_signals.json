@@ -76,7 +76,7 @@
   },
   "NVO": {
     "signal": "SALJ",
-    "styrka": 3,
+    "styrka": 1,
     "news_score": -1
   },
   "SHEL": {
@@ -101,7 +101,7 @@
   },
   "AZN": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 1,
     "news_score": -2
   },
   "BAESY": {
@@ -110,8 +110,8 @@
     "news_score": -1
   },
   "NVDA": {
-    "signal": "KOP",
-    "styrka": 8,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "INTC": {
@@ -141,7 +141,7 @@
   },
   "META": {
     "signal": "HALL",
-    "styrka": 6,
+    "styrka": 5,
     "news_score": 0
   },
   "TSLA": {
@@ -155,8 +155,8 @@
     "news_score": 0
   },
   "LLY": {
-    "signal": "SALJ",
-    "styrka": 3,
+    "signal": "KOP",
+    "styrka": 8,
     "news_score": 1
   },
   "CL=F": {
@@ -165,13 +165,13 @@
     "news_score": 0
   },
   "GC=F": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 1
   },
   "SI=F": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 5,
     "news_score": 1
   },
   "BTC-USD": {
