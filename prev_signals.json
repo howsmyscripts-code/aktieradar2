@@ -76,7 +76,7 @@
   },
   "NVO": {
     "signal": "SALJ",
-    "styrka": 2,
+    "styrka": 1,
     "news_score": -1
   },
   "SHEL": {
@@ -101,7 +101,7 @@
   },
   "AZN": {
     "signal": "SALJ",
-    "styrka": 4,
+    "styrka": 3,
     "news_score": -2
   },
   "BAESY": {
@@ -121,12 +121,12 @@
   },
   "AAPL": {
     "signal": "SALJ",
-    "styrka": 4,
+    "styrka": 2,
     "news_score": 0
   },
   "MSFT": {
     "signal": "KOP",
-    "styrka": 8,
+    "styrka": 9,
     "news_score": 1
   },
   "AMZN": {
@@ -136,12 +136,12 @@
   },
   "GOOGL": {
     "signal": "KOP",
-    "styrka": 9,
+    "styrka": 10,
     "news_score": 1
   },
   "META": {
-    "signal": "KOP",
-    "styrka": 7,
+    "signal": "HALL",
+    "styrka": 6,
     "news_score": 0
   },
   "TSLA": {
